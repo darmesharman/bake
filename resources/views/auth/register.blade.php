@@ -30,15 +30,6 @@
             </div>
 
             <div class="mt-4">
-                {{-- <x-jet-label for="company" value="{{ __('Company') }}" />
-                <x-jet-input id="company" class="block mt-1 w-full" type="tel" name="company" :value="old('company')" required /> --}}
-                <input type="radio" id="com" name="type" value="1">
-                <label for="com">Company</label><br>
-                <input type="radio" id="fiz" name="type" value="0">
-                <label for="fiz">Fiz</label><br>
-            </div>
-
-            <div class="mt-4">
                 <x-jet-label for="city" value="{{ __('City') }}" />
                 <x-jet-input id="city" class="block mt-1 w-full" type="city" name="city" :value="old('city')" required />
             </div>
