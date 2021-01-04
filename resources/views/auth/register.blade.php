@@ -10,13 +10,37 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="first_name" value="{{ __('First Name') }}" />
+                <x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="first_name" />
+            </div>
+
+            <div>
+                <x-jet-label for="last_name" value="{{ __('Last Name') }}" />
+                <x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus autocomplete="last_name" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="phone_number" value="{{ __('Phone number') }}" />
+                <x-jet-input id="phone_number" class="block mt-1 w-full" type="tel" name="phone_number" :value="old('phone_number')" required />
+            </div>
+
+            <div class="mt-4">
+                {{-- <x-jet-label for="company" value="{{ __('Company') }}" />
+                <x-jet-input id="company" class="block mt-1 w-full" type="tel" name="company" :value="old('company')" required /> --}}
+                <input type="radio" id="com" name="type" value="1">
+                <label for="com">Company</label><br>
+                <input type="radio" id="fiz" name="type" value="0">
+                <label for="fiz">Fiz</label><br>
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="city" value="{{ __('City') }}" />
+                <x-jet-input id="city" class="block mt-1 w-full" type="city" name="city" :value="old('city')" required />
             </div>
 
             <div class="mt-4">
