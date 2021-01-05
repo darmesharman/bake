@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="container mt-3">
-        <form method="POST", action="{{ route('contacts.store') }}">
+        <form method="POST" action="{{ route('contacts.store') }}">
             @csrf
 
             <div class="mb-3">
@@ -31,6 +31,15 @@
                 @error('email')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
+            </div>
+
+            <div class="col-auto">
+                <label class="mb-2">Comapnies</label>
+                <select class="form-select" multiple aria-label="multiple select example">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Create Contact</button>

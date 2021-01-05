@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -37,7 +38,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = new Contact($this->validateContact());
+
+        $this->validateContact();
+        $contact = new Contact();
+
+        $contact->first_name = $request->input('first_name');
+        $contact->last_name =  $request->input('last_name');
+        $contact->email = $request->input('email');
+
         $contact->save();
 
         return redirect()->route('contacts.index');
@@ -74,9 +82,14 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        $contact->update($this->validateContact());
-        $contact->save();
+        $contact->update();
+        $this->validateContact();
 
+        $contact->first_name = $request->input('first_name');
+        $contact->last_name = $request->input('last_name');
+        $contact->email = $request->input('email');
+
+        $contact->save();
         return redirect()->route('contacts.index');
     }
 
@@ -95,10 +108,10 @@ class ContactController extends Controller
 
     protected function validateContact()
     {
-        return request()->validate([
+        Validator::make(request()->input(), [
             'last_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-        ]);
+        ])->validate();
     }
 }

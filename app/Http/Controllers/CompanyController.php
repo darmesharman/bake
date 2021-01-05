@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CompanyController extends Controller
 {
@@ -36,9 +37,12 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $company = new Company($this->validateCompany());
-        $company->save();
+        $this->validateCompany();
+        $company = new Company();
+        $company->name = $request->input('name');
+        $company->email = $request->input('email');
 
+        $company->save();
         return Redirect(route('companies.index'));
 
 
@@ -75,8 +79,13 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        $company->update($this->validateCompany());
+        $company->update();
+        $this->validateCompany();
 
+        $company->name = $request->input('name');
+        $company->email = $request->input('email');
+
+        $company->save();
         return redirect()->route('companies.index');
     }
 
@@ -95,9 +104,9 @@ class CompanyController extends Controller
 
     public function validateCompany()
     {
-        return request()->validate([
-            'name' => ['required', 'max:50', 'string'],
-            'email' => ['required', 'max:25', 'string']
-        ]);
+            Validator::make(request()->input(), [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255'],
+            ])->validate();
     }
 }
