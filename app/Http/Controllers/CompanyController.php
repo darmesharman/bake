@@ -16,7 +16,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::all();
-        return view('Company.index', [
+        return view('companies.index', [
             'companies' => $companies
         ]);
     }
@@ -28,7 +28,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('Company.create');
+        return view('companies.create');
     }
 
     /**
@@ -55,7 +55,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('Company.read', [
+        return view('companies.read', [
             'company' => $company
         ]);
     }
@@ -68,9 +68,8 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        $com = Company::find($company)->first();
-        return view('Company.edit', [
-            'company' => $com
+        return view('companies.edit', [
+            'company' => $company
         ]);
     }
 
