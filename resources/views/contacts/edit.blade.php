@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Contacts') }}
+            {{ __('Edit Contact #') . $contact->id }}
         </h2>
     </x-slot>
 
     <div class="container mt-3">
-        <form method="post" action="{{ route('contacts.update', $contact) }}">
+        <form method="POST" action="{{ route('contacts.update', $contact) }}">
             @csrf
             @method('put')
 
@@ -32,6 +32,20 @@
                 @error('email')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
+            </div>
+
+            <div id="companies" class="border rounded border-3 p-3">
+                <h6>Companies:</h6>
+
+                <div class="col-auto" id="companies">
+                    @foreach ($companies as $company)
+                        <div class="form-check">
+                            <input type="checkbox" name="companies[]" id="{{ $company->id }}" class="form-check-input" value="{{ $company->id }}"
+                                {{ $contact->hasCompany($company) ? 'checked' : '' }}>
+                            <label for="{{ $company->id }}" class="form-check-label">{{ $company->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary">Create Contact</button>

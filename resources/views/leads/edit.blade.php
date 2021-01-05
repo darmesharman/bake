@@ -44,9 +44,9 @@
 
                         @foreach ($contacts as $contact)
                             <div class="form-check">
-                                <input type="checkbox" name="contacts[]" id="contacts" class="form-check-input" value="{{ $contact->id }}"
+                                <input type="checkbox" name="contacts[]" id="{{ $contact->id }}" class="form-check-input" value="{{ $contact->id }}"
                                     {{ $lead->hasContact($contact) ? 'checked' : '' }}>
-                                <label for="contacts" class="form-check-label">{{ $contact->first_name }}</label>
+                                <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->first_name }}</label>
                             </div>
                         @endforeach
                         @error('contacts')

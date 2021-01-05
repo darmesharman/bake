@@ -12,6 +12,12 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $contact->last_name }} {{ $contact->first_name }}</h5>
                         <p class="card-text">{{ $contact->email }}</p>
+                        <p>companies:</p>
+                        <ul>
+                            @foreach ($contact->companies as $company)
+                                <li>{{ $company->name }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Contacts') }}
+            {{ __('Create Contact') }}
         </h2>
     </x-slot>
 
@@ -33,13 +33,18 @@
                 @enderror
             </div>
 
-            <div class="col-auto">
-                <label class="mb-2">Comapnies</label>
-                <select class="form-select" multiple aria-label="multiple select example">
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
+            <div id="companies" class="border rounded border-3 p-3">
+                <h6>Companies:</h6>
+
+                <div class="col-auto" id="companies">
+                    @foreach ($companies as $company)
+                        <div class="form-check">
+                            <input type="checkbox" name="companies[]" id="{{ $company->id }}" class="form-check-input" value="{{ $company->id }}"
+                                {{ (old('companies') and in_array($company->id, old('companies'))) ? 'checked' : '' }}>
+                            <label for="{{ $company->id }}" class="form-check-label">{{ $company->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary">Create Contact</button>

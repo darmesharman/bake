@@ -44,9 +44,9 @@
 
                         @foreach ($contacts as $contact)
                             <div class="form-check">
-                                <input type="checkbox" name="contacts[]" id="contacts" class="form-check-input" value="{{ $contact->id }}"
+                                <input type="checkbox" name="contacts[]" id="{{ $contact->id }}" class="form-check-input" value="{{ $contact->id }}"
                                     {{ (old('contacts') and in_array($contact->id, old('contacts'))) ? 'checked' : '' }}>
-                                <label for="contacts" class="form-check-label">{{ $contact->first_name }}</label>
+                                <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->first_name }}</label>
                             </div>
                         @endforeach
                         @error('contacts')
@@ -82,7 +82,6 @@
                 </div>
 
                 <div id="company" class="border rounded border-3 mt-5 p-3">
-
                     <div class="col-auto">
                         <label class="mb-2">Company</label>
                         <select name="company" id="company" class="form-control">
@@ -95,24 +94,6 @@
                             <p class="alert alert-danger">{{ $message }}</p>
                         @enderror
                     </div>
-
-                    <hr>
-
-                    {{-- <div class="col-auto">
-                        <label class="mb-2">Name</label>
-                        <input type="text" name="company_name" class="form-control" placeholder="Name">
-                        @error('company_name')
-                            <p class="alert alert-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="col-auto mt-3 mb-3">
-                        <label class="mb-2">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email">
-                        @error('email')
-                            <p class="alert alert-danger">{{ $message }}</p>
-                        @enderror
-                    </div> --}}
                 </div>
 
                 <button class="btn btn-success">Add</button>
