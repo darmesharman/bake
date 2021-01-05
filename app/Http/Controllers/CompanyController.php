@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class CompanyController extends Controller
 {
@@ -16,9 +15,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::all();
-        return view('companies.index', [
-            'companies' => $companies
-        ]);
+        return view('companies.index', compact('company'));
     }
 
     /**
@@ -55,9 +52,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('companies.read', [
-            'company' => $company
-        ]);
+        return view('companies.read', compact('company'));
     }
 
     /**
@@ -68,9 +63,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('companies.edit', [
-            'company' => $company
-        ]);
+        return view('companies.edit', compact('company'));
     }
 
     /**
