@@ -18,7 +18,7 @@ class LeadController extends Controller
      */
     public function index()
     {
-        $leads = Lead::with(['status', 'contacts'])->get();
+        $leads = Lead::with(['status', 'contacts', 'company'])->get();
 
         return view('leads.index', compact('leads'));
     }
@@ -45,7 +45,7 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateLead();
+        $this->validateLead($request);
 
         $lead = Lead::create([
             'name' => $request->input('name'),
@@ -73,7 +73,7 @@ class LeadController extends Controller
      */
     public function show(Lead $lead)
     {
-        //
+        return view('leads.show', compact('lead'));
     }
 
     /**
@@ -84,7 +84,11 @@ class LeadController extends Controller
      */
     public function edit(Lead $lead)
     {
-        //
+        $statuses = Status::all();
+        $contacts = Contact::all();
+        $companies = Company::all();
+
+        return view('leads.edit', compact('lead', 'statuses', 'contacts', 'companies'));
     }
 
     /**
@@ -96,7 +100,22 @@ class LeadController extends Controller
      */
     public function update(Request $request, Lead $lead)
     {
-        //
+        $this->validateLead($request);
+
+        $lead->name = $request->input('name');
+        $lead->status_id = $request->input('status');
+        $lead->sum = $request->input('sum');
+
+        if ($request->input('company')) {
+            $lead->company_id = $request->input('company');
+        }
+        $lead->save();
+
+        if ($request->input('contacts')) {
+            $lead->contacts()->sync($request->input('contacts'));
+        }
+
+        return redirect()->route('leads.index');
     }
 
     /**
@@ -107,17 +126,24 @@ class LeadController extends Controller
      */
     public function destroy(Lead $lead)
     {
-        //
+        $lead->delete();
+
+        return back();
     }
 
-    protected function validateLead()
+    protected function validateLead(Request $request)
     {
-        Validator::make(request()->input(), [
+        Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
             'status' => ['required', 'string'],
             'sum' => ['required', 'numeric'],
-            'company' => ['exists:companies,id'],
             'contacts' => ['required', 'exists:contacts,id'],
         ])->validate();
+
+        if ($request->input('company')) {
+            Validator::make($request->input(), [
+                'company' => ['exists:companies,id'],
+            ])->validate();
+        }
     }
 }

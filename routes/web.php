@@ -24,6 +24,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('leads', LeadController::class);
-Route::resource('companies', CompanyController::class);
-Route::resource('contacts', ContactController::class);
+Route::resource('leads', LeadController::class)->middleware('auth');
+Route::resource('companies', CompanyController::class)->middleware('auth');
+Route::resource('contacts', ContactController::class)->middleware('auth');

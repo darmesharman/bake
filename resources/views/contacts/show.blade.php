@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Contacts #') . $contact->id }}
+            {{ __('Contact #') . $contact->id }}
         </h2>
     </x-slot>
 

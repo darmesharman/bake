@@ -11,7 +11,7 @@
 
                 <div class="col-auto">
                     <label class="mb-2">Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                    <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}" required>
                     @error('name')
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -21,7 +21,7 @@
                     <label class="mb-2">Status</label>
                     <select name="status" id="status" class="form-control">
                         @foreach ($statuses as $status)
-                            <option value="{{ $status->id }}">{{ $status->name }}</option>
+                            <option value="{{ $status->id }}" {{ old('status') === $status->id ? 'selected' : '' }}>{{ $status->name }}</option>
                         @endforeach
                     </select>
                     @error('status')
@@ -31,7 +31,7 @@
 
                 <div class="col-auto">
                     <label class="mb-2">Sum</label>
-                    <input type="text" name="sum" class="form-control" placeholder="Sum" required>
+                    <input type="text" name="sum" class="form-control" placeholder="Sum" value="{{ old('sum') }}" required>
                     @error('sum')
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -41,27 +41,22 @@
 
                     <div class="col-auto">
                         <label class="mb-2">Contact</label>
-                        {{-- <select name="contacts[]" id="contacts" class="form-control" multiple>
-                            @foreach ($contacts as $contact)
-                                <option value="{{ $contact->id }}">{{ $contact->first_name }}</option>
-                            @endforeach
-                            <option value="">add new one</option>
-                        </select> --}}
 
                         @foreach ($contacts as $contact)
                             <div class="form-check">
-                                <input type="checkbox" name="contacts[]" id="contacts" class="form-check-input" value="{{ $contact->id }}">
+                                <input type="checkbox" name="contacts[]" id="contacts" class="form-check-input" value="{{ $contact->id }}"
+                                    {{ (old('contacts') and in_array($contact->id, old('contacts'))) ? 'checked' : '' }}>
                                 <label for="contacts" class="form-check-label">{{ $contact->first_name }}</label>
                             </div>
                         @endforeach
-                        @error('contacts[]')
+                        @error('contacts')
                             <p class="alert alert-danger">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <hr>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="last_name" class="form-label">First name</label>
                         <input type="text" class="form-control" name="last_name" id="last_name" aria-describedby="emailHelp">
                         @error('first_name')
@@ -83,7 +78,7 @@
                         @error('contact_email')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div id="company" class="border rounded border-3 mt-5 p-3">
@@ -93,23 +88,22 @@
                         <select name="company" id="company" class="form-control">
                             <option value="">None</option>
                             @foreach ($companies as $company)
-                                <option value="{{ $company->id }}">{{ $company->name }}</option>
+                                <option value="{{ $company->id }}" {{ old('company') === $company->id ? 'selected' : '' }}>{{ $company->name }}</option>
                             @endforeach
                         </select>
-                        @error('status')
+                        @error('company')
                             <p class="alert alert-danger">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <hr>
 
-                    <div class="col-auto">
+                    {{-- <div class="col-auto">
                         <label class="mb-2">Name</label>
                         <input type="text" name="company_name" class="form-control" placeholder="Name">
-                        @error('name')
+                        @error('company_name')
                             <p class="alert alert-danger">{{ $message }}</p>
                         @enderror
-
                     </div>
 
                     <div class="col-auto mt-3 mb-3">
@@ -118,7 +112,7 @@
                         @error('email')
                             <p class="alert alert-danger">{{ $message }}</p>
                         @enderror
-                    </div>
+                    </div> --}}
                 </div>
 
                 <button class="btn btn-success">Add</button>

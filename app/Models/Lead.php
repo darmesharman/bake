@@ -20,13 +20,23 @@ class Lead extends Model
         return $this->belongsTo(Status::class);
     }
 
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function hasCompany(Company $company)
+    {
+        return $this->company and $this->company->is($company);
+    }
+
     public function contacts()
     {
         return $this->belongsToMany(Contact::class);
     }
 
-    public function company()
+    public function hasContact(Contact $contact)
     {
-        return $this->belongsTo(Company::class);
+        return $this->contacts->contains($contact);
     }
 }
