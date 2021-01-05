@@ -14,4 +14,9 @@ class Contact extends Model
         'first_name',
         'email',
     ];
+
+    public function leads()
+    {
+        return $this->belongsToMany(Lead::class);
+    }
 }

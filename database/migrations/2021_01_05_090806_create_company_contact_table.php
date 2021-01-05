@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompanyLeadTable extends Migration
+class CreateCompanyContactTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCompanyLeadTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_lead', function (Blueprint $table) {
-            $table->primary(['company_id', 'lead_id']);
+        Schema::create('company_contact', function (Blueprint $table) {
+            $table->primary(['company_id', 'contact_id']);
             $table->foreignId('company_id')->constrained()->onDelete('cascade');
-            $table->foreignId('lead_id')->constrained()->onDelete('cascade');
+            $table->foreignId('contact_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCompanyLeadTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_lead');
+        Schema::dropIfExists('company_contact');
     }
 }

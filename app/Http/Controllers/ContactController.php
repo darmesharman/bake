@@ -37,8 +37,11 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = new Contact($this->validateContact());
-        $contact->save();
+        Contact::create([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+        ]);
 
         return redirect()->route('contacts.index');
     }

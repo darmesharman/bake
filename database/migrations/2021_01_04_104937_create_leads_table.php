@@ -18,6 +18,7 @@ class CreateLeadsTable extends Migration
             $table->string('name');
             $table->foreignId('status_id')->constrained();
             $table->decimal('sum');
+            $table->foreignId('company_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
