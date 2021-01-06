@@ -17,4 +17,9 @@ class Company extends Model
     {
         return $this->belongsToMany(Contact::class);
     }
+
+    public function hasContact(Contact $contact)
+    {
+        return $this->contacts->contains($contact);
+    }
 }

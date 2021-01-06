@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CompanyController extends Controller
 {
@@ -40,7 +41,7 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateCompany($request);
+        $this->validateCreateCompany($request);
         $company = new Company();
         $company->name = $request->input('name');
         $company->email = $request->input('email');
@@ -86,7 +87,7 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
         $company->update();
-        $this->validateCompany($request);
+        $this->validateUpdateCompany($company, $request);
 
         $company->name = $request->input('name');
         $company->email = $request->input('email');
@@ -110,11 +111,31 @@ class CompanyController extends Controller
         return back();
     }
 
-    public function validateCompany(Request $request)
+    public function validateCreateCompany(Request $request)
     {
+        Validator::make($request->input(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'unique:companies', 'max:255'],
+        ])->validate();
+
+        if ($request->input('company')) {
             Validator::make($request->input(), [
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'unique:companies', 'max:255'],
+                'companies' => ['exists:companies,id'],
             ])->validate();
+        }
+    }
+
+    public function validateUpdateCompany($company, Request $request)
+    {
+        Validator::make($request->input(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', Rule::unique('companies')->ignore($company->id)],
+        ])->validate();
+
+        if ($request->input('company')) {
+            Validator::make($request->input(), [
+                'companies' => ['exists:companies,id'],
+            ])->validate();
+        }
     }
 }

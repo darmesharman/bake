@@ -6,8 +6,9 @@
     </x-slot>
     <div class="py-12">
         <div class="container">
-            <form action="{{ route('leads.store') }}" method="POST">
+            <form action="{{ route('leads.update', $lead) }}" method="POST">
                 @csrf
+                @method('put')
 
                 <div class="col-auto">
                     <label class="mb-2">Name</label>
@@ -46,7 +47,7 @@
                             <div class="form-check">
                                 <input type="checkbox" name="contacts[]" id="{{ $contact->id }}" class="form-check-input" value="{{ $contact->id }}"
                                     {{ $lead->hasContact($contact) ? 'checked' : '' }}>
-                                <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->first_name }}</label>
+                                <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->email }}</label>
                             </div>
                         @endforeach
                         @error('contacts')
@@ -88,7 +89,7 @@
                         <select name="company" id="company" class="form-control">
                             <option value="">None</option>
                             @foreach ($companies as $company)
-                                <option value="{{ $company->id }}" {{ $lead->hasCompany($company) ? 'selected' : '' }}>{{ $company->name }}</option>
+                                <option value="{{ $company->id }}" {{ $lead->hasCompany($company) ? 'selected' : '' }}>{{ $company->email }}</option>
                             @endforeach
                         </select>
                         @error('company')

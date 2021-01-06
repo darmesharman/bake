@@ -24,24 +24,18 @@
                         <p class="mt-2 alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="col-auto">
-                    <label class="mb-2">Contacts</label>
-                    @foreach ($contacts as $contact)
-                        <div class="form-check">
-                            <input type="checkbox" class="" name="contacts[]" multiple value="{{ $contact->id }}"
-                                @foreach ($contact->companies as $com)
-                                    @if($com->id === $contact->id)
-                                        checked
-                                        @break
-                                    @endif
-                                @endforeach
-                            >
-                            <label>{{ $contact->email }}</label>
-                        </div>
-                    @endforeach
-                    @error('contacts')
-                        <p class="alert alert-danger">{{ $message }}</p>
-                    @enderror
+                <div id="contacts" class="border rounded border-3 p-3">
+                    <h6>Contacts:</h6>
+
+                    <div class="col-auto" id="contacts">
+                        @foreach ($contacts as $contact)
+                            <div class="form-check">
+                                <input type="checkbox" name="contacts[]" id="{{ $contact->id }}" class="form-check-input" value="{{ $contact->id }}"
+                                    {{ $contact->hasCompany($company) ? 'checked' : '' }}>
+                                <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->email }}</label>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
                 <button class="btn btn-primary mt-3">Update</button>
             </form>

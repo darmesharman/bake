@@ -102,12 +102,16 @@ class LeadController extends Controller
     {
         $this->validateLead($request);
 
-        $lead->name = $request->input('name');
-        $lead->status_id = $request->input('status');
-        $lead->sum = $request->input('sum');
+        $lead->update([
+            'name' => $request->input('name'),
+            'status_id' => $request->input('status'),
+            'sum' => $request->input('sum'),
+        ]);
 
         if ($request->input('company')) {
             $lead->company_id = $request->input('company');
+        } else {
+            $lead->company_id = null;
         }
         $lead->save();
 
