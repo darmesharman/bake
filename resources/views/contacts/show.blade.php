@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Contacts #') . $contact->id }}
+            {{ __('Contact #') . $contact->id }}
         </h2>
     </x-slot>
 
@@ -12,6 +12,12 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $contact->last_name }} {{ $contact->first_name }}</h5>
                         <p class="card-text">{{ $contact->email }}</p>
+                        <p>companies:</p>
+                        <ul>
+                            @foreach ($contact->companies as $company)
+                                <li>{{ $company->name }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>

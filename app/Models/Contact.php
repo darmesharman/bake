@@ -24,4 +24,9 @@ class Contact extends Model
     {
         return $this->belongsToMany(Company::class);
     }
+
+    public function hasCompany(Company $company)
+    {
+        return $this->companies->contains($company);
+    }
 }

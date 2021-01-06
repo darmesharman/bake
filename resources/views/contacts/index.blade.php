@@ -29,10 +29,11 @@
                     <td>{{ $contact->first_name }}</td>
                     <td>{{ $contact->email }}</td>
                     <td>
-                        @foreach ($contact->companies as $company)
-                            {{ $company->email }}
-                            <br>
-                        @endforeach
+                        <ul>
+                            @foreach ($contact->companies as $company)
+                                <li>{{ $company->email }}</li>
+                            @endforeach
+                        </ul>
                     </td>
                     <td><a href="{{ route('contacts.show', $contact) }}" class="btn btn-primary">Show</a></td>
                     <td><a href="{{ route('contacts.edit', $contact) }}" class="btn btn-primary">Edit</a></td>
