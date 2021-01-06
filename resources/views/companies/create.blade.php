@@ -23,15 +23,14 @@
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="col-auto">
-                    <label class="mb-2">Contacts</label>
-                        @foreach ($contacts as $contact)
-                            <div class="form-check">
-                                <input type="checkbox" class="" name="contacts[]" multiple value="{{ $contact->id }}">
-                                <label>{{ $contact->email }}</label>
-                            </div>
-                        @endforeach
-                    </select>
+                <div class="col-auto" id="contacts">
+                    @foreach ($contacts as $contact)
+                        <div class="form-check">
+                            <input type="checkbox" name="contacts[]" id="{{ $contact->id }}" class="form-check-input" value="{{ $contact->id }}"
+                                {{ (old('contacts') and in_array($contact->id, old('contacts'))) ? 'checked' : '' }}>
+                            <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->email }}</label>
+                        </div>
+                    @endforeach
                 </div>
                 <button class="btn btn-success mt-3">Add</button>
             </form>

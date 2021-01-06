@@ -46,7 +46,7 @@
                             <div class="form-check">
                                 <input type="checkbox" name="contacts[]" id="{{ $contact->id }}" class="form-check-input" value="{{ $contact->id }}"
                                     {{ (old('contacts') and in_array($contact->id, old('contacts'))) ? 'checked' : '' }}>
-                                <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->first_name }}</label>
+                                <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->email }}</label>
                             </div>
                         @endforeach
                         @error('contacts')
@@ -87,7 +87,7 @@
                         <select name="company" id="company" class="form-control">
                             <option value="">None</option>
                             @foreach ($companies as $company)
-                                <option value="{{ $company->id }}" {{ old('company') === $company->id ? 'selected' : '' }}>{{ $company->name }}</option>
+                                <option value="{{ $company->id }}" {{ old('company') === $company->id ? 'selected' : '' }}>{{ $company->email }}</option>
                             @endforeach
                         </select>
                         @error('company')

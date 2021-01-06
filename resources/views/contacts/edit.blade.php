@@ -42,7 +42,7 @@
                         <div class="form-check">
                             <input type="checkbox" name="companies[]" id="{{ $company->id }}" class="form-check-input" value="{{ $company->id }}"
                                 {{ $contact->hasCompany($company) ? 'checked' : '' }}>
-                            <label for="{{ $company->id }}" class="form-check-label">{{ $company->name }}</label>
+                            <label for="{{ $company->id }}" class="form-check-label">{{ $company->email }}</label>
                         </div>
                     @endforeach
                 </div>

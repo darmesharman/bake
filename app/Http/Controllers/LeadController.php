@@ -110,6 +110,8 @@ class LeadController extends Controller
 
         if ($request->input('company')) {
             $lead->company_id = $request->input('company');
+        } else {
+            $lead->company_id = null;
         }
         $lead->save();
 

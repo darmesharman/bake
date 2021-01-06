@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ContactController extends Controller
 {
@@ -41,7 +42,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateContact($request);
+        $this->validateCreateContact($request);
 
         $contact = Contact::create([
             'first_name' => $request->input('first_name'),
@@ -89,7 +90,7 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        $this->validateContact($request);
+        $this->validateUpdateContact($contact, $request);
 
         $contact->update([
             'last_name' => $request->last_name,
@@ -117,12 +118,27 @@ class ContactController extends Controller
         return back();
     }
 
-    protected function validateContact(Request $request)
+    protected function validateCreateContact(Request $request)
     {
         Validator::make($request->input(), [
             'last_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'unique:contacts', 'max:255'],
+        ])->validate();
+
+        if ($request->input('company')) {
+            Validator::make($request->input(), [
+                'companies' => ['exists:companies,id'],
+            ])->validate();
+        }
+    }
+
+    protected function validateUpdateContact($contact, Request $request)
+    {
+        Validator::make($request->input(), [
+            'last_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', Rule::unique('contacts')->ignore($contact->id)],
         ])->validate();
 
         if ($request->input('company')) {
