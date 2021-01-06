@@ -85,11 +85,12 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        $company->update();
         $this->validateUpdateCompany($company, $request);
 
-        $company->name = $request->input('name');
-        $company->email = $request->input('email');
+        $company->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+        ]);
 
         $company->save();
         $company->contacts()->detach(Contact::all());
