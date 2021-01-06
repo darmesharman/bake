@@ -34,7 +34,28 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">Create Contact</button>
+            <div class="col-auto">
+                <label class="mb-2">Companies</label>
+                @foreach ($companies as $company)
+                    <div class="form-check">
+                        <input type="checkbox" class="" name="companies[]" multiple value="{{ $company->id }}"
+                            @foreach ($company->contacts as $com)
+                                @if($com->id === $contact->id)
+                                    checked
+                                    @break
+                                @endif
+                            @endforeach
+                        >
+                        <label>{{ $company->email }}</label>
+                    </div>
+                @endforeach
+                @error('companies')
+                    <p class="alert alert-danger">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            <button type="submit" class="btn btn-primary mt-3">Update Contact</button>
         </form>
     </div>
 </x-app-layout>

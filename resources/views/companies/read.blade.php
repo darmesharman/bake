@@ -21,7 +21,7 @@
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <a class="btn btn-secondary " href="{{ route('companies.index') }}">Back</a>
+                <a class="btn btn-secondary mt-3" href="{{ route('companies.index') }}">Back</a>
         </div>
     </div>
 </x-app-layout>

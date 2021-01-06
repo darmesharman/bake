@@ -24,7 +24,26 @@
                         <p class="mt-2 alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <button class="btn btn-primary">Update</button>
+                <div class="col-auto">
+                    <label class="mb-2">Contacts</label>
+                    @foreach ($contacts as $contact)
+                        <div class="form-check">
+                            <input type="checkbox" class="" name="contacts[]" multiple value="{{ $contact->id }}"
+                                @foreach ($contact->companies as $com)
+                                    @if($com->id === $contact->id)
+                                        checked
+                                        @break
+                                    @endif
+                                @endforeach
+                            >
+                            <label>{{ $contact->email }}</label>
+                        </div>
+                    @endforeach
+                    @error('contacts')
+                        <p class="alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <button class="btn btn-primary mt-3">Update</button>
             </form>
         </div>
     </div>

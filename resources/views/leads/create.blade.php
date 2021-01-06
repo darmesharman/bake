@@ -11,7 +11,7 @@
 
                 <div class="col-auto">
                     <label class="mb-2">Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                    <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}" required>
                     @error('name')
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -121,7 +121,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-success">Add</button>
+                <button class="btn btn-success mt-3">Add</button>
             </form>
         </div>
     </div>

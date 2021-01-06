@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -27,7 +28,8 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('contacts.create');
+        $companies = Company::all();
+        return view('contacts.create', compact('companies'));
     }
 
     /**
@@ -38,11 +40,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        Contact::create([
+        $this->validateContact($request);
+        $contact = Contact::create([
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
             'email' => $request->input('email'),
         ]);
+
+        $contact->companies()->attach($request->input('companies'));
 
         return redirect()->route('contacts.index');
     }
@@ -66,7 +71,8 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        return view('contacts.edit', compact('contact'));
+        $companies = Company::all();
+        return view('contacts.edit', compact('contact', 'companies'));
     }
 
     /**
@@ -78,14 +84,17 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        $contact->update();
-        $this->validateContact();
-
-        $contact->first_name = $request->input('first_name');
-        $contact->last_name = $request->input('last_name');
-        $contact->email = $request->input('email');
+        $this->validateContact($request);
+        $contact->update([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+        ]);
 
         $contact->save();
+
+        $contact->companies()->detach(Company::all());
+        $contact->companies()->attach($request->input('companies'));
         return redirect()->route('contacts.index');
     }
 
@@ -102,12 +111,12 @@ class ContactController extends Controller
         return back();
     }
 
-    protected function validateContact()
+    protected function validateContact(Request $request)
     {
-        Validator::make(request()->input(), [
+        Validator::make($request->input(), [
             'last_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'string', 'unique:contacts', 'max:255'],
         ])->validate();
     }
 }

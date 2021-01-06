@@ -35,11 +35,12 @@
 
             <div class="col-auto">
                 <label class="mb-2">Comapnies</label>
-                <select class="form-select" multiple aria-label="multiple select example">
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
+                @foreach ($companies as $company)
+                    <div class="form-check">
+                        <input type="checkbox" class="" name="companies[]" multiple value="{{ $company->id }}">
+                        <label>{{ $company->name }}</label>
+                    </div>
+                @endforeach
             </div>
 
             <button type="submit" class="btn btn-primary">Create Contact</button>

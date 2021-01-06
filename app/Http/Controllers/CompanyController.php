@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,6 +17,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::all();
+
         return view('companies.index', compact('companies'));
     }
 
@@ -26,7 +28,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('companies.create');
+        $contacts = Contact::all();
+        return view('companies.create', compact('contacts'));
     }
 
     /**
@@ -37,12 +40,14 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateCompany();
+        $this->validateCompany($request);
         $company = new Company();
         $company->name = $request->input('name');
         $company->email = $request->input('email');
 
         $company->save();
+
+        $company->contacts()->attach($request->input('contacts'));
         return Redirect(route('companies.index'));
 
 
@@ -67,7 +72,8 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('companies.edit', compact('company'));
+        $contacts = Contact::all();
+        return view('companies.edit', compact('company', 'contacts'));
     }
 
     /**
@@ -80,12 +86,14 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
         $company->update();
-        $this->validateCompany();
+        $this->validateCompany($request);
 
         $company->name = $request->input('name');
         $company->email = $request->input('email');
 
         $company->save();
+        $company->contacts()->detach(Contact::all());
+        $company->contacts()->attach($request->input('contacts'));
         return redirect()->route('companies.index');
     }
 
@@ -102,11 +110,11 @@ class CompanyController extends Controller
         return back();
     }
 
-    public function validateCompany()
+    public function validateCompany(Request $request)
     {
-            Validator::make(request()->input(), [
+            Validator::make($request->input(), [
                 'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255'],
+                'email' => ['required', 'string', 'unique:companies', 'max:255'],
             ])->validate();
     }
 }

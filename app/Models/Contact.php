@@ -19,4 +19,9 @@ class Contact extends Model
     {
         return $this->belongsToMany(Lead::class);
     }
+
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class);
+    }
 }
