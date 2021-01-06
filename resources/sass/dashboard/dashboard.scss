@@ -1,0 +1,204 @@
+section.dashboard {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+      
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--bg); 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--border); 
+    }
+    
+    .dashboard-sidebar {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        width: 17%;
+        
+        .site-branding {
+            height: var(--d-header);
+            padding: 0 var(--d-p);
+            display: flex;
+            align-items: center;
+        }
+
+        .dashboard-nav {
+            list-style: none;
+    
+            li {
+    
+                a {
+                    padding: 1rem var(--d-p);
+                    display: flex;
+                    align-items: center;
+                    color: var(--text);
+                    transition: 0.3s;
+    
+                    &:before {
+                        margin-right: 1rem;
+                        font-size: 120%;
+                        color: var(--grey);
+                    }
+    
+                    &:hover {
+                        color: var(--theme);
+                    }
+    
+                    &.active {
+                        position: relative;
+                        color: var(--theme);
+    
+                        &:before {
+                            color: var(--theme);
+                        }
+    
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            bottom: 0;
+                            width: 4px;
+                            border-radius: 0 4px 4px 0;
+                            background: var(--theme);
+                        }
+    
+                    }
+    
+                }
+    
+            }
+    
+        }
+    
+        .user-balance {
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            text-align: center;
+            padding: var(--d-p);
+            margin: auto var(--d-p) var(--d-p) var(--d-p);
+        }
+
+    }
+
+    .dashboard-body {
+        width: 83%;
+
+        .dashboard-header {
+            display: flex;
+            align-items: center; 
+            height: var(--d-header);
+
+            & > *:not(:last-child) {
+                margin-right: var(--d-p);
+            }
+
+            .form-group {
+                flex-grow: 1;
+                width: auto;
+            }
+
+            .dashboard-user {
+                align-self: stretch;
+                display: flex;
+                align-items: center;
+                border-left: 1px solid var(--border);
+                cursor: pointer;
+                padding: 0 var(--d-p);            
+            }
+
+        }
+
+        .dashboard-content {
+            height: calc(100% - var(--d-header));
+            overflow: auto;
+            padding: 5rem;
+            border-radius: 2rem 0 0 0;
+            border: solid var(--border);
+            border-width: 1px 0 0 1px;
+        }
+
+    }
+
+    .company-card {
+        border-radius: 2rem;
+        border: 1px solid var(--border);
+        overflow: hidden;
+
+        .image {
+            padding: 2rem;
+            display: flex;
+            height: var(--cc-height);
+
+            .rating {
+                margin: 0 0 auto auto;
+            }
+
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem 2rem 2rem 2rem;
+            position: relative;
+            
+            .edit-btn {
+                margin: 0;
+                position: absolute;
+                right: 2rem;
+                top: 0;
+                transform: translateY(-50%);
+            }
+
+            .btns {
+                margin-top: auto;
+            }
+
+        }
+
+        &.add {
+            transition: 0.3s;
+            border: 2px dashed var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--grey);
+
+            &:before {
+                letter-spacing: 0px;
+                font-size: 8rem;
+                margin-bottom: 0.2em;
+                line-height: 1;
+            }
+
+            &:hover {
+                border-color: var(--theme);
+                color: var(--theme);
+            }
+
+            p {
+                margin: 0 3rem;
+            }
+
+        }
+
+    }
+
+}
