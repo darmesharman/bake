@@ -27,8 +27,8 @@
                     <label class="mb-2">Contacts</label>
                         @foreach ($contacts as $contact)
                             <div class="form-check">
-                                <input type="checkbox" class="" name="contacts[]" multiple value="{{ $company->id }}">
-                                <label>{{ $company->email }}</label>
+                                <input type="checkbox" class="" name="contacts[]" multiple value="{{ $contact->id }}">
+                                <label>{{ $contact->email }}</label>
                             </div>
                         @endforeach
                     </select>

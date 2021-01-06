@@ -29,6 +29,7 @@ class CompanyController extends Controller
     public function create()
     {
         $contacts = Contact::all();
+
         return view('companies.create', compact('contacts'));
     }
 
@@ -49,8 +50,6 @@ class CompanyController extends Controller
 
         $company->contacts()->attach($request->input('contacts'));
         return Redirect(route('companies.index'));
-
-
     }
 
     /**
@@ -112,9 +111,9 @@ class CompanyController extends Controller
 
     public function validateCompany(Request $request)
     {
-            Validator::make($request->input(), [
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'unique:companies', 'max:255'],
-            ])->validate();
+        Validator::make($request->input(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'unique:companies', 'max:255'],
+        ])->validate();
     }
 }
