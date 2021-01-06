@@ -93,8 +93,9 @@ class CompanyController extends Controller
         ]);
 
         $company->save();
-        $company->contacts()->detach(Contact::all());
-        $company->contacts()->attach($request->input('contacts'));
+
+        $company->contacts()->sync($request->input('contacts'));
+
         return redirect()->route('companies.index');
     }
 
