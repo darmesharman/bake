@@ -41,7 +41,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
             'city' => $input['city'],
             'code' => $code,
-            // 'token' => Hash::make(Str::random(40)),
+            'token' => Hash::make(Str::random(40)),
         ]);
     }
 

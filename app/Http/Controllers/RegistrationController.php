@@ -34,7 +34,7 @@ class RegistrationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Laravel\Fortify\Contracts\RegisterViewResponse
      */
-    public function create(Request $request): RegisterViewResponse
+    public function create(): RegisterViewResponse
     {
         return app(RegisterViewResponse::class);
     }
@@ -46,12 +46,10 @@ class RegistrationController extends Controller
      * @param  \Laravel\Fortify\Contracts\CreatesNewUsers  $creator
      * @return \Laravel\Fortify\Contracts\RegisterResponse
      */
-    public function store(
-        Request $request,
-        CreatesNewUsers $creator
-    ) {
+    public function store(Request $request, CreatesNewUsers $creator)
+    {
         $user = $creator->create($request->all());
 
-        return view('auth.verify-phone', compact('user'));
+        return redirect()->action([VerifyPhoneController::class, 'getVerify'], ['user' => $user]);
     }
 }

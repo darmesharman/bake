@@ -28,15 +28,23 @@ class VerifyPhoneController extends Controller
         $this->guard = $guard;
     }
 
-    public function verify(Request $request)
+    public function getVerify(User $user)
+    {
+        return view('auth.verify-phone', compact('user'));
+    }
+
+    public function postVerify(Request $request)
     {
         $user = User::where('phone_number', $request->input('phone_number'))->first();
 
         Validator::make($request->input(), [
             'code' => ['required', 'regex:/^\d{4}$/'],
-            // 'code' => ['required'],
-            // 'token' => 'exists:users',
+            'token' => ['exists:users']
         ])->validate();
+
+        if ($user->token !== $request->input('token')) {
+            return back();
+        }
 
         if ($user->code === $request->input('code')) {
             $user->update([
@@ -52,6 +60,6 @@ class VerifyPhoneController extends Controller
             return app(RegisterResponse::class);
         }
 
-        return redirect()->back();
+        return back();
     }
 }
