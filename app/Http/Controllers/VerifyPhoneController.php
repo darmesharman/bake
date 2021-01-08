@@ -30,7 +30,6 @@ class VerifyPhoneController extends Controller
 
     public function getVerify(User $user)
     {
-        app([SendSmsController::class, 'sendSms'], [$user->phone_number]);
 
         return view('auth.verify-phone', compact('user'));
     }

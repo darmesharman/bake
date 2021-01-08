@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+include_once "sms.php";
 
 class SendSmsController extends Controller
 {
     public function sendSms($phone)
     {
-        dd($phone);
+
         $user = User::where('phone_number', $phone)->first();
 
         $code = $this->generateCode();
@@ -20,9 +21,10 @@ class SendSmsController extends Controller
             'token' => Hash::make(Str::random(40)),
         ]);
 
+        send_sms( $user->phone_number, $code . " - код подтверждения Вашего телефона.");
+        dd($user->code);
         $user->save();
 
-        // send sms
     }
 
     protected function generateCode()
@@ -33,3 +35,4 @@ class SendSmsController extends Controller
         return $code;
     }
 }
+
