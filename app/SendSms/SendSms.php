@@ -16,8 +16,7 @@ class SendSms
         $token = Str::random(40);
 
         $user->update([
-            // 'code' => $code,
-            'code' => Hash::make($code),
+            'code' => $code,
             'token' => Hash::make($token),
         ]);
 
@@ -38,7 +37,6 @@ class SendSms
         // generate random four digit code
         $code = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT) ;
 
-        return '1234';
-        // return $code;
+        return $code;
     }
 }

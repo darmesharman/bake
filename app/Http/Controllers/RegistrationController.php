@@ -48,8 +48,11 @@ class RegistrationController extends Controller
      */
     public function store(Request $request, CreatesNewUsers $creator)
     {
-        $user = $creator->create($request->all());
+        $data = $creator->create($request->all());
 
-        return redirect()->action([VerifyPhoneController::class, 'getVerify'], ['user' => $user]);
+        return redirect()->action(
+            [VerifyPhoneController::class, 'getVerify'],
+            ['user' => $data['user'], 'token' => $data['token']],
+        );
     }
 }

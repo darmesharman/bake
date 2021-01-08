@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\SendSms\SendSms;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Laravel\Fortify\Contracts\RegisterResponse;
 use Illuminate\Support\Facades\Hash;
@@ -30,10 +29,8 @@ class VerifyPhoneController extends Controller
         $this->guard = $guard;
     }
 
-    public function getVerify(User $user)
+    public function getVerify(User $user, $token)
     {
-        $token = SendSms::sendSmsToVerify($user->phone_number);
-
         return view('auth.verify-phone', [
             'phone_number' => $user->phone_number,
             'token' => $token,
@@ -49,10 +46,10 @@ class VerifyPhoneController extends Controller
         ])->validate();
 
         if (!Hash::check($request->input('token'), $user->token)) {
-            return back();
+            return back()->with('wrong_code', 'Invalid token');
         }
 
-        if (Hash::check($request->input('code'), $user->code)) {
+        if ($user->code === $request->input('code')) {
             $user->update([
                 'code' => null,
                 'token' => null,
@@ -66,6 +63,6 @@ class VerifyPhoneController extends Controller
             return app(RegisterResponse::class);
         }
 
-        return back();
+        return back()->with('wrong_code', 'You enter wrong code');
     }
 }
