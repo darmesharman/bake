@@ -4,6 +4,7 @@ namespace App\SendSms;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class SendSms
@@ -22,14 +23,23 @@ class SendSms
 
         $user->save();
 
-        SendSms::sendSms('phone_number', 'code');
+        $message = "Код подтверждения регистрации: ${code}";
+        SendSms::sendSms('77474991203', $message);
 
         return $token;
     }
 
     protected static function sendSms($phone_number, $message)
     {
-        // code...
+        $link = 'https://smsc.kz/sys/send.php';
+        $response = Http::get($link, [
+            'login' => 'mykidkz',
+            'psw' => 'f39391baadf771e31384e90bc3e1603796733356',
+            'phones' => $phone_number,
+            'mes' => $message,
+        ]);
+
+        return $response;
     }
 
     protected static function generateCode()
