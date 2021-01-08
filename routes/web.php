@@ -34,7 +34,7 @@ Route::resource('contacts', ContactController::class)->middleware(['auth', 'phon
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 Route::post('/register', [RegistrationController::class, 'store'])->name('registration.store');
 
-Route::get('/verify/phone/{user}', [VerifyPhoneController::class, 'getVerify'])->name('verifyPhone.getVerify');
+Route::get('/verify/phone/{user}/{token}', [VerifyPhoneController::class, 'getVerify'])->name('verifyPhone.getVerify');
 Route::post('/verify/phone', [VerifyPhoneController::class, 'postVerify'])->name('verifyPhone.postVerify');
 Route::post('/verification.send', fn () => 'hello')->name('verification.send');
 

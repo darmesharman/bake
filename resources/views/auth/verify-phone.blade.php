@@ -14,12 +14,18 @@
             </div>
         @endif
 
+        @if (session('wrong_code'))
+            <div class="mb-4 font-medium text-sm text-red-600">
+                {{ session('wrong_code') }}
+            </div>
+        @endif
+
         <div class="mt-4 flex items-center justify-between">
         <form method="POST" action="{{ route('verifyPhone.postVerify') }}">
             @csrf
 
-            <input class="block border border-2 m-3 p-1" type="text" name="token" value="{{ $user->token }}">
-            <input class="block border border-2 m-3 p-1" type="text" name="phone_number" value="{{ $user->phone_number }}">
+            <input class="block border border-2 m-3 p-1" type="hidden" name="token" value="{{ $token }}">
+            <input class="block border border-2 m-3 p-1" type="hidden" name="phone_number" value="{{ $phone_number }}">
             <input class="block border border-2 m-3 p-1" type="text" name="code" placeholder="code">
 
             <button type="submit">

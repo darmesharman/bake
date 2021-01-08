@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Laravel\Fortify\Contracts\RegisterResponse;
+use Illuminate\Support\Facades\Hash;
 
 class VerifyPhoneController extends Controller
 {
@@ -28,10 +29,12 @@ class VerifyPhoneController extends Controller
         $this->guard = $guard;
     }
 
-    public function getVerify(User $user)
+    public function getVerify(User $user, $token)
     {
-
-        return view('auth.verify-phone', compact('user'));
+        return view('auth.verify-phone', [
+            'phone_number' => $user->phone_number,
+            'token' => $token,
+        ]);
     }
 
     public function postVerify(Request $request)
@@ -40,11 +43,10 @@ class VerifyPhoneController extends Controller
 
         Validator::make($request->input(), [
             'code' => ['required', 'regex:/^\d{4}$/'],
-            'token' => ['exists:users']
         ])->validate();
 
-        if ($user->token !== $request->input('token')) {
-            return back();
+        if (!Hash::check($request->input('token'), $user->token)) {
+            return back()->with('wrong_code', 'Invalid token');
         }
 
         if ($user->code === $request->input('code')) {
@@ -61,6 +63,6 @@ class VerifyPhoneController extends Controller
             return app(RegisterResponse::class);
         }
 
-        return back();
+        return back()->with('wrong_code', 'You enter wrong code');
     }
 }
