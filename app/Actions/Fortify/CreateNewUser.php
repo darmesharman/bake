@@ -31,7 +31,7 @@ class CreateNewUser implements CreatesNewUsers
 
         // $code = $this->generateCode();
 
-        $code = $this->sendCode($input['phone_number']);
+        // $code = $this->sendCode($input['phone_number']);
 
         return User::create([
             'first_name' => $input['first_name'],
@@ -40,24 +40,8 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'city' => $input['city'],
-            'code' => $code,
+            // 'code' => $code,
             'token' => Hash::make(Str::random(40)),
         ]);
-    }
-
-    protected function generateCode()
-    {
-        $code = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT) ;
-
-        return $code;
-    }
-
-    protected function sendCode($phone)
-    {
-        $code = $this->generateCode();
-
-        // send code
-
-        return $code;
     }
 }

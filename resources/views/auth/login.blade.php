@@ -16,8 +16,8 @@
             @csrf
 
             <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-jet-label for="phone_number" value="{{ __('Phone number') }}" />
+                <x-jet-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number" :value="old('phone_number')" required autofocus />
             </div>
 
             <div class="mt-4">
@@ -33,11 +33,9 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('forgotPassword.index') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
 
                 <x-jet-button class="ml-4">
                     {{ __('Login') }}
