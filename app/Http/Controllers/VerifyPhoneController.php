@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\SendSms\SendSms;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Laravel\Fortify\Contracts\RegisterResponse;
+use Illuminate\Support\Facades\Hash;
 
 class VerifyPhoneController extends Controller
 {
@@ -30,9 +32,12 @@ class VerifyPhoneController extends Controller
 
     public function getVerify(User $user)
     {
-        app([SendSmsController::class, 'sendSms'], [$user->phone_number]);
+        $token = SendSms::sendSmsToVerify($user->phone_number);
 
-        return view('auth.verify-phone', compact('user'));
+        return view('auth.verify-phone', [
+            'phone_number' => $user->phone_number,
+            'token' => $token,
+        ]);
     }
 
     public function postVerify(Request $request)
@@ -41,14 +46,13 @@ class VerifyPhoneController extends Controller
 
         Validator::make($request->input(), [
             'code' => ['required', 'regex:/^\d{4}$/'],
-            'token' => ['exists:users']
         ])->validate();
 
-        if ($user->token !== $request->input('token')) {
+        if (!Hash::check($request->input('token'), $user->token)) {
             return back();
         }
 
-        if ($user->code === $request->input('code')) {
+        if (Hash::check($request->input('code'), $user->code)) {
             $user->update([
                 'code' => null,
                 'token' => null,
