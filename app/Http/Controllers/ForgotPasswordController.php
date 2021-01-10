@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\SendSms\SendSms;
 use Illuminate\Http\Request;
 
 class ForgotPasswordController extends Controller
@@ -12,12 +13,18 @@ class ForgotPasswordController extends Controller
         return view('auth.forgot-password');
     }
 
-    public function getVerify(Request $request)
+    public function store(Request $request)
     {
+        $request->validate([
+            'phone_number' => ['required', 'string', 'regex:/^\d{11}$/', 'unique:users']
+        ]);
+
         $user = User::where('phone_number', $request->input('phone_number'))->first();
+        $token = SendSms::sendSmsToVerify($user->phone_number);
 
-        // sendsms($phone, $message);
-
-        return redirect()->action([VerifyPhoneController::class, 'getVerify'], ['user' => $user]);
+        return redirect()->action(
+            [VerifyPhoneController::class, 'getVerify'],
+            ['user' => $user, 'token' => $token],
+        );
     }
 }

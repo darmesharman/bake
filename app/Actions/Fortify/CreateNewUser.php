@@ -23,15 +23,12 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required', 'string', 'string', 'min:12', 'max:12', 'unique:users'],
+            'phone_number' => ['required', 'string', 'regex:/^\d{11}$/', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'city' => ['required', 'string', 'max:255'],
         ])->validate();
 
-        // $code = $this->generateCode();
-
-        // $code = $this->sendCode($input['phone_number']);
         $user = User::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
@@ -39,7 +36,6 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'city' => $input['city'],
-            // 'code' => $code,
         ]);
 
         /**
@@ -49,8 +45,6 @@ class CreateNewUser implements CreatesNewUsers
          * This was done to save unhased token.
          */
         $token = SendSms::sendSmsToVerify($input['phone_number']);
-        $user->token = Hash::make($token);
-        $user->save();
 
         return compact('user', 'token');
     }

@@ -24,7 +24,7 @@ class SendSms
         $user->save();
 
         $message = "Код подтверждения регистрации: ${code}";
-        SendSms::sendSms('77474991203', $message);
+        SendSms::sendSms($user->phone_number, $message);
 
         return $token;
     }
