@@ -9,10 +9,8 @@ use Illuminate\Support\Str;
 
 class SendSms
 {
-    public static function sendSmsToVerify($phone_number)
+    public static function sendSmsToVerify($user)
     {
-        $user = User::where('phone_number', $phone_number)->first();
-
         $code = SendSms::generateCode();
         $token = Str::random(40);
 
@@ -24,7 +22,7 @@ class SendSms
         $user->save();
 
         $message = "Код подтверждения регистрации: ${code}";
-        SendSms::sendSms($user->phone_number, $message);
+        // SendSms::sendSms($user->phone_number, $message);
 
         return $token;
     }

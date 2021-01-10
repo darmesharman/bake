@@ -44,7 +44,7 @@ class CreateNewUser implements CreatesNewUsers
          * at the end it return user and unhased token
          * This was done to save unhased token.
          */
-        $token = SendSms::sendSmsToVerify($input['phone_number']);
+        $token = SendSms::sendSmsToVerify($user);
 
         return compact('user', 'token');
     }

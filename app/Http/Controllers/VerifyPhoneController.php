@@ -50,19 +50,35 @@ class VerifyPhoneController extends Controller
         }
 
         if ($user->code !== $request->input('code')) {
-            return back()->with('wrong_code', 'You enter wrong code');
+            return back()->with('wrong_code', 'You entered wrong code');
         }
+
+        if ($user->phone_verified_at) {
+            $this->verify($user);
+
+            return 'hello';
+        } else {
+            $this->verify($user);
+
+            $user->save();
+
+            $this->guard->login($user);
+
+            return app(RegisterResponse::class);
+        }
+    }
+
+    protected function verify($user)
+    {
+        /**
+         * clear phone verification data like code and token
+         * and save phone verification time
+         */
 
         $user->update([
             'code' => null,
             'token' => null,
             'phone_verified_at' => now(),
         ]);
-
-        $user->save();
-
-        $this->guard->login($user);
-
-        return app(RegisterResponse::class);
     }
 }

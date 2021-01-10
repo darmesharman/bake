@@ -16,11 +16,11 @@ class ForgotPasswordController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'phone_number' => ['required', 'string', 'regex:/^\d{11}$/', 'unique:users']
+            'phone_number' => ['required', 'string', 'regex:/^\d{11}$/', 'exists:users']
         ]);
 
         $user = User::where('phone_number', $request->input('phone_number'))->first();
-        $token = SendSms::sendSmsToVerify($user->phone_number);
+        $token = SendSms::sendSmsToVerify($user);
 
         return redirect()->action(
             [VerifyPhoneController::class, 'getVerify'],
