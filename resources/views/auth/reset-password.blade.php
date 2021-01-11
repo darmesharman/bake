@@ -6,15 +6,17 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.update') }}">
+        @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        <form method="POST" action="{{ route('resetPassword.store') }}">
             @csrf
 
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
-
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-            </div>
+            <input type="hidden" name="token" value="{{ $token }}">
+            <input type="hidden" name="phone_number" value="{{ $user->phone_number }}">
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />

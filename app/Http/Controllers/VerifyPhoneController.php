@@ -54,11 +54,22 @@ class VerifyPhoneController extends Controller
         }
 
         if ($user->phone_verified_at) {
-            $this->verify($user);
+            $user->update([
+                'code' => null,
+            ]);
 
-            return 'hello';
+            $user->save();
+
+            return redirect()->route('resetPassword.index', [
+                'user' => $user,
+                'token' => $request->input('token'),
+            ]);
         } else {
-            $this->verify($user);
+            $user->update([
+                'code' => null,
+                'token' => null,
+                'phone_verified_at' => now(),
+            ]);
 
             $user->save();
 
@@ -66,19 +77,5 @@ class VerifyPhoneController extends Controller
 
             return app(RegisterResponse::class);
         }
-    }
-
-    protected function verify($user)
-    {
-        /**
-         * clear phone verification data like code and token
-         * and save phone verification time
-         */
-
-        $user->update([
-            'code' => null,
-            'token' => null,
-            'phone_verified_at' => now(),
-        ]);
     }
 }

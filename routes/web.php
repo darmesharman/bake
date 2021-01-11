@@ -5,7 +5,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\VerifyPhoneController;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +42,6 @@ Route::post('/verification.send', fn () => 'hello')->name('verification.send');
 
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgotPassword.store');
+
+Route::get('/reset-password/{user}/{token}', [ResetPasswordController::class, 'index'])->name('resetPassword.index');
+Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('resetPassword.store');

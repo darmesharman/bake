@@ -27,17 +27,34 @@ class SendSms
         return $token;
     }
 
+    public static function sendSmsToResetPassword($user)
+    {
+        $code = SendSms::generateCode();
+        $token = Str::random(40);
+
+        $user->update([
+            'code' => $code,
+            'token' => Hash::make($token),
+        ]);
+
+        $user->save();
+
+        $message = "${code} - код для смены пароля на сайте https://mykid.init.kz";
+        // SendSms::sendSms($user->phone_number, $message);
+
+        return $token;
+    }
+
     protected static function sendSms($phone_number, $message)
     {
         $link = 'https://smsc.kz/sys/send.php';
-        $response = Http::get($link, [
+
+        Http::get($link, [
             'login' => 'mykidkz',
             'psw' => 'f39391baadf771e31384e90bc3e1603796733356',
             'phones' => $phone_number,
             'mes' => $message,
         ]);
-
-        return $response;
     }
 
     protected static function generateCode()
