@@ -39,4 +39,4 @@ Route::post('/verify/phone', [VerifyPhoneController::class, 'postVerify'])->name
 Route::post('/verification.send', fn () => 'hello')->name('verification.send');
 
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index');
-Route::post('/forgot-password', [ForgotPasswordController::class, 'getVerify'])->name('forgotPassword.getVerify');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgotPassword.store');

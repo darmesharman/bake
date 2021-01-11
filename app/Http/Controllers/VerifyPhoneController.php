@@ -39,22 +39,26 @@ class VerifyPhoneController extends Controller
 
     public function postVerify(Request $request)
     {
-        $user = User::where('phone_number', $request->input('phone_number'))->first();
-
         Validator::make($request->input(), [
             'code' => ['required', 'regex:/^\d{4}$/'],
         ])->validate();
+
+        $user = User::where('phone_number', $request->input('phone_number'))->first();
 
         if (!Hash::check($request->input('token'), $user->token)) {
             return back()->with('wrong_code', 'Invalid token');
         }
 
-        if ($user->code === $request->input('code')) {
-            $user->update([
-                'code' => null,
-                'token' => null,
-                'phone_verified_at' => now(),
-            ]);
+        if ($user->code !== $request->input('code')) {
+            return back()->with('wrong_code', 'You entered wrong code');
+        }
+
+        if ($user->phone_verified_at) {
+            $this->verify($user);
+
+            return 'hello';
+        } else {
+            $this->verify($user);
 
             $user->save();
 
@@ -62,7 +66,19 @@ class VerifyPhoneController extends Controller
 
             return app(RegisterResponse::class);
         }
+    }
 
-        return back()->with('wrong_code', 'You enter wrong code');
+    protected function verify($user)
+    {
+        /**
+         * clear phone verification data like code and token
+         * and save phone verification time
+         */
+
+        $user->update([
+            'code' => null,
+            'token' => null,
+            'phone_verified_at' => now(),
+        ]);
     }
 }

@@ -16,7 +16,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('forgotPassword.getVerify') }}">
+        <form method="POST" action="{{ route('forgotPassword.store') }}">
             @csrf
 
             <div class="block">
