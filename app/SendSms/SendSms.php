@@ -12,19 +12,17 @@ class SendSms
 {
     public static function sendSms($phone_numbers, $message)
     {
-        $link = 'https://smsc.kz/sys/send.php';
+        // $link = 'https://smsc.kz/sys/send.php';
 
-        if (is_array($phone_numbers)) {
-            $phone_numbers = implode(';', $phone_numbers);
-        }
+        // if (is_array($phone_numbers)) {
+        //     $phone_numbers = implode(';', $phone_numbers);
+        // }
 
-        return $phone_numbers;
-
-        Http::get($link, [
-            'login' => 'mykidkz',
-            'psw' => 'f39391baadf771e31384e90bc3e1603796733356',
-            'phones' => $phone_numbers,
-            'mes' => $message,
-        ]);
+        // Http::get($link, [
+        //     'login' => 'mykidkz',
+        //     'psw' => 'f39391baadf771e31384e90bc3e1603796733356',
+        //     'phones' => $phone_numbers,
+        //     'mes' => $message,
+        // ]);
     }
 }

@@ -20,6 +20,12 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
+        $user = User::where('phone_number', $input['phone_number'])->first();
+
+        if ($user and !$user->phone_verified_at) {
+            $user->delete();
+        }
+
         Validator::make($input, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],

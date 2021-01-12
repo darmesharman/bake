@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\SendSms\SendSms;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
@@ -25,7 +26,7 @@ class SendSmsController extends Controller
         $validation = 'wait';
         if (!$user->phone_verification_send or $user->phone_verification_send->addSeconds(15) <= Carbon::now()) {
             $message = $this->getMessage($user, $code);
-            // SendSms::sendSms($user->phone_number, $message);
+            SendSms::sendSms($user->phone_number, $message);
             $user->update(['phone_verification_send' => Carbon::now()]);
             $user->save();
             $validation = null;
@@ -39,7 +40,7 @@ class SendSmsController extends Controller
 
     protected function getMessage($user, $code)
     {
-        if (!$user->phone_verification_send) {
+        if (!$user->phone_verified_at) {
             $message = "${code} - код для регистрации на сайте https://mykid.init.kz";
         } else {
             $message = "${code} - код для смены пароля на сайте https://mykid.init.kz";
