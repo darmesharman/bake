@@ -26,10 +26,12 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('code')->nullable();
             $table->string('token')->nullable();
+            $table->foreignId('role_id')->constrained();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
+
         });
     }
 

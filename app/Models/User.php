@@ -66,4 +66,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function permission()
+    {
+        return $this->hasOne(Permission::class);
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class)->withTimestamps();
+    }
 }
