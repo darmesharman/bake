@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -53,18 +54,9 @@ class VerifyPhoneController extends Controller
             return back()->with('wrong_code', 'You entered wrong code');
         }
 
-        if ($user->phone_verified_at) {
-            $user->update([
-                'code' => null,
-            ]);
+        $isRegistering = !$user->phone_verified_at;
 
-            $user->save();
-
-            return redirect()->route('resetPassword.index', [
-                'user' => $user,
-                'token' => $request->input('token'),
-            ]);
-        } else {
+        if ($isRegistering) {
             $user->update([
                 'code' => null,
                 'token' => null,
@@ -76,6 +68,31 @@ class VerifyPhoneController extends Controller
             $this->guard->login($user);
 
             return app(RegisterResponse::class);
+        } else {
+            $user->update([
+                'code' => null,
+            ]);
+
+            $user->save();
+
+            return redirect()->route('resetPassword.index', [
+                'user' => $user,
+                'token' => $request->input('token'),
+            ]);
         }
+    }
+
+    public function resend(Request $request)
+    {
+        $user = User::where('phone_number', $request->input('phone_number'))->first();
+
+        if (!Hash::check($request->input('token'), $user->token)) {
+            return back()->with('wrong_code', 'Invalid token');
+        }
+
+        return redirect()->action(
+            [SendSmsController::class, 'sendSmsToVerify'],
+            compact('user'),
+        );
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +39,9 @@ Route::post('/register', [RegistrationController::class, 'store'])->name('regist
 
 Route::get('/verify/phone/{user}/{token}', [VerifyPhoneController::class, 'getVerify'])->name('verifyPhone.getVerify');
 Route::post('/verify/phone', [VerifyPhoneController::class, 'postVerify'])->name('verifyPhone.postVerify');
-Route::post('/verification.send', fn () => 'hello')->name('verification.send');
+Route::post('/verification-resend', [VerifyPhoneController::class, 'resend'])->name('verifyPhone.resend');
+
+Route::get('/verification-send/{user}', [SendSmsController::class, 'sendSmsToVerify'])->name('sendSms.sendSmsToVerify');
 
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgotPassword.store');

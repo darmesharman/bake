@@ -32,6 +32,7 @@ class User extends Authenticatable
         'code',
         'token',
         'phone_verified_at',
+        'phone_verification_send',
     ];
 
     /**

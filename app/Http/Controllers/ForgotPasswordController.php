@@ -20,11 +20,10 @@ class ForgotPasswordController extends Controller
         ]);
 
         $user = User::where('phone_number', $request->input('phone_number'))->first();
-        $token = SendSms::sendSmsToResetPassword($user);
 
         return redirect()->action(
-            [VerifyPhoneController::class, 'getVerify'],
-            ['user' => $user, 'token' => $token],
+            [SendSmsController::class, 'sendSmsToVerify'],
+            compact('user'),
         );
     }
 }

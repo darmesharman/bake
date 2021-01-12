@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Laravel\Fortify\Contracts\RegisterViewResponse;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use App\Http\Controllers\SendSmsController;
 use Illuminate\Auth\Events\Registered;
 
 class RegistrationController extends Controller
@@ -48,11 +49,8 @@ class RegistrationController extends Controller
      */
     public function store(Request $request, CreatesNewUsers $creator)
     {
-        $data = $creator->create($request->all());
+        $user = $creator->create($request->all());
 
-        return redirect()->action(
-            [VerifyPhoneController::class, 'getVerify'],
-            ['user' => $data['user'], 'token' => $data['token']],
-        );
+        return redirect()->route('sendSms.sendSmsToVerify', compact('user'));
     }
 }

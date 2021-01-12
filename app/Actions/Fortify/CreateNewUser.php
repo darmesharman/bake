@@ -29,7 +29,7 @@ class CreateNewUser implements CreatesNewUsers
             'city' => ['required', 'string', 'max:255'],
         ])->validate();
 
-        $user = User::create([
+        return User::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
             'phone_number' => $input['phone_number'],
@@ -37,15 +37,5 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
             'city' => $input['city'],
         ]);
-
-        /**
-         * Above code sends sms to given phone_number, generate token and
-         * return it. Then set to user hashed token
-         * at the end it return user and unhased token
-         * This was done to save unhased token.
-         */
-        $token = SendSms::sendSmsToVerify($user);
-
-        return compact('user', 'token');
     }
 }

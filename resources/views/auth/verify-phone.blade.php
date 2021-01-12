@@ -35,12 +35,15 @@
         </div>
 
         <div class="mt-4 flex items-center justify-between">
-            <form method="POST" action="{{ route('verification.send') }}">
+            <form method="POST" action="{{ route('verifyPhone.resend') }}">
                 @csrf
+
+                <input class="block border border-2 m-3 p-1" type="hidden" name="token" value="{{ $token }}">
+                <input class="block border border-2 m-3 p-1" type="hidden" name="phone_number" value="{{ $phone_number }}">
 
                 <div>
                     <x-jet-button type="submit">
-                        {{ __('Resend Verification Email') }}
+                        {{ __('resend code') }}
                     </x-jet-button>
                 </div>
             </form>
