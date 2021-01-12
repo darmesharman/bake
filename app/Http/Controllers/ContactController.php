@@ -98,9 +98,7 @@ class ContactController extends Controller
             'email' => $request->email,
         ]);
 
-        if ($request->input('companies')) {
-            $contact->companies()->sync($request->input('companies'));
-        }
+        $contact->companies()->sync($request->input('companies'));
 
         return redirect()->route('contacts.index');
     }
