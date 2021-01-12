@@ -1,0 +1,30 @@
+// ===================================================
+// Theme Global
+// ===================================================
+@import 'global/variables';
+@import 'global/global';
+@import 'global/icons';
+
+// ===================================================
+// Theme Layouts
+// ===================================================
+@import 'layouts/header';
+@import 'layouts/footer';
+@import 'layouts/templates';
+@import 'layouts/auth';
+
+// ===================================================
+// Theme Dashboard
+// ===================================================
+@import 'dashboard/dashboard';
+@import 'dashboard/main';
+
+// ===================================================
+// Theme Pages
+// ===================================================
+@import 'pages/home-page';
+@import 'pages/archive';
+@import 'pages/single';
+@import 'pages/article';
+@import 'pages/news-single';
+@import 'pages/add-company';

@@ -1,0 +1,15 @@
+.news-single-header {
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        width: 60px;
+        height: 4px;
+        background: var(--theme);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}

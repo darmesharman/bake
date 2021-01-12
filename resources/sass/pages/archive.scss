@@ -1,0 +1,44 @@
+section.archive {
+
+    .archive-content {
+
+        .archive-filters {
+
+            & > *:not(:first-child) {
+                padding-top: 2rem;
+            }
+
+            .form-group.small {
+                width: calc(20% - 2rem);
+            }
+
+            & > * {
+                display: flex;
+                align-items: flex-start;
+
+                & > *:not(:last-child) {
+                    margin-right: 1.5rem;
+                }
+
+                .right {
+                    margin-left: auto;
+                }
+
+            }
+
+            .row-type-1 {
+                border-bottom: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+
+                .form-group {
+                    max-width: 30%;
+                }
+
+            }
+
+        }
+
+    }
+
+}

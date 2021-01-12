@@ -1,0 +1,15 @@
+.db-stats {
+    display: flex;
+    margin: 0 -1rem;
+
+    & > * {
+        width: calc(20% - 2rem);
+        margin: 0 1rem;
+
+        &.large {
+            width: calc(40% - 2rem);
+        }
+
+    }
+
+}

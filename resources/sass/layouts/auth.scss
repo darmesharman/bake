@@ -1,0 +1,99 @@
+section.auth {
+
+    .wrapper {
+        display: flex;
+        min-height: calc(100vh - var(--header));
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--padding) var(--padding) var(--padding) var(--section-p);
+            width: 50%;
+
+            &:last-child {
+                padding: var(--padding) var(--section-p) var(--padding) var(--padding);
+            }
+
+        }
+
+        .slide {
+            padding: var(--padding) var(--section-p) var(--padding) calc(var(--padding) + 10rem);
+            background-color: var(--grey-bg);
+            width: 50%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                height: 100%;
+                width: 10rem;
+                filter: drop-shadow(var(--shadow-s));
+            }
+
+            &:first-child {
+                padding: var(--padding) calc(var(--padding) + 10rem) var(--padding) var(--section-p);
+
+                img {
+                    transform: rotate(180deg);
+                    left: auto;
+                    right: 0;
+                }
+
+            }
+
+            ul {
+                margin: 0;
+
+                li {
+                    display: flex;
+                    align-items: center;
+
+                    &:before {
+                        width: 6rem;
+                        height: 6rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        background: #fff;
+                        color: #000;
+                        font-size: 3rem;
+                        border-radius: 1.5rem;
+                        box-shadow: var(--shadow-s);
+                        margin-right: 1.5rem;
+                    }
+
+                    .text {
+
+                        h5 {
+                            margin-bottom: 0.1em;
+                        }
+
+                        p {
+                            color: var(--grey);
+                        }
+
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: 3rem;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
