@@ -1,5 +1,6 @@
 require('./bootstrap');
 
+<<<<<<< HEAD
 // Import modules...
 import Vue from 'vue';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
@@ -20,3 +21,6 @@ new Vue({
             },
         }),
 }).$mount(app);
+=======
+require('alpinejs');
+>>>>>>> d80e6a5d039d304a3878a5f930fe81522960e5c5
