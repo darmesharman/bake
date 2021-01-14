@@ -8,6 +8,7 @@ use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CompanyController extends Controller
 {
@@ -49,21 +50,32 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Company $company)
     {
-        //
+        return new CompanyResource($company);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Company $company)
     {
-        //
+        $this->validateUpdateCompany($company, $request);
+
+        $company->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+        ]);
+
+        $company->save();
+
+        $company->contacts()->sync($request->input('contacts'));
+
+        return (new CompanyResource($company))->response();
     }
 
     /**
@@ -72,9 +84,11 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Company $company)
     {
-        //
+        $company->delete();
+
+        return (new CompanyResource($company))->response();
     }
 
     protected function validateCreateCompany(Request $request)
@@ -82,6 +96,19 @@ class CompanyController extends Controller
         Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'unique:companies', 'max:255'],
+        ])->validate();
+
+        if ($request->input('company')) {
+            Validator::make($request->input(), [
+                'companies' => ['exists:companies,id'],
+            ])->validate();
+        }
+    }
+    protected function validateUpdateCompany($company,Request $request)
+    {
+        Validator::make($request->input(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', Rule::unique('companies')->ignore($company->id)],
         ])->validate();
 
         if ($request->input('company')) {
