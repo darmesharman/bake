@@ -32,10 +32,16 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateCreateCompany($request);
-        $company = new Company();
-        $company->name = $request->input('name');
-        $company->email = $request->input('email');
+        $validator = $this->validateStoreCompany($request);
+
+        if ($validator->fails()) {
+           return $validator->errors();
+        }
+
+        $company = Company::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+        ]);
 
         $company->save();
 
@@ -52,7 +58,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return new CompanyResource($company);
+        return (new CompanyResource($company))->response();
     }
 
     /**
@@ -64,8 +70,11 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        $this->validateUpdateCompany($company, $request);
+        $validator = $this->validateUpdateCompany($company, $request);
 
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
         $company->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -91,30 +100,20 @@ class CompanyController extends Controller
         return (new CompanyResource($company))->response()->setStatusCode(204);
     }
 
-    protected function validateCreateCompany(Request $request)
+    protected function validateStoreCompany(Request $request)
     {
-        Validator::make($request->input(), [
+        return Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'unique:companies', 'max:255'],
-        ])->validate();
-
-        if ($request->input('company')) {
-            Validator::make($request->input(), [
-                'companies' => ['exists:companies,id'],
-            ])->validate();
-        }
+            'email' => ['required', 'email', 'unique:companies', 'max:255'],
+            'contacts' => ['exists:contacts,id'],
+        ]);
     }
     protected function validateUpdateCompany($company,Request $request)
     {
-        Validator::make($request->input(), [
+        return Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('companies')->ignore($company->id)],
-        ])->validate();
-
-        if ($request->input('company')) {
-            Validator::make($request->input(), [
-                'companies' => ['exists:companies,id'],
-            ])->validate();
-        }
+            'contacts' => ['exists:contacts,id'],
+        ]);
     }
 }

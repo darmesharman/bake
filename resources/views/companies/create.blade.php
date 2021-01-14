@@ -31,6 +31,10 @@
                             <label for="{{ $contact->id }}" class="form-check-label">{{ $contact->email }}</label>
                         </div>
                     @endforeach
+
+                    @error('contacts')
+                        <p class="alert alert-danger"> {{ $message }} </p>
+                    @enderror
                 </div>
                 <button class="btn btn-success mt-3">Add</button>
             </form>

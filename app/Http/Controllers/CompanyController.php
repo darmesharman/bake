@@ -117,13 +117,8 @@ class CompanyController extends Controller
         Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'unique:companies', 'max:255'],
+            'contacts' => ['exists:contacts,id'],
         ])->validate();
-
-        if ($request->input('company')) {
-            Validator::make($request->input(), [
-                'companies' => ['exists:companies,id'],
-            ])->validate();
-        }
     }
 
     protected function validateUpdateCompany($company, Request $request)
@@ -131,12 +126,8 @@ class CompanyController extends Controller
         Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('companies')->ignore($company->id)],
+            'contacts' => ['exists:contacts,id'],
         ])->validate();
 
-        if ($request->input('company')) {
-            Validator::make($request->input(), [
-                'companies' => ['exists:companies,id'],
-            ])->validate();
-        }
     }
 }
