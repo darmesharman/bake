@@ -19,7 +19,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::with('companies')->get();
 
         return (new ContactCollection($contacts))->response();
     }
@@ -32,7 +32,11 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateCreateContact($request);
+        $validator = $this->validateStoreContact($request);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
 
         $contact = Contact::create([
             'first_name' => $request->input('first_name'),
@@ -40,9 +44,7 @@ class ContactController extends Controller
             'email' => $request->input('email'),
         ]);
 
-        if ($request->input('companies')) {
-            $contact->companies()->attach($request->input('companies'));
-        }
+        $contact->companies()->attach($request->input('companies'));
 
         return (new ContactResource($contact))->response()->setStatusCode(201);
     }
@@ -67,7 +69,11 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        $this->validateUpdateContact($contact, $request);
+        $validator = $this->validateUpdateContact($request, $contact);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
 
         $contact->update([
             'last_name' => $request->last_name,
@@ -90,36 +96,26 @@ class ContactController extends Controller
     {
         $contact->delete();
 
-        return response()->json('null');
+        return (new ContactResource($contact))->response()->setStatusCode(204);
     }
 
-    protected function validateCreateContact(Request $request)
+    protected function validateStoreContact(Request $request)
     {
-        Validator::make($request->input(), [
+        return Validator::make($request->input(), [
             'last_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'unique:contacts', 'max:255'],
-        ])->validate();
-
-        if ($request->input('company')) {
-            Validator::make($request->input(), [
-                'companies' => ['exists:companies,id'],
-            ])->validate();
-        }
+            'companies' => ['exists:companies,id'],
+        ]);
     }
 
-    protected function validateUpdateContact($contact, Request $request)
+    protected function validateUpdateContact(Request $request, $contact)
     {
-        Validator::make($request->input(), [
+        return Validator::make($request->input(), [
             'last_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('contacts')->ignore($contact->id)],
-        ])->validate();
-
-        if ($request->input('company')) {
-            Validator::make($request->input(), [
-                'companies' => ['exists:companies,id'],
-            ])->validate();
-        }
+            'companies' => ['exists:companies,id'],
+        ]);
     }
 }
