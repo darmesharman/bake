@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\CompanyCollection;
+use App\Http\Resources\CompanyResource;
 use App\Models\Company;
-use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -19,19 +21,7 @@ class CompanyController extends Controller
     {
         $companies = Company::with('contacts')->get();
 
-        return view('companies.index', compact('companies'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $contacts = Contact::all();
-
-        return view('companies.create', compact('contacts'));
+        return (new CompanyCollection($companies))->response();
     }
 
     /**
@@ -50,37 +40,26 @@ class CompanyController extends Controller
         $company->save();
 
         $company->contacts()->attach($request->input('contacts'));
-        return Redirect(route('companies.index'));
+
+        return (new CompanyResource($company))->response()->setStatusCode(201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Company $company)
     {
-        return view('companies.read', compact('company'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Company  $company
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Company $company)
-    {
-        $contacts = Contact::all();
-        return view('companies.edit', compact('company', 'contacts'));
+        return new CompanyResource($company);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Company
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Company $company)
@@ -96,20 +75,20 @@ class CompanyController extends Controller
 
         $company->contacts()->sync($request->input('contacts'));
 
-        return redirect()->route('companies.index');
+        return (new CompanyResource($company))->response();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Company  $company
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Company $company)
     {
         $company->delete();
 
-        return back();
+        return (new CompanyResource($company))->response();
     }
 
     protected function validateCreateCompany(Request $request)
@@ -125,8 +104,7 @@ class CompanyController extends Controller
             ])->validate();
         }
     }
-
-    protected function validateUpdateCompany($company, Request $request)
+    protected function validateUpdateCompany($company,Request $request)
     {
         Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
