@@ -104,7 +104,7 @@ class CompanyController extends Controller
             ])->validate();
         }
     }
-    protected function validateUpdateCompany($company,Request $request)
+    protected function validateUpdateCompany($company, Request $request)
     {
         Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
