@@ -88,7 +88,7 @@ class CompanyController extends Controller
     {
         $company->delete();
 
-        return (new CompanyResource($company))->response();
+        return (new CompanyResource($company))->response()->setStatusCode(204);
     }
 
     protected function validateCreateCompany(Request $request)
