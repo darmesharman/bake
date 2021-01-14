@@ -17,10 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->create();
-
-        Status::factory(5)->create();
-        Contact::factory(3)->create();
-        Company::factory(3)->create();
+        $this->call(UsersSeeder::class);
+        $this->call(StatusesSeeder::class);
+        $this->call(ContactsSeeder::class);
+        $this->call(CompaniesSeeder::class);
     }
 }

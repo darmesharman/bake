@@ -105,9 +105,9 @@ class LeadController extends Controller
     {
         $lead->delete();
 
-        Log::info("Lead {$lead->id} deleted successfully.");
+        // Log::info("Lead {$lead->id} deleted successfully.");
 
-        return response(null, 204);
+        return (new LeadResource($lead))->response();
     }
 
     protected function validateLead(Request $request)

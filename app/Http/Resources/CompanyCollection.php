@@ -4,14 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class LeadCollection extends ResourceCollection
+class CompanyCollection extends ResourceCollection
 {
-    /**
-     * The "data" wrapper that should be applied.
-     *
-     * @var string
-     */
-    public static $wrap = 'leads';
+    public static $wrap = 'companies';
     /**
      * Transform the resource collection into an array.
      *
@@ -21,7 +16,7 @@ class LeadCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'leads' => LeadResource::collection($this->collection),
+            'companies' => CompanyResource::collection($this->collection),
         ];
     }
 }

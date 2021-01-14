@@ -112,7 +112,7 @@ class CompanyController extends Controller
         return back();
     }
 
-    public function validateCreateCompany(Request $request)
+    protected function validateCreateCompany(Request $request)
     {
         Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
@@ -126,7 +126,7 @@ class CompanyController extends Controller
         }
     }
 
-    public function validateUpdateCompany($company, Request $request)
+    protected function validateUpdateCompany($company, Request $request)
     {
         Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
