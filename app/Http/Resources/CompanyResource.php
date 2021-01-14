@@ -21,6 +21,8 @@ class CompanyResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
+            'contacts' => ContactResource::collection($this->contacts),
+
         ];
 
     }

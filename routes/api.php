@@ -22,8 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('leads', LeadController::class);
-<<<<<<< HEAD
 Route::apiResource('contacts', ContactController::class);
-=======
 Route::apiResource('companies', CompanyController::class);
->>>>>>> c26b35f0f283a007d521949a4d09fd6444d59f32
