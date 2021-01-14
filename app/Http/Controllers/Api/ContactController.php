@@ -32,12 +32,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->input(), [
-            'last_name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'unique:contacts', 'max:255'],
-            'companies' => ['exists:companies,id'],
-        ]);
+        $validator = $this->validateStoreContact($request);
 
         if ($validator->fails()) {
             return $validator->errors();
@@ -74,12 +69,7 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        $validator = Validator::make($request->input(), [
-            'last_name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('contacts')->ignore($contact->id)],
-            'companies' => ['exists:companies,id'],
-        ]);
+        $validator = $this->validateUpdateContact($request, $contact);
 
         if ($validator->fails()) {
             return $validator->errors();
@@ -107,5 +97,25 @@ class ContactController extends Controller
         $contact->delete();
 
         return (new ContactResource($contact))->response()->setStatusCode(204);
+    }
+
+    protected function validateStoreContact(Request $request)
+    {
+        return Validator::make($request->input(), [
+            'last_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'unique:contacts', 'max:255'],
+            'companies' => ['exists:companies,id'],
+        ]);
+    }
+
+    protected function validateUpdateContact(Request $request, $contact)
+    {
+        return Validator::make($request->input(), [
+            'last_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', Rule::unique('contacts')->ignore($contact->id)],
+            'companies' => ['exists:companies,id'],
+        ]);
     }
 }
