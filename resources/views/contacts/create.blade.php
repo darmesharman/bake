@@ -46,7 +46,11 @@
                         </div>
                     @endforeach
                 </div>
+                @error('companies')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
+
 
             <button type="submit" class="btn btn-primary">Create Contact</button>
         </form>

@@ -108,7 +108,7 @@ class CompanyController extends Controller
             'contacts' => ['exists:contacts,id'],
         ]);
     }
-    protected function validateUpdateCompany($company,Request $request)
+    protected function validateUpdateCompany($company, Request $request)
     {
         return Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],

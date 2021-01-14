@@ -122,13 +122,8 @@ class ContactController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'unique:contacts', 'max:255'],
+            'companies' => ['exists:companies,id'],
         ])->validate();
-
-        if ($request->input('company')) {
-            Validator::make($request->input(), [
-                'companies' => ['exists:companies,id'],
-            ])->validate();
-        }
     }
 
     protected function validateUpdateContact($contact, Request $request)

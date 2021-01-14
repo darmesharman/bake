@@ -24,6 +24,9 @@ class LeadResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'status' => $this->status->name,
+            'sum' => $this->sum,
+            'company' => new CompanyResource($this->company),
+            'contacts' => new ContactCollection($this->contacts),
         ];
     }
 }
