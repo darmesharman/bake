@@ -33,7 +33,11 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateLead($request);
+        $validator = $this->validateLead($request);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
 
         $lead = Lead::create([
             'name' => $request->input('name'),
@@ -73,7 +77,11 @@ class LeadController extends Controller
      */
     public function update(Request $request, Lead $lead)
     {
-        $this->validateLead($request);
+        $validator = $this->validateLead($request);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
 
         $lead->update([
             'name' => $request->input('name'),
@@ -112,17 +120,12 @@ class LeadController extends Controller
 
     protected function validateLead(Request $request)
     {
-        Validator::make($request->input(), [
+        return Validator::make($request->input(), [
             'name' => ['required', 'string', 'max:255'],
             'status' => ['required', 'string'],
             'sum' => ['required', 'numeric'],
             'contacts' => ['required', 'exists:contacts,id'],
-        ])->validate();
-
-        if ($request->input('company')) {
-            Validator::make($request->input(), [
-                'company' => ['exists:companies,id'],
-            ])->validate();
-        }
+            'company' => ['exists:companies,id'],
+        ]);
     }
 }
