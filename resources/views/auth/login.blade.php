@@ -101,7 +101,7 @@
                         <a href="{{ route('forgotPassword.index') }}">Забыли пароль?</a>
                     </div>
                     <button class="btn full large square" id="login_confirm">Войти</button>
-                    <p>Если у Вас еще нет аккаунта - <a href="/register">зарегистрируйтесь</a></p>
+                    <p>Если у Вас еще нет аккаунта - <a href="{{ route('registration.create') }}">зарегистрируйтесь</a></p>
                 </form>
             </div>
         </div>
