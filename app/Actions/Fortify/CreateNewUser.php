@@ -27,6 +27,7 @@ class CreateNewUser implements CreatesNewUsers
         }
 
         Validator::make($input, [
+            'type' => ['required'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'phone_number' => ['required', 'string', 'regex:/^\d{11}$/', 'unique:users'],
@@ -36,6 +37,7 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return User::create([
+            'type' => $input['type'],
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
             'phone_number' => $input['phone_number'],

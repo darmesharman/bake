@@ -27,6 +27,7 @@
 <html>
 <head>
 
+    <title>@yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="stylesheet" href="/css/app.css">
@@ -39,7 +40,7 @@
 		<div class="container">
 			<div class="header-content">
 				<div class="site-branding">
-				    <a href="/">MyKid.<span>kz</span></a>
+				    <a href="{{ route('dashboard') }}">MyKid.<span>kz</span></a>
 				</div>
 
 				<div class="btns">
@@ -93,7 +94,7 @@
 			</div>
 			<div class="footer-bottom df jcsb aic pt3 pb3 bt">
 				<p class="grey-text mb0">© <?php echo date('Y'); ?> MyKid. Все права защищены</p>
-				<a class="developer text" href="https://init.kz" target="_blank" rel="noopener noreferrer">Сайт разработала<br>Веб студия <img src="img/fav.png" alt="init logo"></a>
+				<a class="developer text" href="https://init.kz" target="_blank" rel="noopener noreferrer">Сайт разработала<br>Веб студия <img src="img/init.svg" alt="init logo"></a>
 			</div>
 		</div>
 

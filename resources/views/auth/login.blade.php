@@ -46,6 +46,10 @@
 </x-guest-layout> --}}
 @extends('layouts.guest')
 
+@section('title')
+    Логин
+@endsection
+
 @section('content')
     <section class="auth">
         <div class="wrapper">
@@ -76,7 +80,7 @@
                 <form class="article" id="login_form" method="POST" action="{{ route('login') }}">
                     @csrf
 
-                    <h1></h1>
+                    <h1>@yield('title')</h1>
 
                         <div class="message success">
                             <div class="text">
@@ -101,7 +105,7 @@
                         <a href="{{ route('forgotPassword.index') }}">Забыли пароль?</a>
                     </div>
                     <button class="btn full large square" id="login_confirm">Войти</button>
-                    <p>Если у Вас еще нет аккаунта - <a href="/register">зарегистрируйтесь</a></p>
+                    <p>Если у Вас еще нет аккаунта - <a href="{{ route('registration.create') }}">зарегистрируйтесь</a></p>
                 </form>
             </div>
         </div>

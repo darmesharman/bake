@@ -125,7 +125,7 @@
                         <label for="register_agree"><span>Я согласен с <a href="/privacy">политикой конфидициальности</a></span></label>
                     </div>
                     <button class="btn full large square" id="register_confirm">Зарегистрироваться</button>
-                    <p class="mb0">Если Вы уже зарегистрированны, то <a href="/login">авторизируйтесь</a></p>
+                    <p class="mb0">Если Вы уже зарегистрированны, то <a href="{{ route('login') }}">авторизируйтесь</a></p>
                 </form>
 
                 <div class="form-group confirm-code">
