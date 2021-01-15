@@ -1,19 +1,4 @@
-<?php
-/**
- * Template Name: Login Page
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package init
- */
 
-if( is_user_logged_in() ){
-    wp_redirect( '/dashboard/' );
-}
-
-get_header();
-
-?>  
     <section class="auth">
         <div class="wrapper">
             <div class="slide white" <?php bgi('auth.jpg'); ?>>
@@ -43,8 +28,8 @@ get_header();
                 <form class="article" id="login_form">
                     <h1><?php the_title(); ?></h1>
                     <?php
-                        if(isset($_GET['restore']) && $_GET['restore'] == 'success'){
-                    ?>
+                        if (isset($_GET['restore']) && $_GET['restore'] == 'success') {
+                            ?>
                         <div class="message success">
                             <div class="text">
                                 <h6>Ваш пароль был изменён</h6>
@@ -75,7 +60,7 @@ get_header();
             </div>
         </div>
     </section>
-    <?php /* 
+    <?php /*
     <section>
 
         <div class="container">
