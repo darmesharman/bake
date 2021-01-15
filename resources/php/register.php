@@ -7,13 +7,13 @@
  * @package init
  */
 
-if( is_user_logged_in() ){
-    wp_redirect( '/dashboard/' );
+if (is_user_logged_in()) {
+    wp_redirect('/dashboard/');
 }
 
 get_header();
 
-?>  
+?>
     <section class="auth">
         <div class="wrapper">
             <div class="auth-wrapper">
@@ -70,22 +70,6 @@ get_header();
                     <p class="mb0">Если Вы уже зарегистрированны, то <a href="/login">авторизируйтесь</a></p>
                 </form>
 
-                <div class="form-group confirm-code">
-                    <div class="loading" <?php bgi('loading.gif'); ?>></div>
-                    <div class="confirm-code-wrapper article">
-                        <h3>Верификация</h3>
-                        <p class="grey-text">
-                            Для защиты Вашего аккаунта мы отправили SMS с кодом на Ваш мобильный телефон. Это бесплатно.
-                        </p>
-                        <div class="code-input-wrapper">
-                            <input type="text" class="code-input code-mask code" id="code">
-                        </div>
-                        <div class="code-timer">
-                            <p class="grey-text">Запросить код повторно можно через <span id="code-timer"></span> секунд</p>
-                            <a href="#" class="send-again dn">Отправить код повторно</a>
-                        </div>
-                    </div>
-                </div>                
             </div>
             <div class="slide white" <?php bgi('auth.jpg'); ?>>
                 <img src="/wp-content/themes/init/img/wave.svg">
@@ -112,7 +96,7 @@ get_header();
             </div>
         </div>
     </section>
-    <?php /* 
+    <?php /*
     <section>
 
         <div class="container">

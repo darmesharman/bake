@@ -63,7 +63,19 @@
     <section class="auth">
         <div class="wrapper">
             <div class="auth-wrapper">
-                <form class="article large" id="register_form">
+                <form method="POST" action="{{ route('registration.store') }}" class="article large" id="register_form">
+                    @csrf
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <h1></h1>
                     <p>Для регистрации введите, пожалуйста, следующие данные:</p>
                     <div class="form-group radio-toggler">
@@ -77,22 +89,22 @@
                         <div class="line">
                             <div class="form-group">
                                 <label for="register_name">Имя</label>
-                                <input name="name" type="text" class="name-mask required" data-type="name" id="register_name" placeholder="Введите имя">
+                                <input name="first_name" type="text" class="name-mask required" data-type="name" id="register_name" placeholder="Введите имя">
                             </div>
                             <div class="form-group">
                                 <label for="register_suname">Фамилия</label>
-                                <input name="surname" type="text" class="name-mask required" data-type="surname" id="register_suname" placeholder="Введите фамилию">
+                                <input name="last_name" type="text" class="name-mask required" data-type="surname" id="register_suname" placeholder="Введите фамилию">
                             </div>
                             <div class="form-group full">
                                 <label for="register_city">Город или область</label>
                                 <div class="select-wrapper">
-                                    <input name="city" type="text" id="register_city" placeholder="Выберите город или область" readonly disabled class="required" data-type="select">
+                                    <input name="city" type="text" id="register_city" placeholder="Выберите город или область"   class="required" data-type="select">
                                     <ul class="select-dropdown"></ul>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="register_phone">Номер телефона</label>
-                                <input name="phone" type="text" id="register_phone" class="phone-mask required" data-type="phone">
+                                <input name="phone_number" type="text" id="register_phone" class="phone-mask required" data-type="phone">
                             </div>
                             <div class="form-group">
                                 <label for="register_email">Email</label>
@@ -104,7 +116,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="register_password_confirm">Повторите пароль</label>
-                                <input name="password_confirm" type="password" id="register_password_confirm" placeholder="Введите пароль повторно" class="required" data-type="confirm_pass">
+                                <input name="password_confirmation" type="password" id="register_password_confirm" placeholder="Введите пароль повторно" class="required" data-type="confirm_pass">
                             </div>
                         </div>
                     </div>
