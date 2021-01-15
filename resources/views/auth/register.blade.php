@@ -59,6 +59,10 @@
 
 @extends('layouts.guest')
 
+@section('title')
+    Регистрации
+@endsection
+
 @section('content')
     <section class="auth">
         <div class="wrapper">
@@ -76,12 +80,12 @@
                         </div>
                     @endif
 
-                    <h1></h1>
+                    <h1>@yield('title')</h1>
                     <p>Для регистрации введите, пожалуйста, следующие данные:</p>
                     <div class="form-group radio-toggler">
-                        <input type="radio" id="register_user" name="role" value="user" checked>
+                        <input type="radio" id="register_user" name="type" value="user" checked>
                         <label for="register_user">Пользователь</label>
-                        <input type="radio" id="register_company" name="role" value="company">
+                        <input type="radio" id="register_company" name="type" value="company">
                         <label for="register_company">Компания</label>
                     </div>
 
