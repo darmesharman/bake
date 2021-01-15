@@ -8,6 +8,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Auth\Authenticatable as Some;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 
 class User extends Authenticatable
 {
@@ -16,7 +19,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-
+    use SoftDeletes, Some, Authorizable;
     /**
      * The attributes that are mass assignable.
      *
@@ -33,6 +36,7 @@ class User extends Authenticatable
         'token',
         'phone_verified_at',
         'phone_verification_send',
+
     ];
 
     /**
@@ -75,5 +79,6 @@ class User extends Authenticatable
     public function permissions()
     {
         return $this->belongsToMany(Permission::class)->withTimestamps();
+
     }
 }

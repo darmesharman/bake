@@ -9,7 +9,10 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +25,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -48,3 +56,7 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->nam
 
 Route::get('/reset-password/{user}/{token}', [ResetPasswordController::class, 'index'])->name('resetPassword.index');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('resetPassword.store');
+
+Route::get('/', [MainController::class, 'index']
+
+);
