@@ -1,0 +1,17 @@
+section.archive {
+
+    .archive-content {
+        display: flex;
+        
+        .archive-body {
+            width: calc(100% - var(--a-sidebar));
+            padding-right: 5rem;
+        }
+
+        .archive-sidebar {
+            width: var(--a-sidebar);
+        }
+
+    }
+
+}

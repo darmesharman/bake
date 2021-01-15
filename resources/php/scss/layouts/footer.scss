@@ -1,0 +1,22 @@
+footer.site-footer {
+    
+    .footer-top {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -3rem;
+
+        & > * {
+            margin: 0 3rem;
+        }
+
+        .info {
+            width: 26%;
+        }
+
+        .links {
+            width: 40%;
+        }
+
+    }
+
+}
