@@ -133,8 +133,8 @@
                     </div>
                 </div>
             </div>
-            <div class="slide white">
-                <img src="/wp-content/themes/init/img/wave.svg">
+            <div class="slide white" style="background-image: url('img/auth.jpg')">
+                <img src="/img/wave.svg">
                 <ul>
                     <li class="icon-dashboard">
                         <div class="text">

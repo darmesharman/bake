@@ -2,7 +2,7 @@
     <section class="auth">
         <div class="wrapper">
             <div class="slide white" <?php bgi('auth.jpg'); ?>>
-                <img src="/wp-content/themes/init/img/wave.svg">
+                <img src="img/wave.svg">
                 <ul>
                     <li class="icon-dashboard">
                         <div class="text">
