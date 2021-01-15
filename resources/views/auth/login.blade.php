@@ -98,7 +98,7 @@
                             <input name="remember" type="checkbox" id="login_remember">
                             <label for="login_remember">Запомнить меня</label>
                         </div>
-                        <a href="/restore">Забыли пароль?</a>
+                        <a href="{{ route('forgotPassword.index') }}">Забыли пароль?</a>
                     </div>
                     <button class="btn full large square" id="login_confirm">Войти</button>
                     <p>Если у Вас еще нет аккаунта - <a href="/register">зарегистрируйтесь</a></p>
