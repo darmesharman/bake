@@ -73,7 +73,9 @@
                 </ul>
             </div>
             <div class="auth-wrapper">
-                <form class="article" id="login_form">
+                <form class="article" id="login_form" method="POST" action="{{ route('login') }}">
+                    @csrf
+
                     <h1></h1>
 
                         <div class="message success">
@@ -84,8 +86,8 @@
                         </div>
 
                     <div class="form-group">
-                        <label for="login_phone">Номер телефона</label>
-                        <input name="phone" type="text" id="login_phone" class="phone-mask required" data-type="phone">
+                        <label for="phone_number">Номер телефона</label>
+                        <input name="phone_number" type="text" id="phone_number" class="phone-mask required" data-type="phone">
                     </div>
                     <div class="form-group">
                         <label for="login_password">Пароль</label>

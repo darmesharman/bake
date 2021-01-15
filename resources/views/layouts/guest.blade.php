@@ -30,6 +30,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/theme.css">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
 		<div class="container">
 			<div class="header-content">
 				<div class="site-branding">
-				    <a href="/">MyKid.<span>kz</span></a>"
+				    <a href="/">MyKid.<span>kz</span></a>
 				</div>
 
 				<div class="btns">
