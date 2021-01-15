@@ -49,10 +49,10 @@
 @section('content')
     <section class="auth">
         <div class="wrapper">
-            <div class="slide white">
-                <img src="/wp-content/themes/init/img/wave.svg">
+            <div class="slide white" style="background-image: url(img/auth.jpg)">
+                <img src="/img/wave.svg">
                 <ul>
-                    <li class="icon-dashboard">
+                    <li class="icon-dashboard ">
                         <div class="text">
                             <h5>Заголовок</h5>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic ullam qui unde?</p>
