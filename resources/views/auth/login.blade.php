@@ -81,13 +81,16 @@
                     @csrf
 
                     <h1>@yield('title')</h1>
-
+                    @if (session('status') == 'reset-password')
                         <div class="message success">
                             <div class="text">
                                 <h6>Ваш пароль был изменён</h6>
                                 <p>Вы можете авторизоваться использую новый пароль</p>
                             </div>
                         </div>
+                    @endif
+
+
 
                     <div class="form-group">
                         <label for="phone_number">Номер телефона</label>
@@ -105,7 +108,7 @@
                         <a href="{{ route('forgotPassword.index') }}">Забыли пароль?</a>
                     </div>
                     <button class="btn full large square" id="login_confirm">Войти</button>
-                    <p>Если у Вас еще нет аккаунта - <a href="/register">зарегистрируйтесь</a></p>
+                    <p>Если у Вас еще нет аккаунта - <a href="{{ route('registration.create') }}">зарегистрируйтесь</a></p>
                 </form>
             </div>
         </div>
