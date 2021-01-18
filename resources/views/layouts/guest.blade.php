@@ -26,9 +26,9 @@
 <!doctype html>
 <html>
 <head>
-
     <title>@yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/fav.png') }}" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/theme.css">
