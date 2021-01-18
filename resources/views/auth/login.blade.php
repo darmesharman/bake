@@ -81,13 +81,16 @@
                     @csrf
 
                     <h1>@yield('title')</h1>
-
+                    @if (session('status') == 'reset-password')
                         <div class="message success">
                             <div class="text">
                                 <h6>Ваш пароль был изменён</h6>
                                 <p>Вы можете авторизоваться использую новый пароль</p>
                             </div>
                         </div>
+                    @endif
+
+
 
                     <div class="form-group">
                         <label for="phone_number">Номер телефона</label>
