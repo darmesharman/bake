@@ -10,12 +10,12 @@ class Board extends Model
     protected $table = 'boards';
 
     protected $fillable = [
-        'id', 'title', 'created_at' 
+        'id', 'title', 'order', 'created_at'
     ];
 
-    public function notes()
+    public function leads()
     {
-        return $this->hasMany(Note::class);
+        return $this->hasMany(Lead::class);
     }
 
 }

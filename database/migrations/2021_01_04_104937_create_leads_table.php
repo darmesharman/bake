@@ -15,9 +15,11 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('board_id')->nullable()->index();
+            $table->string('description');
             $table->foreignId('status_id')->constrained();
             $table->decimal('sum');
+            $table->string('order');
             $table->foreignId('company_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });

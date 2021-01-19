@@ -1,22 +1,25 @@
 <template>
 <div id="app">
 <div class="container" >
-
-    <div class="column-context"  v-for="(item, index) in data.items"  v-bind:key="item.id" 
+<!-- {{data}} -->
+    <div class="board-context"  v-for="(item, index) in data.items"  v-bind:key="item.id" 
     @drop='onDrop($event, item.id)' @dragover.prevent @dragenter.prevent>
-      <Columns ref="col" v-bind:data="data" v-bind:col_index="index" v-bind:item="item" />
+      <Boards ref="col" v-bind:data="data" v-bind:col_index="index" v-bind:item="item" />
         
     </div>
 
-    <div class="column-append" v-bind:class="{'column-append-adding-card': data.addingcolumn} ">
-      <div  v-bind:class="{'column-append-adding-form': data.addingcolumn}"  hidden >
-        <input type="text" name="" id=""  v-model='data.newcoltitle'>
-        {{data.newcoltitle}}
-        <input type="button"  value="save column" @click="columnPush($event)" >
+    <div class="boards-append">
+      <div  v-bind:class="{'boards-append-adding-form': data.addingboard}"  hidden >
+        <textarea name="" id="" cols="30"  v-model='data.newcoltitle' rows="10"></textarea>
+        <input type="button"  value="save board" @click="boardPush($event)" >
       </div>
 
-      <div class="btn-column-append" v-bind:class="{'column-append-adding-btn': data.addingcolumn}" @click="columnadd">add column
+      <div class="btn-boards-append" v-bind:class="{'boards-append-adding-btn': data.addingboard}" @click="boardadd">
+        <div v-if="!data.addingboard">
+          add board
+        </div>
       </div>
+
 
     </div>
 
@@ -29,7 +32,8 @@
 
 
 <script>
-import Columns from './components/columns.vue'
+import Boards from './components/boards.vue'
+import axios from 'axios'
     // import AppLayout from '@/Layouts/AppLayout'
     export default {
         props: {
@@ -38,65 +42,120 @@ import Columns from './components/columns.vue'
             laravelVersion: String,
             phpVersion: String,
             nice1: String,
-            board: Array,
+            boards: Array,
+            last_update:String,
+            max_board_order: String
         },
         components: { 
-            Columns
-             },
+            Boards
+        },
         methods: {
-    columnadd() {
-      this.data.addingcolumn = true
-    },
-    columnPush() {
-      console.log(this.data.newcoltitle)
-      this.data.items.push({id:5, title: this.data.newcoltitle, notes:[]})
-    },
-    onDrop(evt, list) {
+          boardadd() {
+            this.data.addingboard = true
+          },
+          GET_BOARDS(response) {
+            var data = response.data[1]["00"];
+            this.lastupdate = response.data[0];
+            // console.log(response.data);
+            if(data.length >= 1)
+              for (var idx = 0; idx < data.length; idx++) {
+                console.log(data[idx])
+                if("id" in data[idx])
+                  this.data.items.push({id:data[idx].id, title: data[idx].title, order: data[idx].order, leads:[]})
+              }
+          },
+          GET_LEADS(response) {
+            var data = response.data[1]["01"];
+            this.lastupdate = response.data[0];
+            console.log(response.data[1]["01"])
+            if(data.length >= 1)
+              for (var idx = 0; idx < data.length; idx++) {
+                for (var idy = 0; idy < this.data.items.length; idy++) {
+                  if(this.data.items[idy].id == data[idx].board_id) {
+                    this.data.items[idy].leads.push({id: data[idx].id, board_id: data[idx].board_id, description: data[idx].description, order: data[idx].order})
+                    break;
+                  }
+                }
+              }
+          },
+          getUpdates() {
+            var url = "http://localhost:8001/api/update_boards/"+this.lastupdate;
+            let config = {'headers': {}}
+            axios.get(url, config)
+                .then(response => {
+                  this.GET_BOARDS(response);
+                  this.GET_LEADS(response);
+                })
+          },
+          countdown() {
+            this.getUpdates();
+            setTimeout(this.countdown, 5000);
+          },
+          boardPush() {
 
-        if(this.data.cold) {
+            var id = this.data.items[this.data.items.length-1].id+1;
+            var order = this.data.items[this.data.items.length-1].order;
+            var title = this.data.newcoltitle;
+            
+            console.log(order, id, title)
+            
+            var url = `http://localhost:8001/api/update_boards/${title}/${order}`;
+            
+            let config = {'headers': {}}
+            axios.get(url, config);
+            this.data.items.push({id:id, title: title, leads:[]})
+          },
+          onDrop(evt, list) {
 
-            const itemID = evt.dataTransfer.getData('itemID')
-            // console.log(list, itemID);
-            var item = this.data.items.find(item => item.id == itemID)
-            var item2 = this.data.items.find(item => item.id == list)
+            if(this.data.cold) {
+                const itemID = evt.dataTransfer.getData('itemID')
+                // console.log(list, itemID);
+                var item = this.data.items.find(item => item.id == itemID)
+                var item2 = this.data.items.find(item => item.id == list)
 
-            var buff = item.notes;
-            item.notes = item2.notes; 
-            item2.notes = buff; 
+                var buff = item.leads;
+                item.leads = item2.leads; 
+                item2.leads = buff; 
 
-            buff = item.id;
-            item.id = item2.id; 
-            item2.id = buff;
+                buff = item.id;
+                item.id = item2.id; 
+                item2.id = buff;
 
-            buff = item.title;
-            item.title = item2.title; 
-            item2.title = buff;
-            this.data.cold = false;
-            this.data.isediting=true
+                buff = item.title;
+                item.title = item2.title; 
+                item2.title = buff;
+                this.data.cold = false;
+                this.data.isediting=true
 
-        }
-    },
+            }
+        },
+      },
+  mounted(){
+      this.lastupdate = this.last_update;
+      setTimeout(this.countdown, 5000);
   },
-    data() {
-        return {
-        data:{
-            items: this.board,
-            addingcolumn:false,
-            newnotedescription:'none',
-            medifynote: [],
-            newcoltitle:'n',
-            modifyingnoteID:-1,
-            modifyinnotecolID:-1,
-            loaded: false,
-            clicks:0,
-            cold:false,
-            isediting:true,
-            timer:null,
-            isdraggable:false
-            
+  data() {
+    return {
+      data:{
+        items: this.boards,
+        addingboard:false,
+        newleaddescription:'none',
+        medifylead: [],
+        newcoltitle:'n',
+        modifyingleadID:-1,
+        modifyinleadcolID:-1,
+        loaded: false,
+        clicks:0,
+        cold:false,
+        isediting:true,
+        timer:null,
+        isdraggable:false,
+        leadadding: false,
+        newleadcontent:'',
+        lastupdate:''
             
         }
-        }
+      }
     }
 }
 </script>
@@ -112,53 +171,81 @@ import Columns from './components/columns.vue'
     margin: 0 auto;
     border: 1.2px solid;
   }
-  .column-context {
+  .board-context {
     display: inline-block;
     vertical-align: top;
     width: 272px;
     margin:0 4px;
     background-color:#EBEBEB;
   }
-   .column-append {
-    max-width: 400px;
-    min-width: 240px;
-    background-color: azure;
+   .boards-append {
+    position: relative;
     display: inline-block;
-    height: 55px;
-    margin:0 auto ;
-    border: .1px solid;
+    min-width: 80px;
+    width:80px ;
+    background-color: azure;
     border-radius: 14px;
   }
+
+  .boards-append-adding-form {
+    position: relative;
+    min-height: 70px;
+    display: block;
+    margin: 0 auto;
+    min-width: 70px;
+    width: 100%;
+  }
+  .boards-append-adding-form  textarea {
+    height: 27px;
+    line-height: 27px;
+    width:auto;
+    max-width: 120px;
+    overflow: hidden; 
+    overflow: none;
+    outline: none;
+    border:none;
+    resize: none;
+    cursor: pointer;
+    line-height: normal;
+
+  /* box-sizing: border-box;
+  resize: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;  */
+  }
+ 
+   .boards-append-adding-form  textarea [type=text] {
+    width: 90px;
+    height: auto;
+    word-wrap: break-word;
+    word-break: break-all;
+    display: block;
+    margin: 0 auto;
+  }
   
-  .btn-column-append:hover {
+  .btn-boards-append:hover {
     text-decoration: underline;
     cursor: pointer;
   }
-  .column-append-adding-card {
-    height: 225px;
+  .boards-append-adding-card {
+    height: 125px;
     transition:1.6s;
+    
   }
-  .column-append-adding-btn {
+  .boards-append-adding-card .btn-boards-append {
+    display: none;
+  }
+  .boards-append-adding-btn {
     position: absolute;
     visibility: hidden;
     opacity: 0;
   }
-
-  .column-append-adding-btn:hover {
+/* boards-append boards-append-adding-card */
+  .boards-append-adding-btn:hover {
     text-decoration: none;
     cursor:none;
   }
- 
-
-  .column-append-adding-form {
-    display: inline;
-    /* margin: 0 auto; */
-  }
-  .column-append-adding-form  input {
-    width: 50%;
-    margin: 0 auto;
-  }
-  
 </style>
 
 <style>

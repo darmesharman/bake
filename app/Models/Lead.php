@@ -10,10 +10,19 @@ class Lead extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'id',
+        'board_id',
+        'description',
         'status_id',
         'sum',
+        'created_at'
     ];
+
+
+    public function board()
+    {
+        return $this->belongsTo(Board::class);
+    }
 
     public function status()
     {

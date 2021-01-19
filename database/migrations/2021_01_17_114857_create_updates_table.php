@@ -4,19 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNotesTable extends Migration
+class CreateUpdatesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+    
+     public function up()
     {
-        Schema::create('notes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('board_id')->nullable()->index();
-            $table->text('description');
+        Schema::create('updates', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('event');
+            $table->json('details');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('updates');
     }
 }

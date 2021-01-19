@@ -57,6 +57,12 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->nam
 Route::get('/reset-password/{user}/{token}', [ResetPasswordController::class, 'index'])->name('resetPassword.index');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('resetPassword.store');
 
-Route::get('/', [MainController::class, 'index']
 
-);
+Route::get('/', [MainController::class, 'index']);
+
+
+Route::apiResource('leads', LeadController::class);
+
+// update  boards data
+// Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
+

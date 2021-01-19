@@ -21,7 +21,6 @@ class LeadController extends Controller
     public function index()
     {
         $leads = Lead::with(['status', 'contacts', 'company'])->get();
-
         return (new LeadCollection($leads))->response();
     }
 

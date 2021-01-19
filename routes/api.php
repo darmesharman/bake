@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,3 +24,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('leads', LeadController::class);
 Route::apiResource('contacts', ContactController::class);
 Route::apiResource('companies', CompanyController::class);
+
+// update boards data
+Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
+Route::get('/update_boards/{title}/{order}', [MainController::class, 'create_board']);
+Route::put('/update_boards/{boardid}/{title}', [MainController::class, 'update_boards_title']);
+
+Route::get('/update_boards/{description}/{boardid}/{order}', [MainController::class, 'create_lead']);
+// Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
+
+// create board
+// create lead
+// Route::post('/update_leads/{board_id}', [MainController::class, 'create_lead']);
+
+// update boards order
+Route::put('/update_boards/{board_id}/{board_id2}/{lead_id}/{order}', [MainController::class, 'update_boards_order']);
+// update leads order
+// Route::put('/update_leads/{board_id}', [MainController::class, 'update_leads_order']);
