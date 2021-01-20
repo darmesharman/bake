@@ -1,51 +1,126 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Comapny') }}
-        </h2>
-    </x-slot>
+@extends('layouts.guest')
+    @section('content')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <a class="btn btn-success m-2" href="{{ route('companies.create') }}">Create</a>
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Contacts</th>
-                        <th scope="col">Read</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($companies as $company)
-                            <tr>
-                                <th scope="row">{{ $company->id }}</th>
-                                <td>{{ $company->name }}</td>
-                                <td>{{ $company->email }}</td>
-                                <td>
-                                    @foreach ($company->contacts as $contact)
-                                        {{ $contact->email }}
-                                        <br>
-                                    @endforeach
-                                </td>
-                                <td><a class="btn btn-secondary " href="{{ route('companies.show', $company) }}">Read</a></td>
+        <section class="p archive">
 
-                                <td><a class="btn btn-primary" href="{{ route('companies.edit', $company) }}">Edit</a></td>
-                                <form action="{{ route('companies.destroy', $company) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <td><button class="btn btn-danger">Delete</button></td>
-                                </form>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                  </table>
+            <div class="page-title">
+                <div class="container">
+                    @section('title')
+                        Компании
+                    @endsection
+                </div>
             </div>
-        </div>
-    </div>
-</x-app-layout>
+
+            <div class="page-content">
+                <div class="container">
+
+                    <div class="archive-content">
+
+                        <div class="archive-body">
+                            @foreach ($companies as $company)
+
+                            <article class="catalog-item line">
+                                <div class="content">
+
+                                    <a href="{{ route('companies.show', $company) }}" class="image bg-cov" style="background-image: url({{ $company->company_image }})">
+                                        <div class="images-count icon-picture">5</div>
+                                    </a>
+                                    <div class="info">
+
+                                        <div class="title">
+                                            <h5 class="theme-hov"><a href="{{ route('companies.show', $company) }}" rel="bookmark">{{ $company->name }}</a></h5>
+                                            <p class="icon-place">{{ $company->city->name }}</p>
+                                        </div>
+
+                                        <p class="desc">{{ $company->short_description }}</p>
+
+                                        <div class="bottom">
+                                            <div class="tags small square">
+                                                <div class="line">
+                                                    <a href="#" class="tag">{{ $company->category->name }}</a>
+                                                    <a href="#" class="tag">{{ $company->city->name }}</a>
+                                                </div>
+                                            </div>
+                                            <div class="rating">
+                                                <ul class="star-rating">
+                                                    <li class="active"></li>
+                                                    <li class="active"></li>
+                                                    <li class="half"></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                                <div class="total">
+
+                                                    <span class="grey-text">{{ $company->comments->avg('rating') }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </article>
+                                @endforeach
+                        </div>
+
+
+                        <div class="archive-sidebar article">
+
+                            <div class="form-group">
+                                <label for="archive_search">Поиск</label>
+                                <div class="inline">
+                                    <input type="text" id="archive_search" placeholder="Что вы ищите?">
+                                    <button class="btn icon square icon-search input" id="archive_search_submit"></button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <h5>Фильтры</h5>
+
+                            <div class="form-group">
+                                <label for="category">Категория</label>
+                                <div class="select-wrapper">
+                                    <input type="text" id="category" placeholder="Выберите категорию" readonly disabled class="parent required" data-type="select" data-child="#subcategory">
+                                    <ul class="select-dropdown"></ul>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subcategory">Подкатегория</label>
+                                <div class="select-wrapper">
+                                    <input type="text" id="subcategory" placeholder="Выберите подкатегорию" readonly disabled class="parent dynamic-list required" data-type="select" data-child="#city">
+                                    <ul class="select-dropdown"></ul>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city">Город или область</label>
+                                <div class="select-wrapper">
+                                    <input type="text" id="city" placeholder="Выберите город или область" readonly disabled class="parent dynamic-list show-all required" data-type="select" data-child="#district">
+                                    <ul class="select-dropdown"></ul>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="district">Регион или район</label>
+                                <div class="select-wrapper">
+                                    <input type="text" id="district" placeholder="Выберите регион или район" readonly disabled class="dynamic-list parent required" data-type="select" data-child="#microdistrict">
+                                    <ul class="select-dropdown"></ul>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="microdistrict">Микрорайон</label>
+                                <div class="select-wrapper">
+                                    <input type="text" id="microdistrict" placeholder="Выберите микрорайон" readonly disabled class="dynamic-list required" data-type="select">
+                                    <ul class="select-dropdown"></ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endsection
+

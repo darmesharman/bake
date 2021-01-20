@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class PhoneNumber extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function companies()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

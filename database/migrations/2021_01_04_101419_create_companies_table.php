@@ -15,8 +15,14 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name'); //Название
+            $table->foreignId('category_id')->constrained();  // Категория
+            $table->foreignId('city_id')->constrained(); // Город или область
+            $table->string('company_image')->nullable(); //Фото
+            $table->longText('description'); // Описание
+            $table->longText('short_description'); // Краткое описание
+            $table->string('site')->nullable(); //Сайт
+            $table->string('email')->unique(); //E-mail
             $table->timestamps();
         });
     }

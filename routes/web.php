@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
+use App\Models\Comment;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
@@ -31,8 +33,10 @@ Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboa
 })->name('dashboard');
 
 Route::resource('leads', LeadController::class)->middleware(['auth', 'phone.verified']);
-Route::resource('companies', CompanyController::class)->middleware(['auth', 'phone.verified']);
+Route::resource('companies', CompanyController::class);
 Route::resource('contacts', ContactController::class)->middleware(['auth', 'phone.verified']);
+
+Route::post('companies/{company}/comments', [CommentController::class, 'store'])->name('comments.store');
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 Route::post('/register', [RegistrationController::class, 'store'])->name('registration.store');
