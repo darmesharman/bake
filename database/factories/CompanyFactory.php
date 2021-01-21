@@ -25,7 +25,12 @@ class CompanyFactory extends Factory
      */
     public function definition()
     {
-        // random category
+        // generate random kz phone number
+        $phone_code = ['01', '02', '47', '77'];
+        $rand_phone_code = $phone_code[array_rand($phone_code, 1)];
+        $phone_number = '77' . $rand_phone_code . $this->faker->unique()->randomNumber(7);
+
+        // get random category
         $category = Category::all()->random();
         // if category have subcategories get one
         // otherwise null
@@ -56,6 +61,8 @@ class CompanyFactory extends Factory
             'short_description' => $this->faker->text,
             'site' => $this->faker->url,
             'email' => $this->faker->email,
+            'phone_number' => $phone_number,
+            'rating' => $this->faker->randomFloat(1, 0, 10),
         ];
     }
 }

@@ -29,9 +29,19 @@ class Company extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function hasCategory(Category $category)
+    {
+        return $this->category->id == $category->id;
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function hasCity(City $city)
+    {
+        return $this->city->id == $city->id;
     }
 
     public function getImageAttribute()
@@ -39,9 +49,9 @@ class Company extends Model
         return $this->company_image;
     }
 
-    public function numbers()
+    public function additional_phone_numbers()
     {
-        return $this->hasMany(PhoneNumber::class);
+        return $this->hasMany(AdditionalPhoneNumber::class);
     }
 
     public function comments()

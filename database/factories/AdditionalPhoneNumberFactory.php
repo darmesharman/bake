@@ -3,17 +3,17 @@
 namespace Database\Factories;
 
 use App\Models\Company;
-use App\Models\PhoneNumber;
+use App\Models\AdditionalPhoneNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PhoneNumberFactory extends Factory
+class AdditionalPhoneNumberFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = PhoneNumber::class;
+    protected $model = AdditionalPhoneNumber::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class PhoneNumberFactory extends Factory
      */
     public function definition()
     {
-        // generate random kz number
+        // generate random kz phone number
         $phone_code = ['01', '02', '47', '77'];
         $rand_phone_code = $phone_code[array_rand($phone_code, 1)];
         $phone_number = '77' . $rand_phone_code . $this->faker->unique()->randomNumber(7);
