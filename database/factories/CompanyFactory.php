@@ -47,7 +47,7 @@ class CompanyFactory extends Factory
             : null;
 
         return [
-            'name' => $this->faker->word,
+            'name' => $this->faker->company,
             'category_id' => $category->id,
             'sub_category_id' => ($sub_category)
                 ? $sub_category->id
@@ -56,11 +56,11 @@ class CompanyFactory extends Factory
             'district_id' => ($district)
                 ? $district->id
                 : null,
-            'company_image' => null,
+            'company_image' => 'img/default.jpg',
             'description' => $this->faker->text,
             'short_description' => $this->faker->text,
             'site' => $this->faker->url,
-            'email' => $this->faker->email,
+            'email' => $this->faker->companyEmail,
             'phone_number' => $phone_number,
             'rating' => $this->faker->randomFloat(1, 0, 10),
         ];

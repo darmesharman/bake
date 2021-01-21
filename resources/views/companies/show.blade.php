@@ -3,12 +3,12 @@
 @section('content')
 <section class="company">
     <div class="company-header">
-        <div class="company-header-image bg-cov" style="background-image: url({{ $company->company_image }})">
+        <div class="company-header-image bg-cov" style="background-image: url({{ asset($company->company_image) }})">
             <div class="top-bar-wrapper">
                 <div class="container">
                     <div class="top-bar df aie">
                         <div class="company-avatar">
-                            <div class="image bg-cov" style="background-image: url({{ $company->company_image }})">
+                            <div class="image bg-cov" style="background-image: url({{ asset($company->company_image) }})">
                             </div>
                         </div>
 
@@ -69,7 +69,7 @@
 
                     <div class="single-block slider-wrapper">
                         <div class="main-slider">
-                            <div class="image" style="background-image: url({{ $company->company_image }} )"></div>
+                            <div class="image" style="background-image: url({{ asset($company->company_image) }} )"></div>
                         </div>
                     </div>
 
