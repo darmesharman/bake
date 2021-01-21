@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+    use Likable;
 
     protected $guarded = [];
 
@@ -19,5 +20,10 @@ class Comment extends Model
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function likesDislike()
+    {
+        Comment::withCount(['likes', 'dislikes'])->first();
     }
 }

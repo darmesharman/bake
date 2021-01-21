@@ -26,8 +26,13 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::with('city', 'numbers', 'comments')->get();
+        $cities = City::all();
+        foreach ($companies as $company) {
+            $rating = $company->comments->avg('rating');
+        }
 
-        return view('companies.index', compact('companies'));
+
+        return view('companies.index', compact('companies', 'cities', 'rating'));
     }
 
     /**
@@ -78,7 +83,6 @@ class CompanyController extends Controller
             $company->company_image = $filePath;
         }
         $company->save();
-        dd($company->comments->avg('rating'));
         foreach ($request->input('numbers') as $number) {
             PhoneNumber::create([
             'number' => $number,
@@ -97,7 +101,8 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('companies.show', compact('company'));
+        $like_counter = Comment::withCount(['likes_count', 'dislikes_count'])->get();
+        return view('companies.show', compact('company', 'like_counter'));
     }
 
     /**
@@ -108,10 +113,11 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
+        $categories = Category::all();
         // $sub_categories = Sub_Category::where('category_id', $request->input('category_id'));
         $cities = City::all();
         $regions = Region::all();
-        return view('companies.edit', compact('company', 'cities', 'regions'));
+        return view('companies.edit', compact('company', 'cities', 'regions', 'categories'));
     }
 
     /**

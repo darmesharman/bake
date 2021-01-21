@@ -43,16 +43,25 @@
                                             </div>
                                             <div class="rating">
                                                 <ul class="star-rating">
-                                                    <li class="active"></li>
-                                                    <li class="active"></li>
-                                                    <li class="half"></li>
-                                                    <li></li>
-                                                    <li></li>
+                                                    <p style='display:none'>{{ $temp_rating = $rating }}</p>
+                                                    @foreach (range(1, 5) as $star)
+                                                        <li class="
+                                                                @if ($temp_rating - 2 >= 0)
+                                                                    active
+                                                                    {{ $temp_rating -= 2 }}
+                                                                @elseif ($temp_rating - 1 >= 0)
+                                                                    half
+                                                                    {{ $temp_rating -= 1 }}
+                                                                @endif
+                                                            "
+                                                        >
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
-                                                <div class="total">
+                                            <div class="total">
 
-                                                    <span class="grey-text">{{ $company->comments->avg('rating') }}</span>
-                                                </div>
+                                                <span class="grey-text">{{ $rating }}</span>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -80,8 +89,17 @@
                             <div class="form-group">
                                 <label for="category">Категория</label>
                                 <div class="select-wrapper">
-                                    <input type="text" id="category" placeholder="Выберите категорию" readonly disabled class="parent required" data-type="select" data-child="#subcategory">
-                                    <ul class="select-dropdown"></ul>
+                                    <select class="dynamic-list required">
+                                        @foreach ($cities as $citiler)  {{-- citiler => city --}}
+                                            <option value="{{ $citiler->id }}">
+                                                {{ $citiler->name }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                    <ul class="select-dropdown">
+
+                                    </ul>
                                 </div>
                             </div>
 

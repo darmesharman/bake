@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
@@ -37,6 +38,7 @@ class CommentController extends Controller
      */
     public function store(Request $request, Company $company)
     {
+        $this->validateComment($request);
         Comment::create([
             'comment' => $request->input('comment'),
             'rating' => $request->input('rating'),
@@ -64,9 +66,9 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit(Comment $comment, $company)
     {
-        //
+        return view('comments.edit', compact('comment', 'company'));
     }
 
     /**
@@ -78,7 +80,18 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $this->validateComment($request);
+        $company = $request->input('company');
+        $comment->update([
+            'comment' => $request->input('comment'),
+            'rating' => $request->input('rating'),
+            'user_id' => Auth::user()->id,
+            'company_id' => $company,
+        ]);
+
+        $comment->save();
+
+        return redirect(route('companies.show', $company));
     }
 
     /**
@@ -89,6 +102,16 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+
+        return redirect()->back();
+    }
+
+    public function validateComment(Request $request)
+    {
+        Validator::make($request->input(), [
+            'comment' => ['required', 'string', 'max:1024'],
+            'rating' => ['string', 'required'],
+        ])->validate();
     }
 }
