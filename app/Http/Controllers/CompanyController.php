@@ -8,7 +8,7 @@ use App\Models\Comment;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Models\PhoneNumber;
-use App\Models\Region;
+use App\Models\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -45,9 +45,9 @@ class CompanyController extends Controller
         $categories = Category::all();
         // $sub_categories = Sub_Category::where('category_id', $request->input('category_id'));
         $cities = City::all();
-        $regions = Region::all();
+        $districts = District::all();
 
-        return view('companies.create', compact('categories', 'cities', 'regions'));
+        return view('companies.create', compact('categories', 'cities', 'districts'));
     }
 
     /**
@@ -116,8 +116,8 @@ class CompanyController extends Controller
         $categories = Category::all();
         // $sub_categories = Sub_Category::where('category_id', $request->input('category_id'));
         $cities = City::all();
-        $regions = Region::all();
-        return view('companies.edit', compact('company', 'cities', 'regions', 'categories'));
+        $districts = District::all();
+        return view('companies.edit', compact('company', 'cities', 'districts'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Status;
@@ -17,10 +18,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->create();
-
-        Status::factory(5)->create();
-        Contact::factory(3)->create();
-        Company::factory(3)->create();
+        $this->call([
+            UserSeeder::class,
+            CategorySeeder::class,
+            CitySeeder::class,
+        ]);
     }
 }

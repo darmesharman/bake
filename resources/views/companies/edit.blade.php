@@ -75,16 +75,16 @@
 
                     <div class="form-group">
                         <label for="inputPassword4">Регион или район</label>
-                        <select class="custom-select mr-sm-2" name="region" id="inlineFormCustomSelect">
-                            @foreach ($regions as $region)
-                                <option value="{{ $region->id }}">
-                                    {{ $region->name }}
+                        <select class="custom-select mr-sm-2" name="district" id="inlineFormCustomSelect">
+                            @foreach ($districts as $district)
+                                <option value="{{ $district->id }}">
+                                    {{ $district->name }}
                                 </option>
                             @endforeach
                         </select>
                     </div>
 
-                    @error('region')
+                    @error('district')
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
 

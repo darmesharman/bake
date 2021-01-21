@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('code')->nullable();
             $table->string('token')->nullable();
             //
-            $table->string('type');
+            $table->string('type')->default('user');
             //
             $table->foreignId('role_id')->nullable()->constrained();
             $table->rememberToken();

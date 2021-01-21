@@ -17,7 +17,9 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('name'); //Название
             $table->foreignId('category_id')->constrained();  // Категория
-            $table->foreignId('city_id')->constrained(); // Город или область
+            $table->foreignId('sub_category_id')->nullable()->constrained();  // Податегория
+            $table->foreignId('city_id')->constrained(); // Город
+            $table->foreignId('district_id')->nullable()->constrained(); // Район
             $table->string('company_image')->nullable(); //Фото
             $table->longText('description'); // Описание
             $table->longText('short_description'); // Краткое описание
