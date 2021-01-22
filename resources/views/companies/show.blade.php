@@ -8,6 +8,7 @@
                 <div class="company-header-slider">
                     @foreach($company->galleryImages as $image)
                         <div class="image" style="background-image: url({{ asset($image->path) }})">
+                        </div>
                     @endforeach
                 </div>
             </div>
