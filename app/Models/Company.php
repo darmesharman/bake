@@ -71,7 +71,7 @@ class Company extends Model
 
     public function galleryImages()
     {
-        return $this->hasMany(Image::class)->where('profile', false);
+        return $this->hasMany(Image::class)->where('gallery', true);
     }
 
     public function hasProfile(Image $image)
