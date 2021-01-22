@@ -81,22 +81,20 @@
                             <p class="alert alert-danger">{{ $message }}</p>
                         @enderror
 
-                        <div class="form-group row">
-                            <label for="company_image" class="col-md-4 col-form-label text-md-right">Comapny Image</label>
-                            <div class="col-md-6">
-                                <input
-                                    id="company_image"
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input
+                                    id="images"
                                     type="file"
-                                    class="form-control"
+                                    class="myfrm form-control"
                                     accept="image/*"
-                                    name="company_image"
+                                    name="company_images[]"
                                     required
-                                >
+                                    multiple >
+                                </div>
                             </div>
                         </div>
-                        @error('company_image')
-                            <p class="alert alert-danger">{{ $message }}</p>
-                        @enderror
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Описание</label>
@@ -159,10 +157,30 @@
                           </div>
 
 
-                        <button class="btn btn-success mt-3">Add</button>
+                        <button class="btn btn-successs mt-3">Add</button>
                     </form>
                 </div>
             </div>
         </div>
+    <script type="text/javascript">
+        $(function() {
+        // Multiple images preview with JavaScript
+            var previewImages = function(input, imgPreviewPlaceholder) {
+            if (input.files) {
+                var filesAmount = input.files.length;
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+                    }
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        };
+        $('#company_images').on('change', function() {
+        previewImages(this, 'div.images-preview-div');
+        });
+        });
+    </script>
     @endsection
 

@@ -23,19 +23,9 @@ trait Likable
             ->count();
     }
 
-    public function likes_count()
-    {
-        return $this->hasMany(Like::class)->where('liked', true);
-    }
-
     public function likes()
     {
         return $this->hasMany(Like::class);
-    }
-
-    public function dislikes_count()
-    {
-        return $this->hasMany(Like::class)->where('liked', false);
     }
 
     public function dislike($user = null)

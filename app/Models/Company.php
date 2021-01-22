@@ -48,4 +48,29 @@ class Company extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
+    public function profileImages()
+    {
+        return $this->hasMany(Image::class)->where('profile', true);
+    }
+
+    public function galleryImages()
+    {
+        return $this->hasMany(Image::class)->where('gallery', false);
+    }
+
+    public function hasProfile(Image $image)
+    {
+        return $this->profileImages->contains($image);
+    }
+
+    public function hasGallery(Image $image)
+    {
+        return $this->galleryImages->contains($image);
+    }
 }

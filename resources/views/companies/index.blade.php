@@ -1,13 +1,14 @@
 @extends('layouts.guest')
+    @section('title')
+    Компании
+    @endsection
     @section('content')
 
         <section class="p archive">
 
             <div class="page-title">
                 <div class="container">
-                    @section('title')
-                        Компании
-                    @endsection
+                    <h1>@yield('title')</h1>
                 </div>
             </div>
 
@@ -22,8 +23,12 @@
                             <article class="catalog-item line">
                                 <div class="content">
 
-                                    <a href="{{ route('companies.show', $company) }}" class="image bg-cov" style="background-image: url({{ $company->company_image }})">
-                                        <div class="images-count icon-picture">5</div>
+                                    <a href="{{ route('companies.show', $company) }}" class="image bg-cov" "
+                                    @if ($company->profileImages->isNotEmpty())
+                                        style="background-image: url( {{ asset($company->profileImages[0]->path) }} )"
+                                    @endif
+                                    >
+                                        <div class="images-count icon-picture">{{ count($company->galleryImages) }}</div>
                                     </a>
                                     <div class="info">
 
@@ -43,7 +48,9 @@
                                             </div>
                                             <div class="rating">
                                                 <ul class="star-rating">
+                                                    <p style='display:none'>{{ $rating = $company->comments->avg('rating') }}</p>
                                                     <p style='display:none'>{{ $temp_rating = $rating }}</p>
+
                                                     @foreach (range(1, 5) as $star)
                                                         <li class="
                                                                 @if ($temp_rating - 2 >= 0)
@@ -60,7 +67,9 @@
                                                 </ul>
                                             <div class="total">
 
-                                                <span class="grey-text">{{ $rating }}</span>
+                                                <span class="grey-text">
+                                                    {{ $rating ? number_format($rating / 2, 1) : '0.0' }}
+                                                </span>
                                             </div>
                                             </div>
                                         </div>
@@ -90,12 +99,11 @@
                                 <label for="category">Категория</label>
                                 <div class="select-wrapper">
                                     <select class="dynamic-list required">
-                                        @foreach ($cities as $citiler)  {{-- citiler => city --}}
-                                            <option value="{{ $citiler->id }}">
-                                                {{ $citiler->name }}
+                                        @foreach ($cities as $city)  {{-- citiler => city --}}
+                                            <option value="{{ $city->id }}">
+                                                {{ $city->name }}
                                             </option>
                                         @endforeach
-
                                     </select>
                                     <ul class="select-dropdown">
 

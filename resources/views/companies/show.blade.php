@@ -2,12 +2,31 @@
     @section('content')
         <section class="company">
             <div class="company-header">
-                <div class="company-header-image bg-cov" style="background-image: url({{ $company->company_image }})">
+                 @if(count($company->galleryImages) > 4){
+                    <div class="company-header-image">
+                        <div class="company-header-slider">
+                            @foreach($company->galleryImages as $image)
+                                <div class="image" style="background-image: url({{ asset($image->path) }})">
+                                </div>
+                            @endforeach
+                        </div>
+                @else
+                    @foreach($company->galleryImages as $image)
+                        <div class="company-header-image bg-cov" style="background-image: url({{ asset($image->path) }})">
+                        </div>
+                    @endforeach
+                @endif
+
                     <div class="top-bar-wrapper">
                         <div class="container">
                             <div class="top-bar df aie">
                                 <div class="company-avatar">
-                                    <div class="image bg-cov" style="background-image: url({{ $company->company_image }})"></div>
+                                    <div class="image bg-cov"
+                                        @if ($company->profileImages->isNotEmpty())
+                                            style="background-image: url( {{ asset($company->profileImages[0]->path) }})"
+                                        @endif
+                                    >
+                                    </div>
                                 </div>
 
                                 <div class="top-bar-info df aic jcsb fg white">
@@ -28,13 +47,15 @@
                     </div>
                 </div>
             </div>
+            <p style='display:none'>{{ $rating = $company->comments->avg('rating') }}</p>
+            <p style='display:none'>{{ $temp_rating = $rating }}</p>
             <div class="company-content">
                 <div class="bottom-bar-wrapper">
                     <div class="container">
                         <div class="bottom-bar df jcsb aic">
                             <div class="stats">
                                 <div class="item">
-                                    <div class="stats-icon">{{ $company->comments->avg('rating') }}</div>
+                                    <div class="stats-icon">{{ $rating ? number_format($rating / 2, 1) : '0.0' }}</div>
                                     <div class="text">
                                         <h6>Рейтинг</h6>
                                         <div> <div class="icon-warning show-reviews-count toggle-dropdown">
@@ -206,11 +227,7 @@
                                                         <div class="line">
                                                             <button class="btn bordered small icon-like">
                                                                 Like
-                                                                @foreach ($like_counter as $count)
-                                                                    @if ($count->id === $comment->id)
-                                                                        {{  $count->likes_count_count ?: 0 }}
-                                                                    @endif
-                                                                @endforeach
+                                                                {{ $comment->likesNumber() }}
                                                             </button>
                                                             <a rel="nofollow" class="comment-reply-link btn bordered-theme small icon-forward" href="https://mykid.init.kz/company/%D0%A0%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0/?replytocom=13#respond" data-commentid="13" data-postid="263" data-belowelement="div-comment-13" data-respondelement="respond" data-replyto="Комментарий к записи Жан Ильяс" aria-label="Комментарий к записи Жан Ильяс">Ответить</a>
                                                         </div>
@@ -222,12 +239,8 @@
                                                     <div class="bottom btns sb bm">
                                                         <div class="line">
                                                             <button class="btn bordered small icon-like">
-                                                                Like
-                                                                @foreach ($like_counter as $count)
-                                                                    @if ($count->id === $comment->id)
-                                                                        {{  $count->dislikes_count_count ?: 0 }}
-                                                                    @endif
-                                                                @endforeach
+                                                                Dislike
+                                                                {{ $comment->dislikesNumber() }}
                                                             </button>
 
                                                         </div>

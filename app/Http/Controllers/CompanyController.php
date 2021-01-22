@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\Contact;
 use App\Models\PhoneNumber;
 use App\Models\District;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -27,12 +28,8 @@ class CompanyController extends Controller
     {
         $companies = Company::with('city', 'numbers', 'comments')->get();
         $cities = City::all();
-        foreach ($companies as $company) {
-            $rating = $company->comments->avg('rating');
-        }
 
-
-        return view('companies.index', compact('companies', 'cities', 'rating'));
+        return view('companies.index', compact('companies', 'cities'));
     }
 
     /**
@@ -69,23 +66,23 @@ class CompanyController extends Controller
             'city_id' => $request->input('city'),
         ]);
         // Get image file
-        if ($request->has('company_image')) {
-            $image = $request->file('company_image');
-            // Make a image name based on user name and current timestamp
-            $name = Str::slug($request->input('name')).'_'.time();
-            // Define folder path
-            $folder = '/uploads/images/';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
-            // Set user profile image path in database to filePath
-            $company->company_image = $filePath;
-        }
         $company->save();
+
+        if ($request->hasfile('company_images')) {
+            foreach ($request->file('company_images') as $key => $file) {
+                $path = $file->store('images');
+                $name = $file->getClientOriginalName();
+                $insert[$key]['name'] = $name;
+                $insert[$key]['path'] = $path;
+                $insert[$key]['company_id'] = $company->id;
+            }
+        }
+        Image::insert($insert);
+
+
         foreach ($request->input('numbers') as $number) {
             PhoneNumber::create([
-            'number' => $number,
+            'phone_number' => $number,
             'company_id' => $company->id,
             ]);
         }
@@ -101,8 +98,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        $like_counter = Comment::withCount(['likes_count', 'dislikes_count'])->get();
-        return view('companies.show', compact('company', 'like_counter'));
+        return view('companies.show', compact('company'));
     }
 
     /**
@@ -117,7 +113,7 @@ class CompanyController extends Controller
         // $sub_categories = Sub_Category::where('category_id', $request->input('category_id'));
         $cities = City::all();
         $districts = District::all();
-        return view('companies.edit', compact('company', 'cities', 'districts'));
+        return view('companies.edit', compact('company', 'cities', 'districts', 'categories'));
     }
 
     /**
@@ -141,21 +137,16 @@ class CompanyController extends Controller
             'city_id' => $request->input('city'),
         ]);
 
-        if ($request->has('company_image')) {
-            $image = $request->file('company_image');
-            // Make a image name based on user name and current timestamp
-            $name = Str::slug($request->input('name')).'_'.time();
-            // Define folder path
-            $folder = '/uploads/images/';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-            // Delete image
-            $this->deleteOne(null, 'public', $company->company_photo);
-            // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
-            // Set user profile image path in database to filePath
-            $company->company_image = $filePath;
+        if ($request->hasfile('company_images')) {
+            foreach ($request->file('company_images') as $key => $file) {
+                $path = $file->store('/images');
+                $name = $file->getClientOriginalName();
+                $insert[$key]['name'] = $name;
+                $insert[$key]['path'] = $path;
+                $insert[$key]['company_id'] = $company->id;
+            }
         }
+        Image::updating($insert);
 
         PhoneNumber::where('company_id', $company->id)->get()->each(function ($phone_number, $key) {
             $phone_number->delete();
@@ -165,7 +156,7 @@ class CompanyController extends Controller
 
         foreach ($request->input('numbers') as $number) {
             PhoneNumber::create([
-                'number' => $number,
+                'phone_number' => $number,
                 'company_id' => $company->id,
             ]);
         }
@@ -176,8 +167,6 @@ class CompanyController extends Controller
                 $phone_number->delete();
             }
         }
-
-
 
         return redirect()->route('companies.index');
     }
