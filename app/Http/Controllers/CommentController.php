@@ -114,4 +114,8 @@ class CommentController extends Controller
             'rating' => ['string', 'required'],
         ])->validate();
     }
+
+    protected function updateRating($comment)
+    {
+    }
 }

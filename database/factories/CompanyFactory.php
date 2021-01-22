@@ -64,7 +64,6 @@ class CompanyFactory extends Factory
             'site' => $this->faker->url,
             'email' => $this->faker->companyEmail,
             'phone_number' => $phone_number,
-            'rating' => $this->faker->randomFloat(1, 0, 10),
         ];
     }
 }
