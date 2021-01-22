@@ -10,9 +10,6 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
-use App\Models\Comment;
-use GuzzleHttp\Middleware;
-use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,14 +34,17 @@ Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboa
 Route::resource('leads', LeadController::class)->middleware(['auth', 'phone.verified']);
 Route::resource('companies', CompanyController::class);
 Route::resource('contacts', ContactController::class)->middleware(['auth', 'phone.verified']);
-Route::resource('comments', CommentController::class)->middleware('auth');
 
-Route::get('/comments/{comment}/{company}/edit', [CommentController::class, 'edit'])->name('comments.edit')->middleware('auth');
+Route::prefix('companies/{company}/')->middleware('auth')->group(function () {
+    Route::post('comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::get('comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit');
+    Route::put('comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
+    Route::delete('comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+    Route::post('/comments/{comment}/like', [CommentController::class, 'like'])->name('comments.like');
+    Route::post('/comments/{comment}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
+});
 
-Route::post('companies/{company}/comments', [CommentController::class, 'store'])->name('comments.store');
 
-Route::post('/Comments/{comment}/like', [CommentLikesController::class, 'store'])->name('like')->middleware('auth');
-Route::delete('/Comments/{comment}/like', [CommentLikesController::class, 'destroy'])->name('dislike')->middleware('auth');
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 Route::post('/register', [RegistrationController::class, 'store'])->name('registration.store');

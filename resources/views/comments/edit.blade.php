@@ -3,7 +3,7 @@
         <div class="company-content">
             <div class="bottom-bar-wrapper">
                 <div class="container">
-                    <form method="POST" action="{{ route('comments.update', $comment) }}">
+                    <form method="POST" action="{{ route('comments.update', [$company, $comment]) }}">
                         @csrf
                         @method('PUT')
                         <input type="hidden" value="{{ $company }}" name="company">

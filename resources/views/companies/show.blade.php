@@ -232,12 +232,12 @@
                                         <p>{{ $comment->comment }}</p>
                                     </div>
                                     <form method="POST"
-                                        action="{{ route('like', $comment->id) }}">
+                                        action="{{ route('comments.like', [$company, $comment]) }}">
                                         @csrf
 
                                         <div class="bottom btns sb bm">
                                             <div class="line">
-                                                <button class="btn bordered small icon-like">
+                                                <button class="btn bordered small icon-like {{ $comment->isLikedBy(Auth::user()) ? 'bg-warning' : '' }}">
                                                     Like
                                                     {{ $comment->likesNumber() }}
                                                 </button>
@@ -252,34 +252,18 @@
                                         </div>
                                     </form>
 
-                                    <form method="POST"
-                                        action="{{ route('dislike', $comment->id) }}">
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <div class="bottom btns sb bm">
-                                            <div class="line">
-                                                <button class="btn bordered small icon-like">
-                                                    Dislike
-                                                    {{ $comment->dislikesNumber() }}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-
                                     @auth
-                                        @if($comment->user_id === Auth::user()->id)
+                                        @if(Auth::user()->hasComment($comment))
                                             <div class="bottom btns sb bm">
                                                 <div class="line">
                                                     <form
-                                                        action="{{ route('comments.edit', [$comment->id, $company->id]) }}"
+                                                        action="{{ route('comments.edit', [$company, $comment]) }}"
                                                         method="GET">
-                                                        @csrf
 
                                                         <button class="btn bordered small">Edit</button>
                                                     </form>
                                                     <form method="POST"
-                                                        action="{{ route('comments.destroy', $comment->id) }}">
+                                                        action="{{ route('comments.destroy', [$company, $comment]) }}">
                                                         @csrf
                                                         @method('DELETE')
 
@@ -343,8 +327,8 @@
     </div>
 
     <form action="{{ route('companies.destroy', $company) }}" method="POST">
-        @method('DELETE')
         @csrf
+
         <button>DELETE</button>
     </form>
 </section>
