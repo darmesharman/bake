@@ -6,10 +6,9 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Comment;
 use App\Models\Company;
-use App\Models\Contact;
-use App\Models\PhoneNumber;
 use App\Models\District;
 use App\Models\Image;
+use App\Models\AdditionalPhoneNumber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -26,8 +25,13 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::with('city', 'numbers', 'comments')->get();
-        $cities = City::all();
+        $companies = Company::with(
+            'category:id,name',
+            'city:id,name',
+            'additional_phone_numbers',
+            'comments'
+        )->get();
+        $cities = City::select('id', 'name')->get();
 
         return view('companies.index', compact('companies', 'cities'));
     }
@@ -39,12 +43,10 @@ class CompanyController extends Controller
      */
     public function create(Request $request)
     {
-        $categories = Category::all();
-        // $sub_categories = Sub_Category::where('category_id', $request->input('category_id'));
-        $cities = City::all();
-        $districts = District::all();
+        $categories = Category::with('subCategories')->get();
+        $cities = City::with('districts')->get();
 
-        return view('companies.create', compact('categories', 'cities', 'districts'));
+        return view('companies.create', compact('categories', 'cities'));
     }
 
     /**
@@ -55,7 +57,15 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateCreateCompany($request);
+        $validator = $this->validateCompany($request);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('companies.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $company = Company::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -64,10 +74,11 @@ class CompanyController extends Controller
             'site' => $request->input('site'),
             'category_id' => $request->input('category'),
             'city_id' => $request->input('city'),
+            'phone_number' => $request->input('phone_number'),
         ]);
-        // Get image file
-        $company->save();
 
+        $company->save();
+        // Get image file
         if ($request->hasfile('company_images')) {
             foreach ($request->file('company_images') as $key => $file) {
                 $path = $file->store('images');
@@ -79,13 +90,8 @@ class CompanyController extends Controller
         }
         Image::insert($insert);
 
-
-        foreach ($request->input('numbers') as $number) {
-            PhoneNumber::create([
-            'phone_number' => $number,
-            'company_id' => $company->id,
-            ]);
-        }
+        $company->save();
+        $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'));
 
         return Redirect(route('companies.index'));
     }
@@ -109,11 +115,10 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        $categories = Category::all();
-        // $sub_categories = Sub_Category::where('category_id', $request->input('category_id'));
-        $cities = City::all();
-        $districts = District::all();
-        return view('companies.edit', compact('company', 'cities', 'districts', 'categories'));
+        $categories = Category::with('subCategories')->get();
+        $cities = City::with('districts')->get();
+
+        return view('companies.edit', compact('company', 'categories', 'cities'));
     }
 
     /**
@@ -125,7 +130,13 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        $this->validateUpdateCompany($company, $request);
+        $validator = $this->validateCompany($request, $company);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('companies.edit', $company)
+                ->withErrors($validator);
+        }
 
         $company->update([
             'name' => $request->input('name'),
@@ -135,6 +146,7 @@ class CompanyController extends Controller
             'site' => $request->input('site'),
             'category_id' => $request->input('category'),
             'city_id' => $request->input('city'),
+            'phone_number' => $request->input('phone_number'),
         ]);
 
         if ($request->hasfile('company_images')) {
@@ -148,25 +160,9 @@ class CompanyController extends Controller
         }
         Image::updating($insert);
 
-        PhoneNumber::where('company_id', $company->id)->get()->each(function ($phone_number, $key) {
-            $phone_number->delete();
-        });
-
         $company->save();
 
-        foreach ($request->input('numbers') as $number) {
-            PhoneNumber::create([
-                'phone_number' => $number,
-                'company_id' => $company->id,
-            ]);
-        }
-
-        $phone_numbers = PhoneNumber::all();
-        foreach ($phone_numbers as $phone_number) {
-            if ($phone_number->number === null) {
-                $phone_number->delete();
-            }
-        }
+        $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
 
         return redirect()->route('companies.index');
     }
@@ -184,33 +180,57 @@ class CompanyController extends Controller
         return back();
     }
 
-    public function validateCreateCompany(Request $request)
+    protected function validateCompany(Request $request, Company $company = null)
     {
-        Validator::make($request->input(), [
+        $rules = [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'unique:companies', 'max:255'],
             'company_image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'description' => ['required', 'string', 'max:10240', 'min:255'],
-            'short_description' => ['required', 'string', 'max:5120', 'min:255'],
-            'city' => ['required'],
-            'category' => ['required'],
-            'site' => ['required', 'string', 'max:255'],
-            'numbers' => ['required', 'array', 'min:1'],
-        ])->validate();
+            'description' => ['required', 'string', 'min:255', 'max:10240'],
+            'short_description' => ['required', 'string', 'min:255', 'max:5120'],
+            'city' => ['required', 'exists:cities,id'],
+            'category' => ['required', 'exists:categories,id'],
+            'site' => ['required', 'string', 'max:2048'],
+            'phone_number' => ['required', 'starts_with:77', 'digits:11', 'unique:companies'],
+            'additional_phone_numbers.*' => ['nullable', 'starts_with:77', 'digits:11', 'distinct'],
+            'email' => ['required', 'string', 'max:255', 'unique:companies',],
+        ];
+
+        if ($company) {
+            $rules['phone_number'] = ['required', 'starts_with:77', 'digits:11', Rule::unique('companies')->ignore($company->id)];
+            $rules['email'] = ['required', 'email', 'max:255', Rule::unique('companies')->ignore($company->id)];
+        }
+
+        $messages = [];
+
+        return Validator::make($request->input(), $rules, $messages);
     }
 
-    public function validateUpdateCompany($company, Request $request)
+    protected function createOrUpdateAdditionalPhoneNumbers($input_additional_phone_numbers, $company = null)
     {
-        Validator::make($request->input(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('companies')->ignore($company->id)],
-            'company_image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'description' => ['required', 'string', 'max:10240', 'min:255'],
-            'short_description' => ['required', 'string', 'max:10240', 'min:255'],
-            'city' => ['required'],
-            'category' => ['required'],
-            'site' => ['required', 'string', 'max:255'],
-            'numbers' => ['required', 'array', 'min:1'],
-        ])->validate();
+        // delete previous additional phone numbers if we updating
+        if ($company) {
+            AdditionalPhoneNumber::where('company_id', $company->id)->get()->each(function ($additional_phone_number, $key) {
+                $additional_phone_number->delete();
+            });
+        }
+
+        // create inputed additional phone numbers
+        foreach ($input_additional_phone_numbers as $phone_number) {
+            // if request phone_number is null then continue
+            if (!$phone_number) {
+                continue;
+            }
+
+            // if request phone_number already exists in db then continue
+            // it is catched in validation but this is additional secure
+            if (AdditionalPhoneNumber::where('phone_number', $phone_number)->first()) {
+                continue;
+            }
+
+            AdditionalPhoneNumber::create([
+                'phone_number' => $phone_number,
+                'company_id' => $company->id,
+            ]);
+        }
     }
 }
