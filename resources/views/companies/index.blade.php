@@ -56,7 +56,7 @@
                                         <div class="rating">
                                             <ul class="star-rating">
                                                 {{-- need JS --}}
-                                                <p style='display:none'>{{ $rating = $company->rating }}</p>
+                                                <p style='display:none'>{{ $rating = $company->rating() }}</p>
                                                 @foreach(range(1, 5) as $star)
                                                     <li class="
                                                         @if($rating - 2 >= 0)
@@ -72,7 +72,7 @@
                                                 {{-- need JS --}}
                                             </ul>
                                             <div class="total">
-                                                <span class="grey-text">{{ $company->rating }}</span>
+                                                <span class="grey-text">{{ $company->rating() }}</span>
                                             </div>
                                         </div>
                                     </div>

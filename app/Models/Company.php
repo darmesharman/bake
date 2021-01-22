@@ -59,6 +59,11 @@ class Company extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function rating()
+    {
+        return number_format($this->comments->avg('rating'), 1);
+    }
+
     public function images()
     {
         return $this->hasMany(Image::class);

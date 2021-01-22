@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class CompanyController extends Controller
@@ -76,7 +77,6 @@ class CompanyController extends Controller
             'city_id' => $request->input('city'),
             'phone_number' => $request->input('phone_number'),
         ]);
-
         $company->save();
         // Get image file
         if ($request->hasfile('company_images')) {
@@ -151,14 +151,15 @@ class CompanyController extends Controller
 
         if ($request->hasfile('company_images')) {
             foreach ($request->file('company_images') as $key => $file) {
-                $path = $file->store('/images');
+                @
+                $path = $file->store('images');
                 $name = $file->getClientOriginalName();
                 $insert[$key]['name'] = $name;
                 $insert[$key]['path'] = $path;
                 $insert[$key]['company_id'] = $company->id;
             }
         }
-        Image::updating($insert);
+        Image::insert($insert);
 
         $company->save();
 
@@ -175,9 +176,15 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
+        $photos = Image::where('company_id', $company->id)->get();
+
+        foreach ($photos as $photo) {
+            Storage::delete($photo->path);
+        }
+
         $company->delete();
 
-        return back();
+        return redirect()->route('companies.index');
     }
 
     protected function validateCompany(Request $request, Company $company = null)

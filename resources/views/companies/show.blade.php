@@ -53,7 +53,7 @@
                 <div class="bottom-bar df jcsb aic">
                     <div class="stats">
                         <div class="item">
-                            <div class="stats-icon">{{ $company->rating }}
+                            <div class="stats-icon">{{ $company->rating() }}
                             </div>
                             <div class="text">
                                 <h6>Рейтинг</h6>
@@ -337,6 +337,11 @@
     </div>
     </div>
 
+    <form action="{{ route('companies.destroy', $company) }}" method="POST">
+        @method('DELETE')
+        @csrf
+        <button>DELETE</button>
+    </form>
 </section>
 
 @endsection
