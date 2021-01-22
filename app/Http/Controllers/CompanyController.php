@@ -233,7 +233,14 @@ class CompanyController extends Controller
 
         // add new additional phone numbers
         foreach ($input_additional_phone_numbers as $phone_number) {
+            // if request phone_number is null then continue
             if (!$phone_number) {
+                continue;
+            }
+
+            // if request phone_number already exists in db then continue
+            // it is catched in validation but this is additional secure
+            if (AdditionalPhoneNumber::where('phone_number', $phone_number)->first()) {
                 continue;
             }
 
