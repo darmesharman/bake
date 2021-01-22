@@ -181,22 +181,7 @@ class CompanyController extends Controller
 
         $company->save();
 
-        // delete previous additional phone numbers
-        AdditionalPhoneNumber::where('company_id', $company->id)->get()->each(function ($additional_phone_number, $key) {
-            $additional_phone_number->delete();
-        });
-
-        // add new additional phone numbers
-        foreach ($request->input('additional_phone_numbers') as $phone_number) {
-            if (!$phone_number) {
-                continue;
-            }
-
-            AdditionalPhoneNumber::create([
-                'phone_number' => $phone_number,
-                'company_id' => $company->id,
-            ]);
-        }
+        $this->updateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
 
         return redirect()->route('companies.index');
     }
@@ -214,7 +199,7 @@ class CompanyController extends Controller
         return back();
     }
 
-    public function validateCompany(Request $request, Company $company = null)
+    protected function validateCompany(Request $request, Company $company = null)
     {
         $rules = [
             'name' => ['required', 'string', 'max:255'],
@@ -237,5 +222,25 @@ class CompanyController extends Controller
         $messages = [];
 
         return Validator::make($request->input(), $rules, $messages);
+    }
+
+    protected function updateAdditionalPhoneNumbers($input_additional_phone_numbers, $company)
+    {
+        // delete previous additional phone numbers
+        AdditionalPhoneNumber::where('company_id', $company->id)->get()->each(function ($additional_phone_number, $key) {
+            $additional_phone_number->delete();
+        });
+
+        // add new additional phone numbers
+        foreach ($input_additional_phone_numbers as $phone_number) {
+            if (!$phone_number) {
+                continue;
+            }
+
+            AdditionalPhoneNumber::create([
+                'phone_number' => $phone_number,
+                'company_id' => $company->id,
+            ]);
+        }
     }
 }
