@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->string('name');
             $table->string('path');
             $table->boolean('profile')->default(false);
-            $table->boolean('gallery')->default(false);
+            $table->boolean('gallery')->default(true);
             $table->foreignId('company_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
