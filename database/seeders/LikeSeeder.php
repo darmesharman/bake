@@ -17,8 +17,12 @@ class LikeSeeder extends Seeder
     public function run()
     {
         for ($i = 0; $i < 50; $i++) {
-            $user = User::all()->random();
-            $comment = Comment::all()->random();
+            // if User not empty then take of the user
+            // otherwise create new one
+            $user = User::all()->isNotEmpty() ? User::all()->random() : User::factory()->create();
+            // if Comment not empty then take of the comment
+            // otherwise create new one
+            $comment = Comment::all()->isNotEmpty() ? Comment::all()->random() : Comment::factory()->create();
 
             if (Like::where('user_id', $user->id)
                 ->where('comment_id', $comment->id)

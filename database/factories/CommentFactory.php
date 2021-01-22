@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Comment;
+use App\Models\Company;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentFactory extends Factory
@@ -24,6 +26,8 @@ class CommentFactory extends Factory
         return [
             'comment' => $this->faker->text,
             'rating' => $this->faker->numberBetween(0, 10),
+            'user_id' => User::factory(),
+            'company_id' => Company::factory(),
         ];
     }
 }

@@ -30,16 +30,18 @@ class CompanyFactory extends Factory
         $rand_phone_code = $phone_code[array_rand($phone_code, 1)];
         $phone_number = '77' . $rand_phone_code . $this->faker->unique()->randomNumber(7);
 
-        // get random category
-        $category = Category::all()->random();
+        // if Category not empty then take one of the category
+        // otherwise create new one
+        $category = Category::all()->isNotEmpty() ? Category::all()->random() : Category::factory()->create();
         // if category have subcategories get one
         // otherwise null
         $sub_category = ($category->subCategories->isNotEmpty())
             ? $category->subCategories->random()
             : null;
 
-        // random city
-        $city = City::all()->random();
+        // if City not empty then take one of the city
+        // otherwise create new one
+        $city = City::all()->isNotEmpty() ? City::all()->random() : City::factory()->create();
         // if city have districts get one
         // otherwise null
         $district = ($city->districts->isNotEmpty())

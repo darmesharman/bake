@@ -18,9 +18,16 @@ class CommentSeeder extends Seeder
     public function run()
     {
         for ($i = 0; $i < 10; $i++) {
-            $comment = Comment::factory()
-                ->for(Company::all()->random())
-                ->for(User::all()->random())
+            // if User not empty then take of the user
+            // otherwise create new one
+            $user = User::all()->isNotEmpty() ? User::all()->random() : User::factory()->create();
+            // if Company not empty then take of the company
+            // otherwise create new one
+            $company = Company::all()->isNotEmpty() ? Company::all()->random() : Company::factory()->create();
+
+            Comment::factory()
+                ->for($user)
+                ->for($company)
                 ->create();
         }
     }
