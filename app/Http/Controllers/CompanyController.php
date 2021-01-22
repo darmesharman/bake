@@ -7,12 +7,10 @@ use App\Models\City;
 use App\Models\Comment;
 use App\Models\Company;
 use App\Models\AdditionalPhoneNumber;
-use App\Models\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Traits\UploadTrait;
-use Database\Factories\AdditionalPhoneNumberFactory;
 use Illuminate\Support\Str;
 
 class CompanyController extends Controller
@@ -94,16 +92,7 @@ class CompanyController extends Controller
 
         $company->save();
 
-        foreach ($request->input('additional_phone_numbers') as $phone_number) {
-            if (!$phone_number) {
-                continue;
-            }
-
-            AdditionalPhoneNumber::create([
-                'phone_number' => $phone_number,
-                'company_id' => $company->id,
-            ]);
-        }
+        $company->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'));
 
         return Redirect(route('companies.index'));
     }
@@ -181,7 +170,7 @@ class CompanyController extends Controller
 
         $company->save();
 
-        $this->updateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
+        $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
 
         return redirect()->route('companies.index');
     }
@@ -224,14 +213,16 @@ class CompanyController extends Controller
         return Validator::make($request->input(), $rules, $messages);
     }
 
-    protected function updateAdditionalPhoneNumbers($input_additional_phone_numbers, $company)
+    protected function createOrUpdateAdditionalPhoneNumbers($input_additional_phone_numbers, $company = null)
     {
-        // delete previous additional phone numbers
-        AdditionalPhoneNumber::where('company_id', $company->id)->get()->each(function ($additional_phone_number, $key) {
-            $additional_phone_number->delete();
-        });
+        // delete previous additional phone numbers if we updating
+        if ($company) {
+            AdditionalPhoneNumber::where('company_id', $company->id)->get()->each(function ($additional_phone_number, $key) {
+                $additional_phone_number->delete();
+            });
+        }
 
-        // add new additional phone numbers
+        // create inputed additional phone numbers
         foreach ($input_additional_phone_numbers as $phone_number) {
             // if request phone_number is null then continue
             if (!$phone_number) {
