@@ -211,132 +211,136 @@
                                             <div class="date">{{ $comment->created_at }}</div>
                                         </div>
                                         <ul class="star-rating highlight">
-
-                                            <li class="active"></li>
-
-                                            <li class="active"></li>
-
-                                            <li class="active"></li>
-
-                                            <li class="active"></li>
-
-                                            <li class=""></li>
+                                            {{-- need JS --}}
+                                            <p style='display:none'>{{ $rating = $comment->rating }}</p>
+                                            @foreach(range(1, 5) as $star)
+                                                <li class="
+                                                    @if($rating - 2 >= 0)
+                                                            active
+                                                            {{ $rating -= 2 }}
+                                                    @elseif($rating - 1 >= 0)
+                                                            half
+                                                            {{ $rating -= 1 }}
+                                                    @endif
+                                                    ">
+                                                </li>
+                                            @endforeach
+                                            {{-- need JS --}}
                                         </ul>
                                     </div>
                                     <div class="middle article-sm grey-text">
                                         <p>{{ $comment->comment }}</p>
                                     </div>
-                                    @auth
-                                        <form method="POST"
-                                            action="{{ route('like', $comment->id) }}">
-                                            @csrf
-                                            <div class="bottom btns sb bm">
-                                                <div class="line">
-                                                    <button class="btn bordered small icon-like">
-                                                        Like
-                                                        {{ $comment->likesNumber() }}
-                                                    </button>
-                                                    <a rel="nofollow"
-                                                        class="comment-reply-link btn bordered-theme small icon-forward"
-                                                        href="https://mykid.init.kz/company/%D0%A0%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0/?replytocom=13#respond"
-                                                        data-commentid="13" data-postid="263"
-                                                        data-belowelement="div-comment-13" data-respondelement="respond"
-                                                        data-replyto="Комментарий к записи Жан Ильяс"
-                                                        aria-label="Комментарий к записи Жан Ильяс">Ответить</a>
-                                                </div>
+                                    <form method="POST"
+                                        action="{{ route('like', $comment->id) }}">
+                                        @csrf
+
+                                        <div class="bottom btns sb bm">
+                                            <div class="line">
+                                                <button class="btn bordered small icon-like">
+                                                    Like
+                                                    {{ $comment->likesNumber() }}
+                                                </button>
+                                                <a rel="nofollow"
+                                                    class="comment-reply-link btn bordered-theme small icon-forward"
+                                                    href="https://mykid.init.kz/company/%D0%A0%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0/?replytocom=13#respond"
+                                                    data-commentid="13" data-postid="263"
+                                                    data-belowelement="div-comment-13" data-respondelement="respond"
+                                                    data-replyto="Комментарий к записи Жан Ильяс"
+                                                    aria-label="Комментарий к записи Жан Ильяс">Ответить</a>
                                             </div>
-                                        </form>
-                                        <form method="POST"
-                                            action="{{ route('dislike', $comment->id) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <div class="bottom btns sb bm">
-                                                <div class="line">
-                                                    <button class="btn bordered small icon-like">
-                                                        Dislike
-                                                        {{ $comment->dislikesNumber() }}
-                                                    </button>
-
-                                                </div>
-                                            </div>
-                                </div>
-                                </form>
-                                {{-- ref: likes dislikes --}}
-
-                                @if($comment->user_id === Auth::user()->id)
-                                    <div class="bottom btns sb bm">
-                                        <div class="line">
-                                            <form
-                                                action="{{ route('comments.edit', [$comment->id, $company->id]) }}"
-                                                method="GET">
-                                                @csrf
-
-                                                <button class="btn bordered small">Edit</button>
-                                            </form>
-                                            <form method="POST"
-                                                action="{{ route('comments.destroy', $comment->id) }}">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <input type="hidden" value="{{ $company->id }}" name="company">
-                                                <button class="btn bordered small">Delete</button>
-                                            </form>
                                         </div>
-                                    </div>
-                                @endif
-                    @endauth
+                                    </form>
 
-                </div>
-            </div>
+                                    <form method="POST"
+                                        action="{{ route('dislike', $comment->id) }}">
+                                        @csrf
+                                        @method('DELETE')
 
-            <!-- #comment-## -->
-            @endforeach
-        </div>
+                                        <div class="bottom btns sb bm">
+                                            <div class="line">
+                                                <button class="btn bordered small icon-like">
+                                                    Dislike
+                                                    {{ $comment->dislikesNumber() }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
 
-    </div>
-    </div>
-    @auth
-        <form method="POST" action="{{ route('comments.store', $company) }}">
-            @csrf
-            <div id="respond" class="comment-respond">
-                <h3 id="reply-title" class="comment-reply-title">
-                    Оцените нас и напишите отзыв
-                </h3>
-                <p class="comment-form-comment"><label for="comment">Комментарий</label>
-                    <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"
-                        required="required">{{ old('comment') }}</textarea>
-                </p>
-                @error('comment')
-                    <p>{{ $message }}</p>
-                @enderror
-                <label for="rating">Ваша оценка</label>
+                                    @auth
+                                        @if($comment->user_id === Auth::user()->id)
+                                            <div class="bottom btns sb bm">
+                                                <div class="line">
+                                                    <form
+                                                        action="{{ route('comments.edit', [$comment->id, $company->id]) }}"
+                                                        method="GET">
+                                                        @csrf
 
-                <fieldset class="comments-rating">
-                    <div class="rating-container">
-                        @foreach(range(1, 10) as $rating)
-                            <div class="rating-item">
-                                <input type="radio" id="rating-1" name="rating" value="{{ $rating }}">
-                                <label for="rating-1" class="icon-star"><i class="icon-star-solid"></i></label>
+                                                        <button class="btn bordered small">Edit</button>
+                                                    </form>
+                                                    <form method="POST"
+                                                        action="{{ route('comments.destroy', $comment->id) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+
+                                                        <input type="hidden" value="{{ $company->id }}" name="company">
+                                                        <button class="btn bordered small">Delete</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endauth
+                                </div>
+
                             </div>
-                        @endforeach
-                    </div>
-                </fieldset>
-                @error('rating')
-                    <p>{{ $message }}</p>
-                @enderror
-                <p class="form-submit">
-                    <input name="submit" type="submit" id="submit" class="submit" value="Отправить комментарий">
-                </p>
+
+                            <!-- #comment-## -->
+                        </div>
+
+                    @endforeach
+                </div>
+
             </div>
-        </form>
-    @else
-        <a href="{{ route('login') }}">Login</a>
-    @endauth
+        </div>
+        @auth
+            <form method="POST" action="{{ route('comments.store', $company) }}">
+                @csrf
+                <div id="respond" class="comment-respond">
+                    <h3 id="reply-title" class="comment-reply-title">
+                        Оцените нас и напишите отзыв
+                    </h3>
+                    <p class="comment-form-comment"><label for="comment">Комментарий</label>
+                        <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"
+                            required="required">{{ old('comment') }}</textarea>
+                    </p>
+                    @error('comment')
+                        <p>{{ $message }}</p>
+                    @enderror
+                    <label for="rating">Ваша оценка</label>
+
+                    <fieldset class="comments-rating">
+                        <div class="rating-container">
+                            @foreach(range(1, 10) as $rating)
+                                <div class="rating-item">
+                                    <input type="radio" id="rating-1" name="rating" value="{{ $rating }}">
+                                    <label for="rating-1" class="icon-star"><i class="icon-star-solid"></i></label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </fieldset>
+                    @error('rating')
+                        <p>{{ $message }}</p>
+                    @enderror
+                    <p class="form-submit">
+                        <input name="submit" type="submit" id="submit" class="submit" value="Отправить комментарий">
+                    </p>
+                </div>
+            </form>
+        @else
+            <a href="{{ route('login') }}">Login</a>
+        @endauth
 
     </div>
-    </div>
-    </div>
-
 </section>
 
 @endsection

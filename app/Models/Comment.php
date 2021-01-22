@@ -21,15 +21,4 @@ class Comment extends Model
     {
         return $this->belongsTo(Company::class);
     }
-
-
-    public function likesNumber()
-    {
-        return Like::where('comment_id', $this->id)->where('liked', true)->count();
-    }
-
-    public function dislikesNumber()
-    {
-        return Like::where('comment_id', $this->id)->where('liked', false)->count();
-    }
 }

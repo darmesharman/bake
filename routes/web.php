@@ -11,6 +11,7 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
 use App\Models\Comment;
+use GuzzleHttp\Middleware;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
@@ -41,8 +42,9 @@ Route::resource('comments', CommentController::class)->middleware('auth');
 Route::get('/comments/{comment}/{company}/edit', [CommentController::class, 'edit'])->name('comments.edit')->middleware('auth');
 
 Route::post('companies/{company}/comments', [CommentController::class, 'store'])->name('comments.store');
-Route::post('/Comments/{comment}/like', [CommentLikesController::class, 'store'])->name('like');
-Route::delete('/Comments/{comment}/like', [CommentLikesController::class, 'destroy'])->name('dislike');
+
+Route::post('/Comments/{comment}/like', [CommentLikesController::class, 'store'])->name('like')->middleware('auth');
+Route::delete('/Comments/{comment}/like', [CommentLikesController::class, 'destroy'])->name('dislike')->middleware('auth');
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 Route::post('/register', [RegistrationController::class, 'store'])->name('registration.store');

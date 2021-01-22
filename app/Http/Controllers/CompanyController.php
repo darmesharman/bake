@@ -12,12 +12,10 @@ use App\Models\AdditionalPhoneNumber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
 
 class CompanyController extends Controller
 {
-    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
