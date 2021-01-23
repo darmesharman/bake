@@ -14,6 +14,7 @@ use App\Models\Lead;
 use Illuminate\Support\Facades\Log;
 use App\Models\Dashboard_update;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
 // use Illuminate\Http\Response;
 
 class MainController extends Controller
@@ -39,16 +40,21 @@ class MainController extends Controller
         // Note::all();
 
 
-            $data = Board::all();
-            return Inertia::render('main', [
-                'canLogin' => Route::has('login'),
-                'nice1'=> 'very nice',
-                'canRegister' => Route::has('register'),
-                'laravelVersion' => Application::VERSION,
-                'phpVersion' => PHP_VERSION,
-                'boards' => Board::with('leads')->get(),
-                'last_update'=> Dashboard_update::all('updated_at')->max('updated_at'),
-                'max_board_order'=> Board::all('order')->max('order')
+        $data = Board::all();
+        return Inertia::render('main', [
+            'canLogin' => Route::has('login'),
+            'nice1'=> 'very nice',
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'boards' => Board::with('leads')->get(),
+            'last_update'=> DB::select(DB::raw('select updated_at from updates as s1 join (select MAX(id) as md from updates) as s2 on s2.md=s1.id')), 
+            // Dashboard_update::all('updated_at')->max('updated_at'),
+
+                   // 'last_update'=> Dashboard_update::all('updated_at')->where('updated_at', DB::raw("(select max(updated_at) from updates)")),
+                //    'last_update'=> DB::select('select MAX(updated_at) from updates')[],
+                   // DB::table('orders')->where('id', \DB::raw("(select max(`id`) from orders)"))->get();
+            'max_board_order'=> Board::all('order')->max('order')
 
         ]);
     }
@@ -128,22 +134,53 @@ class MainController extends Controller
 
     }
     // create board
-    public function create_board (Request $request, $title, $order) {
+    public function create_board (Request $request, $title) {
         $board = new Board();
         $board->title = $title;
-        $board->order = $order+1;//Board::all('order')->max('order') + 1;
+        $board->order = -99;//Board::all('order')->max('order') + 1;
         $board->save();
+
+        return response()->json([
+                'id' => $board->id,
+                'title' => $board->title,
+                'order' => $board->order,
+                'created_at' => $board->created_at,
+                'updated_at'=>$board->updated_at
+            ], 200, ['Content-Type' => 'application/json']);
+    }
+    public function remove_board (Request $request, $boardid) {
+        Board::where("id", "=", $boardid)->delete();
+        return response()->json([], 200, ['Content-Type' => 'application/json']);
     }
     // create lead
-    public function create_lead (Request $request, $description, $boardid, $order) {
+    public function create_lead (Request $request,  $boardid, $description) {
         $lead = new Lead();
-        $lead->description = $description;
         $lead->board_id = $boardid;
+        $lead->description = $description;
         $lead->status_id = 1;
         $lead->sum = 1;
         $lead->company_id = 1; 
-        $lead->order = $order + 1;
+        $lead->order = -99;
         $lead->save();
+        
+        return response()
+            ->json(['id' => $lead->id]);
+
+
+    }
+    public function update_lead (Request $request,  $leadid, $description) {
+        $board = Lead::where("id", "=", $leadid)->first();
+        $board->description = $description;
+        $board->save();
+        return response()
+            ->json([], 200, ['Content-Type' => 'application/json']);
+
+
+    }
+    
+    public function remove_lead (Request $request, $leadid) {
+        Lead::where("id", "=", $leadid)->delete();
+        return response()->json([], 200, ['Content-Type' => 'application/json']);
     }
     public function update_boards_title (Request $request, $boardid, $title) {
         $board = Board::where("id", "=", $boardid)->first();

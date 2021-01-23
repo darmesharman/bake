@@ -1,21 +1,23 @@
+
 <template>
 <div id="app">
 <div class="container" >
 <!-- {{data}} -->
-    <div class="board-context"  v-for="(item, index) in data.items"  v-bind:key="item.id" 
+    <div class="board-context"  v-for="(item, index) in this.$store.state.items"  v-bind:key="item.id" 
     @drop='onDrop($event, item.id)' @dragover.prevent @dragenter.prevent>
-      <Boards ref="col" v-bind:data="data" v-bind:col_index="index" v-bind:item="item" />
+
+      <Boards ref="col" v-bind:col_index="index" v-bind:item="item" />
         
     </div>
-
+  <!-- {{$store.state.items}} -->
     <div class="boards-append">
-      <div  v-bind:class="{'boards-append-adding-form': data.addingboard}"  hidden >
-        <textarea name="" id="" cols="30"  v-model='data.newcoltitle' rows="10"></textarea>
-        <input type="button"  value="save board" @click="boardPush($event)" >
+      <div  v-bind:class="{'boards-append-adding-form': this.$store.state.addingboard}"  hidden >
+        <textarea ref="newboardtextarea" name="" id="" cols="30"  rows="10"></textarea>
+        <input type="button"  value="save board" @click="boardCreate($event)" >
       </div>
 
-      <div class="btn-boards-append" v-bind:class="{'boards-append-adding-btn': data.addingboard}" @click="boardadd">
-        <div v-if="!data.addingboard">
+      <div class="btn-boards-append" v-bind:class="{'boards-append-adding-btn': this.$store.state.addingboard}" @click="boardAddEvent">
+        <div v-if="!this.$store.state.addingboard">
           add board
         </div>
       </div>
@@ -25,16 +27,16 @@
 
   </div>
 
+
   </div>
 
 </template>
 
 
-
 <script>
 import Boards from './components/boards.vue'
 import axios from 'axios'
-    // import AppLayout from '@/Layouts/AppLayout'
+
     export default {
         props: {
             canLogin: Boolean,
@@ -43,19 +45,119 @@ import axios from 'axios'
             phpVersion: String,
             nice1: String,
             boards: Array,
-            last_update:String,
+            last_update:Array ,
             max_board_order: String
         },
         components: { 
             Boards
         },
+        sockets: {
+            connection () {
+                console.log('socket connected!!')
+            },
+            users(socketname){
+             
+              this.sockets.subscribe(socketname, (data) =>{
+                
+                // if(data.last_update != this.$store.lastupdate) {
+                  console.log('newdata is: ', data.data[0])
+                  
+                  let switchOptions = (option, details)=> {
+                      console.log('details')
+                      console.log(details)
+                     switch (option) {
+                      case 0:
+                        this.$store.dispatch('boardCreateUpdates', details);
+                        break;
+                      case 1:
+                        this.$store.dispatch('boardUpdateUpdates', details);
+                        break;
+                       case 2:
+                        this.$store.dispatch('boardDeleteUpdates', details);
+                        break; 
+                      case 10:
+                        this.$store.dispatch('leadCreateUpdates', details);
+                        break;
+                      case 11:
+                        this.$store.dispatch('leadUpdateUpdates', details);
+                        break;
+                      case 12:
+                        this.$store.dispatch('leadDeleteUpdates', details);
+                        break;
+                    
+                      // default:
+                        // break;
+                    } 
+                  }
+                  if(data.data.length<2)
+                    switchOptions(data.data[0].event, data.data[0].list[0])
+                  else
+                    data.data.forEach((element, index) => {
+                      switchOptions(data.data[index].event, data.data[index].list[0])
+                  });
+
+                  // this.$store.lastupdate = data.last_update
+                  // console.log(this.$store.state.updates)
+                // }
+                // this.$store.state.lastupdate = data.last_update
+
+                // var x = data.data[0].list.split('},{')
+                // x.forEach((e, i)=>{
+                //     if(i!=0)
+                //         x[i] = '{' + x[i]
+                //     if(i!=x.length-1)
+                //     x[i] = x[i]+'}'
+                // })
+                // console.log(x)
+                // console.log(x)
+                // console.log(JSON.parse(x))
+                // console.log(JSON.parse(new Object()))
+                
+                // JSON.parse("[" + string + "]");
+
+                // this.sockets.unsubscribe('EVENT_NAME');
+              })
+            }
+            
+        },
         methods: {
-          boardadd() {
-            this.data.addingboard = true
+          boardAddEvent() {
+            this.$store.state.addingboard = true
           },
-          GET_BOARDS(response) {
+          boardCreate(evt) {
+            this.$store.dispatch('boardCreate', this.$refs.newboardtextarea.value);
+            this.$store.state.addingboard = false
+            
+
+            // var id = this.$store.state.items[this.$store.state.items.length-1].id+1;
+            // var order = this.$store.state.items[this.$store.state.items.length-1].order;
+            // var title = this.$store.state.newcoltitle;
+            
+            // console.log(order, id, title)
+            
+            // var url = `http://localhost:8001/api/update_boards/${title}/${order}`;
+            
+            // let config = {'headers': {}}
+            // axios.get(url, config);
+            // this.$store.state.items.push({id:id, title: title, leads:[]})
+          },
+          onDrop(evt, itemid2) {
+
+            if(this.$store.state.cold) {
+                const itemid = evt.dataTransfer.getData('itemid')
+
+                this.$store.dispatch('swapBoards', {itemid:itemid, itemid2: itemid2});
+
+              
+
+                this.$store.state.cold = false;
+                this.$store.state.isediting=true
+
+            }
+        },
+          /*GET_BOARDS(response) {
             var data = response.data[1]["00"];
-            this.lastupdate = response.data[0];
+            this.$store.state.lastupdate = response.data[0];
             // console.log(response.data);
             if(data.length >= 1)
               for (var idx = 0; idx < data.length; idx++) {
@@ -66,7 +168,7 @@ import axios from 'axios'
           },
           GET_LEADS(response) {
             var data = response.data[1]["01"];
-            this.lastupdate = response.data[0];
+            this.$store.state.lastupdate = response.data[0];
             console.log(response.data[1]["01"])
             if(data.length >= 1)
               for (var idx = 0; idx < data.length; idx++) {
@@ -77,86 +179,33 @@ import axios from 'axios'
                   }
                 }
               }
-          },
-          getUpdates() {
-            var url = "http://localhost:8001/api/update_boards/"+this.lastupdate;
+          },   */
+          /* getUpdates() {
+            var url = "http://localhost:8001/api/update_boards/"+this.$store.state.lastupdate;
             let config = {'headers': {}}
             axios.get(url, config)
                 .then(response => {
                   this.GET_BOARDS(response);
                   this.GET_LEADS(response);
                 })
-          },
-          countdown() {
-            this.getUpdates();
-            setTimeout(this.countdown, 5000);
-          },
-          boardPush() {
-
-            var id = this.data.items[this.data.items.length-1].id+1;
-            var order = this.data.items[this.data.items.length-1].order;
-            var title = this.data.newcoltitle;
-            
-            console.log(order, id, title)
-            
-            var url = `http://localhost:8001/api/update_boards/${title}/${order}`;
-            
-            let config = {'headers': {}}
-            axios.get(url, config);
-            this.data.items.push({id:id, title: title, leads:[]})
-          },
-          onDrop(evt, list) {
-
-            if(this.data.cold) {
-                const itemID = evt.dataTransfer.getData('itemID')
-                // console.log(list, itemID);
-                var item = this.data.items.find(item => item.id == itemID)
-                var item2 = this.data.items.find(item => item.id == list)
-
-                var buff = item.leads;
-                item.leads = item2.leads; 
-                item2.leads = buff; 
-
-                buff = item.id;
-                item.id = item2.id; 
-                item2.id = buff;
-
-                buff = item.title;
-                item.title = item2.title; 
-                item2.title = buff;
-                this.data.cold = false;
-                this.data.isediting=true
-
-            }
-        },
+          }, */
       },
   mounted(){
-      this.lastupdate = this.last_update;
-      setTimeout(this.countdown, 5000);
-  },
-  data() {
-    return {
-      data:{
-        items: this.boards,
-        addingboard:false,
-        newleaddescription:'none',
-        medifylead: [],
-        newcoltitle:'n',
-        modifyingleadID:-1,
-        modifyinleadcolID:-1,
-        loaded: false,
-        clicks:0,
-        cold:false,
-        isediting:true,
-        timer:null,
-        isdraggable:false,
-        leadadding: false,
-        newleadcontent:'',
-        lastupdate:''
-            
-        }
-      }
-    }
+
+      this.$store.state.items = this.boards
+      // console.log(this.last_update)
+      // this.$store.state.lastupdate = this.last_update;
+      var name = 'TOM';
+      if('updated_at' in this.last_update[0])
+        this.$store.state.lastupdate = this.last_update[0].updated_at
+
+      this.$socket.emit('loaded', {username:name, date:this.$store.state.lastupdate})
+
+      // this.sockets.listener.subscribe("users", (data) => {
+          // console.log("users", data);
+      // });
+
+  }
 }
 </script>
 
@@ -166,7 +215,7 @@ import axios from 'axios'
     position: relative;
     min-width: 1360px;
     max-width: 1600px;
-    /* display: block; */
+    /* display: block; */ 
     /* justify-content: center; */
     margin: 0 auto;
     border: 1.2px solid;

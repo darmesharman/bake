@@ -10,7 +10,7 @@ class Board extends Model
     protected $table = 'boards';
 
     protected $fillable = [
-        'id', 'title', 'order', 'created_at'
+        'id', 'title', 'order'
     ];
 
     public function leads()

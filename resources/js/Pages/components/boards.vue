@@ -1,30 +1,46 @@
+// addingboard
+// newleaddescription
+// medifylead
+// newcoltitle
+// modifyingleadID
+// modifyinleadcolID
+// loaded
+// clicks
+// cold
+// isediting
+// isdraggable
+// leadadding
+// newleadcontent
+// lastupdate
 <template>
   <div>
       <div class="column-container">
         
-        <div class="titlearea" :draggable="!data.isdraggable" @click="oneclick($event)"  @dragstart='startDrag($event, item)'>
-          <textarea v-on:blur="focusoutnewtitle(col_index, item.id)" ref="area" name="" id=""  aria-label="grgr" v-bind:class="{'is-editing': data.isediting}" v-model=item.title :readonly="data.isediting" >
+        <div class="titlearea" :draggable="!this.$store.state.isdraggable" @click="firstClick($event)"  @dragstart='startDrag($event, item)'>
+          <textarea :value=item.title v-on:blur="focusouteditBoard(item)"  ref="boardtitle" name="" id=""  aria-label="grgr" v-bind:class="{'is-editing': this.$store.state.isediting}" :readonly="this.$store.state.isediting" >
           </textarea> 
         </div>
+
         <div v-for="(lead, index) in item.leads"  v-bind:key="lead.id">
-          <Leads v-bind:lead="lead" v-bind:data="data" v-bind:col_index="col_index"  v-bind:colid=item.id   v-bind:index="index" v-on:purge-lead="leadsdelete(index)" />
+          <Leads v-bind:lead="lead"  v-bind:col_index="col_index"  v-bind:colid=item.id   v-bind:index="index"  /> 
+          <!-- //v-on:purge-lead="leadsdelete(index)" -->
 
         </div>
 
       <div class="boardnav">
 
-        <div v-if="data.modifyinleadcolID==col_index" :class="{'newleadcontent': data.leadadding}" hidden>
-          <textarea ref="newleadtextarea" v-on:blur="focusoutnewlead(col_index, item.id)" name="" id=""  >
+        <div v-if="this.$store.state.modifyinleadcolID==col_index" :class="{'newleadcontent': this.$store.state.leadadding}" hidden>
+          <textarea ref="newleadtextarea" v-on:blur="focusoutcreateLead(col_index, item)" name="" id=""  >
           </textarea>
         </div>
 
-        <div class="btn-main-card" @click="columndelete(col_index)">
+        <div class="btn-main-card" @click="boardDelete(col_index, item)">
           <span class="btn-main-card-text">
           delete board
           </span>
         </div>
         
-        <div type="button" class="leadsadd" @click="leadsadd(col_index)">
+        <div type="button" class="leadsadd" @click="leadAdd(col_index)">
           <span>
             new lead
           </span>
@@ -43,72 +59,69 @@ import Leads from './leads.vue'
 export default {
   name: 'Boards',
   components: { Leads },
-  props: ['data', 'item', 'col_index'],
+  props: [ 'item', 'col_index'],
   computed: {
 
   },
   methods: {
-   
-    columndelete (index) {
-        // console.log(this.data.items)
-        this.$delete(this.data.items, index)
-        // console.log(this.items)
-    },
-    leadsdelete(index) {
-        this.$delete(this.item.leads, index)
-    },
-    leadsadd(colidx) {
-        this.data.leadadding = true
-        this.data.modifyinleadcolID = colidx
-    },
-    focusoutnewtitle(colidx, colid) {
-        
-        
-        var url = `http://localhost:8001/api/update_boards/${colid}/${this.$refs.area.value}`;
-        let config = {'headers': {}}
-        axios.put(url, config);
+    focusouteditBoard(item) {
+        this.$store.dispatch('editBoard', {item: item, value: this.$refs.boardtitle.value });
 
+        // var url = `http://localhost:8001/api/update_boards/${colid}/${this.$refs.area.value}`;
+        // let config = {'headers': {}}
+        // axios.put(url, config);
     },
-    focusoutnewlead(colidx, colid) {
-        console.log(colidx, colid)
-        var id, lastidx, order;
-        if(this.data.items[colidx].leads.length>0){
-          lastidx = this.data.items[colidx].leads.length-1;
-          id = this.data.items[colidx].leads[lastidx].id + 1;
-          order = this.data.items[colidx].leads[lastidx].order;
-        }
-        else {
-          id = 0;
-          order=0;
-          lastidx=0;
-        }
-        var description = this.$refs.newleadtextarea.value;
-
-        var url = `http://localhost:8001/api/update_boards/${description}/${colid}/${order}`;
-        let config = {'headers': {}}
-        axios.get(url, config);
-
-        this.data.leadadding = false
-        this.data.items[colidx].leads.push({id:99, board_id:colidx, description: this.$refs.newleadtextarea.value})
+    boardDelete (colidx, item) {
+        this.$store.dispatch('boardDelete', {colidx:colidx, item:item});
+    },
+    leadAdd(colidx) {
+        this.$store.state.leadadding = true
+        this.$store.state.modifyinleadcolID = colidx
+    },
+    focusoutcreateLead(colidx, item) {
+      console.log('nice')
+        this.$store.dispatch('createLead', {colidx: colidx, item:item, value:this.$refs.newleadtextarea.value});
+        this.$store.state.leadadding = false
+        this.$store.state.modifyinleadcolID = -1
         this.$refs.newleadtextarea.value=''
+
+        // console.log(colidx, colid)
+        // var id, lastidx, order;
+        // if(this.data.items[colidx].leads.length>0){
+        //   lastidx = this.data.items[colidx].leads.length-1;
+        //   id = this.data.items[colidx].leads[lastidx].id + 1;
+        //   order = this.data.items[colidx].leads[lastidx].order;
+        // }
+        // else {
+        //   id = 0;
+        //   order=0;
+        //   lastidx=0;
+        // }
+        // var description = this.$refs.newleadtextarea.value;
+
+        // var url = `http://localhost:8001/api/update_boards/${description}/${colid}/${order}`;
+        // let config = {'headers': {}}
+        // axios.get(url, config);
+
+        // this.this.$store.state.leadadding = false
+        // this.data.items[colidx].leads.push({id:99, board_id:colidx, description: this.$refs.newleadtextarea.value})
+        // this.$refs.newleadtextarea.value=''
     },
-    oneclick() {
-        if(this.data.clicks === 0) {
-          this.data.isediting = false;
+    firstClick() {
+        if(this.$store.state.clicks === 0) {
+          this.$store.state.isediting = false;
         }else { 
-          this.data.isdraggable=true
-          this.data.isediting = true;
+          this.$store.state.isdraggable=true
+          this.$store.state.isediting = true;
         }
     },
     startDrag (evt, item) {
-        this.data.clicks++ 
-        var self = this.data
-        // if(this.data.clicks===1)self.timer = setTimeout(function() { self.isediting = true; self.cold= true;  self.clicks = 0; }, 1000); else { self.isediting = false; this.data.true=false; clearTimeout(this.data.timer);   }
+        this.$store.state.clicks++ 
         evt.dataTransfer.dropEffect = 'move'
         evt.dataTransfer.effectAllowed = 'move'
-        evt.dataTransfer.setData('itemID', item.id) 
-        this.data.clicks=0;
-        this.data.cold = true;
+        evt.dataTransfer.setData('itemid', item.id) 
+        this.$store.state.clicks=0;
+        this.$store.state.cold = true;
       },
     },
   
