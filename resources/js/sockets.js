@@ -5,8 +5,10 @@ import VueSocketIO from 'vue-socket.io'
 import store from './store'
 
 const options = {
-  debug: true,
+  debug: false,
   transports : ['websocket'],//, 'polling', 'flashsocket'
+  'load-on-start': false,
+
 }
 
 export default new VueSocketIO({

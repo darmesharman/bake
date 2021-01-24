@@ -97,7 +97,7 @@ export default new Vuex.Store({
         CREATE_LEAD_UPDATE:(state, details)=> {
             let index = state.items.findIndex(y => y.id == details.board_id)
             state.items[index].leads.push({
-                id:details.id+999,
+                id:details.id,
                 board_id: details.board_id,
                 description: details.description,
                 created_at: details.created_at,
@@ -106,14 +106,14 @@ export default new Vuex.Store({
         }, 
         UPDATE_LEAD_UPDATE:(state, details)=> {
             let index = state.items.findIndex(y => y.id == details.board_id)
-            index = state.items[index].leads.findIndex(y => y.id == details.id)
-            state.items[index].leads[index].description = details.description,
+            let idx = state.items[index].leads.findIndex(y => y.id == details.id)
+            state.items[index].leads[idx].description = details.description
             updated_at = details.updated_at
         }, 
         DELETE_LEAD_UPDATE:(state, details)=> {
             let index = state.items.findIndex(y => y.id == details.board_id)
-            index = state.items[index].leads.findIndex(y => y.id == details.id)
-            state.items[index].leads.splice(index, 1)
+            let idx = state.items[index].leads.findIndex(y => y.id == details.id)
+            state.items[index].leads.splice(idx, 1)
         }, 
     },
     actions: {

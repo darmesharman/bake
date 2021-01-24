@@ -6,6 +6,7 @@ module.exports =  class User {
       this.username = name;
       this.last_update = last_update;
       this.socket_name = socket_name;
+      this.data = []
     }
   
 }; 

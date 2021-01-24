@@ -55,15 +55,33 @@ import axios from 'axios'
             connection () {
                 console.log('socket connected!!')
             },
-            users(socketname){
+             users (socketname) {
+               var x =4;
+            // users(socketname){
              
-              this.sockets.subscribe(socketname, (data) =>{
+            //  (async  () => {
+                  // the rest of the code
+              
+
+                this.sockets.subscribe(socketname, (data) => {
+
                 
-                // if(data.last_update != this.$store.lastupdate) {
-                  console.log('newdata is: ', data.data[0])
-                  
+                
+                console.log(data.last_update)
+                // console.log(this.$store.state.lastupdate)
+                // if(data.last_update != this.$store.state.lastupdate) {
+                  if(data.last_update != this.$store.state.lastupdate)
+                  {
+                    console.log('data', data.data)
+                    this.$store.state.lastupdate = data.last_update
+                    // console.log('newdata date is: ', data.last_update)
+                    // console.log('newdata is: ', data.data[0])
+                    // console.log('newdata is: ', data.data[1].details[0]==null)
+
                   let switchOptions = (option, details)=> {
-                      console.log('details')
+                      // console.log('details')
+                      // console.log(option)
+                      // console.log(i)
                       console.log(details)
                      switch (option) {
                       case 0:
@@ -89,12 +107,22 @@ import axios from 'axios'
                         // break;
                     } 
                   }
-                  if(data.data.length<2)
-                    switchOptions(data.data[0].event, data.data[0].list[0])
-                  else
-                    data.data.forEach((element, index) => {
-                      switchOptions(data.data[index].event, data.data[index].list[0])
-                  });
+
+                    data.data.forEach(event => {
+                      
+                      if(event.details[0] != null)
+                        // if(event.details.length > 1)
+                          event.details.forEach(detail => {
+                            switchOptions(event.event, detail )
+                          });
+                        // else
+                          // switchOptions(event.event, event.details[0])
+
+
+
+                    });
+
+                  }
 
                   // this.$store.lastupdate = data.last_update
                   // console.log(this.$store.state.updates)
@@ -117,6 +145,8 @@ import axios from 'axios'
 
                 // this.sockets.unsubscribe('EVENT_NAME');
               })
+
+              // })();
             }
             
         },
@@ -147,8 +177,6 @@ import axios from 'axios'
                 const itemid = evt.dataTransfer.getData('itemid')
 
                 this.$store.dispatch('swapBoards', {itemid:itemid, itemid2: itemid2});
-
-              
 
                 this.$store.state.cold = false;
                 this.$store.state.isediting=true
@@ -190,16 +218,20 @@ import axios from 'axios'
                 })
           }, */
       },
-  mounted(){
+  mounted() {
 
       this.$store.state.items = this.boards
+
       // console.log(this.last_update)
       // this.$store.state.lastupdate = this.last_update;
       var name = 'TOM';
+      let x =this.last_update[0].updated_at
       if('updated_at' in this.last_update[0])
-        this.$store.state.lastupdate = this.last_update[0].updated_at
-
-      this.$socket.emit('loaded', {username:name, date:this.$store.state.lastupdate})
+        this.$store.state.lastupdate = x
+      
+      console.log(this.last_update[0].updated_at)
+      
+      this.$socket.emit('loaded', {username:name, last_update:this.$store.state.lastupdate})
 
       // this.sockets.listener.subscribe("users", (data) => {
           // console.log("users", data);
