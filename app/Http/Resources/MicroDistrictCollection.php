@@ -12,8 +12,12 @@ class MicroDistrictCollection extends ResourceCollection
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+    public static $wrap = 'districts';
+
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'districts' => MicroDistrictResource::collection($this->collection),
+        ];
     }
 }
