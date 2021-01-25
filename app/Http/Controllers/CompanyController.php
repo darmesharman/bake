@@ -143,6 +143,9 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
+        $company->views += 1;
+        $company->save();
+
         return view('companies.show', compact('company'));
     }
 

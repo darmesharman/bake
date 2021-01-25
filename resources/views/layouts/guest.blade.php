@@ -93,25 +93,48 @@
                                 <div class="line">
                                     <a href="#" class="btn icon bordered icon-instagram"></a>
                                     <a href="#" class="btn icon bordered icon-vk"></a>
+
                                     <a href="#" class="btn icon bordered icon-twitter"></a>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
             <div class="footer-bottom df jcsb aic pt3 pb3 bt">
+
                 <p class="grey-text mb0">© <?php echo date('Y'); ?> MyKid. Все права защищены</p>
+
                 <a class="developer text" href="https://init.kz" target="_blank" rel="noopener noreferrer">Сайт
+
                     разработала<br>Веб студия <img src="img/init.svg" alt="init logo"></a>
+
             </div>
+
         </div>
+
+
+
+
 
 
 
     </footer>
 
+
+
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 
+
+
 </html>
+

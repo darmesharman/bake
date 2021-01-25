@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\CityController;
 use App\Http\Resources\CityCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/cities', [CityController::class, 'cities']);
 Route::get('/districts', [CityController::class, 'districts']);
 Route::get('/micro-districts', [CityController::class, 'microDistricts']);
+Route::get('/categories/{category}', [CategoryController::class, 'subCategories']);
