@@ -282,4 +282,12 @@ class CompanyController extends Controller
             ]);
         }
     }
+
+    // protected function showCount(Company $company)
+    // {
+    //     $company->views += 1;
+    //     $company->save();
+
+    //     return response()->json(['views incremented successfully', 200]);
+    // }
 }

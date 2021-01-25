@@ -25,7 +25,7 @@
                         <article class="catalog-item line">
                             <div class="content">
 
-                                <a href="{{ route('companies.showCount', $company) }}" class="image bg-cov" "
+                                <a href="{{ route('companies.show', $company) }}" class="image bg-cov" "
                                 @if ($company->profileImages->isNotEmpty())
                                     style="background-image: url( {{ asset($company->profileImages[0]->path) }} )"
                                 @endif
@@ -36,7 +36,7 @@
 
                                     <div class="title">
                                         <h5 class="theme-hov">
-                                            <a href="{{ route('companies.showCount', $company) }}"
+                                            <a href="{{ route('companies.show', $company) }}"
                                                 rel="bookmark">
                                                 {{ $company->name }}
                                             </a>

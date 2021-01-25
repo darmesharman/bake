@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/categories/{category}', [CategoryController::class, 'subCategories']);
+Route::post('/companies/{company}/views', [CompanyController::class, 'showCount']);
