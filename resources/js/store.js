@@ -113,6 +113,7 @@ export default new Vuex.Store({
         DELETE_LEAD_UPDATE:(state, details)=> {
             let index = state.items.findIndex(y => y.id == details.board_id)
             let idx = state.items[index].leads.findIndex(y => y.id == details.id)
+            console.log(idx)
             state.items[index].leads.splice(idx, 1)
         }, 
     },
