@@ -64,7 +64,7 @@
             <div class="companies-slider slick-m">
 
                 @foreach ($companies as $company)
-                        <a href="{{ route('companies.show', $company) }}" class="company-item bg-cov rel db" style="background-image: url({{ asset($company->profileImages[0]->path) }});">
+                        <a href="{{ route('companies.showCount', $company) }}" class="company-item bg-cov rel db" style="background-image: url({{ asset($company->profileImages[0]->path) }});">
                         <div class="stretch-a mask"></div>
                         <div class="content">
                             <div class="tags-icon">
