@@ -10,7 +10,7 @@ class Comment extends Model
     use HasFactory;
     use Likable;
 
-    protected $guarded = [];
+    protected $fillable = ['comment', 'rating', 'user_id', 'company_id'];
 
     public function user()
     {

@@ -19,10 +19,10 @@ class LikeSeeder extends Seeder
         for ($i = 0; $i < 50; $i++) {
             // if User not empty then take of the user
             // otherwise create new one
-            $user = User::all()->isNotEmpty() ? User::all()->random() : User::factory()->create();
+            $user = User::isNotEmpty() ? User::random() : User::factory()->create();
             // if Comment not empty then take of the comment
             // otherwise create new one
-            $comment = Comment::all()->isNotEmpty() ? Comment::all()->random() : Comment::factory()->create();
+            $comment = Comment::isNotEmpty() ? Comment::random() : Comment::factory()->create();
 
             if (Like::where('user_id', $user->id)
                 ->where('comment_id', $comment->id)

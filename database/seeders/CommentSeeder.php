@@ -20,10 +20,10 @@ class CommentSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             // if User not empty then take of the user
             // otherwise create new one
-            $user = User::all()->isNotEmpty() ? User::all()->random() : User::factory()->create();
+            $user = User::isNotEmpty() ? User::random() : User::factory()->create();
             // if Company not empty then take of the company
             // otherwise create new one
-            $company = Company::all()->isNotEmpty() ? Company::all()->random() : Company::factory()->create();
+            $company = Company::isNotEmpty() ? Company::random() : Company::factory()->create();
 
             Comment::factory()
                 ->for($user)

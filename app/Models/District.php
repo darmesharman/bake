@@ -9,7 +9,7 @@ class District extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['name', 'city_id'];
 
     public function city()
     {
