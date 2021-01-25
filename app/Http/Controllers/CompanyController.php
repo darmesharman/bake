@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class CompanyController extends Controller
 {
@@ -62,16 +61,11 @@ class CompanyController extends Controller
             $companies = $companies->where('micro_district_id', request()->input('mDistID'));
         }
 
-        $companies = $companies->get();
-
-        if (request('searchByName')) {
-            $companies = $companies->filter(function ($company, $index) {
-                if (stripos($company->name, request('searchByName')) === false) {
-                    return false;
-                }
-                return true;
-            });
+        if (request()->input('searchByName')) {
+            $companies = $companies->where('name', 'like', '%' . request()->input('searchByName') . '%');
         }
+
+        $companies = $companies->get();
 
         return view('companies.index', compact('companies', 'categories', 'subCategories', 'cities', 'districts', 'micro_districts'));
     }
