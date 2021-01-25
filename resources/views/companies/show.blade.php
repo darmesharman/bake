@@ -237,10 +237,12 @@
 
                                         <div class="bottom btns sb bm">
                                             <div class="line">
-                                                <button class="btn bordered small icon-like {{ $comment->isLikedBy(Auth::user()) ? 'bg-warning' : '' }}">
+                                                <button class="btn bordered small icon-like @auth {{ $comment->isLikedBy(Auth::user()) ? 'bg-warning' : '' }} @endauth">
                                                     Like
                                                     {{ $comment->likesNumber() }}
                                                 </button>
+
+
                                                 <a rel="nofollow"
                                                     class="comment-reply-link btn bordered-theme small icon-forward"
                                                     href="https://mykid.init.kz/company/%D0%A0%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0/?replytocom=13#respond"
