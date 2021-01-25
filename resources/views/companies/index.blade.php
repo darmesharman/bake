@@ -191,6 +191,11 @@
                         </button>
                     </form>
 
+                    <form action="{{ route('companies.index') }}" method="get">
+                        <button type="submit" class="btn btn-primary mxa">
+                            Очистить
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

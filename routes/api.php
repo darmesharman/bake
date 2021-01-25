@@ -25,5 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/cities', [CityController::class, 'cities']);
 Route::get('/districts', [CityController::class, 'districts']);
 Route::get('/micro-districts', [CityController::class, 'microDistricts']);
-Route::get('/categories/{category}', [CategoryController::class, 'subCategories']);
 Route::post('/companies/{company}/views', [CompanyController::class, 'showCount']);
