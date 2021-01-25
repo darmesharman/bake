@@ -27,6 +27,7 @@ class CompanyController extends Controller
         $categories = Category::select('id', 'name')->get();
         $subCategories = [];
         $cities = City::select('id', 'name')->get();
+        $districts = [];
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
@@ -46,6 +47,11 @@ class CompanyController extends Controller
 
         if (request()->input('sitiID')) {
             $companies = $companies->where('city_id', request()->input('sitiID'));
+            $districts = City::find(request()->input('sitiID'))->districts;
+        }
+
+        if (request()->input('distID')) {
+            $companies = $companies->where('district_id', request()->input('distID'));
         }
 
         $companies = $companies->get();
@@ -59,7 +65,7 @@ class CompanyController extends Controller
             });
         }
 
-        return view('companies.index', compact('companies', 'categories', 'subCategories', 'cities'));
+        return view('companies.index', compact('companies', 'categories', 'subCategories', 'cities', 'districts'));
     }
 
     /**

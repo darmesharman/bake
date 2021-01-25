@@ -139,7 +139,7 @@
                                 <select name="sitiID" class="dynamic-list required">
                                     <option value=""></option>
                                     @foreach($cities as $city)
-                                        <option value="{{ $city->id }}">
+                                        <option value="{{ $city->id }}" {{ Request::input('sitiID') == $city->id ? 'selected' : '' }}>
                                             {{ $city->name }}
                                         </option>
                                     @endforeach
@@ -152,8 +152,14 @@
                         <div class="form-group">
                             <label for="district">Регион или район</label>
                             <div class="select-wrapper">
-                                <input type="text" id="district" placeholder="Выберите регион или район" readonly disabled
-                                    name="district" class="dynamic-list parent required" data-type="select" data-child="#microdistrict">
+                                <select name="distID" class="dynamic-list required">
+                                    <option value=""></option>
+                                    @foreach($districts as $district)
+                                        <option value="{{ $district->id }}" {{ Request::input('distID') == $district->id ? 'selected' : '' }}>
+                                            {{ $district->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 <ul class="select-dropdown"></ul>
                             </div>
                         </div>
