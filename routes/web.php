@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\CommentLikesController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -43,10 +41,6 @@ Route::prefix('companies/{company}/')->middleware('auth')->group(function () {
     Route::post('/comments/{comment}/like', [CommentController::class, 'like'])->name('comments.like');
     Route::post('/comments/{comment}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
 });
-
-
-Route::get('/categories/{category}', [CategoryController::class, 'subCategories']);
-
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 Route::post('/register', [RegistrationController::class, 'store'])->name('registration.store');

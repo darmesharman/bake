@@ -26,8 +26,8 @@ class HomeController extends Controller
             'comments'
         );
 
-        $companies = Company::all();
+        $companies = Company::orderByDesc('views')->take(3)->get();
 
-        return view('welcome', compact('companies', 'categories', 'subCategories', 'cities', 'districts', 'micro_districts'));
+        return view('welcome', compact('companies', 'categories', 'subCategories', 'cities', 'districts'));
     }
 }
