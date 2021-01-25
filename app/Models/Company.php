@@ -11,7 +11,20 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'category_id',
+        'sub_category_id',
+        'city_id',
+        'district_id',
+        'micro_district_id',
+        'company_image',
+        'description',
+        'short_description',
+        'site',
+        'email',
+        'phone_number',
+    ];
 
 
     public function contacts()
@@ -56,7 +69,7 @@ class Company extends Model
 
     public function rating()
     {
-        return number_format($this->comments->avg('rating'), 1);
+        return number_format($this->comments->avg('rating'), 1) / 2;
     }
 
     public function images()

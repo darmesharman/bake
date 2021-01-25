@@ -9,7 +9,7 @@ class AdditionalPhoneNumber extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['phone_number', 'company_id'];
 
     public function companies()
     {

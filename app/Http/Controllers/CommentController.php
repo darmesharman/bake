@@ -27,7 +27,7 @@ class CommentController extends Controller
             'company_id' => $company->id,
         ]);
 
-        return redirect()->back();
+        return back();
     }
 
     /**
@@ -61,7 +61,7 @@ class CommentController extends Controller
 
         $comment->save();
 
-        return redirect(route('companies.show', $company));
+        return redirect()->route('companies.show', $company);
     }
 
     /**
@@ -74,7 +74,7 @@ class CommentController extends Controller
     {
         $comment->delete();
 
-        return redirect()->back();
+        return back();
     }
 
     public function like(Company $company, Comment $comment)
