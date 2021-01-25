@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentLikesController;
 use App\Http\Controllers\CompanyController;
@@ -44,6 +45,8 @@ Route::prefix('companies/{company}/')->middleware('auth')->group(function () {
     Route::post('/comments/{comment}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
 });
 
+
+Route::get('/categories/{category}', [CategoryController::class, 'subCategories']);
 
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');

@@ -20,7 +20,7 @@
             <div class="archive-content">
 
                 <div class="archive-body">
-                    @foreach($companies as $company)
+                    @forelse($companies as $company)
 
                         <article class="catalog-item line">
                             <div class="content">
@@ -81,75 +81,96 @@
 
                             </div>
                         </article>
-
-                    @endforeach
+                    @empty
+                        <div class="text-center border">clear</div>
+                    @endforelse
                 </div>
 
                 <div class="archive-sidebar article">
 
-                    <div class="form-group">
-                        <label for="archive_search">Поиск</label>
-                        <div class="inline">
-                            <input type="text" id="archive_search" placeholder="Что вы ищите?">
-                            <button class="btn icon square icon-search input" id="archive_search_submit"></button>
+                    <form action="{{ route('companies.index') }}" method="get">
+                        <div class="form-group">
+                            <label for="archive_search">Поиск</label>
+                            <div class="inline">
+                                <input name="searchByName" type="text" id="archive_search" value="{{ Request::input('searchByName') }}" placeholder="Что вы ищите?">
+                                <button type="submit" class="btn icon square icon-search input" id="archive_search_submit"></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <hr>
+                        <hr>
 
-                    <h5>Фильтры</h5>
+                        <h5>Фильтры</h5>
 
-                    <div class="form-group">
-                        <label for="category">Категория</label>
-                        <div class="select-wrapper">
-                            <select class="dynamic-list required">
-                                @foreach($cities as $city)
-                                    <option value="{{ $city->id }}">
-                                        {{ $city->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <ul class="select-dropdown">
+                        <div class="form-group">
+                            <label for="category">Категория</label>
+                            <div class="select-wrapper">
+                                <select name="kategoriID" class="dynamic-list required">
+                                    <option value=""></option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}" {{ Request::input('kategoriID') == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <ul class="select-dropdown">
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="subcategory">Подкатегория</label>
-                        <div class="select-wrapper">
-                            <input type="text" id="subcategory" placeholder="Выберите подкатегорию" readonly disabled
-                                class="parent dynamic-list required" data-type="select" data-child="#city">
-                            <ul class="select-dropdown"></ul>
+                        <div class="form-group">
+                            <label for="subcategory">Подкатегория</label>
+                            <div class="select-wrapper">
+                                <select name="subKategoriID" class="dynamic-list required">
+                                    <option value=""></option>
+                                    @foreach($subCategories as $subCategory)
+                                        <option value="{{ $subCategory->id }}" {{ Request::input('kategoriID') == $subCategory->id ? 'selected' : '' }}>
+                                            {{ $subCategory->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <ul class="select-dropdown"></ul>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="city">Город или область</label>
-                        <div class="select-wrapper">
-                            <input type="text" id="city" placeholder="Выберите город или область" readonly disabled
-                                class="parent dynamic-list show-all required" data-type="select" data-child="#district">
-                            <ul class="select-dropdown"></ul>
+                        <div class="form-group">
+                            <label for="city">Город или область</label>
+                            <div class="select-wrapper">
+                                <select name="sitiID" class="dynamic-list required">
+                                    <option value=""></option>
+                                    @foreach($cities as $city)
+                                        <option value="{{ $city->id }}">
+                                            {{ $city->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <ul class="select-dropdown">
+                                </ul>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="district">Регион или район</label>
-                        <div class="select-wrapper">
-                            <input type="text" id="district" placeholder="Выберите регион или район" readonly disabled
-                                class="dynamic-list parent required" data-type="select" data-child="#microdistrict">
-                            <ul class="select-dropdown"></ul>
+                        <div class="form-group">
+                            <label for="district">Регион или район</label>
+                            <div class="select-wrapper">
+                                <input type="text" id="district" placeholder="Выберите регион или район" readonly disabled
+                                    name="district" class="dynamic-list parent required" data-type="select" data-child="#microdistrict">
+                                <ul class="select-dropdown"></ul>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="microdistrict">Микрорайон</label>
-                        <div class="select-wrapper">
-                            <input type="text" id="microdistrict" placeholder="Выберите микрорайон" readonly disabled
-                                class="dynamic-list required" data-type="select">
-                            <ul class="select-dropdown"></ul>
+                        <div class="form-group">
+                            <label for="microdistrict">Микрорайон</label>
+                            <div class="select-wrapper">
+                                <input type="text" id="microdistrict" placeholder="Выберите микрорайон" readonly disabled
+                                    name="micro_district" class="dynamic-list required" data-type="select">
+                                <ul class="select-dropdown"></ul>
+                            </div>
                         </div>
-                    </div>
+
+                        <button type="submit" class="btn btn-primary mxa">
+                            Отфильтровать
+                        </button>
+                    </form>
 
                 </div>
             </div>

@@ -24,15 +24,38 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        $categories = Category::select('id', 'name')->get();
+        $subCategories = [];
+        $cities = City::select('id', 'name')->get();
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
             'additional_phone_numbers',
             'comments'
-        )->get();
-        $cities = City::select('id', 'name')->get();
+        );
 
-        return view('companies.index', compact('companies', 'cities'));
+
+        if (request()->input('kategoriID')) {
+            $companies = $companies->where('category_id', request()->input('kategoriID'));
+            $subCategories = Category::find(request()->input('kategoriID'))->subCategories;
+        }
+
+        if (request()->input('sitiID')) {
+            $companies = $companies->where('city_id', request()->input('sitiID'));
+        }
+
+        $companies = $companies->get();
+
+        if (request('searchByName')) {
+            $companies = $companies->filter(function ($company, $index) {
+                if (stripos($company->name, request('searchByName')) === false) {
+                    return false;
+                }
+                return true;
+            });
+        }
+
+        return view('companies.index', compact('companies', 'categories', 'subCategories', 'cities'));
     }
 
     /**
