@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             CompanySeeder::class,
             CommentSeeder::class,
-            // LikeSeeder::class,
+            LikeSeeder::class,
         ]);
     }
 }

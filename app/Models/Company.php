@@ -69,7 +69,7 @@ class Company extends Model
 
     public function rating()
     {
-        return number_format($this->comments->avg('rating'), 1) / 2;
+        return number_format($this->comments->avg('rating'), 1);
     }
 
     public function images()
