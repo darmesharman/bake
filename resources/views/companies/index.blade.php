@@ -44,7 +44,14 @@
                                         <p class="icon-place">{{ $company->city->name }}</p>
                                     </div>
 
-                                    <p class="desc">{{ $company->short_description }}</p>
+                                    <p class="desc">
+                                        @if (strlen($company->short_description) > 100)
+                                            {{ substr($company->short_description, 0, 100) }} <span style="color: silver">...</span>
+                                        @else
+                                            {{ $company->short_description }}
+                                        @endif
+
+                                    </p>
 
                                     <div class="bottom">
                                         <div class="tags small square">
