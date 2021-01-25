@@ -124,7 +124,7 @@
                                 <select name="subKategoriID" class="dynamic-list required">
                                     <option value=""></option>
                                     @foreach($subCategories as $subCategory)
-                                        <option value="{{ $subCategory->id }}" {{ Request::input('kategoriID') == $subCategory->id ? 'selected' : '' }}>
+                                        <option value="{{ $subCategory->id }}" {{ Request::input('subKategoriID') == $subCategory->id ? 'selected' : '' }}>
                                             {{ $subCategory->name }}
                                         </option>
                                     @endforeach

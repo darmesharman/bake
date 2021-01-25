@@ -40,6 +40,10 @@ class CompanyController extends Controller
             $subCategories = Category::find(request()->input('kategoriID'))->subCategories;
         }
 
+        if (request()->input('subKategoriID')) {
+            $companies = $companies->where('sub_category_id', request()->input('subKategoriID'));
+        }
+
         if (request()->input('sitiID')) {
             $companies = $companies->where('city_id', request()->input('sitiID'));
         }
