@@ -26,8 +26,11 @@ class CompanyController extends Controller
     {
         $categories = Category::select('id', 'name')->get();
         $subCategories = [];
+
         $cities = City::select('id', 'name')->get();
         $districts = [];
+        $micro_districts = [];
+
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
@@ -52,6 +55,11 @@ class CompanyController extends Controller
 
         if (request()->input('distID')) {
             $companies = $companies->where('district_id', request()->input('distID'));
+            $micro_districts = District::find(request()->input('distID'))->micro_districts;
+        }
+
+        if (request()->input('mDistID')) {
+            $companies = $companies->where('micro_district_id', request()->input('mDistID'));
         }
 
         $companies = $companies->get();
@@ -65,7 +73,7 @@ class CompanyController extends Controller
             });
         }
 
-        return view('companies.index', compact('companies', 'categories', 'subCategories', 'cities', 'districts'));
+        return view('companies.index', compact('companies', 'categories', 'subCategories', 'cities', 'districts', 'micro_districts'));
     }
 
     /**

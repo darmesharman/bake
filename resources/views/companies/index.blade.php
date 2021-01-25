@@ -167,8 +167,14 @@
                         <div class="form-group">
                             <label for="microdistrict">Микрорайон</label>
                             <div class="select-wrapper">
-                                <input type="text" id="microdistrict" placeholder="Выберите микрорайон" readonly disabled
-                                    name="micro_district" class="dynamic-list required" data-type="select">
+                                <select name="mDistId" class="dynamic-list required">
+                                    <option value=""></option>
+                                    @foreach($micro_districts as $micro_district)
+                                        <option value="{{ $micro_district->id }}" {{ Request::input('mDistId') == $micro_district->id ? 'selected' : '' }}>
+                                            {{ $micro_district->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 <ul class="select-dropdown"></ul>
                             </div>
                         </div>

@@ -15,4 +15,9 @@ class District extends Model
     {
         return $this->belongsTo(City::class);
     }
+
+    public function micro_districts()
+    {
+        return $this->hasMany(MicroDistrict::class);
+    }
 }
