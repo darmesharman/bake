@@ -33,7 +33,7 @@ use Inertia\Inertia;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
-// Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboard', function () {
     return view('dashboard');
