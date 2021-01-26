@@ -72,7 +72,7 @@
                                     <div class="tag icon-check no-hov">Верифицирован</div>
                                 </div>
                             </div>
-                            <div class="rating">{{ $company->rating() }}</div>
+                            <div class="rating">{{ $company->rating }}</div>
                             <div class="text white">
                                 <h5>Детский сад {{ $company->name }}</h5>
                                 <p class="grey-text lg-text">{{ $company->city->name }}</p>

@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\District;
+use App\Models\MicroDistrict;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,21 +15,19 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::select('id', 'name')->get();
-        $subCategories = [];
+        // $subCategories = SubCategory::select('id', 'name')->get();
 
         $cities = City::select('id', 'name')->get();
-        $districts = [];
-        $micro_districts = [];
+        $districts = District::select('id', 'name')->get();
+        // $micro_districts = MicroDistrict::select('id', 'name')->get();
 
         $companies = Company::with(
-            'category:id,name',
             'city:id,name',
-            'additional_phone_numbers',
-            'comments'
+            'profileImages',
         );
 
-        $companies = Company::orderByDesc('views')->take(6)->get();
+        $companies = $companies->orderByDesc('views')->take(6)->get();
 
-        return view('welcome', compact('companies', 'categories', 'subCategories', 'cities', 'districts'));
+        return view('welcome', compact('companies', 'categories', 'cities', 'districts'));
     }
 }

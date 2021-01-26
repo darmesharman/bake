@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\City;
-use App\Models\Comment;
 use App\Models\Company;
 use App\Models\District;
 use App\Models\Image;
 use App\Models\AdditionalPhoneNumber;
+<<<<<<< HEAD
 use App\Models\CompanyImages;
+=======
+use App\Models\MicroDistrict;
+use App\Models\SubCategory;
+>>>>>>> c652f4628e3bd7f0346bbc551a6c9461418b05ab
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -25,23 +29,21 @@ class CompanyController extends Controller
     public function index()
     {
         $categories = Category::select('id', 'name')->get();
-        $subCategories = [];
+        $subCategories = SubCategory::select('id', 'name')->get();
 
         $cities = City::select('id', 'name')->get();
-        $districts = [];
-        $micro_districts = [];
+        $districts = District::select('id', 'name')->get();
+        $micro_districts = MicroDistrict::select('id', 'name')->get();
 
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
-            'additional_phone_numbers',
-            'comments'
-        );
+            'profileImages',
+        )->withCount('images');
 
 
         if (request()->input('kategoriID')) {
             $companies = $companies->where('category_id', request()->input('kategoriID'));
-            $subCategories = Category::find(request()->input('kategoriID'))->subCategories;
         }
 
         if (request()->input('subKategoriID')) {
@@ -50,12 +52,10 @@ class CompanyController extends Controller
 
         if (request()->input('sitiID')) {
             $companies = $companies->where('city_id', request()->input('sitiID'));
-            $districts = City::find(request()->input('sitiID'))->districts;
         }
 
         if (request()->input('distID')) {
             $companies = $companies->where('district_id', request()->input('distID'));
-            $micro_districts = District::find(request()->input('distID'))->micro_districts;
         }
 
         if (request()->input('mDistID')) {
@@ -140,6 +140,10 @@ class CompanyController extends Controller
     {
         $company->views += 1;
         $company->save();
+
+        $company->load(['comments' => function ($query) {
+            $query->with('user');
+        }]);
 
         return view('companies.show', compact('company'));
     }
@@ -277,12 +281,4 @@ class CompanyController extends Controller
             ]);
         }
     }
-
-    // protected function showCount(Company $company)
-    // {
-    //     $company->views += 1;
-    //     $company->save();
-
-    //     return response()->json(['views incremented successfully', 200]);
-    // }
 }

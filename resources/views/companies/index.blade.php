@@ -30,7 +30,7 @@
                                     style="background-image: url( {{ asset($company->profileImages[0]->path) }} )"
                                 @endif
                                 >
-                                    <div class="images-count icon-picture">{{ count($company->images) }}</div>
+                                    <div class="images-count icon-picture">{{ $company->images_count }}</div>
                                 </a>
                                 <div class="info">
 
@@ -63,7 +63,7 @@
                                         <div class="rating">
                                             <ul class="star-rating">
                                                 {{-- need JS --}}
-                                                <p style='display:none'>{{ $rating = $company->rating() }}</p>
+                                                <p style='display:none'>{{ $rating = $company->rating }}</p>
                                                 @foreach(range(1, 5) as $star)
                                                     <li class="
                                                         @if($rating - 2 >= 0)
@@ -79,7 +79,7 @@
                                                 {{-- need JS --}}
                                             </ul>
                                             <div class="total">
-                                                <span class="grey-text">{{ $company->rating() }}</span>
+                                                <span class="grey-text">{{ $company->rating }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -191,6 +191,11 @@
                         </button>
                     </form>
 
+                    <form action="{{ route('companies.index') }}" method="get">
+                        <button type="submit" class="btn btn-primary mxa">
+                            Очистить
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
