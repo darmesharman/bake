@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Status;
@@ -17,9 +18,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersSeeder::class);
-        $this->call(StatusesSeeder::class);
-        $this->call(ContactsSeeder::class);
-        $this->call(CompaniesSeeder::class);
+        $this->call([
+            UserSeeder::class,
+            CategorySeeder::class,
+            CitySeeder::class,
+            CompanySeeder::class,
+            CommentSeeder::class,
+            LikeSeeder::class,
+        ]);
     }
 }
