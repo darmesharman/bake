@@ -28,6 +28,7 @@ class CreateCompaniesTable extends Migration
             $table->string('email')->unique(); //E-mail
             $table->string('phone_number')->unique(); // Основной телефон
             $table->unsignedBigInteger('views')->default(0); // Просмотры
+            $table->decimal('rating')->default(0); // Просмотры
             $table->timestamps();
         });
     }

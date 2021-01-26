@@ -34,11 +34,9 @@ class CompanyController extends Controller
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
-            'additional_phone_numbers',
-            'comments',
-            'images',
             'profileImages',
-        );
+        )->withCount('images');
+
 
         if (request()->input('kategoriID')) {
             $companies = $companies->where('category_id', request()->input('kategoriID'));
@@ -138,6 +136,10 @@ class CompanyController extends Controller
     {
         $company->views += 1;
         $company->save();
+
+        $company->load(['comments' => function ($query) {
+            $query->with('user');
+        }]);
 
         return view('companies.show', compact('company'));
     }

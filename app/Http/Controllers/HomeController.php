@@ -15,23 +15,19 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::select('id', 'name')->get();
-        $subCategories = SubCategory::select('id', 'name')->get();
+        // $subCategories = SubCategory::select('id', 'name')->get();
 
         $cities = City::select('id', 'name')->get();
         $districts = District::select('id', 'name')->get();
-        $micro_districts = MicroDistrict::select('id', 'name')->get();
+        // $micro_districts = MicroDistrict::select('id', 'name')->get();
 
         $companies = Company::with(
-            'category:id,name',
             'city:id,name',
-            'additional_phone_numbers',
-            'comments',
-            'images',
             'profileImages',
         );
 
         $companies = $companies->orderByDesc('views')->take(6)->get();
 
-        return view('welcome', compact('companies', 'categories', 'subCategories', 'cities', 'districts'));
+        return view('welcome', compact('companies', 'categories', 'cities', 'districts'));
     }
 }
