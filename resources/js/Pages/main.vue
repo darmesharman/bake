@@ -3,11 +3,11 @@
 <div id="app">
 <div class="container" >
 <!-- {{data}} -->
-    <div class="board-context"  v-for="(item, index) in this.$store.state.items"  v-bind:key="item.id" 
+    <div class="board-context"  v-for="(item, index) in this.$store.state.items"  v-bind:key="item.id"
     @drop='onDrop($event, item.id)' @dragover.prevent @dragenter.prevent>
 
       <Boards ref="col" v-bind:col_index="index" v-bind:item="item" />
-        
+
     </div>
   <!-- {{$store.state.items}} -->
     <div class="boards-append">
@@ -48,7 +48,7 @@ import axios from 'axios'
             last_update:Array ,
             max_board_order: String
         },
-        components: { 
+        components: {
             Boards
         },
         sockets: {
@@ -58,71 +58,71 @@ import axios from 'axios'
              users (socketname) {
                var x =4;
             // users(socketname){
-             
+
             //  (async  () => {
                   // the rest of the code
-              
+
 
                 this.sockets.subscribe(socketname, (data) => {
 
-                
-                
+
+
                 console.log(data.last_update)
                 // console.log(this.$store.state.lastupdate)
                 // if(data.last_update != this.$store.state.lastupdate) {
-                  if(data.last_update != this.$store.state.lastupdate)
-                  {
-                    console.log('data', data.data)
-                    this.$store.state.lastupdate = data.last_update
-                    // console.log('newdata date is: ', data.last_update)
-                    // console.log('newdata is: ', data.data[0])
-                    // console.log('newdata is: ', data.data[1].details[0]==null)
+                //   if(data.last_update != this.$store.state.lastupdate)
+                //   {
+                //     console.log('data', data.data)
+                //     this.$store.state.lastupdate = data.last_update
+                //     // console.log('newdata date is: ', data.last_update)
+                //     // console.log('newdata is: ', data.data[0])
+                //     // console.log('newdata is: ', data.data[1].details[0]==null)
 
-                  let switchOptions = (option, details)=> {
-                      // console.log('details')
-                      // console.log(option)
-                      // console.log(i)
-                      console.log(details)
-                     switch (option) {
-                      case 0:
-                        this.$store.dispatch('boardCreateUpdates', details);
-                        break;
-                      case 1:
-                        this.$store.dispatch('boardUpdateUpdates', details);
-                        break;
-                       case 2:
-                        this.$store.dispatch('boardDeleteUpdates', details);
-                        break; 
-                      case 10:
-                        this.$store.dispatch('leadCreateUpdates', details);
-                        break;
-                      case 11:
-                        this.$store.dispatch('leadUpdateUpdates', details);
-                        break;
-                      case 12:
-                        this.$store.dispatch('leadDeleteUpdates', details);
-                        break;
-                    
-                      // default:
-                        // break;
-                    } 
-                  }
+                //   let switchOptions = (option, details)=> {
+                //       // console.log('details')
+                //       // console.log(option)
+                //       // console.log(i)
+                //       console.log(details)
+                //      switch (option) {
+                //       case 0:
+                //         this.$store.dispatch('boardCreateUpdates', details);
+                //         break;
+                //       case 1:
+                //         this.$store.dispatch('boardUpdateUpdates', details);
+                //         break;
+                //        case 2:
+                //         this.$store.dispatch('boardDeleteUpdates', details);
+                //         break;
+                //       case 10:
+                //         this.$store.dispatch('leadCreateUpdates', details);
+                //         break;
+                //       case 11:
+                //         this.$store.dispatch('leadUpdateUpdates', details);
+                //         break;
+                //       case 12:
+                //         this.$store.dispatch('leadDeleteUpdates', details);
+                //         break;
 
-                    data.data.forEach(event => {
-                      
-                      if(event.details[0] != null)
-                        // if(event.details.length > 1)
-                          event.details.forEach(detail => {
-                            switchOptions(event.event, detail )
-                          });
-                        // else
-                          // switchOptions(event.event, event.details[0])
+                //       // default:
+                //         // break;
+                //     }
+                //   }
+
+                //     data.data.forEach(event => {
+
+                //       if(event.details[0] != null)
+                //         // if(event.details.length > 1)
+                //           event.details.forEach(detail => {
+                //             switchOptions(event.event, detail )
+                //           });
+                //         // else
+                //           // switchOptions(event.event, event.details[0])
 
 
 
-                    });
+                //     });
 
-                  }
+                //   }
 
                   // this.$store.lastupdate = data.last_update
                   // console.log(this.$store.state.updates)
@@ -140,7 +140,7 @@ import axios from 'axios'
                 // console.log(x)
                 // console.log(JSON.parse(x))
                 // console.log(JSON.parse(new Object()))
-                
+
                 // JSON.parse("[" + string + "]");
 
                 // this.sockets.unsubscribe('EVENT_NAME');
@@ -148,7 +148,7 @@ import axios from 'axios'
 
               // })();
             }
-            
+
         },
         methods: {
           boardAddEvent() {
@@ -157,16 +157,16 @@ import axios from 'axios'
           boardCreate(evt) {
             this.$store.dispatch('boardCreate', this.$refs.newboardtextarea.value);
             this.$store.state.addingboard = false
-            
+
 
             // var id = this.$store.state.items[this.$store.state.items.length-1].id+1;
             // var order = this.$store.state.items[this.$store.state.items.length-1].order;
             // var title = this.$store.state.newcoltitle;
-            
+
             // console.log(order, id, title)
-            
+
             // var url = `http://localhost:8001/api/update_boards/${title}/${order}`;
-            
+
             // let config = {'headers': {}}
             // axios.get(url, config);
             // this.$store.state.items.push({id:id, title: title, leads:[]})
@@ -225,12 +225,12 @@ import axios from 'axios'
       // console.log(this.last_update)
       // this.$store.state.lastupdate = this.last_update;
       var name = 'TOM';
-      let x =this.last_update[0].updated_at
-      if('updated_at' in this.last_update[0])
-        this.$store.state.lastupdate = x
-      
-      console.log(this.last_update[0].updated_at)
-      
+      // let x =this.last_update[0].updated_at
+      // if('updated_at' in this.last_update[0])
+        // this.$store.state.lastupdate = x
+
+      // console.log(this.last_update[0].updated_at)
+
       this.$socket.emit('loaded', {username:name, last_update:this.$store.state.lastupdate})
 
       // this.sockets.listener.subscribe("users", (data) => {
@@ -247,7 +247,7 @@ import axios from 'axios'
     position: relative;
     min-width: 1360px;
     max-width: 1600px;
-    /* display: block; */ 
+    /* display: block; */
     /* justify-content: center; */
     margin: 0 auto;
     border: 1.2px solid;
@@ -281,7 +281,7 @@ import axios from 'axios'
     line-height: 27px;
     width:auto;
     max-width: 120px;
-    overflow: hidden; 
+    overflow: hidden;
     overflow: none;
     outline: none;
     border:none;
@@ -295,7 +295,7 @@ import axios from 'axios'
   width: 100%;
   height: 100%;  */
   }
- 
+
    .boards-append-adding-form  textarea [type=text] {
     width: 90px;
     height: auto;
@@ -304,7 +304,7 @@ import axios from 'axios'
     display: block;
     margin: 0 auto;
   }
-  
+
   .btn-boards-append:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -312,7 +312,7 @@ import axios from 'axios'
   .boards-append-adding-card {
     height: 125px;
     transition:1.6s;
-    
+
   }
   .boards-append-adding-card .btn-boards-append {
     display: none;
@@ -340,7 +340,7 @@ import axios from 'axios'
 }
 h1, h2, h3, h4, h5 {
    margin:0;
-   padding:0; 
+   padding:0;
 }
 div {
   margin: 0;

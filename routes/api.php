@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('leads', LeadController::class);
+
 Route::apiResource('contacts', ContactController::class);
 Route::apiResource('companies', CompanyController::class);
 

@@ -154,6 +154,7 @@ export default new Vuex.Store({
             }}
             // console.log(`http://localhost:8000/api/update_boards/newboard=${title}`)
             let url = `http://localhost:8000/api/update_boards/newboard/${title}`;
+            console.log('hello');
             axios.get(url, config).then(response=> {
                 if(response.status == 200)
                     context.commit('CREATE_BOARD', response.data)
