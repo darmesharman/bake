@@ -35,7 +35,9 @@ class CompanyController extends Controller
             'category:id,name',
             'city:id,name',
             'additional_phone_numbers',
-            'comments'
+            'comments',
+            'images',
+            'profileImages',
         );
 
         if (request()->input('kategoriID')) {
