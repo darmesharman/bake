@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhoneNumbersTable extends Migration
+class CreateAdditionalPhoneNumbersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePhoneNumbersTable extends Migration
      */
     public function up()
     {
-        Schema::create('phone_numbers', function (Blueprint $table) {
+        Schema::create('additional_phone_numbers', function (Blueprint $table) {
             $table->id();
-            $table->string('number');
-            $table->foreignId('contact_id')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('company_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('phone_number')->nullable();
+            $table->foreignId('company_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

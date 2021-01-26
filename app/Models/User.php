@@ -26,6 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'type',
         'first_name',
         'last_name',
         'email',
@@ -71,14 +72,23 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function permission()
-    {
-        return $this->hasOne(Permission::class);
-    }
-
     public function permissions()
     {
         return $this->belongsToMany(Permission::class)->withTimestamps();
+    }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function hasComment(Comment $comment)
+    {
+        return $this->comments->contains($comment);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

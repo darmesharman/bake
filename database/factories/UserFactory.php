@@ -23,14 +23,20 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        // generate random kz phone number
+        $phone_code = ['01', '02', '47', '77'];
+        $rand_phone_code = $phone_code[array_rand($phone_code, 1)];
+        $phone_number = '77' . $rand_phone_code . $this->faker->unique()->randomNumber(7);
+
         return [
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
-            'email' => 'arman@gmail.com',
-            'phone_number' => '+77026651625',
+            'email' => $this->faker->unique()->email,
+            'phone_number' => $phone_number,
+            'phone_verified_at' => now(),
             'phone_verification_send' => now(),
-            // 'city' => $this->faker->city,
-            'password' => bcrypt('arman123'), // password
+            'city' => $this->faker->city,
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
     }

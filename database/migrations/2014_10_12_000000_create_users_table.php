@@ -15,28 +15,38 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('phone_number')->unique();
             $table->timestamp('phone_verified_at')->nullable();
             $table->timestamp('phone_verification_send')->nullable();
-            $table->integer('account_id')->index();
-            $table->string('first_name', 25);
-            $table->string('last_name', 25);
-            $table->string('email', 50)->unique();
-            $table->string('password')->nullable();
-            $table->boolean('owner')->default(false);
-            $table->string('photo_path', 100)->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('city');
+            $table->string('code')->nullable();
+            $table->string('token')->nullable();
+            //
+            $table->string('type')->default('user');
+            //
+            $table->foreignId('role_id')->nullable()->constrained();
             $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
-            $table->string('name');
         });
     }
 
+
+
     /**
+
      * Reverse the migrations.
+
      *
+
      * @return void
+
      */
+
     public function down()
     {
         Schema::dropIfExists('users');

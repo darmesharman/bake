@@ -1,0 +1,240 @@
+header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 332;
+    box-shadow: var(--shadow-s);
+    background: var(--bg);
+
+    &.home-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: none;
+        border: none;
+        pointer-events: none;
+
+        .header-content {
+            margin-left: 50%;
+            padding-left: var(--padding);
+            pointer-events: all;
+
+            .open-menu {
+                cursor: pointer;
+                font-size: 3rem;
+                margin-right: auto;
+                transition: 0.3s;
+
+                &:hover {
+                    color: var(--theme);
+                }
+
+            }
+
+        }
+
+    }
+
+    .header-content {
+        height: var(--header);
+        display: flex;
+        align-items: center;
+
+        nav {
+            margin: 0 auto 0 4rem;
+
+            ul {
+                display: flex;
+
+                li {
+
+                    &:not(:last-child) {
+                        margin-right: 1rem;
+                    }
+
+                    a {
+                        padding: 0.6em 1em;
+                        border-radius: 2em;
+                        color: var(--text);
+
+                        &:hover {
+                            background: var(--opacity);
+                            color: var(--theme);
+                        }
+
+                    }
+
+                    &.current-menu-item {
+
+                        a {
+                            background: var(--opacity);
+                            color: var(--theme);
+                        }
+
+                    }
+    
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.notifications {
+    position: fixed;
+    width: 36rem;
+    bottom: 0;
+    right: 0;
+    z-index: 42;
+
+    .notif {
+        margin: 20px 20px 0 20px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        opacity: 0;
+        position: absolute;
+        z-index: -12;
+        transition: opacity 0.4s;
+        overflow: hidden;
+
+        &.loaded {
+            position: relative;
+            z-index: 0;
+            opacity: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 1.5rem;
+        }
+
+        &.closing {
+            opacity: 0;
+        }
+
+        .notif-title {
+            display: flex;
+            align-items: baseline;
+
+            &:before, span {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translate(-20%, -50%);
+                font-size: 6rem;
+                color: var(--opacity);
+
+                &.success {
+                    color: var(--green-opacity);
+                }
+
+                &.warning {
+                    color: var(--orange-opacity);
+                }
+
+                &.red {
+                    color: var(--red-opacity);
+                }
+
+            }
+
+            &.success {
+
+                .title-inner {
+                    color: var(--green);
+                }
+
+                &:before {
+                    color: var(--green-opacity);
+                }
+
+            }
+
+            &.warning {
+
+                .title-inner {
+                    color: var(--orange);
+                }
+
+                &:before {
+                    color: var(--orange-opacity);
+                }
+
+            }
+
+            &.error {
+
+                .title-inner {
+                    color: var(--red);
+                }
+
+                &:before {
+                    color: var(--red-opacity);
+                }
+
+            }
+
+            .title-inner {
+                margin: 0 2rem 0 0;
+            }
+
+            .date {
+                color: var(--grey);
+                margin-left: auto;
+                flex-shrink: 0;
+            }
+
+        }
+
+        p {
+            color: var(--grey);
+            font-size: 90%;
+            margin-top: 0.4em;
+            margin-bottom: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            .close-notif {
+                transition: 0.3s;
+                cursor: pointer;
+                opacity: 0;
+                margin-left: 0.5rem;
+                flex-shrink: 0;
+                user-select: none;
+    
+                &:hover {
+                    color: var(--red);
+                }
+    
+            }
+
+        }
+
+        &:hover {
+            
+            p {
+
+                .close-notif {
+                    opacity: 1;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.admin-bar {
+
+    header.site-header {
+        top: 32px;
+    }
+
+}

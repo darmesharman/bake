@@ -1,60 +1,61 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+@extends('layouts.guest')
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-        </div>
-
-        @if (session('status') == 'verification-link-sent')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+@section('content')
+    <section class="auth">
+        <div class="wrapper">
+            <div class="slide white" style="background-image: url(img/auth.jpg)">
+                <img src="/img/wave.svg">
+                <ul>
+                    <li class="icon-dashboard ">
+                        <div class="text">
+                            <h5>Заголовок</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic ullam qui unde?</p>
+                        </div>
+                    </li>
+                    <li class="icon-internet">
+                        <div class="text">
+                            <h5>Заголовок</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic ullam qui unde?</p>
+                        </div>
+                    </li>
+                    <li class="icon-analytics">
+                        <div class="text">
+                            <h5>Заголовок</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic ullam qui unde?</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        @endif
-
-        @if (session('wrong_code'))
-            <div class="mb-4 font-medium text-sm text-red-600">
-                {{ session('wrong_code') }}
-            </div>
-        @endif
-
-        <div class="mt-4 flex items-center justify-between">
-        <form method="POST" action="{{ route('verifyPhone.postVerify') }}">
-            @csrf
-
-            <input class="block border border-2 m-3 p-1" type="hidden" name="token" value="{{ $token }}">
-            <input class="block border border-2 m-3 p-1" type="hidden" name="phone_number" value="{{ $phone_number }}">
-            <input class="block border border-2 m-3 p-1" type="text" name="code" placeholder="code">
-
-            <button type="submit">
-                enter code
-            </button>
-        </form>
-        </div>
-
-        <div class="mt-4 flex items-center justify-between">
-            <form method="POST" action="{{ route('verifyPhone.resend') }}">
+            <form action="{{ route('verifyPhone.postVerify') }}" method="POST">
                 @csrf
 
-                <input class="block border border-2 m-3 p-1" type="hidden" name="token" value="{{ $token }}">
-                <input class="block border border-2 m-3 p-1" type="hidden" name="phone_number" value="{{ $phone_number }}">
-
-                <div>
-                    <x-jet-button type="submit">
-                        {{ __('resend code') }}
-                    </x-jet-button>
+                <div class="form-group confirm-code">
+                    <div class="confirm-code-wrapper article">
+                        <h3>Верификация</h3>
+                        <p class="grey-text">
+                            Для защиты Вашего аккаунта мы отправили SMS с кодом на Ваш мобильный телефон. Это бесплатно.
+                        </p>
+                        <div class="code-input-wrapper">
+                            <input type="hidden" name="token" class="code-input code-mask code" id="code" value="{{ $token }}" >
+                            <input type="hidden" name="phone_number" class="code-input code-mask code" id="code" value="{{ $phone_number }}">
+                            <input type="text" name="code" class="code-input code-mask code" id="code">
+                        </div>
+                        <button type="submit" class="btn btn-success mxa">Hello</button>
+                    </div>
                 </div>
             </form>
 
-            <form method="POST" action="{{ route('logout') }}">
+            <form action="{{ route('verifyPhone.resend') }}" method="POST" >
                 @csrf
 
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    {{ __('Logout') }}
-                </button>
+                <div class="code-timer">
+                    <input type="hidden" name="token" class="code-input code-mask code" id="code" value="{{ $token }}" >
+                    <input type="hidden" name="phone_number" class="code-input code-mask code" id="code" value="{{ $phone_number }}">
+                    <p class="grey-text">Запросить код повторно можно через <span id="code-timer"></span> секунд</p>
+                    <button type="submit">Отправить код повторно</button>
+                </div>
             </form>
         </div>
-    </x-jet-authentication-card>
-</x-guest-layout>
+    </section>
+
+@endsection

@@ -3,9 +3,12 @@
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\Api\CityController;
+use App\Http\Resources\CityCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\Api\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +26,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('leads', LeadController::class);
-
 Route::apiResource('contacts', ContactController::class);
 Route::apiResource('companies', CompanyController::class);
 
@@ -46,3 +48,7 @@ Route::put('/update_boards/removelead/{leadid}', [MainController::class, 'remove
 // Route::put('/update_boards/{board_id}/{board_id2}/{lead_id}/{order}', [MainController::class, 'update_boards_order']);
 // update leads order
 // Route::put('/update_leads/{board_id}', [MainController::class, 'update_leads_order']);
+Route::get('/cities', [CityController::class, 'cities']);
+Route::get('/districts', [CityController::class, 'districts']);
+Route::get('/micro-districts', [CityController::class, 'microDistricts']);
+Route::post('/companies/{company}/views', [CompanyController::class, 'showCount']);

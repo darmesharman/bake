@@ -1,9 +1,5 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
+@extends('layouts.guest')
+    @section('content')
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
@@ -14,7 +10,6 @@
             </div>
         @endif
 
-        <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('forgotPassword.store') }}">
             @csrf
@@ -25,10 +20,10 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
+                <x-jet-button class="btn btn-primary mxa">
                     {{ __('Confirm') }}
                 </x-jet-button>
             </div>
         </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+    @endsection
+

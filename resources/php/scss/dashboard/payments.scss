@@ -1,0 +1,104 @@
+.dashboard {
+
+    .payments-list {
+
+        .id {
+            width: 10rem;
+        }
+
+        .date {
+            width: 12rem;
+        }
+
+        .type {
+            flex-grow: 1;
+        }
+
+        .sum {
+            width: 12rem;
+        }
+
+        .status {
+            width: 11rem;
+        }
+
+        .pl-label {
+            display: flex;
+            padding: 0 calc(4rem + var(--icon-size) + 3rem) 0 4rem;
+        }
+
+        .pl-item {
+    
+            .info {
+                padding: 2rem 4rem;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                transition: 0.3s;
+                background: var(--grey-bg);
+
+                .type {
+                    padding-right: 2rem;
+                    color: var(--grey);
+                }
+
+                .sum {
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    color: var(--theme);
+
+                    del {
+                        color: var(--grey-l);
+                        font-size: 90%;
+                        display: block;
+                    }
+
+                }
+
+                .status {
+                    text-align: center;
+
+                    p {
+                        color: var(--grey);
+                    }
+
+                    .highlight {
+                        width: 100%;
+                        display: block;
+                        line-height: 1;
+                    }
+
+                }
+
+            }
+
+            .payment-dropdown {
+                padding: 2rem 4rem;
+                border: solid var(--border);
+                border-width: 0 1px 1px 1px;
+                margin: 0 3rem;
+                border-radius: 0 0 6px 6px;
+                display: none;
+            }
+    
+            &:hover {
+
+                .info {
+                    box-shadow: var(--shadow-m);
+                    border-color: transparent;
+                    background: var(--bg);
+                }
+
+            }
+
+            .more {
+                margin-left: 3rem;
+            }
+    
+        }
+
+    }
+
+}
