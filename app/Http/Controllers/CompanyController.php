@@ -8,12 +8,9 @@ use App\Models\Company;
 use App\Models\District;
 use App\Models\Image;
 use App\Models\AdditionalPhoneNumber;
-<<<<<<< HEAD
 use App\Models\CompanyImages;
-=======
 use App\Models\MicroDistrict;
 use App\Models\SubCategory;
->>>>>>> c652f4628e3bd7f0346bbc551a6c9461418b05ab
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
