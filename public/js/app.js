@@ -4385,6 +4385,8 @@ __webpack_require__.r(__webpack_exports__);
       console.log('socket connected!!');
     },
     users: function users(socketname) {
+      var _this = this;
+
       var x = 4; // users(socketname){
       //  (async  () => {
       // the rest of the code
@@ -4392,52 +4394,62 @@ __webpack_require__.r(__webpack_exports__);
       this.sockets.subscribe(socketname, function (data) {
         console.log(data.last_update); // console.log(this.$store.state.lastupdate)
         // if(data.last_update != this.$store.state.lastupdate) {
-        //   if(data.last_update != this.$store.state.lastupdate)
-        //   {
-        //     console.log('data', data.data)
-        //     this.$store.state.lastupdate = data.last_update
-        //     // console.log('newdata date is: ', data.last_update)
-        //     // console.log('newdata is: ', data.data[0])
-        //     // console.log('newdata is: ', data.data[1].details[0]==null)
-        //   let switchOptions = (option, details)=> {
-        //       // console.log('details')
-        //       // console.log(option)
-        //       // console.log(i)
-        //       console.log(details)
-        //      switch (option) {
-        //       case 0:
-        //         this.$store.dispatch('boardCreateUpdates', details);
-        //         break;
-        //       case 1:
-        //         this.$store.dispatch('boardUpdateUpdates', details);
-        //         break;
-        //        case 2:
-        //         this.$store.dispatch('boardDeleteUpdates', details);
-        //         break;
-        //       case 10:
-        //         this.$store.dispatch('leadCreateUpdates', details);
-        //         break;
-        //       case 11:
-        //         this.$store.dispatch('leadUpdateUpdates', details);
-        //         break;
-        //       case 12:
-        //         this.$store.dispatch('leadDeleteUpdates', details);
-        //         break;
-        //       // default:
-        //         // break;
-        //     }
-        //   }
-        //     data.data.forEach(event => {
-        //       if(event.details[0] != null)
-        //         // if(event.details.length > 1)
-        //           event.details.forEach(detail => {
-        //             switchOptions(event.event, detail )
-        //           });
-        //         // else
-        //           // switchOptions(event.event, event.details[0])
-        //     });
-        //   }
-        // this.$store.lastupdate = data.last_update
+
+        if (data.last_update != _this.$store.state.lastupdate) {
+          console.log('data', data.data);
+          _this.$store.state.lastupdate = data.last_update; // console.log('newdata date is: ', data.last_update)
+          // console.log('newdata is: ', data.data[0])
+          // console.log('newdata is: ', data.data[1].details[0]==null)
+
+          var switchOptions = function switchOptions(option, details) {
+            // console.log('details')
+            // console.log(option)
+            // console.log(i)
+            console.log(details);
+
+            switch (option) {
+              case 0:
+                _this.$store.dispatch('boardCreateUpdates', details);
+
+                break;
+
+              case 1:
+                _this.$store.dispatch('boardUpdateUpdates', details);
+
+                break;
+
+              case 2:
+                _this.$store.dispatch('boardDeleteUpdates', details);
+
+                break;
+
+              case 10:
+                _this.$store.dispatch('leadCreateUpdates', details);
+
+                break;
+
+              case 11:
+                _this.$store.dispatch('leadUpdateUpdates', details);
+
+                break;
+
+              case 12:
+                _this.$store.dispatch('leadDeleteUpdates', details);
+
+                break;
+              // default:
+              // break;
+            }
+          };
+
+          data.data.forEach(function (event) {
+            if (event.details[0] != null) // if(event.details.length > 1)
+              event.details.forEach(function (detail) {
+                switchOptions(event.event, detail);
+              }); // else
+            // switchOptions(event.event, event.details[0])
+          });
+        } // this.$store.lastupdate = data.last_update
         // console.log(this.$store.state.updates)
         // }
         // this.$store.state.lastupdate = data.last_update
@@ -4454,6 +4466,7 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(JSON.parse(new Object()))
         // JSON.parse("[" + string + "]");
         // this.sockets.unsubscribe('EVENT_NAME');
+
       }); // })();
     }
   },
@@ -4524,11 +4537,10 @@ __webpack_require__.r(__webpack_exports__);
     this.$store.state.items = this.boards; // console.log(this.last_update)
     // this.$store.state.lastupdate = this.last_update;
 
-    var name = 'TOM'; // let x =this.last_update[0].updated_at
-    // if('updated_at' in this.last_update[0])
-    // this.$store.state.lastupdate = x
-    // console.log(this.last_update[0].updated_at)
-
+    var name = 'TOM';
+    var x = this.last_update[0].updated_at;
+    if ('updated_at' in this.last_update[0]) this.$store.state.lastupdate = x;
+    console.log(this.last_update[0].updated_at);
     this.$socket.emit('loaded', {
       username: name,
       last_update: this.$store.state.lastupdate
@@ -4788,7 +4800,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       var index = state.items.findIndex(function (y) {
         return y.id == details.id;
       });
-      state.items.splice(index, 1); // state.items.push({ id:details.id,
+      state.items.splice(index, 1); // state.items.push({ id:details.id, 
       // title:details.title, order:details.order, updated_at:details.updated_at})
     },
     CREATE_LEAD_UPDATE: function CREATE_LEAD_UPDATE(state, details) {
@@ -4850,7 +4862,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       var config = {
         'headers': {}
       };
-      var url = "http://localhost:8000/api/update_boards/updateboard/".concat(data.item.id, "/newtitle/").concat(data.value);
+      var url = "http://localhost:8001/api/update_boards/updateboard/".concat(data.item.id, "/newtitle/").concat(data.value);
       axios.put(url, config).then(function (response) {
         console.log(response.data);
         context.commit('UPDATE_BOARD', data);
@@ -4861,10 +4873,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
         'headers': {
           'Accept': 'application/json'
         }
-      }; // console.log(`http://localhost:8000/api/update_boards/newboard=${title}`)
+      }; // console.log(`http://localhost:8001/api/update_boards/newboard=${title}`)
 
-      var url = "http://localhost:8000/api/update_boards/newboard/".concat(title);
-      console.log('hello');
+      var url = "http://localhost:8001/api/update_boards/newboard/".concat(title);
       axios.get(url, config).then(function (response) {
         if (response.status == 200) context.commit('CREATE_BOARD', response.data); // console.log(response.data)
       });
@@ -4874,9 +4885,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
         'headers': {
           'Accept': 'application/json'
         }
-      }; // console.log(`http://localhost:8000/api/update_boards/newboard=${title}`)
+      }; // console.log(`http://localhost:8001/api/update_boards/newboard=${title}`)
 
-      var url = "http://localhost:8000/api/update_boards/removeboard/".concat(data.item.id);
+      var url = "http://localhost:8001/api/update_boards/removeboard/".concat(data.item.id);
       axios.put(url, config).then(function (response) {
         if (response.status == 200) context.commit('REMOVE_BOARD', data.item);
       });
@@ -4887,7 +4898,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
           'Accept': 'application/json'
         }
       };
-      var url = "http://localhost:8000/api/update_boards/createlead/".concat(data.item.id, "/newleaddescription/").concat(data.value);
+      var url = "http://localhost:8001/api/update_boards/createlead/".concat(data.item.id, "/newleaddescription/").concat(data.value);
       axios.get(url, config).then(function (response) {
         if (response.status == 200) data.id = response.data.id;
         data.created_at = response.data.created_at;
@@ -4901,7 +4912,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
           'Accept': 'application/json'
         }
       };
-      var url = "http://localhost:8000/api/update_boards/removelead/".concat(data.lead.id); // console.log(url)
+      var url = "http://localhost:8001/api/update_boards/removelead/".concat(data.lead.id); // console.log(url)
 
       axios.put(url, config).then(function (response) {
         if (response.status == 200) context.commit('REMOVE_LEAD', data);
@@ -4913,7 +4924,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
           'Accept': 'application/json'
         }
       };
-      var url = "http://localhost:8000/api/update_boards/updatelead/".concat(data.lead.id, "/description/").concat(data.value); // console.log(url)
+      var url = "http://localhost:8001/api/update_boards/updatelead/".concat(data.lead.id, "/description/").concat(data.value); // console.log(url)
 
       axios.put(url, config).then(function (response) {
         if (response.status == 200) context.commit('UPDATE_LEAD', data);
@@ -7312,7 +7323,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-f9f8d77c] {\n    position: relative;\n    min-width: 1360px;\n    max-width: 1600px;\n    /* display: block; */\n    /* justify-content: center; */\n    margin: 0 auto;\n    border: 1.2px solid;\n}\n.board-context[data-v-f9f8d77c] {\n    display: inline-block;\n    vertical-align: top;\n    width: 272px;\n    margin:0 4px;\n    background-color:#EBEBEB;\n}\n.boards-append[data-v-f9f8d77c] {\n    position: relative;\n    display: inline-block;\n    min-width: 80px;\n    width:80px ;\n    background-color: azure;\n    border-radius: 14px;\n}\n.boards-append-adding-form[data-v-f9f8d77c] {\n    position: relative;\n    min-height: 70px;\n    display: block;\n    margin: 0 auto;\n    min-width: 70px;\n    width: 100%;\n}\n.boards-append-adding-form  textarea[data-v-f9f8d77c] {\n    height: 27px;\n    line-height: 27px;\n    width:auto;\n    max-width: 120px;\n    overflow: hidden;\n    overflow: none;\n    outline: none;\n    border:none;\n    resize: none;\n    cursor: pointer;\n    line-height: normal;\n\n  /* box-sizing: border-box;\n  resize: none;\n  position: absolute;\n  width: 100%;\n  height: 100%;  */\n}\n.boards-append-adding-form  textarea [type=text][data-v-f9f8d77c] {\n    width: 90px;\n    height: auto;\n    word-wrap: break-word;\n    word-break: break-all;\n    display: block;\n    margin: 0 auto;\n}\n.btn-boards-append[data-v-f9f8d77c]:hover {\n    text-decoration: underline;\n    cursor: pointer;\n}\n.boards-append-adding-card[data-v-f9f8d77c] {\n    height: 125px;\n    transition:1.6s;\n}\n.boards-append-adding-card .btn-boards-append[data-v-f9f8d77c] {\n    display: none;\n}\n.boards-append-adding-btn[data-v-f9f8d77c] {\n    position: absolute;\n    visibility: hidden;\n    opacity: 0;\n}\n/* boards-append boards-append-adding-card */\n.boards-append-adding-btn[data-v-f9f8d77c]:hover {\n    text-decoration: none;\n    cursor:none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-f9f8d77c] {\n    position: relative;\n    min-width: 1360px;\n    max-width: 1600px;\n    /* display: block; */ \n    /* justify-content: center; */\n    margin: 0 auto;\n    border: 1.2px solid;\n}\n.board-context[data-v-f9f8d77c] {\n    display: inline-block;\n    vertical-align: top;\n    width: 272px;\n    margin:0 4px;\n    background-color:#EBEBEB;\n}\n.boards-append[data-v-f9f8d77c] {\n    position: relative;\n    display: inline-block;\n    min-width: 80px;\n    width:80px ;\n    background-color: azure;\n    border-radius: 14px;\n}\n.boards-append-adding-form[data-v-f9f8d77c] {\n    position: relative;\n    min-height: 70px;\n    display: block;\n    margin: 0 auto;\n    min-width: 70px;\n    width: 100%;\n}\n.boards-append-adding-form  textarea[data-v-f9f8d77c] {\n    height: 27px;\n    line-height: 27px;\n    width:auto;\n    max-width: 120px;\n    overflow: hidden; \n    overflow: none;\n    outline: none;\n    border:none;\n    resize: none;\n    cursor: pointer;\n    line-height: normal;\n\n  /* box-sizing: border-box;\n  resize: none;\n  position: absolute;\n  width: 100%;\n  height: 100%;  */\n}\n.boards-append-adding-form  textarea [type=text][data-v-f9f8d77c] {\n    width: 90px;\n    height: auto;\n    word-wrap: break-word;\n    word-break: break-all;\n    display: block;\n    margin: 0 auto;\n}\n.btn-boards-append[data-v-f9f8d77c]:hover {\n    text-decoration: underline;\n    cursor: pointer;\n}\n.boards-append-adding-card[data-v-f9f8d77c] {\n    height: 125px;\n    transition:1.6s;\n}\n.boards-append-adding-card .btn-boards-append[data-v-f9f8d77c] {\n    display: none;\n}\n.boards-append-adding-btn[data-v-f9f8d77c] {\n    position: absolute;\n    visibility: hidden;\n    opacity: 0;\n}\n/* boards-append boards-append-adding-card */\n.boards-append-adding-btn[data-v-f9f8d77c]:hover {\n    text-decoration: none;\n    cursor:none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
