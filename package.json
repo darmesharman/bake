@@ -10,7 +10,6 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
         "start": "nodemon database/sockets/app.js",
         "start1": "node database/sockets/app.js"
-        
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.8.2",

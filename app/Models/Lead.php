@@ -15,6 +15,7 @@ class Lead extends Model
         'description',
         'status_id',
         'sum',
+        'order',
         'created_at'
     ];
 
