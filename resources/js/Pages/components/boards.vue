@@ -67,7 +67,7 @@ export default {
     focusouteditBoard(item) {
         this.$store.dispatch('editBoard', {item: item, value: this.$refs.boardtitle.value });
 
-        var url = `http://localhost:8001/api/update_boards/${colid}/${this.$refs.area.value}`;
+        var url = `http://localhost:8000/api/update_boards/${colid}/${this.$refs.area.value}`;
         let config = {'headers': {}}
         axios.put(url, config);
     },
