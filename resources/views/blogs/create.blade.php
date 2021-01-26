@@ -15,18 +15,32 @@
                 @csrf
                 <textarea name="title"></textarea>
                 <br>
+                <select class="form-control" name="tags[]" multiple>
+                    @foreach ($tags as $tag)
+                        <option value="{{ $tag->id }}">
+                            {{ $tag->name }}
+                        </option>
+                    @endforeach
+                </select>
+                <br>
+                <br>
                 <input
                     type="file"
-                    name="blog_images[]"
+                    name="blog_image"
                     accept="image/*"
                     required
-                    multiple
                 >
                 <br>
                 <br>
-                <textarea name="content"></textarea>
+                <textarea class="ckeditor form-control" name="content"></textarea>
                 <br>
                 <button class="btn btn-success">CREATE</button>
             </form>
         </div>
+        <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.ckeditor').ckeditor();
+            });
+        </script>
     @endsection

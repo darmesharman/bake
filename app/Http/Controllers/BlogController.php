@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Models\BlogImages;
-use App\Models\Image;
+use App\Models\BlogImage;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
@@ -19,6 +20,7 @@ class BlogController extends Controller
     {
         $blogs = Blog::all();
 
+
         return view('blogs.index', compact('blogs'));
     }
 
@@ -29,7 +31,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blogs.create');
+        $tags = Tag::all();
+        return view('blogs.create', compact('tags'));
     }
 
     /**
@@ -48,20 +51,21 @@ class BlogController extends Controller
             'user_id' => auth()->user()->id,
         ]);
 
-        if ($request->hasfile('blog_images')) {
-            foreach ($request->file('blog_images') as $key => $file) {
-                $path = $file->store('images');
-                $name = $file->getClientOriginalName();
-                $insert[$key]['name'] = $name;
-                $insert[$key]['path'] = $path;
-                $insert[$key]['blog_id'] = $blog->id;
-                $insert[$key]['blog'] = true;
-            }
+        if ($request->hasfile('blog_image')) {
+            $path = $request->file('blog_image')->store('images');
+            $img = new BlogImage([
+                'name' => $request->file('blog_image')->getClientOriginalName(),
+                'path' => $path,
+                'blog_id' => $blog->id,
+                'blog' => true,
+            ]);
+
+            $img->save();
         }
 
-        BlogImages::insert($insert);
-
         $blog->save();
+
+        $blog->tags()->attach(request('tags'));
 
         return redirect()->route('blogs.index');
     }
@@ -85,7 +89,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $tags = Tag::all();
+        return view('blogs.edit', compact('blog', 'tags'));
     }
 
     /**
@@ -97,7 +102,31 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $this->validateBlog($request);
+
+        $blog->update([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+        ]);
+        if ($request->hasfile('blog_image')) {
+            Storage::delete($blog->blogImage->path);
+            $blogImage = BlogImage::where('path', $blog->blogImage->path);
+            $blogImage->delete();
+
+            $path = $request->file('blog_image')->store('images');
+            $img = new BlogImage([
+                'name' => $request->file('blog_image')->getClientOriginalName(),
+                'path' => $path,
+                'blog_id' => $blog->id,
+                'blog' => true,
+            ]);
+            $img->save();
+        }
+
+        $blog->tags()->detach(Tag::all());
+        $blog->tags()->attach(request('tags'));
+
+        return redirect()->route('blogs.index');
     }
 
     /**
@@ -108,7 +137,13 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        Storage::delete($blog->blogImage->path);
+        $blogImage = BlogImage::where('path', $blog->blogImage->path);
+        $blogImage->delete();
+
+        $blog->delete();
+
+        return back();
     }
 
     protected function validateBlog(Request $request)

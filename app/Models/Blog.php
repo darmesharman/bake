@@ -13,11 +13,16 @@ class Blog extends Model
 
     public function images()
     {
-        return $this->hasMany(BlogImages::class);
+        return $this->hasMany(BlogImage::class);
     }
 
-    public function blogImages()
+    public function blogImage()
     {
-        return $this->hasMany(BlogImages::class)->where('blog', true);
+        return $this->hasOne(BlogImage::class)->where('blog', true);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }
