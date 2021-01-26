@@ -25,7 +25,7 @@ export default new Vuex.Store({
         leadadding: false,
         newleadcontent:'',
         updates:null
-        
+
     },
     mutations:{
         SOCKET_CONNECT: (state,  status ) => {
@@ -59,7 +59,7 @@ export default new Vuex.Store({
         },
         CREATE_BOARD:(state, data)=> {
             state.items.push({id:data.id, title: data.title, order: data.order, leads: [], created_at:data.created_at, updated_at:data.updated_at})
-        }, 
+        },
         REMOVE_BOARD:(state, item)=> {
             let index = state.items.findIndex(y => y.id == item.id)
             state.items.splice(index, 1)
@@ -67,7 +67,7 @@ export default new Vuex.Store({
         UPDATE_BOARD:(state, data)=> {
             let index = state.items.findIndex(y => y.id == data.item.id)
             state.items[index].title = data.value
-        }, 
+        },
         SWAP_BOARDS:(state, data)=> {
             var index = state.items.findIndex(item => item.id == data.itemid)
             var index2 = state.items.findIndex(item => item.id == data.itemid2)
@@ -77,23 +77,23 @@ export default new Vuex.Store({
         },
         CREATE_BOARD_UPDATE:(state, details)=> {
             // let index = state.items.findIndex(y => y.id == data.item.id)
-            state.items.push({ id:details.id, order:details.order, 
+            state.items.push({ id:details.id, order:details.order,
                 title:details.title, created_at:details.created_at, updated_at:details.updated_at, leads:[]})
-        }, 
+        },
         UPDATE_BOARD_UPDATE:(state, details)=> {
-            
+
             let index = state.items.findIndex(y => y.id == details.id)
-             
-                state.items[index].order = details.order 
-                state.items[index].title = details.title 
+
+                state.items[index].order = details.order
+                state.items[index].title = details.title
                 state.items[index].updated_at = details.updated_at
-        }, 
+        },
         DELETE_BOARD_UPDATE:(state, details)=> {
             let index = state.items.findIndex(y => y.id == details.id)
             state.items.splice(index, 1)
-            // state.items.push({ id:details.id, 
+            // state.items.push({ id:details.id,
                 // title:details.title, order:details.order, updated_at:details.updated_at})
-        }, 
+        },
         CREATE_LEAD_UPDATE:(state, details)=> {
             let index = state.items.findIndex(y => y.id == details.board_id)
             state.items[index].leads.push({
@@ -103,19 +103,19 @@ export default new Vuex.Store({
                 created_at: details.created_at,
                 updated_at: details.updated_at
             })
-        }, 
+        },
         UPDATE_LEAD_UPDATE:(state, details)=> {
             let index = state.items.findIndex(y => y.id == details.board_id)
             let idx = state.items[index].leads.findIndex(y => y.id == details.id)
             state.items[index].leads[idx].description = details.description
             updated_at = details.updated_at
-        }, 
+        },
         DELETE_LEAD_UPDATE:(state, details)=> {
             let index = state.items.findIndex(y => y.id == details.board_id)
             let idx = state.items[index].leads.findIndex(y => y.id == details.id)
             console.log(idx)
             state.items[index].leads.splice(idx, 1)
-        }, 
+        },
     },
     actions: {
         boardCreateUpdates:(context, details) => {
@@ -139,44 +139,44 @@ export default new Vuex.Store({
         swapBoards:(context, data) => {
             context.commit('SWAP_BOARDS', data)
         },
-        editBoard:(context, data) => { 
+        editBoard:(context, data) => {
             let config = {'headers': {}}
-            let url = `http://localhost:8001/api/update_boards/updateboard/${data.item.id}/newtitle/${data.value}`;
+            let url = `http://localhost:8000/api/update_boards/updateboard/${data.item.id}/newtitle/${data.value}`;
             axios.put(url, config).then(response=> {
-                
+
                 console.log(response.data)
                 context.commit('UPDATE_BOARD', data)
             });
         },
-        boardCreate:(context, title) => {    
+        boardCreate:(context, title) => {
             let config = {'headers': {
                 'Accept': 'application/json'
             }}
-            // console.log(`http://localhost:8001/api/update_boards/newboard=${title}`)
-            let url = `http://localhost:8001/api/update_boards/newboard/${title}`;
+            // console.log(`http://localhost:8000/api/update_boards/newboard=${title}`)
+            let url = `http://localhost:8000/api/update_boards/newboard/${title}`;
             axios.get(url, config).then(response=> {
                 if(response.status == 200)
                     context.commit('CREATE_BOARD', response.data)
                 // console.log(response.data)
             });
         },
-        boardDelete:(context, data) => {    
+        boardDelete:(context, data) => {
             let config = {'headers': {
                 'Accept': 'application/json'
             }}
-            // console.log(`http://localhost:8001/api/update_boards/newboard=${title}`)
-            let url = `http://localhost:8001/api/update_boards/removeboard/${data.item.id}`;
+            // console.log(`http://localhost:8000/api/update_boards/newboard=${title}`)
+            let url = `http://localhost:8000/api/update_boards/removeboard/${data.item.id}`;
             axios.put(url, config).then(response=> {
                 if(response.status == 200)
                 context.commit('REMOVE_BOARD', data.item)
             });
-            
+
         },
         createLead:(context, data) => {
             let config = {'headers': {
                 'Accept': 'application/json'
             }}
-            let url = `http://localhost:8001/api/update_boards/createlead/${data.item.id}/newleaddescription/${data.value}`;
+            let url = `http://localhost:8000/api/update_boards/createlead/${data.item.id}/newleaddescription/${data.value}`;
 
             axios.get(url, config).then(response=> {
                 if(response.status == 200)
@@ -192,21 +192,21 @@ export default new Vuex.Store({
             let config = {'headers': {
                 'Accept': 'application/json'
             }}
-            let url = `http://localhost:8001/api/update_boards/removelead/${data.lead.id}`;
+            let url = `http://localhost:8000/api/update_boards/removelead/${data.lead.id}`;
             // console.log(url)
             axios.put(url, config).then(response=> {
                 if(response.status == 200)
                     context.commit('REMOVE_LEAD', data)
             });
 
-             
+
         },
         saveLead:(context, data) => {
             let config = {'headers': {
                 'Accept': 'application/json'
             }}
-            
-            let url = `http://localhost:8001/api/update_boards/updatelead/${data.lead.id}/description/${data.value}`;
+
+            let url = `http://localhost:8000/api/update_boards/updatelead/${data.lead.id}/description/${data.value}`;
             // console.log(url)
             axios.put(url, config).then(response=> {
                 if(response.status == 200)

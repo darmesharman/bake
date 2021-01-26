@@ -15,8 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
             $table->string('phone_number')->unique();
             $table->timestamp('phone_verified_at')->nullable();
             $table->timestamp('phone_verification_send')->nullable();
@@ -31,7 +29,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('name');
-
         });
     }
 

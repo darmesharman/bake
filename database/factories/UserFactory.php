@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'email' => 'arman@gmail.com',
             'phone_number' => '+77026651625',
             'phone_verification_send' => now(),
-            'city' => $this->faker->city,
+            // 'city' => $this->faker->city,
             'password' => bcrypt('arman123'), // password
             'remember_token' => Str::random(10),
         ];

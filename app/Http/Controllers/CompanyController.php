@@ -128,6 +128,5 @@ class CompanyController extends Controller
             'email' => ['required', 'email', 'max:255', Rule::unique('companies')->ignore($company->id)],
             'contacts' => ['exists:contacts,id'],
         ])->validate();
-
     }
 }
