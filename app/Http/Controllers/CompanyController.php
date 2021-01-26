@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\District;
 use App\Models\Image;
 use App\Models\AdditionalPhoneNumber;
+use App\Models\CompanyImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -121,7 +122,7 @@ class CompanyController extends Controller
                 $insert[$key]['company_id'] = $company->id;
             }
         }
-        Image::insert($insert);
+        CompanyImages::insert($insert);
 
         $company->save();
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'));
@@ -195,7 +196,7 @@ class CompanyController extends Controller
                 $insert[$key]['company_id'] = $company->id;
             }
         }
-        Image::insert($insert);
+        CompanyImages::insert($insert);
 
         $company->save();
 
@@ -212,7 +213,7 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        $photos = Image::where('company_id', $company->id)->get();
+        $photos = CompanyImages::where('company_id', $company->id)->get();
 
         foreach ($photos as $photo) {
             Storage::delete($photo->path);

@@ -37,7 +37,7 @@
                                 href="{{ route('companies.index') }}">Все компании</a></li>
                         <li id="menu-item-21"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21"><a
-                                href="https://mykid.init.kz/blog">Блог</a></li>
+                                href="{{ route('blogs.index') }}">Блог</a></li>
                         <li id="menu-item-22"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22"><a
                                 href="#">Карта</a></li>

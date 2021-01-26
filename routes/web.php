@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
@@ -32,6 +33,7 @@ Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboa
 Route::resource('leads', LeadController::class)->middleware(['auth', 'phone.verified']);
 Route::resource('companies', CompanyController::class);
 Route::resource('contacts', ContactController::class)->middleware(['auth', 'phone.verified']);
+Route::resource('blogs', BlogController::class);
 
 Route::prefix('companies/{company}/')->middleware('auth')->group(function () {
     Route::post('comments', [CommentController::class, 'store'])->name('comments.store');
