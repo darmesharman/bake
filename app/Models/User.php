@@ -19,7 +19,6 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-    use SoftDeletes, Some, Authorizable;
     /**
      * The attributes that are mass assignable.
      *
@@ -37,7 +36,6 @@ class User extends Authenticatable
         'token',
         'phone_verified_at',
         'phone_verification_send',
-
     ];
 
     /**
