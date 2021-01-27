@@ -6,14 +6,14 @@ use App\Models\Company;
 use App\Models\Image;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ImageFactory extends Factory
+class CompanyImagesFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Image::class;
+    protected $model = CompanyImages::class;
 
     /**
      * Define the model's default state.

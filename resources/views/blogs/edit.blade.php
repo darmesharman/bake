@@ -18,7 +18,11 @@
             <br>
             <select class="form-control" name="tags[]" multiple>
                 @foreach ($tags as $tag)
-                    <option value="{{ $tag->id }}">
+                    <option value="{{ $tag->id }}"
+                        @if ($tag->hasBlogs($blog))
+                            selected
+                        @endif
+                    >
                         {{ $tag->name }}
                     </option>
                 @endforeach

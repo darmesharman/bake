@@ -64,7 +64,13 @@
             <div class="companies-slider slick-m">
 
                 @foreach ($companies as $company)
-                        <a href="{{ route('companies.show', $company) }}" class="company-item bg-cov rel db" style="background-image: url({{ asset($company->profileImages[0]->path) }});">
+                        <a href="{{ route('companies.show', $company) }}" class="company-item bg-cov rel db"
+                        @if ($company->profileImages->isNotEmpty())
+                            style="background-image: url(
+                                {{ asset($company->profileImages[0]->path) }}
+                                );"
+                        @endif
+                        >
                         <div class="stretch-a mask"></div>
                         <div class="content">
                             <div class="tags-icon">
