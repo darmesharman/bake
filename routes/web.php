@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ResetPasswordController;
@@ -60,3 +61,5 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->nam
 
 Route::get('/reset-password/{user}/{token}', [ResetPasswordController::class, 'index'])->name('resetPassword.index');
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('resetPassword.store');
+
+Route::get('/instagram', [InstagramController::class, 'index']);
