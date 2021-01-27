@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
+use App\Models\CompanyImages;
 use App\Models\Image;
 use Illuminate\Database\Seeder;
 
@@ -15,8 +16,8 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        $profile_image = Image::factory()->profile();
-        $gallery_image = Image::factory()->gallery();
+        $profile_image = CompanyImages::factory()->profile();
+        $gallery_image = CompanyImages::factory()->gallery();
 
         Company::factory()
             ->count(3)
