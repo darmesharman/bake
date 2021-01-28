@@ -4,16 +4,19 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class SubCategorySelect extends Component
 {
-    public $subCategories;
+    public $subCategories = [];
 
     protected $listeners = ['categorySelected'];
 
-    public function mount()
+    public function mount(Request $request)
     {
-        $this->subCategories = [];
+        if ($request->input('kategoriID')) {
+            $this->subCategories = Category::find($request->input('kategoriID'))->subCategories;
+        }
     }
 
     public function categorySelected(Category $category)
