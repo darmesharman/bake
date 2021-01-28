@@ -96,6 +96,7 @@
                 <div class="archive-sidebar article">
 
                     <form action="{{ route('companies.index') }}" method="get">
+                        @csrf
                         <div class="form-group">
                             <label for="archive_search">Поиск</label>
                             <div class="inline">
@@ -107,10 +108,10 @@
                         <hr>
 
                         <h5>Фильтры</h5>
-
+{{--
                         @livewire('category-select')
 
-                        @livewire('city-select')
+                        @livewire('city-select') --}}
 
                         <button type="submit" class="btn btn-primary mxa">
                             Отфильтровать

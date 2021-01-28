@@ -7,7 +7,10 @@
                 <option value=""></option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">
+<<<<<<< HEAD
+=======
 
+>>>>>>> a0dba9fa5649aa527c9385efc6bcb04359cda826
                         {{ $category->name }}
                     </option>
                 @endforeach

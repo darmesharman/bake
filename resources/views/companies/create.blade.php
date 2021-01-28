@@ -109,6 +109,27 @@
                                 value="{{ old('additional_phone_numbers.' . $i) }}">
                         </div>
                     @endforeach
+
+                    @foreach (range(0, 3) as $i)
+                        <div class="form-group col-md-6">
+                            <label class="btn icon bordered
+                            @if ($i == 0)
+                                icon-vk
+                            @elseif ($i == 1)
+                                icon-instagram
+                            @elseif ($i == 2)
+                                icon-twitter
+                            @elseif ($i == 3)
+                                icon-whatsapp
+                            @endif
+                            "
+                            style=""></label>
+                            <label for="inputPassword4">Link for sites</label>
+                            <input type="text" class="form-control" name="company_links[]"
+                                placeholder="Link"
+                                value="{{ old('company_links.' . $i) }}">
+                        </div>
+                    @endforeach
                 </div>
 
                 <div class="form-row">

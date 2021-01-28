@@ -10,6 +10,7 @@ use App\Models\Image;
 use App\Models\AdditionalPhoneNumber;
 use App\Models\CompanyImage;
 use App\Models\MicroDistrict;
+use App\Models\SocialMediaLink;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -121,6 +122,20 @@ class CompanyController extends Controller
         CompanyImage::insert($insert);
 
         $company->save();
+
+        foreach ($request->input('company_links') as $company_link) {
+            if (!$company_link) {
+                continue;
+            }
+
+            SocialMediaLink::create([
+                'company_link' => $company_link,
+                'company_link_name' => $this->getSocialMedia($company_link),
+                'company_id' => $company->id,
+            ]);
+        }
+
+
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'));
 
         return Redirect(route('companies.index'));
@@ -276,5 +291,24 @@ class CompanyController extends Controller
                 'company_id' => $company->id,
             ]);
         }
+    }
+
+    protected function getSocialMedia($company_link)
+    {
+        $link = '';
+
+        if (str_contains($company_link, 'facebook.com')) {
+            $link = 'facebook';
+        } elseif (str_contains($company_link, 'vk.com')) {
+            $link = 'vk';
+        } elseif (str_contains($company_link, 'twitter.com')) {
+            $link = 'twitter';
+        } elseif (str_contains($company_link, 'telegram.org')) {
+            $link = 'telegram';
+        } else {
+            $link = 'unknown brother sorry!!!';
+        }
+
+        return $link;
     }
 }
