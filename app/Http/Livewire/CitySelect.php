@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\City;
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class CitySelect extends Component
@@ -10,8 +11,9 @@ class CitySelect extends Component
     public $city_select;
     public $cities;
 
-    public function mount()
+    public function mount(Request $request)
     {
+        $this->city_select = $request->input('sitiID');
         $this->cities = City::all();
     }
 

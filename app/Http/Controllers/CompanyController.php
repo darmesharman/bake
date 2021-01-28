@@ -39,7 +39,6 @@ class CompanyController extends Controller
             'profileImages',
         )->withCount('companyImages');
 
-
         if (request()->input('kategoriID')) {
             $companies = $companies->where('category_id', request()->input('kategoriID'));
         }
