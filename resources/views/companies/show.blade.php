@@ -13,9 +13,10 @@
                 </div>
             </div>
         @else
-            @foreach($company->galleryImages as $image)
-                <div class="company-header-image bg-cov" style="background-image: url({{ asset($image->path) }})">
-            @endforeach
+        @foreach($company->galleryImages as $image)
+            <div class="company-header-image bg-cov" style="background-image: url({{ asset($image->path) }})">
+        @endforeach
+
         @endif
 
         <div class="top-bar-wrapper">
@@ -87,8 +88,11 @@
 
                     <div class="single-block slider-wrapper">
                         <div class="main-slider">
-                            <div class="image" style="background-image: url({{ asset($company->company_image) }} )">
+                        @foreach($company->galleryImages as $image)
+                            <div class="image" style="background-image: url({{ asset($image->path) }} )">
                             </div>
+                        @endforeach
+
                         </div>
                     </div>
 
@@ -159,11 +163,12 @@
                         <div class="sb-content no-p">
                             <p class="icon-place">{{ $company->city->name }}</p>
                             <p class="icon-view">Просмотры: {{ $company->views }}</p>
+
                         </div>
                     </div>
 
                     <div class="single-block big social">
-                        <h3 class="sb-header icon-networking">Соц. сети</h3>
+                        <h3 class="sb-header icon-networking">Сайт</h3>
                         <div class="sb-content">
                             <div class="social-links">
                                 {{ $company->site }}
@@ -186,6 +191,17 @@
                         <h3 class="sb-header icon-star sticky">Рейтинг</h3>
                         <div class="sb-content article">
                             <a href="#respond" class="btn bordered small ma anchor">Оставить отзывы</a>
+                        </div>
+                    </div>
+
+                    <div class="single-block big social">
+                        <h3 class="sb-header icon-networking">Соц. сети</h3>
+                        <div class="sb-content">
+                            <div class="social-links">
+                                @foreach ($company->links as $com)
+                                    <a target="_blank" class="btn icon bordered icon-{{ $com->company_link_name }}" href="{{ $com->company_link }}">{{ $com->company_link_name }}</a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
 

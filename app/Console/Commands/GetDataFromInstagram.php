@@ -49,7 +49,7 @@ class GetDataFromInstagram extends Command
 
         Instagram::updateOrCreate(
             ['id' => 1],
-            ['response' => $response->json()],
+            ['response' => $response],
         );
     }
 }

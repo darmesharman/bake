@@ -5,7 +5,7 @@
             <select wire:model.debounce.10ms="category_select" name="kategoriID" class="dynamic-list required">
                 <option value=""></option>
                 @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ Request::input('kategoriID') == $category->id ? 'selected' : '' }}>
+                    <option value="{{ $category->id }}">
                         {{ $category->name }}
                     </option>
                 @endforeach
