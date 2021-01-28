@@ -239,7 +239,7 @@
                                             <div class="line">
                                                 <button class="btn bordered small icon-like @auth {{ $comment->isLikedBy(Auth::user()) ? 'bg-warning' : '' }} @endauth">
                                                     Like
-                                                    {{ $comment->likesNumber() }}
+                                                    {{ $comment->likes }}
                                                 </button>
 
 

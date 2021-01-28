@@ -16,7 +16,7 @@ class Blog extends Model
         return $this->hasMany(BlogImage::class);
     }
 
-    public function blogImage()
+    public function blogImages()
     {
         return $this->hasOne(BlogImage::class)->where('blog', true);
     }
