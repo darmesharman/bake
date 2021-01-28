@@ -7,6 +7,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/fav.png') }}" />
         <link rel="profile" href="https://gmpg.org/xfn/11">
 
+        @livewireStyles
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -37,7 +38,7 @@
                                 href="{{ route('companies.index') }}">Все компании</a></li>
                         <li id="menu-item-21"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21"><a
-                                href="https://mykid.init.kz/blog">Блог</a></li>
+                                href="{{ route('blogs.index') }}">Блог</a></li>
                         <li id="menu-item-22"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22"><a
                                 href="#">Карта</a></li>
@@ -130,6 +131,7 @@
 
 
 
+    @livewireScripts
     <script src="{{ asset('js/app.js') }}"></script>
 
 </body>

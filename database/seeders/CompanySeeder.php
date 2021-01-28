@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
+use App\Models\CompanyImage;
 use App\Models\Image;
 use Illuminate\Database\Seeder;
 
@@ -15,8 +16,8 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        $profile_image = Image::factory()->profile();
-        $gallery_image = Image::factory()->gallery();
+        $profile_image = CompanyImage::factory()->profile();
+        $gallery_image = CompanyImage::factory()->gallery();
 
         Company::factory()
             ->count(3)
@@ -24,9 +25,9 @@ class CompanySeeder extends Seeder
             ->has($gallery_image)
             ->create();
 
-        Company::all()->each(function ($company, $key) {
+        foreach (Company::all() as $company) {
             $company->rating = $company->rating();
             $company->save();
-        });
+        }
     }
 }

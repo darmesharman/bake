@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\CategoryController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+<<<<<<< HEAD
 
 Route::apiResource('leads', LeadController::class);
 Route::apiResource('contacts', ContactController::class);
@@ -52,3 +53,5 @@ Route::get('/cities', [CityController::class, 'cities']);
 Route::get('/districts', [CityController::class, 'districts']);
 Route::get('/micro-districts', [CityController::class, 'microDistricts']);
 Route::post('/companies/{company}/views', [CompanyController::class, 'showCount']);
+=======
+>>>>>>> 29fdea5a524879ea91daf86a39c73638a33fd15f

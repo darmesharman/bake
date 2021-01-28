@@ -72,28 +72,28 @@ class Company extends Model
         return number_format($this->comments->avg('rating'), 1);
     }
 
-    public function images()
+    public function companyImages()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(CompanyImage::class);
     }
 
-    public function hasProfile(Image $image)
+    public function hasProfile(CompanyImage $image)
     {
         return $this->profileImages->contains($image);
     }
 
     public function profileImages()
     {
-        return $this->hasMany(Image::class)->where('profile', true);
+        return $this->hasMany(CompanyImage::class)->where('profile', true);
     }
 
-    public function hasGallery(Image $image)
+    public function hasGallery(CompanyImage $image)
     {
         return $this->galleryImages->contains($image);
     }
 
     public function galleryImages()
     {
-        return $this->hasMany(Image::class)->where('gallery', true);
+        return $this->hasMany(CompanyImage::class)->where('gallery', true);
     }
 }

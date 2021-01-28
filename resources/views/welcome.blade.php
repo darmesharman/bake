@@ -64,7 +64,13 @@
             <div class="companies-slider slick-m">
 
                 @foreach ($companies as $company)
-                        <a href="{{ route('companies.show', $company) }}" class="company-item bg-cov rel db" style="background-image: url({{ asset($company->profileImages[0]->path) }});">
+                        <a href="{{ route('companies.show', $company) }}" class="company-item bg-cov rel db"
+                        @if ($company->profileImages->isNotEmpty())
+                            style="background-image: url(
+                                {{ asset($company->profileImages[0]->path) }}
+                                );"
+                        @endif
+                        >
                         <div class="stretch-a mask"></div>
                         <div class="content">
                             <div class="tags-icon">
@@ -110,55 +116,27 @@
             </div>
             <div class="grid-3">
                 <div class="line">
-
+                @foreach ($blogs as $blog)
                     <div class="blog-card rel white">
                         <div class="tags abs z3 small theme">
                             <div class="line">
-                                <a class="tag" href="#">Животные</a>
-                                <a class="tag" href="#">Природа</a>
-                            </div>
-                        </div>
-                        <div class="image bg-cov stretch-a"></div>
-                        <a href="#" class="content-wrapper db rel z2 grey static">
-                            <div class="content article-sm">
-                                <div class="date highlight no-hov grey small">24.12.2020</div>
-                                <h4>Живая природа - кореллы</h4>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas quae qui minima culpa eaque. Soluta expedita odit recusandae quos quaerat.</p>
-                            </div>
-                        </a>
-                    </div>
+                                @foreach ($blog->tags as $tag)
+                                    <a class="tag" href="#">{{ $tag->name }}</a>
+                                @endforeach
 
-                    <div class="blog-card rel white">
-                        <div class="tags abs z3 small theme">
-                            <div class="line">
-                                <a class="tag" href="#">Природа</a>
                             </div>
                         </div>
-                        <div class="image bg-cov stretch-a"></div>
+                        <div class="image bg-cov stretch-a" style="background-image: url({{ asset($blog->blogImage->path) }})"></div>
                         <a href="#" class="content-wrapper db rel z2 grey static">
                             <div class="content article-sm">
-                                <div class="date highlight no-hov grey small">24.12.2020</div>
-                                <h4>Тем временем в Италии</h4>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas quae qui minima culpa eaque. Soluta expedita odit recusandae quos quaerat.</p>
+                                <div class="date highlight no-hov grey small">{{ date_format($blog->created_at, 'Y-m-d') }}</div>
+                                <h4>{!! $blog->title !!}</h4>
+                                <p>{!! substr($blog->content, 0, 100) !!}</p>
                             </div>
                         </a>
                     </div>
+                @endforeach
 
-                    <div class="blog-card rel white">
-                        <div class="tags abs z3 small theme">
-                            <div class="line">
-                                <a class="tag" href="#">Другое</a>
-                            </div>
-                        </div>
-                        <div class="image bg-cov stretch-a"></div>
-                        <a href="#" class="content-wrapper db rel z2 grey static">
-                            <div class="content article-sm">
-                                <div class="date highlight no-hov grey small">24.12.2020</div>
-                                <h4> Лучшая музыка 90-х</h4>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas quae qui minima culpa eaque. Soluta expedita odit recusandae quos quaerat.</p>
-                            </div>
-                        </a>
-                    </div>
 
                 </div>
             </div>

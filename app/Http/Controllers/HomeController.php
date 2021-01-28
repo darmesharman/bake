@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use Illuminate\Routing\Controller as BaseController;
+=======
+use App\Models\Blog;
+>>>>>>> 29fdea5a524879ea91daf86a39c73638a33fd15f
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Company;
@@ -29,10 +33,15 @@ class HomeController extends BaseController
             'profileImages',
         );
 
+        $blogs = Blog::all();
         $companies = $companies->orderByDesc('views')->take(6)->get();
 
+<<<<<<< HEAD
         return view('welcome', compact('companies', 'categories', 'cities', 'districts'));
 
+=======
+        return view('welcome', compact('companies', 'categories', 'cities', 'districts', 'blogs'));
+>>>>>>> 29fdea5a524879ea91daf86a39c73638a33fd15f
     }
 
 }

@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ResetPasswordController;
@@ -51,6 +53,7 @@ Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboa
 Route::resource('leads', LeadController::class)->middleware(['auth', 'phone.verified']);
 Route::resource('companies', CompanyController::class);
 Route::resource('contacts', ContactController::class)->middleware(['auth', 'phone.verified']);
+Route::resource('blogs', BlogController::class);
 
 Route::prefix('companies/{company}/')->middleware('auth')->group(function () {
     Route::post('comments', [CommentController::class, 'store'])->name('comments.store');
@@ -90,9 +93,13 @@ Route::get('/reset-password/{user}/{token}', [ResetPasswordController::class, 'i
 
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('resetPassword.store');
 
+<<<<<<< HEAD
 Route::apiResource('leads', LeadController::class);
 
 Route::get('test', function ()
 {
     return Inertia::render('Pages/home');
 });
+=======
+Route::get('/instagram', [InstagramController::class, 'index']);
+>>>>>>> 29fdea5a524879ea91daf86a39c73638a33fd15f

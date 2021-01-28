@@ -53,7 +53,7 @@
                 <div class="bottom-bar df jcsb aic">
                     <div class="stats">
                         <div class="item">
-                            <div class="stats-icon">{{ $company->rating() }}
+                            <div class="stats-icon">{{ $company->rating }}
                             </div>
                             <div class="text">
                                 <h6>Рейтинг</h6>
@@ -158,7 +158,7 @@
                         <h3 class="sb-header icon-phone-call mb0">Контакты</h3>
                         <div class="sb-content no-p">
                             <p class="icon-place">{{ $company->city->name }}</p>
-                            <p class="icon-view">Просмотры: 132</p>
+                            <p class="icon-view">Просмотры: {{ $company->views }}</p>
                         </div>
                     </div>
 
