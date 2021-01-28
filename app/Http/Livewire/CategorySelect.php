@@ -8,7 +8,6 @@ use Livewire\Component;
 class CategorySelect extends Component
 {
     public $category_select;
-    public $user = 'jeffrey';
     public $categories;
 
     public function mount()
@@ -18,8 +17,11 @@ class CategorySelect extends Component
 
     public function updatedCategorySelect()
     {
-        $this->user = Category::find($this->category_select)->name;
+        $category = Category::find($this->category_select);
+
+        $this->emit('categorySelected', $category);
     }
+
     public function render()
     {
         return view('livewire.category-select');

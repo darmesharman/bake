@@ -25,9 +25,9 @@ class CompanySeeder extends Seeder
             ->has($gallery_image)
             ->create();
 
-        Company::all()->each(function ($company, $key) {
+        foreach (Company::all() as $company) {
             $company->rating = $company->rating();
             $company->save();
-        });
+        }
     }
 }

@@ -1,9 +1,20 @@
 <div>
-    <p>{{ $user }}</p>
+    <div class="form-group">
+        <label for="category">Категория</label>
+        <div class="select-wrapper">
+            <select wire:model.debounce.10ms="category_select" name="kategoriID" class="dynamic-list required">
+                <option value=""></option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ Request::input('kategoriID') == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+            <ul class="select-dropdown">
 
-    <select name="teset" wire:model="category_select">
-        @foreach ($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-        @endforeach
-    </select>
+            </ul>
+        </div>
+    </div>
+
+    @livewire('sub-category-select', [$category])
 </div>

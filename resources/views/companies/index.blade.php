@@ -30,7 +30,7 @@
                                     style="background-image: url( {{ asset($company->profileImages[0]->path) }} )"
                                 @endif
                                 >
-                                    <div class="images-count icon-picture">{{ $company->images_count }}</div>
+                                    <div class="images-count icon-picture">{{ $company->company_images_count }}</div>
                                 </a>
                                 <div class="info">
 
@@ -108,83 +108,9 @@
 
                         <h5>Фильтры</h5>
 
-                        <div class="form-group">
-                            <label for="category">Категория</label>
-                            <div class="select-wrapper">
-                                <select name="kategoriID" class="dynamic-list required">
-                                    <option value=""></option>
-                                    @foreach($categories as $category)
-                                        <option value="{{ $category->id }}" {{ Request::input('kategoriID') == $category->id ? 'selected' : '' }}>
-                                            {{ $category->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <ul class="select-dropdown">
+                        @livewire('category-select')
 
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subcategory">Подкатегория</label>
-                            <div class="select-wrapper">
-                                <select name="subKategoriID" class="dynamic-list required">
-                                    <option value=""></option>
-                                    @foreach($subCategories as $subCategory)
-                                        <option value="{{ $subCategory->id }}" {{ Request::input('subKategoriID') == $subCategory->id ? 'selected' : '' }}>
-                                            {{ $subCategory->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <ul class="select-dropdown"></ul>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="city">Город или область</label>
-                            <div class="select-wrapper">
-                                <select name="sitiID" class="dynamic-list required">
-                                    <option value=""></option>
-                                    @foreach($cities as $city)
-                                        <option value="{{ $city->id }}" {{ Request::input('sitiID') == $city->id ? 'selected' : '' }}>
-                                            {{ $city->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <ul class="select-dropdown">
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="district">Регион или район</label>
-                            <div class="select-wrapper">
-                                <select name="distID" class="dynamic-list required">
-                                    <option value=""></option>
-                                    @foreach($districts as $district)
-                                        <option value="{{ $district->id }}" {{ Request::input('distID') == $district->id ? 'selected' : '' }}>
-                                            {{ $district->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <ul class="select-dropdown"></ul>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="microdistrict">Микрорайон</label>
-                            <div class="select-wrapper">
-                                <select name="mDistId" class="dynamic-list required">
-                                    <option value=""></option>
-                                    @foreach($micro_districts as $micro_district)
-                                        <option value="{{ $micro_district->id }}" {{ Request::input('mDistId') == $micro_district->id ? 'selected' : '' }}>
-                                            {{ $micro_district->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <ul class="select-dropdown"></ul>
-                            </div>
-                        </div>
+                        @livewire('city-select')
 
                         <button type="submit" class="btn btn-primary mxa">
                             Отфильтровать

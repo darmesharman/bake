@@ -7,6 +7,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/fav.png') }}" />
         <link rel="profile" href="https://gmpg.org/xfn/11">
 
+        @livewireStyles
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -130,6 +131,7 @@
 
 
 
+    @livewireScripts
     <script src="{{ asset('js/app.js') }}"></script>
 
 </body>

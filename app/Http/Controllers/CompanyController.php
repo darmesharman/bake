@@ -36,7 +36,7 @@ class CompanyController extends Controller
             'category:id,name',
             'city:id,name',
             'profileImages',
-        )->withCount('images');
+        )->withCount('companyImages');
 
 
         if (request()->input('kategoriID')) {

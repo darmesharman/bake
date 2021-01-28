@@ -27,10 +27,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/test', function () {
-    return view('test');
-});
-
 Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
