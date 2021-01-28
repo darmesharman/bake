@@ -21,8 +21,3 @@ use App\Http\Controllers\CompanyController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/cities', [CityController::class, 'cities']);
-Route::get('/districts', [CityController::class, 'districts']);
-Route::get('/micro-districts', [CityController::class, 'microDistricts']);
-Route::post('/companies/{company}/views', [CompanyController::class, 'showCount']);

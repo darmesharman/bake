@@ -40,7 +40,7 @@ class GetDataFromInstagram extends Command
     public function handle()
     {
         $response = Http::withHeaders([
-            'x-rapidapi-key' => 'b1b0f28180msh493efffa3933284p1d7893jsnaa78bf228dcc',
+            'x-rapidapi-key' => '3e11649d4dmsh6e9fdb121a00a60p1a4aabjsn09df86801827',
             'x-rapidapi-host' => 'instagram28.p.rapidapi.com',
         ])->get('https://instagram28.p.rapidapi.com/medias', [
             'user_id' => '2360245661',
@@ -49,7 +49,7 @@ class GetDataFromInstagram extends Command
 
         Instagram::updateOrCreate(
             ['id' => 1],
-            ['response' => $response->json()],
+            ['response' => $response],
         );
     }
 }

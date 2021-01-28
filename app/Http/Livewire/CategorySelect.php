@@ -9,6 +9,7 @@ class CategorySelect extends Component
 {
     public $category_select;
     public $categories;
+    public $selected;
 
     public function mount()
     {
@@ -17,6 +18,7 @@ class CategorySelect extends Component
 
     public function updatedCategorySelect()
     {
+        $this->selected = $this->category_select;
         $category = Category::find($this->category_select);
 
         $this->emit('categorySelected', $category);

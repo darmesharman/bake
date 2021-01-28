@@ -1,11 +1,12 @@
 <div>
     <div class="form-group">
+
         <label for="category">Категория</label>
         <div class="select-wrapper">
-            <select wire:model.debounce.10ms="category_select" name="kategoriID" class="dynamic-list required">
-                <option value=""></option>
+            <select wire:model="category_select" name="kategoriID" class="dynamic-list required">
                 @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ Request::input('kategoriID') == $category->id ? 'selected' : '' }}>
+                    <option value="{{ $category->id }}">
+
                         {{ $category->name }}
                     </option>
                 @endforeach
