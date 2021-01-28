@@ -21,7 +21,9 @@ rgr
             
         },
         methods: {
-            
+            get_companies() {
+
+            },
             to_push() {
             console.log(445)
             this.$router.push('2')

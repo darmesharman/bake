@@ -33,7 +33,16 @@ use Inertia\Inertia;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+
+
+Route::get('/vue/{any}', function () {
+    return view('home');
+})->where('any', '.*');
+
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+// Route::get('/1', [HomeController::class, 'indexInertia'])->name('home.indexInertia');
+// Route::get('/homeindexInertia2', [MainController::class, 'index']);
+
 
 Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -48,13 +57,10 @@ Route::prefix('companies/{company}/')->middleware('auth')->group(function () {
     Route::get('comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit');
     Route::put('comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
     Route::delete('comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
-
     Route::post('/comments/{comment}/like', [CommentController::class, 'like'])->name('comments.like');
 
     Route::post('/comments/{comment}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
 });
-
-
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
 
@@ -84,20 +90,9 @@ Route::get('/reset-password/{user}/{token}', [ResetPasswordController::class, 'i
 
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('resetPassword.store');
 
-
-
-
-
-// Route::get('/', [MainController::class, 'index']);
-
-
-
-
-
 Route::apiResource('leads', LeadController::class);
 
-
-
-// update  boards data
-
-// Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
+Route::get('test', function ()
+{
+    return Inertia::render('Pages/home');
+});
