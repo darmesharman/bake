@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogImagesTable extends Migration
+class CreateCompanySchedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateBlogImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_images', function (Blueprint $table) {
+        Schema::create('company_schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('path');
-            $table->boolean('profile')->default(false);
-            $table->foreignId('blog_id')->constrained()->onDelete('cascade');
+            $table->string('start');
+            $table->string('end');
+            $table->integer('day_of_the_week');
+            $table->foreignId('company_id');
             $table->timestamps();
+
+            $table->unique(['day_of_the_week', 'company_id']);
         });
     }
 
@@ -30,6 +32,6 @@ class CreateBlogImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_images');
+        Schema::dropIfExists('company_schedules');
     }
 }

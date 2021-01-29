@@ -3,7 +3,7 @@
 @section('content')
 <section class="company">
     <div class="company-header">
-        @if(count($company->galleryImages) > 4){
+        @if(count($company->galleryImages) > 4)
             <div class="company-header-image">
                 <div class="company-header-slider">
                     @foreach($company->galleryImages as $image)
@@ -11,13 +11,14 @@
                         </div>
                     @endforeach
                 </div>
-            </div>
         @else
-            @foreach($company->galleryImages as $image)
-                <div class="company-header-image bg-cov" style="background-image: url({{ asset($image->path) }})">
-            @endforeach
+        @foreach($company->galleryImages as $image)
+            <div class="company-header-image bg-cov" style="background-image: url({{ asset($image->path) }})">
+        @endforeach
+
         @endif
 
+<<<<<<< HEAD
         <div class="top-bar-wrapper">
             <div class="container">
                 <div class="top-bar df aie">
@@ -27,24 +28,36 @@
                                 style="background-image: url( {{ asset($company->profileCompanyImages[0]->path) }})"
                             @endif
                         >
+=======
+            <div class="top-bar-wrapper">
+                <div class="container">
+                    <div class="top-bar df aie">
+                        <div class="company-avatar">
+                            <div class="image bg-cov"
+                                @if($company->profileImages->isNotEmpty())
+                                    style="background-image: url( {{ asset($company->profileImages[0]->path) }})"
+                                @endif
+                            >
+                            </div>
+>>>>>>> b34fdf827bbb66b312c42ae0defe46cecd5c0c36
                         </div>
-                    </div>
 
-                    <div class="top-bar-info df aic jcsb fg white">
-                        <div class="company-info">
-                            <h1>{{ $company->name }}</h1>
-                            <p class="icon-place">{{ $company->city->name }}</p>
-                        </div>
-                        <div class="btns">
-                            <div class="line">
-                                <button class="btn icon-share dashed">Поделиться</button>
-                                <a href="#respond" class="anchor btn icon-chat green-theme">Написать отзыв</a>
+                        <div class="top-bar-info df aic jcsb fg white">
+                            <div class="company-info">
+                                <h1>{{ $company->name }}</h1>
+                                <p class="icon-place">{{ $company->city->name }}</p>
+                            </div>
+                            <div class="btns">
+                                <div class="line">
+                                    <button class="btn icon-share dashed">Поделиться</button>
+                                    <a href="#respond" class="anchor btn icon-chat green-theme">Написать отзыв</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </div>
 
     <div class="company-content">
@@ -87,8 +100,11 @@
 
                     <div class="single-block slider-wrapper">
                         <div class="main-slider">
-                            <div class="image" style="background-image: url({{ asset($company->company_image) }} )">
+                        @foreach($company->galleryImages as $image)
+                            <div class="image" style="background-image: url({{ asset($image->path) }} )">
                             </div>
+                        @endforeach
+
                         </div>
                     </div>
 
@@ -146,9 +162,31 @@
                     <div class="single-block big schedule">
                         <div class="schedule-header icon-time">
 
+                            <span class="green-text">Сейчас открыто</span><div class="time">02:00 - 12:00</div>
                         </div>
                         <div class="schedult-content">
                             <ul class="parameters-list">
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
                             </ul>
                         </div>
                         <div class="toggle-schedule">+ Показать полное расписание</div>
@@ -159,11 +197,12 @@
                         <div class="sb-content no-p">
                             <p class="icon-place">{{ $company->city->name }}</p>
                             <p class="icon-view">Просмотры: {{ $company->views }}</p>
+
                         </div>
                     </div>
 
                     <div class="single-block big social">
-                        <h3 class="sb-header icon-networking">Соц. сети</h3>
+                        <h3 class="sb-header icon-networking">Сайт</h3>
                         <div class="sb-content">
                             <div class="social-links">
                                 {{ $company->site }}
@@ -186,6 +225,19 @@
                         <h3 class="sb-header icon-star sticky">Рейтинг</h3>
                         <div class="sb-content article">
                             <a href="#respond" class="btn bordered small ma anchor">Оставить отзывы</a>
+                        </div>
+                    </div>
+
+                    <div class="single-block big comp-block">
+                        <h3 class="sb-header icon-networking">Соц. сети</h3>
+                        <div class="sb-content">
+                            <div class="comp-social">
+                                <div class="line">
+                                    @foreach ($company->companySocialMediaLinks as $links)
+                                        <a target="_blank" class="icon-{{ $links->company_link_name }}" href="{{ $links->social_media }}">{{ $links->company_link_name }}</a>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -239,7 +291,7 @@
                                             <div class="line">
                                                 <button class="btn bordered small icon-like @auth {{ $comment->isLikedBy(Auth::user()) ? 'bg-warning' : '' }} @endauth">
                                                     Like
-                                                    {{ $comment->likesNumber() }}
+                                                    {{ $comment->likes }}
                                                 </button>
 
 
@@ -330,7 +382,7 @@
 
     <form action="{{ route('companies.destroy', $company) }}" method="POST">
         @csrf
-
+        @method('delete')
         <button>DELETE</button>
     </form>
 </section>

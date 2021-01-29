@@ -24,7 +24,7 @@ class Company extends Model
         'site',
         'email',
         'phone_number',
-        'rating',
+        'company_links',
     ];
 
 
@@ -111,5 +111,20 @@ class Company extends Model
     public function galleryImages()
     {
         return $this->hasMany(CompanyImage::class)->where('gallery', true);
+    }
+
+    public function socialMedias()
+    {
+        return $this->belongsToMany(SocialMediaLink::class);
+    }
+
+    public function companySocialMediaLinks()
+    {
+        return $this->hasMany(SocialMediaLink::class)->where('company_id', $this->id);
+    }
+
+    public function companySchedule()
+    {
+        return $this->hasOne(CompanySchedule::class);
     }
 }

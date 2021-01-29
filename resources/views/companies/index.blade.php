@@ -96,6 +96,7 @@
                 <div class="archive-sidebar article">
 
                     <form action="{{ route('companies.index') }}" method="get">
+                        @csrf
                         <div class="form-group">
                             <label for="archive_search">Поиск</label>
                             <div class="inline">
@@ -155,6 +156,7 @@
                                 </ul>
                             </div>
                         </div>
+<<<<<<< HEAD
 
                         <div class="form-group">
                             <label for="district">Регион или район</label>
@@ -173,6 +175,27 @@
                                 <ul class="select-dropdown"></ul>
                             </div>
                         </div>
+=======
+
+                        <div class="form-group">
+                            <label for="district">Регион или район</label>
+                            <div class="select-wrapper">
+                                <input type="text" id="district" placeholder="Выберите регион или район" readonly disabled
+                                    name="district" class="dynamic-list parent required" data-type="select" data-child="#microdistrict">
+                                <ul class="select-dropdown"></ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="microdistrict">Микрорайон</label>
+                            <div class="select-wrapper">
+                                <input type="text" id="microdistrict" placeholder="Выберите микрорайон" readonly disabled
+                                    name="micro_district" class="dynamic-list required" data-type="select">
+                                <ul class="select-dropdown"></ul>
+                            </div>
+                        </div>
+
+>>>>>>> b34fdf827bbb66b312c42ae0defe46cecd5c0c36
 
                         <button type="submit" class="btn btn-primary mxa">
                             Отфильтровать

@@ -11,14 +11,14 @@ class Blog extends Model
 
     protected $guarded = []; //Poka chto patom ozgertem
 
-    public function images()
+    public function blogImages()
     {
         return $this->hasMany(BlogImage::class);
     }
 
-    public function blogImage()
+    public function profile()
     {
-        return $this->hasOne(BlogImage::class)->where('blog', true);
+        return $this->hasOne(BlogImage::class)->where('profile', true);
     }
 
     public function tags()

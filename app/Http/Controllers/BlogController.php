@@ -18,7 +18,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::with('profile')->get();
 
 
         return view('blogs.index', compact('blogs'));
@@ -57,14 +57,12 @@ class BlogController extends Controller
                 'name' => ['string'],
             ]);
             $path = $request->file('blog_image')->store('images');
-            $img = new BlogImage([
+            BlogImage::create([
                 'name' => $request->file('blog_image')->getClientOriginalName(),
                 'path' => $path,
                 'blog_id' => $blog->id,
                 'blog' => true,
             ]);
-
-            $img->save();
         }
 
         $blog->save();
@@ -117,9 +115,9 @@ class BlogController extends Controller
                 'blog_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'name' => ['string'],
             ]);
-            Storage::delete($blog->blogImage->path);
-            $blogImage = BlogImage::where('path', $blog->blogImage->path);
-            $blogImage->delete();
+            Storage::delete($blog->profile->path);
+            $profile = BlogImage::where('path', $blog->profile->path);
+            $profile->delete();
 
             $path = $request->file('blog_image')->store('images');
             $img = new BlogImage([
@@ -145,9 +143,9 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        Storage::delete($blog->blogImage->path);
-        $blogImage = BlogImage::where('path', $blog->blogImage->path);
-        $blogImage->delete();
+        Storage::delete($blog->profile->path);
+        $profile = BlogImage::where('path', $blog->profile->path);
+        $profile->delete();
 
         $blog->delete();
 

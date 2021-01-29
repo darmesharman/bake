@@ -1,5 +1,6 @@
 require('./bootstrap');
 
+<<<<<<< HEAD
 import Vue from 'vue';
 // import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 // import PortalVue from 'portal-vue';
@@ -132,3 +133,7 @@ new Vue({
 //   render (h) { return h(this.ViewComponent) }
 // })
 // Vue.config.productionTip = false
+=======
+require('alpinejs');
+
+>>>>>>> b34fdf827bbb66b312c42ae0defe46cecd5c0c36

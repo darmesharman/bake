@@ -114,8 +114,19 @@
                             value="{{ $additional_phone_number->phone_number }}">
                     </div>
                 @endforeach
+
             </div>
 
+            <div class="form-row">
+                @foreach ($company->companySocialMediaLinks as $link)
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Social media</label>
+                        <input type="text" class="form-control" name="social_media_links[]"
+                            placeholder="+7(_ _ _)_ _ _ - _ _ - _ _"
+                            value="{{ $link->company_link }}">
+                    </div>
+                @endforeach
+            </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">

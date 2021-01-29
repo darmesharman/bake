@@ -51,7 +51,7 @@
                     <div class="line">
                         <a href="{{ route('companies.create') }}" class="btn icon-add">Добавить
                             компанию</a>
-                        <a href="https://mykid.init.kz/dashboard" class="btn bordered-theme icon-user">Личный
+                        <a href="{{ route('dashboard') }}" class="btn bordered-theme icon-user">Личный
                             кабинет</a>
                     </div>
                 </div>

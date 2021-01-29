@@ -30,7 +30,7 @@ class HomeController extends BaseController
             'profileCompanyImages',
         );
 
-        $blogs = Blog::all();
+        $blogs = Blog::take(6)->get();
         $companies = $companies->orderByDesc('views')->take(6)->get();
 
         return view('welcome', compact('companies', 'categories', 'cities', 'districts', 'blogs'));
