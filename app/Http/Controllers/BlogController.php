@@ -57,14 +57,12 @@ class BlogController extends Controller
                 'name' => ['string'],
             ]);
             $path = $request->file('blog_image')->store('images');
-            $img = new BlogImage([
+            BlogImage::create([
                 'name' => $request->file('blog_image')->getClientOriginalName(),
                 'path' => $path,
                 'blog_id' => $blog->id,
                 'blog' => true,
             ]);
-
-            $img->save();
         }
 
         $blog->save();

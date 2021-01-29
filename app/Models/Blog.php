@@ -11,7 +11,7 @@ class Blog extends Model
 
     protected $guarded = []; //Poka chto patom ozgertem
 
-    public function images()
+    public function blogImages()
     {
         return $this->hasMany(BlogImage::class);
     }

@@ -150,9 +150,31 @@
                     <div class="single-block big schedule">
                         <div class="schedule-header icon-time">
 
+                            <span class="green-text">Сейчас открыто</span><div class="time">02:00 - 12:00</div>
                         </div>
                         <div class="schedult-content">
                             <ul class="parameters-list">
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
+                                <li>
+                                                <span>Понедельник</span>
+                                        <span>02:00 - 12:00</span></li>
                             </ul>
                         </div>
                         <div class="toggle-schedule">+ Показать полное расписание</div>
@@ -194,13 +216,15 @@
                         </div>
                     </div>
 
-                    <div class="single-block big social">
+                    <div class="single-block big comp-block">
                         <h3 class="sb-header icon-networking">Соц. сети</h3>
                         <div class="sb-content">
-                            <div class="social-links">
-                                @foreach ($company->links as $com)
-                                    <a target="_blank" class="btn icon bordered icon-{{ $com->company_link_name }}" href="{{ $com->company_link }}">{{ $com->company_link_name }}</a>
-                                @endforeach
+                            <div class="comp-social">
+                                <div class="line">
+                                    @foreach ($company->companySocialMediaLinks as $links)
+                                        <a target="_blank" class="icon-{{ $links->company_link_name }}" href="{{ $links->social_media }}">{{ $links->company_link_name }}</a>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -346,7 +370,7 @@
 
     <form action="{{ route('companies.destroy', $company) }}" method="POST">
         @csrf
-
+        @method('delete')
         <button>DELETE</button>
     </form>
 </section>

@@ -140,7 +140,7 @@
 
                 </div>
             </div>
-            <a href="/blog" class="btn bordered-theme mxa large">Смотреть все</a>
+            <a href="{{ route('blogs.index') }}" class="btn bordered-theme mxa large">Смотреть все</a>
         </div>
     </div>
 </section>

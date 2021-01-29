@@ -103,8 +103,13 @@ class Company extends Model
         return $this->belongsToMany(SocialMediaLink::class);
     }
 
-    public function links()
+    public function companySocialMediaLinks()
     {
         return $this->hasMany(SocialMediaLink::class)->where('company_id', $this->id);
+    }
+
+    public function companySchedule()
+    {
+        return $this->hasOne(CompanySchedule::class);
     }
 }

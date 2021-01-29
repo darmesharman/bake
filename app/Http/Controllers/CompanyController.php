@@ -9,6 +9,7 @@ use App\Models\District;
 use App\Models\Image;
 use App\Models\AdditionalPhoneNumber;
 use App\Models\CompanyImage;
+use App\Models\CompanySchedule;
 use App\Models\MicroDistrict;
 use App\Models\SocialMediaLink;
 use App\Models\SubCategory;
@@ -123,20 +124,8 @@ class CompanyController extends Controller
 
         $company->save();
 
-        foreach ($request->input('company_links') as $company_link) {
-            if (!$company_link) {
-                continue;
-            }
-
-            SocialMediaLink::create([
-                'company_link' => $company_link,
-                'company_link_name' => $this->getSocialMedia($company_link),
-                'company_id' => $company->id,
-            ]);
-        }
-
-
-        $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'));
+        $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
+        $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
 
         return Redirect(route('companies.index'));
     }
@@ -202,8 +191,15 @@ class CompanyController extends Controller
         ]);
 
         if ($request->hasfile('company_images')) {
+            foreach ($company->galleryImages as $gallery) {
+                Storage::delete($gallery->path);
+                $companyImage = CompanyImage::where('path', $gallery->path);
+                $companyImage->delete();
+            }
+
+
+
             foreach ($request->file('company_images') as $key => $file) {
-                @
                 $path = $file->store('images');
                 $name = $file->getClientOriginalName();
                 $insert[$key]['name'] = $name;
@@ -215,9 +211,15 @@ class CompanyController extends Controller
 
         $company->save();
 
-        $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
+        CompanySchedule::create([
+            'start' => $request->input('start_time'),
+            'end' => $request->input('end_time'),
+        ]);
 
-        return redirect()->route('companies.index');
+        $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
+        $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
+
+        return redirect()->route('companies.show', $company);
     }
 
     /**
@@ -264,14 +266,12 @@ class CompanyController extends Controller
         return Validator::make($request->input(), $rules, $messages);
     }
 
-    protected function createOrUpdateAdditionalPhoneNumbers($input_additional_phone_numbers, $company = null)
+    protected function createOrUpdateAdditionalPhoneNumbers($input_additional_phone_numbers, $company)
     {
         // delete previous additional phone numbers if we updating
-        if ($company) {
-            AdditionalPhoneNumber::where('company_id', $company->id)->get()->each(function ($additional_phone_number, $key) {
-                $additional_phone_number->delete();
-            });
-        }
+        AdditionalPhoneNumber::where('company_id', $company->id)->get()->each(function ($additional_phone_number, $key) {
+            $additional_phone_number->delete();
+        });
 
         // create inputed additional phone numbers
         foreach ($input_additional_phone_numbers as $phone_number) {
@@ -293,17 +293,36 @@ class CompanyController extends Controller
         }
     }
 
-    protected function getSocialMedia($company_link)
+    protected function createOrUpdateSocialMedia($social_media_links, $company)
+    {
+        SocialMediaLink::where('company_id', $company->id)->get()->each(function ($social_media_link, $key) {
+            $social_media_link->delete();
+        });
+
+        foreach ($social_media_links as $social_media_link) {
+            if (!$social_media_link) {
+                continue;
+            }
+
+            SocialMediaLink::create([
+                'company_link' => $social_media_link,
+                'company_link_name' => $this->getSocialMedia($social_media_link),
+                'company_id' => $company->id,
+            ]);
+        }
+    }
+
+    protected function getSocialMedia($social_media_link)
     {
         $link = '';
 
-        if (str_contains($company_link, 'facebook.com')) {
+        if (str_contains($social_media_link, 'facebook.com')) {
             $link = 'facebook';
-        } elseif (str_contains($company_link, 'vk.com')) {
+        } elseif (str_contains($social_media_link, 'vk.com')) {
             $link = 'vk';
-        } elseif (str_contains($company_link, 'twitter.com')) {
+        } elseif (str_contains($social_media_link, 'twitter.com')) {
             $link = 'twitter';
-        } elseif (str_contains($company_link, 'telegram.org')) {
+        } elseif (str_contains($social_media_link, 'telegram.org')) {
             $link = 'telegram';
         } else {
             $link = 'unknown brother sorry!!!';
