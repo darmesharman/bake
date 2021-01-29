@@ -3,7 +3,7 @@
 @section('content')
 <section class="company">
     <div class="company-header">
-        @if(count($company->galleryImages) > 4){
+        @if(count($company->galleryImages) > 4)
             <div class="company-header-image">
                 <div class="company-header-slider">
                     @foreach($company->galleryImages as $image)
@@ -11,7 +11,6 @@
                         </div>
                     @endforeach
                 </div>
-            </div>
         @else
         @foreach($company->galleryImages as $image)
             <div class="company-header-image bg-cov" style="background-image: url({{ asset($image->path) }})">
@@ -19,33 +18,34 @@
 
         @endif
 
-        <div class="top-bar-wrapper">
-            <div class="container">
-                <div class="top-bar df aie">
-                    <div class="company-avatar">
-                        <div class="image bg-cov"
-                            @if($company->profileImages->isNotEmpty())
-                                style="background-image: url( {{ asset($company->profileImages[0]->path) }})"
-                            @endif
-                        >
+            <div class="top-bar-wrapper">
+                <div class="container">
+                    <div class="top-bar df aie">
+                        <div class="company-avatar">
+                            <div class="image bg-cov"
+                                @if($company->profileImages->isNotEmpty())
+                                    style="background-image: url( {{ asset($company->profileImages[0]->path) }})"
+                                @endif
+                            >
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="top-bar-info df aic jcsb fg white">
-                        <div class="company-info">
-                            <h1>{{ $company->name }}</h1>
-                            <p class="icon-place">{{ $company->city->name }}</p>
-                        </div>
-                        <div class="btns">
-                            <div class="line">
-                                <button class="btn icon-share dashed">Поделиться</button>
-                                <a href="#respond" class="anchor btn icon-chat green-theme">Написать отзыв</a>
+                        <div class="top-bar-info df aic jcsb fg white">
+                            <div class="company-info">
+                                <h1>{{ $company->name }}</h1>
+                                <p class="icon-place">{{ $company->city->name }}</p>
+                            </div>
+                            <div class="btns">
+                                <div class="line">
+                                    <button class="btn icon-share dashed">Поделиться</button>
+                                    <a href="#respond" class="anchor btn icon-chat green-theme">Написать отзыв</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </div>
 
     <div class="company-content">

@@ -211,10 +211,11 @@ class CompanyController extends Controller
 
         $company->save();
 
-        CompanySchedule::create([
-            'start' => $request->input('start_time'),
-            'end' => $request->input('end_time'),
-        ]);
+        // CompanySchedule::create([
+        //     'start' => $request->input('start_time'),
+        //     'end' => $request->input('end_time'),
+        //     ''
+        // ]);
 
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
         $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
