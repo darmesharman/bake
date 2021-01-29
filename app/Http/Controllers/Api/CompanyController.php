@@ -5,7 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CompanyCollection;
 use App\Http\Resources\CompanyResource;
+use App\Models\Category;
+use App\Models\City;
 use App\Models\Company;
+use App\Models\District;
+use App\Models\MicroDistrict;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -19,9 +24,38 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::with('contacts')->withCount('profileCompanyImages')->get();
-        // companyImages
-        // profileCompanyImages
+        $companies = Company::with(
+            'category:id,name',
+            'city:id,name',
+            'profileCompanyImages',
+        )->withCount('companyImages');
+
+        if (request()->input('kategoriID')) {
+            $companies = $companies->where('category_id', request()->input('kategoriID'));
+        }
+
+        if (request()->input('subKategoriID')) {
+            $companies = $companies->where('sub_category_id', request()->input('subKategoriID'));
+        }
+
+        if (request()->input('sitiID')) {
+            $companies = $companies->where('city_id', request()->input('sitiID'));
+        }
+
+        if (request()->input('distID')) {
+            $companies = $companies->where('district_id', request()->input('distID'));
+        }
+
+        if (request()->input('mDistID')) {
+            $companies = $companies->where('micro_district_id', request()->input('mDistID'));
+        }
+
+        if (request()->input('searchByName')) {
+            $companies = $companies->where('name', 'like', '%' . request()->input('searchByName') . '%');
+        }
+
+        $companies = $companies->get();
+
         return (new CompanyCollection($companies))->response();
     }
 
