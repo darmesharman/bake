@@ -108,10 +108,10 @@
                         <hr>
 
                         <h5>Фильтры</h5>
-{{--
+
                         @livewire('category-select')
 
-                        @livewire('city-select') --}}
+                        @livewire('city-select')
 
                         <button type="submit" class="btn btn-primary mxa">
                             Отфильтровать

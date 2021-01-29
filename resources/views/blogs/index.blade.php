@@ -19,8 +19,8 @@
                         <th scope="row">{{ $blog->id }}</th>
                         <td>{!! $blog->title !!}</td>
                         <td>{!! $blog->content !!}</td>
-                        @if ($blog->blogImages)
-                            <td style="height: 10%; width: 10%;"><img src="{{ asset($blog->blogImages->path) }}" ></td>
+                        @if ($blog->profile)
+                            <td style="height: 10%; width: 10%;"><img src="{{ asset($blog->profile->path) }}" ></td>
                         @else
                             <td></td>
                         @endif
