@@ -17,7 +17,7 @@ class CreateBlogImagesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('path');
-            $table->boolean('blog')->default(false);
+            $table->boolean('profile')->default(false);
             $table->foreignId('blog_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

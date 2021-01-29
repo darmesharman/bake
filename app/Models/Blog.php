@@ -16,9 +16,9 @@ class Blog extends Model
         return $this->hasMany(BlogImage::class);
     }
 
-    public function blogImage()
+    public function profile()
     {
-        return $this->hasOne(BlogImage::class)->where('blog', true);
+        return $this->hasOne(BlogImage::class)->where('profile', true);
     }
 
     public function tags()

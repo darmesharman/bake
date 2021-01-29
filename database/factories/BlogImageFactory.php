@@ -25,7 +25,7 @@ class BlogImageFactory extends Factory
         return [
             'name' => 'someimage',
             'path' => 'img/default.jpg',
-            'blog' => true,
+            'profile' => true,
             'blog_id' => Blog::factory(),
         ];
     }

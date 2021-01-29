@@ -34,9 +34,9 @@
                 name="blog_image"
                 accept="image/*"
             >
-            @if (!$blog->blogImage->path)
+            @if (!$blog->profile->path)
             @else
-                <img src="{{ asset($blog->blogImage->path) }}" style="height: 20%; width: 20%">
+                <img src="{{ asset($blog->profile->path) }}" style="height: 20%; width: 20%">
             @endif
 
             <br>
