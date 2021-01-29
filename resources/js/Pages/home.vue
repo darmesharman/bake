@@ -51,7 +51,7 @@ rgr
                                     @endforeach -->
                                 </select>
                             </div>
-                            <button class="btn lg-text input" @click="fetchSearchCompanies()" >Поиск</button>
+                            <!-- <button class="btn lg-text input" @click="fetchSearchCompanies()" >Поиск</button> -->
                         </div>
                         <p class="grey-text">Или выберите популярные категории:</p>
                         <div class="tags small theme">
@@ -65,6 +65,8 @@ rgr
                 </div>
             </section>
             </form>
+                <button class="btn lg-text input" @click="fetchSearchCompanies()" >Поиск</button>
+
             <section class="companies p">
                 <div class="container">
                     <div class="wrapper article-bg">
@@ -211,6 +213,9 @@ rgr
 <script>
 
     export default {
+        data: {
+            
+        },
         props: {
         },
         components: {
@@ -219,7 +224,7 @@ rgr
             
         },
         methods: {
-            fetchSearchCompanies() {
+            fetchSearchCompanies: function() {
                 console.log('iceeee')
             }
             
