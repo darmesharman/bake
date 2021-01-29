@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ContactController;
@@ -24,13 +26,15 @@ use App\Http\Controllers\Api\CategoryController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-<<<<<<< HEAD
 
+Route::get('/home', [HomeController::class, 'index']);
 Route::apiResource('leads', LeadController::class);
 Route::apiResource('contacts', ContactController::class);
 Route::apiResource('companies', CompanyController::class);
 
 // Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
+
+Route::get('/companies', [CompanyController::class, 'index']);
 
 Route::get('/update_boards/newboard/{title}', [MainController::class, 'create_board'])->name('create_board');
 Route::put('/update_boards/removeboard/{boardid}', [MainController::class, 'remove_board'])->name('remove_board');
@@ -53,5 +57,4 @@ Route::get('/cities', [CityController::class, 'cities']);
 Route::get('/districts', [CityController::class, 'districts']);
 Route::get('/micro-districts', [CityController::class, 'microDistricts']);
 Route::post('/companies/{company}/views', [CompanyController::class, 'showCount']);
-=======
->>>>>>> 29fdea5a524879ea91daf86a39c73638a33fd15f
+

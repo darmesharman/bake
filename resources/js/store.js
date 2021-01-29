@@ -24,8 +24,12 @@ export default new Vuex.Store({
         isdraggable:false,
         leadadding: false,
         newleadcontent:'',
-        updates:null
-
+        updates:null,
+        hascompanies_data:false,
+        hashome_data:false,
+        companies:[],
+        home:{  searchForm:{cityID:-1, destrictID:-1, categoryID:-1}, 
+                companies: [], categories: [], cities: [], districts: [], blogs: []},
     },
     mutations:{
         SOCKET_CONNECT: (state,  status ) => {
@@ -116,8 +120,36 @@ export default new Vuex.Store({
             console.log(idx)
             state.items[index].leads.splice(idx, 1)
         },
+        FETCH_HOME:(state, data)=> {
+            
+            state.hashome_data = true
+            state.home.companies = data.companies
+            state.home.categories = data.companies
+            state.home.cities  = data.cities
+            state.home.districts = data.districts
+            state.home.blogs = data.blogs
+        },
+        FETCH_COMPANIES:(state, data)=> {
+            state.hascompanies_data = true
+            state.companies = data.companies
+        }
     },
     actions: {
+        fetchHome:(context)=> {
+            let config = {'headers': {}}
+            let url = `http://localhost:8000/api/home`;
+            axios.get(url, config).then(response=> {
+                context.commit('FETCH_HOME', response.data)
+            });
+        },
+        fetchCompanies:(context)=> {
+            
+            let config = {'headers': {}}
+            let url = `http://localhost:8000/api/companies`;
+            axios.get(url, config).then(response=> {
+                context.commit('FETCH_COMPANIES', response.data)
+            });
+        },
         boardCreateUpdates:(context, details) => {
             context.commit('CREATE_BOARD_UPDATE', details)
         },

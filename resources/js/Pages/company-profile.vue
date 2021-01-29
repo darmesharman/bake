@@ -1,8 +1,7 @@
 
 <template>
-<div >
-    
-    map
+    <div>
+        company 10
     </div>
 </template>
 
@@ -15,12 +14,17 @@
         components: {
         },
         sockets: {
+            
         },
         methods: {
-      },
-  mounted() {
+            
+        },
+        methods: {
 
-  }
+        },
+        mounted() {
+
+        }
 }
 </script>
 

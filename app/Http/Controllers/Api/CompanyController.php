@@ -19,8 +19,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::with('contacts')->get();
-
+        $companies = Company::with('contacts')->withCount('profileImages')->get();
+        // companyImages
+        // profileImages
         return (new CompanyCollection($companies))->response();
     }
 

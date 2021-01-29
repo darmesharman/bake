@@ -1,21 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use Illuminate\Routing\Controller as BaseController;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\CompanyCollection;
+use App\Http\Resources\CompanyResource;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\District;
-use App\Models\MicroDistrict;
-use App\Models\SubCategory;
-use Illuminate\Http\Request;
-use Inertia\Inertia;
-use App\Models\Board;
 
-class HomeController extends BaseController
+class HomeController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $categories = Category::select('id', 'name')->get();
@@ -33,8 +39,12 @@ class HomeController extends BaseController
         $blogs = Blog::all();
         $companies = $companies->orderByDesc('views')->take(6)->get();
 
-        return view('welcome', compact('companies', 'categories', 'cities', 'districts', 'blogs'));
+        // return view('welcome', );
+        return response()->json(compact('companies', 'categories', 'cities', 'districts', 'blogs'), 200, ['Content-Type' => 'application/json']);
+
+        // return (new CompanyCollection($companies))->response();
 
     }
+
 
 }

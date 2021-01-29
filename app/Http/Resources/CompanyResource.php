@@ -21,7 +21,13 @@ class CompanyResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'contacts' => ContactResource::collection($this->contacts),
+            'rating' => $this->rating,
+            // 'contacts' => ContactResource::collection($this->contacts),
+            'city'=> new CityResource($this->city),
+            'category' => new CategoryResource($this->category),
+            // profileImages
+            // 'profileimage' => new ImageResource($this->profileImages),
+            'short_description'=>$this->short_description,
 
         ];
 

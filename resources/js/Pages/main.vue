@@ -5,6 +5,7 @@ gt
 <router-link class="mr-4" to='/2' exact>2 go</router-link>
   <button v-on:click="to_push()" >2 go push</button>
   </div>
+  
 
 </template>
 
@@ -30,7 +31,6 @@ import axios from 'axios'
         methods: {
       },
   mounted() {
-
   }
 }
 </script>

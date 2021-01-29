@@ -39,9 +39,9 @@ Vue.component('footer-component', require ('./Pages/footer.vue').default);
 
 new Vue({
     router,
-    store,
     // components: { 'header': vue.Component(Header), },
     el: '#app',
+    store,
     // ,socket
     // components: { Main, Home }
       

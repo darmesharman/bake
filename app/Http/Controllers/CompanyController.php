@@ -64,7 +64,11 @@ class CompanyController extends Controller
 
         $companies = $companies->get();
 
+        // return response()->json(compact('companies', 'categories', 'subCategories', 'cities', 'districts', 'micro_districts'), 200, ['Content-Type' => 'application/json']);
+        // return response()->json($companies, 200);
         return view('companies.index', compact('companies', 'categories', 'subCategories', 'cities', 'districts', 'micro_districts'));
+
+        
     }
 
     /**
