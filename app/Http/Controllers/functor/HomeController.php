@@ -23,7 +23,7 @@ class HomeController extends Controller
 
         $companies = Company::with(
             'city:id,name',
-            'profileImages',
+            'profileCompanyImages',
         );
 
         $companies = $companies->orderByDesc('views')->take(6)->get();

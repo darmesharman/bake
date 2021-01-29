@@ -23,8 +23,8 @@
                 <div class="top-bar df aie">
                     <div class="company-avatar">
                         <div class="image bg-cov"
-                            @if($company->profileImages->isNotEmpty())
-                                style="background-image: url( {{ asset($company->profileImages[0]->path) }})"
+                            @if($company->profileCompanyImages->isNotEmpty())
+                                style="background-image: url( {{ asset($company->profileCompanyImages[0]->path) }})"
                             @endif
                         >
                         </div>

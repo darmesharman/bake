@@ -4,21 +4,19 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class CategoryCollection extends ResourceCollection
+class UserCollection extends ResourceCollection
 {
-    public static $wrap = 'categories';
-
+    public static $wrap = 'users';
     /**
      * Transform the resource collection into an array.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
-     *
      */
     public function toArray($request)
     {
         return [
-            'categories' => CategoryResource::collection($this->collection),
-        ];
+            'users' => $this->collection
+        ]
     }
 }

@@ -4,9 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class DistrictResource extends JsonResource
+class CompanyImageResource extends JsonResource
 {
-    public static $wrap = 'district';
+    public static $wrap = 'company_image';
     /**
      * Transform the resource into an array.
      *
@@ -17,7 +17,8 @@ class DistrictResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'company' => new CompanyResource($this->whenLoaded('company')),
         ];
     }
 }

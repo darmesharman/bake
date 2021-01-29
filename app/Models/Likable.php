@@ -29,9 +29,13 @@ trait Likable
             'comment_id' => $this->id,
             'liked' => true,
         ]);
+
+        $this->likes_count = $this->likesCount();
+
+        $this->save();
     }
 
-    public function likesNumber()
+    public function likesCount()
     {
         return Like::where('comment_id', $this->id)->where('liked', true)->count();
     }

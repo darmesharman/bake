@@ -33,7 +33,7 @@ class HomeController extends Controller
 
         $companies = Company::with(
             'city:id,name',
-            'profileImages',
+            'profileCompanyImages',
         );
 
         $blogs = Blog::all();
@@ -43,8 +43,5 @@ class HomeController extends Controller
         return response()->json(compact('companies', 'categories', 'cities', 'districts', 'blogs'), 200, ['Content-Type' => 'application/json']);
 
         // return (new CompanyCollection($companies))->response();
-
     }
-
-
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class CityResource extends JsonResource
 {
+    public static $wrap = 'city';
     /**
      * Transform the resource into an array.
      *

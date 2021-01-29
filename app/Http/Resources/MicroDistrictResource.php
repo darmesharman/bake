@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class MicroDistrictResource extends JsonResource
 {
+    public static $wrap = 'microDistrict';
+
     /**
      * Transform the resource into an array.
      *

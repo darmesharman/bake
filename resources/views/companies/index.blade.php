@@ -26,8 +26,8 @@
                             <div class="content">
 
                                 <a href="{{ route('companies.show', $company) }}" class="image bg-cov" "
-                                @if ($company->profileImages->isNotEmpty())
-                                    style="background-image: url( {{ asset($company->profileImages[0]->path) }} )"
+                                @if ($company->profileCompanyImages->isNotEmpty())
+                                    style="background-image: url( {{ asset($company->profileCompanyImages[0]->path) }} )"
                                 @endif
                                 >
                                     <div class="images-count icon-picture">{{ $company->company_images_count }}</div>

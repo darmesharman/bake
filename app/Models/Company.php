@@ -24,6 +24,7 @@ class Company extends Model
         'site',
         'email',
         'phone_number',
+        'rating',
     ];
 
 
@@ -47,6 +48,11 @@ class Company extends Model
         return $this->category->id == $category->id;
     }
 
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategory::class);
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class);
@@ -55,6 +61,16 @@ class Company extends Model
     public function hasCity(City $city)
     {
         return $this->city->id == $city->id;
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function microDistrict()
+    {
+        return $this->belongsTo(MicroDistrict::class);
     }
 
     public function additional_phone_numbers()
@@ -79,10 +95,10 @@ class Company extends Model
 
     public function hasProfile(CompanyImage $image)
     {
-        return $this->profileImages->contains($image);
+        return $this->profileCompanyImages->contains($image);
     }
 
-    public function profileImages()
+    public function profileCompanyImages()
     {
         return $this->hasMany(CompanyImage::class)->where('profile', true);
     }

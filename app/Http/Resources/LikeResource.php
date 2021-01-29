@@ -4,9 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class DistrictResource extends JsonResource
+class LikeResource extends JsonResource
 {
-    public static $wrap = 'district';
+    public static $wrap = 'like';
     /**
      * Transform the resource into an array.
      *
@@ -17,7 +17,8 @@ class DistrictResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name
-        ];
+            'user' => new UserResource($this->whenLoaded('user')),
+            'comment' => new CommentResource($this->whenLoaded('comment')),
+        ]
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CityCollection extends ResourceCollection
 {
+    public static $wrap = 'cities';
+
     /**
      * Transform the resource collection into an array.
      *
@@ -13,8 +15,6 @@ class CityCollection extends ResourceCollection
      * @return array
      *
      */
-    public static $wrap = 'cities';
-
     public function toArray($request)
     {
         return [
