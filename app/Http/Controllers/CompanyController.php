@@ -113,6 +113,9 @@ class CompanyController extends Controller
 
         // Get image file
         if ($request->hasfile('company_images')) {
+            $request->validate([
+                'company_images.*' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            ]);
             foreach ($request->file('company_images') as $key => $file) {
                 $path = $file->store('images');
                 $name = $file->getClientOriginalName();
@@ -120,14 +123,14 @@ class CompanyController extends Controller
                 $insert[$key]['path'] = $path;
                 $insert[$key]['company_id'] = $company->id;
             }
+            CompanyImage::insert($insert);
         }
-
-        CompanyImage::insert($insert);
 
         $company->save();
 
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
         $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
+        $this->createOrUpdateSchedule($request->input('start_times'), $request->input('end_times'), $request->input('week_days'), $company);
 
         return Redirect(route('companies.index'));
     }
@@ -193,6 +196,9 @@ class CompanyController extends Controller
         ]);
 
         if ($request->hasfile('company_images')) {
+            $request->validate([
+                'company_images.*' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            ]);
             foreach ($company->galleryImages as $gallery) {
                 Storage::delete($gallery->path);
                 $companyImage = CompanyImage::where('path', $gallery->path);
@@ -206,20 +212,20 @@ class CompanyController extends Controller
                 $insert[$key]['path'] = $path;
                 $insert[$key]['company_id'] = $company->id;
             }
+            CompanyImage::insert($insert);
         }
+<<<<<<< HEAD
 
         CompanyImage::insert($insert);
+=======
+>>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
+
 
         $company->save();
 
-        // CompanySchedule::create([
-        //     'start' => $request->input('start_time'),
-        //     'end' => $request->input('end_time'),
-        //     ''
-        // ]);
-
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
         $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
+        $this->createOrUpdateSchedule($request->input('start_times'), $request->input('end_times'), $request->input('week_days'), $company);
 
         return redirect()->route('companies.show', $company);
     }
@@ -256,6 +262,7 @@ class CompanyController extends Controller
             'phone_number' => ['required', 'starts_with:77', 'digits:11', 'unique:companies'],
             'additional_phone_numbers.*' => ['nullable', 'starts_with:77', 'digits:11', 'distinct'],
             'email' => ['required', 'string', 'max:255', 'unique:companies',],
+            'social_media_links.*' => ['url', 'distinct', 'nullable']
         ];
 
         if ($company) {
@@ -274,6 +281,10 @@ class CompanyController extends Controller
         AdditionalPhoneNumber::where('company_id', $company->id)->get()->each(function ($additional_phone_number, $key) {
             $additional_phone_number->delete();
         });
+
+        if (!$input_additional_phone_numbers) {
+            return;
+        }
 
         // create inputed additional phone numbers
         foreach ($input_additional_phone_numbers as $phone_number) {
@@ -300,6 +311,10 @@ class CompanyController extends Controller
         SocialMediaLink::where('company_id', $company->id)->get()->each(function ($social_media_link, $key) {
             $social_media_link->delete();
         });
+
+        if (!$social_media_links) {
+            return;
+        }
 
         foreach ($social_media_links as $social_media_link) {
             if (!$social_media_link) {
@@ -331,5 +346,17 @@ class CompanyController extends Controller
         }
 
         return $link;
+    }
+
+    protected function createOrUpdateSchedule($start_times, $end_times, $week_days, $company)
+    {
+        foreach ($week_days as $key => $week) {
+            CompanySchedule::create([
+                'start_time' => $start_times[$key],
+                'end_time' => $end_times[$key],
+                'company_id' => $company->id,
+                'day_of_the_week' => $week,
+            ]);
+        }
     }
 }

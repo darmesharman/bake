@@ -15,8 +15,8 @@ class CreateCompanySchedulesTable extends Migration
     {
         Schema::create('company_schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('start');
-            $table->string('end');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->integer('day_of_the_week');
             $table->foreignId('company_id');
             $table->timestamps();
