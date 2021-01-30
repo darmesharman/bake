@@ -104,15 +104,6 @@
                             <input type="text" name="phone_number" class="form-control"
                                 placeholder="+7(_ _ _)_ _ _ - _ _ - _ _" value="{{ old('phone_number') }}">
                         </div>
-<<<<<<< HEAD
-                    @endforeach
-
-                    @error('contacts')
-                        <p class="alert alert-danger"> {{ $message }} </p>
-                    @enderror
-                </div>
-=======
->>>>>>> b34fdf827bbb66b312c42ae0defe46cecd5c0c36
 
                         @foreach (range(0, 2) as $i)
                             <div class="form-group col-md-6">

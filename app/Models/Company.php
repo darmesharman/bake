@@ -83,7 +83,7 @@ class Company extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function rating()
+    public function ratingCount()
     {
         return number_format($this->comments->avg('rating'), 1);
     }

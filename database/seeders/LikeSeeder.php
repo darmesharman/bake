@@ -36,7 +36,7 @@ class LikeSeeder extends Seeder
                 ->for($comment)
                 ->create();
 
-            $comment->likes = $comment->likesNumber();
+            $comment->likes = $comment->likesCount();
         }
     }
 }

@@ -1,6 +1,5 @@
 require('./bootstrap');
 
-<<<<<<< HEAD
 import Vue from 'vue';
 // import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 // import PortalVue from 'portal-vue';
@@ -36,7 +35,7 @@ Vue.component('footer-component', require ('./Pages/footer.vue').default);
 //   { path: '/main', component: MainPage },
 //   { path: '/page1', component: Page1 }
 // ]
-// let Home = require('./Pages/home.vue') 
+// let Home = require('./Pages/home.vue')
 
 new Vue({
     router,
@@ -45,7 +44,7 @@ new Vue({
     store,
     // ,socket
     // components: { Main, Home }
-      
+
 })
 
 
@@ -54,7 +53,7 @@ new Vue({
 
 
 // import Vue from 'vue'
-// import App from './App.vue' 
+// import App from './App.vue'
 // import store from './store'
 
 // const NotFound = { template: '<div app="id"> <p>Page not found</p></div>' }
@@ -71,7 +70,7 @@ new Vue({
 // Vue.use(VueCookies)
 
 
- 
+
 // const options = {
 //   debug: true,
 //   transports : ['websocket'],//, 'polling', 'flashsocket'
@@ -105,11 +104,11 @@ new Vue({
 //     pingServer(data) {
 //       console.log('smuf', data.data)
 //     },
-    
+
 //   },
 //   methods: {
 //     pingServer() {
-    
+
 //       console.log('check')
 
 //       this.$socket.emit('pingServer', "PING!")
@@ -121,7 +120,7 @@ new Vue({
 //       this.sockets.subscribe('connect1', (data) => {
 //         console.log(data)
 //     });
-  
+
 //       console.log('check')
 //       setTimeout(this.pingServer, 3000);
 //   },
@@ -133,7 +132,3 @@ new Vue({
 //   render (h) { return h(this.ViewComponent) }
 // })
 // Vue.config.productionTip = false
-=======
-require('alpinejs');
-
->>>>>>> b34fdf827bbb66b312c42ae0defe46cecd5c0c36

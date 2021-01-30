@@ -26,7 +26,7 @@ class CompanySeeder extends Seeder
             ->create();
 
         foreach (Company::all() as $company) {
-            $company->rating = $company->rating();
+            $company->rating = $company->ratingCount();
             $company->save();
         }
     }
