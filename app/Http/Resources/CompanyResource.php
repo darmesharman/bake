@@ -34,8 +34,7 @@ class CompanyResource extends JsonResource
             'additional_phone_numbers' => new AdditionalPhoneNumberCollection($this->whenLoaded('additional_phone_numbers')),
             'comments' => new CommentCollection($this->whenLoaded('comments')),
             'company_images' => new CompanyImageCollection($this->whenLoaded('companyImages')),
-            'profile_company_images' => new CompanyImageCollection($this->whenLoaded('profileImages')),
-            'gallery_company_images' => new CompanyImageCollection($this->whenLoaded('galleryImages')),
+            'profile_image' => $this->profile_image,
         ];
 
         if ($this->company_images_count) {
