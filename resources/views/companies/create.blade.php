@@ -81,9 +81,68 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <input type="time" name="start_time" required>
-                        <input type="time" name="end_time" required>
+                    <div class="inline form-group">
+                        <label>Monday</label>
+                        <input type="time" class="without_ampm" name="start_times[]" >
+                        <input type="time" class="without_ampm" name="end_times[]" >
+                        <div class="form-group toggler fit large">
+                            <input type="checkbox" checked id="enable_monday" name="week_days[]" value="1">
+                            <label for="enable_monday"><span></span></label>
+                        </div>
+                    </div>
+                    <div class="inline form-group">
+                        <label>Tuesday</label>
+                        <input type="time" class="without_ampm" name="start_times[]" >
+                        <input type="time" class="without_ampm" name="end_times[]" >
+                        <div class="form-group toggler fit large">
+                            <input type="checkbox" checked id="enable_tuesday" name="week_days[]" value="2">
+                            <label for="enable_tuesday"><span></span></label>
+                        </div>
+                    </div>
+                    <div class="inline form-group">
+                        <label>Wednesday</label>
+                        <input type="time" class="without_ampm" name="start_times[]" >
+                        <input type="time" class="without_ampm" name="end_times[]" >
+                        <div class="form-group toggler fit large">
+                            <input type="checkbox" checked id="enable_wednesday" name="week_days[]" value="3">
+                            <label for="enable_wednesday"><span></span></label>
+                        </div>
+                    </div>
+                    <div class="inline form-group">
+                        <label>Thursday</label>
+                        <input type="time" class="without_ampm" name="start_times[]" >
+                        <input type="time" class="without_ampm" name="end_times[]" >
+                        <div class="form-group toggler fit large">
+                            <input type="checkbox" checked id="enable_wednesday" name="week_days[]" value="4">
+                            <label for="enable_thursday"><span></span></label>
+                        </div>
+                    </div>
+                    <div class="inline form-group">
+                        <label>Friday</label>
+                        <input type="time" class="without_ampm" name="start_times[]" >
+                        <input type="time" class="without_ampm" name="end_times[]" >
+                        <div class="form-group toggler fit large">
+                            <input type="checkbox" checked id="enable_firday" name="week_days[]" value="5">
+                            <label for="enable_firday"><span></span></label>
+                        </div>
+                    </div>
+                    <div class="inline form-group">
+                        <label>Saturday</label>
+                        <input type="time" class="without_ampm" name="start_times[]" >
+                        <input type="time" class="without_ampm" name="end_times[]" >
+                        <div class="form-group toggler fit large">
+                            <input type="checkbox" checked id="enable_saturday" name="week_days[]" value="6">
+                            <label for="enable_saturday"><span></span></label>
+                        </div>
+                    </div>
+                    <div class="inline form-group">
+                        <label>Sunday</label>
+                        <input type="time" class="without_ampm" name="start_times[]" >
+                        <input type="time" class="without_ampm" name="end_times[]" >
+                        <div class="form-group toggler fit large">
+                            <input type="checkbox" checked id="enable_sunday" name="week_days[]" value="0">
+                            <label for="enable_sunday"><span></span></label>
+                        </div>
                     </div>
 
                     <div class="form-group">

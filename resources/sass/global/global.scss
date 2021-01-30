@@ -159,7 +159,7 @@ body {
 
         &.outside-icons {
             margin-left: -1rem;
-            
+
             a {
                 padding: 1rem;
                 display: flex;
@@ -199,9 +199,9 @@ body {
                 &:before {
                     content: '-';
                 }
-                
+
             }
-            
+
         }
 
     }
@@ -275,7 +275,7 @@ body {
             }
 
             &.done {
-                
+
                 &:before {
                     background: var(--theme);
                     color: #fff;
@@ -365,17 +365,17 @@ body {
             color: var(--grey);
             font-weight: 600;
             width: 100%;
-            
+
             span {
                 color: var(--text);
             }
 
             &.count-lg {
-                font-size: 1.8rem;    
+                font-size: 1.8rem;
             }
-    
+
             &.count-mb {
-                margin-bottom: 1em;    
+                margin-bottom: 1em;
             }
 
         }
@@ -385,7 +385,7 @@ body {
 
             & > *:not(.not-count) {
                 counter-increment: list;
-    
+
                 &:before {
                     width: 100%;
                     content: '0' counter(list) '.';
@@ -393,31 +393,31 @@ body {
                     color: var(--grey);
                     font-weight: 600;
                 }
-    
+
             }
-    
+
             &.count-lg {
-    
+
                 & > * {
-    
+
                     &:before {
                         font-size: 1.8rem;
                     }
-    
+
                 }
-    
+
             }
-    
+
             &.count-mb {
-    
+
                 & > * {
-    
+
                     &:before {
                         margin-bottom: 1em;
                     }
-    
+
                 }
-    
+
             }
 
         }
@@ -563,7 +563,7 @@ body {
     .fit {
         width: fit-content;
     }
-    
+
     .tac {
         text-align: center;
 
@@ -670,7 +670,7 @@ body {
         }
 
     }
-    
+
     .grid-5 {
 
         & > .line {
@@ -1214,7 +1214,7 @@ body {
     h1, h2, h3, h4 {
         line-height: 1.3;
         font-weight: 300;
-        
+
         span:not(.nc) {
             color: var(--theme);
         }
@@ -1368,11 +1368,11 @@ body {
         &-sm {
             @include article(1rem, 2rem);
         }
-    
+
         &-bg {
             @include article(4rem, 5rem);
         }
-    
+
         &-lg {
             @include article(6rem, 7rem);
         }
@@ -1484,7 +1484,7 @@ body {
             &:not(.static):hover {
                 background: var(--red-light);
             }
-    
+
             &:not(.static):active {
                 background: var(--red-dark);
                 box-shadow: 0 0 0 4px var(--red-focus);
@@ -1517,7 +1517,7 @@ body {
                 background: var(--theme);
                 color: #fff !important;
             }
-    
+
             &:not(.static):active {
                 background: var(--dark);
                 color: #fff !important;
@@ -1563,7 +1563,7 @@ body {
                     border-color: transparent;
                     color: #fff !important;
                 }
-        
+
                 &:not(.static):active {
                     background: var(--red-dark);
                     border-color: transparent;
@@ -1741,11 +1741,11 @@ body {
             text-transform: uppercase;
             letter-spacing: 0.1rem;
             color: var(--grey);
-    
+
             &:not(:last-child):not(.mb0) {
                 margin-bottom: 0.5em;
             }
-    
+
             &[for] {
                 cursor: pointer;
             }
@@ -1756,7 +1756,7 @@ body {
         }
 
     }
-    
+
     .label-block {
 
         &:not(:last-child) {
@@ -1912,13 +1912,13 @@ body {
         & > * {
             margin: 0;
             padding: 0.7rem;
-            
+
             &:not(:last-child) {
                 border-bottom: 1px solid var(--border);
             }
 
             li {
-                
+
                 a, a:visited {
                     display: flex;
                     align-items: center;
@@ -1948,7 +1948,7 @@ body {
                 }
 
             }
-            
+
         }
 
         &.show {
@@ -1988,27 +1988,27 @@ body {
             &.rounded {
                 border-radius: 2rem;
             }
-    
+
             &.disguise {
                 height: 2.5rem;
                 font-size: 2.5rem;
                 padding: 0;
                 font-weight: 600;
                 border-color: transparent;
-                
+
                 &:focus {
                     height: 5rem;
                     padding: 0 1.2rem;
                 }
-    
+
             }
-    
+
             &:focus {
                 color: var(--text);
                 border-color: var(--focus) !important;
                 box-shadow: 0 0 0 4px var(--focus);
             }
-    
+
             &::placeholder {
                 color: var(--placeholder);
             }
@@ -2046,7 +2046,7 @@ body {
             padding: 0;
             font-weight: 600;
             border-color: transparent;
-            
+
             &:focus {
                 height: 5rem;
                 padding: 0 1.2rem;
@@ -2080,15 +2080,15 @@ body {
                 flex-grow: 1;
                 text-align: center;
                 color: var(--grey);
-    
+
                 &:last-child {
                     text-align: right;
                 }
-    
+
                 &:first-child {
                     text-align: left;
                 }
-    
+
             }
 
         }
@@ -2186,7 +2186,7 @@ body {
         }
 
     }
-    
+
     .fw-inline {
 
         & > .line {
@@ -2226,7 +2226,7 @@ body {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            
+
             & > * {
                 padding: 2rem;
                 position: relative;
@@ -2397,7 +2397,7 @@ body {
         }
 
         &.checkbox {
-            
+
             input {
                 display: none;
             }
@@ -2478,13 +2478,14 @@ body {
         }
 
         &.toggler {
-            
+            width: fit-content;
+
             input {
                 display: none;
             }
 
             label {
-                
+
                 span {
                     height: 2.4rem;
                     background: var(--border);
@@ -2494,7 +2495,7 @@ body {
                     transition: 0.3s;
                     display: flex;
                     padding: 3px;
-    
+
                     &:before {
                         content: '';
                         position: relative;
@@ -2506,7 +2507,7 @@ body {
                         background: #fff;
                         transition: 0.3s;
                     }
-    
+
                     &:active {
                         box-shadow: 0 0 0 4px var(--focus);
                     }
@@ -2649,7 +2650,7 @@ body {
                 .bg {
                     opacity: 0;
                 }
-                
+
                 label {
                     color: var(--red) !important;
                 }
@@ -2715,11 +2716,11 @@ body {
                 &:not(:last-child) {
                     margin-right: 1rem;
                 }
-    
+
                 &:first-child {
                     margin-left: -1rem;
                 }
-    
+
                 &:last-child {
                     margin-right: -1rem;
                 }
@@ -2812,11 +2813,11 @@ body {
 
             li {
                 display: flex;
-    
+
                 &:not(:last-child) {
                     margin-right: 1rem;
                 }
-    
+
                 button {
                     width: 20px;
                     height: 20px;
@@ -2830,7 +2831,7 @@ body {
                     justify-content: center;
                     cursor: pointer;
                     transition: 0.3s;
-    
+
                     &:before {
                         content: '';
                         width: 12px;
@@ -2839,35 +2840,35 @@ body {
                         border-radius: 100%;
                         transition: 0.3s;
                     }
-    
+
                     &:hover {
                         border-color: var(--focus);
-    
+
                         &:before {
                             background: var(--focus);
                         }
-    
+
                     }
-    
+
                     &:active {
                         box-shadow: 0 0 0 4px var(--focus);
                         border-color: var(--focus) !important;
                     }
-    
+
                 }
-    
+
                 &.active, &.slick-active {
-    
+
                     button {
                         border-color: var(--theme);
-    
+
                         &:before {
                             background: var(--theme);
                         }
                     }
-    
+
                 }
-    
+
             }
 
         }
@@ -2949,29 +2950,29 @@ body {
 
         h1 {
             font-size: 3.5rem;
-    
+
             &.small {
                 font-size: 2.8rem;
             }
-    
+
         }
-    
+
         h2 {
             font-size: 3rem;
         }
-    
+
         h3 {
             font-size: 2.8rem;
         }
-    
+
         h4 {
             font-size: 2.4rem;
         }
-    
+
         h5 {
             font-size: 2rem;
         }
-    
+
         h6 {
             font-size: 1.7rem;
         }
@@ -2990,7 +2991,7 @@ body {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 768px) and (max-width: 1023px) {
-   
+
     body {
         --label-size: 1.2rem;
         --subtitle-size: 1.4rem;
@@ -3012,7 +3013,7 @@ body {
 }
 
 @media (max-width: 1399px) and (min-width: 1024px) {
-    
+
     body {
         --label-size: 1.2rem;
         --subtitle-size: 1.4rem;
@@ -3021,7 +3022,7 @@ body {
 }
 
 @media (min-width: 1024px) {
-    
+
     body {
 
         .hide-lg {

@@ -157,7 +157,6 @@ class BlogController extends Controller
         Validator::make($request->input(), [
             'title' => ['required', 'string', 'max:10240'],
             'content' => ['required', 'string', 'max:10240'],
-            'blog_image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ])->validate();
     }
 }
