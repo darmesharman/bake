@@ -19,7 +19,33 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::with('contacts')->withCount('profileImages')->get();
+        $companies = Company::with('contacts')->withCount('profileImages');
+        
+        if (request()->input('kategoriID')) {
+            $companies = $companies->where('category_id', request()->input('kategoriID'));
+        }
+
+        if (request()->input('subKategoriID')) {
+            $companies = $companies->where('sub_category_id', request()->input('subKategoriID'));
+        }
+
+        if (request()->input('sitiID')) {
+            $companies = $companies->where('city_id', request()->input('sitiID'));
+        }
+
+        if (request()->input('distID')) {
+            $companies = $companies->where('district_id', request()->input('distID'));
+        }
+
+        if (request()->input('mDistID')) {
+            $companies = $companies->where('micro_district_id', request()->input('mDistID'));
+        }
+
+        if (request()->input('searchByName')) {
+            $companies = $companies->where('name', 'like', '%' . request()->input('searchByName') . '%');
+        }
+
+        $companies = $companies->get();
         // companyImages
         // profileImages
         return (new CompanyCollection($companies))->response();

@@ -13,3 +13,5 @@ npm-debug.log
 yarn-error.log
 **/dump/
 
+./database/redis/package-lock.json
+./database/redis/package.json

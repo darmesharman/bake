@@ -11,10 +11,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-var _data$props$component;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -227,25 +223,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_data$props$component = {
-  data: {},
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      searchForm: this.$store.state.home.searchForm
+    };
+  },
   props: {},
   components: {},
   sockets: {},
   methods: {
     fetchSearchCompanies: function fetchSearchCompanies() {
-      console.log('iceeee');
+      this.$store.dispatch('fetchSearchHome');
+    },
+    get_companies: function get_companies() {},
+    to_push: function to_push() {
+      console.log(445);
+      this.$router.push('2');
     }
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('fetchHome');
   }
-}, _defineProperty(_data$props$component, "methods", {
-  get_companies: function get_companies() {},
-  to_push: function to_push() {
-    console.log(445);
-    this.$router.push('2');
-  }
-}), _defineProperty(_data$props$component, "mounted", function mounted() {
-  this.$store.dispatch('fetchHome');
-}), _data$props$component);
+});
 
 /***/ }),
 
@@ -363,6 +364,11 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "fs-search mb3 mt3" }, [
                       _c("div", { staticClass: "search-fields" }, [
+                        _vm._v(
+                          "\r\n                                " +
+                            _vm._s(_vm.searchForm.cityID) +
+                            "\r\n                                "
+                        ),
                         _c(
                           "select",
                           {
@@ -370,9 +376,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.$store.state.home.searchForm.cityID,
-                                expression:
-                                  "$store.state.home.searchForm.cityID"
+                                value: _vm.searchForm.cityID,
+                                expression: "searchForm.cityID"
                               }
                             ],
                             staticClass: "dynamic-list required",
@@ -388,7 +393,7 @@ var render = function() {
                                     return val
                                   })
                                 _vm.$set(
-                                  _vm.$store.state.home.searchForm,
+                                  _vm.searchForm,
                                   "cityID",
                                   $event.target.multiple
                                     ? $$selectedVal
@@ -427,10 +432,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: this.$store.state.home.searchForm
-                                  .destrictID,
-                                expression:
-                                  "this.$store.state.home.searchForm.destrictID"
+                                value: _vm.searchForm.destrictID,
+                                expression: "searchForm.destrictID"
                               }
                             ],
                             staticClass: "dynamic-list required",
@@ -446,7 +449,7 @@ var render = function() {
                                     return val
                                   })
                                 _vm.$set(
-                                  this.$store.state.home.searchForm,
+                                  _vm.searchForm,
                                   "destrictID",
                                   $event.target.multiple
                                     ? $$selectedVal
@@ -488,10 +491,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: this.$store.state.home.searchForm
-                                  .categoryID,
-                                expression:
-                                  "this.$store.state.home.searchForm.categoryID"
+                                value: _vm.searchForm.categoryID,
+                                expression: "searchForm.categoryID"
                               }
                             ],
                             staticClass: "dynamic-list required",
@@ -507,7 +508,7 @@ var render = function() {
                                     return val
                                   })
                                 _vm.$set(
-                                  this.$store.state.home.searchForm,
+                                  _vm.searchForm,
                                   "categoryID",
                                   $event.target.multiple
                                     ? $$selectedVal

@@ -7,10 +7,12 @@ use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\DashboardController;
+
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Resources\CityCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,14 +29,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/companies', [CompanyController::class, 'index']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
 Route::apiResource('leads', LeadController::class);
 Route::apiResource('contacts', ContactController::class);
 Route::apiResource('companies', CompanyController::class);
 
 // Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
 
-Route::get('/companies', [CompanyController::class, 'index']);
 
 Route::get('/update_boards/newboard/{title}', [MainController::class, 'create_board'])->name('create_board');
 Route::put('/update_boards/removeboard/{boardid}', [MainController::class, 'remove_board'])->name('remove_board');

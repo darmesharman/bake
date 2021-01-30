@@ -10,6 +10,7 @@ const Company = r => require.ensure([], () => r(require('./Pages/сompany.vue'))
 const Blog = r => require.ensure([], () => r(require('./Pages/blog.vue')))
 const Map = r => require.ensure([], () => r(require('./Pages/map.vue')))
 const Contact = r => require.ensure([], () => r(require('./Pages/contact.vue')))
+const Dashboard = r => require.ensure([], () => r(require('./Pages/dashboard.vue')))
 
 export default new Router({
     mode:'history',
@@ -39,6 +40,11 @@ export default new Router({
             path: '/vue/contacts',
             name: 'contacts',
             component: Contact
+        },
+        {
+            path: '/vue/dashboard',
+            name: 'dashboard',
+            component: Dashboard
         },
     ],
     // root:'/',

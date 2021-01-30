@@ -2221,6 +2221,12 @@ var Contact = function Contact(r) {
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
+var Dashboard = function Dashboard(r) {
+  return __webpack_require__.e(/*! require.ensure */ "resources_js_Pages_dashboard_vue").then((function () {
+    return r(__webpack_require__(/*! ./Pages/dashboard.vue */ "./resources/js/Pages/dashboard.vue"));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
   mode: 'history',
   path: '/vue/',
@@ -2244,6 +2250,10 @@ var Contact = function Contact(r) {
     path: '/vue/contacts',
     name: 'contacts',
     component: Contact
+  }, {
+    path: '/vue/dashboard',
+    name: 'dashboard',
+    component: Dashboard
   }] // root:'/',
 
 }));
@@ -2291,6 +2301,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
     updates: null,
     hascompanies_data: false,
     hashome_data: false,
+    hasdashboard_data: false,
     companies: [],
     home: {
       searchForm: {
@@ -2303,6 +2314,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       cities: [],
       districts: [],
       blogs: []
+    },
+    dashboard: {
+      data: []
     }
   },
   mutations: {
@@ -2436,19 +2450,41 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       state.home.districts = data.districts;
       state.home.blogs = data.blogs;
     },
+    FETCH_SEARCH_HOME: function FETCH_SEARCH_HOME(state, data) {
+      data;
+    },
     FETCH_COMPANIES: function FETCH_COMPANIES(state, data) {
       state.hascompanies_data = true;
       state.companies = data.companies;
+    },
+    FETCH_DASHBOARD: function FETCH_DASHBOARD(state, data) {
+      state.hasdashboard_data = true;
+      data;
     }
   },
   actions: {
     fetchHome: function fetchHome(context) {
+      var url = "http://localhost:8000/api/home";
       var config = {
         'headers': {}
       };
-      var url = "http://localhost:8000/api/home";
-      axios.get(url, config).then(function (response) {
+      var data = {};
+      axios.get(url, data, config).then(function (response) {
         context.commit('FETCH_HOME', response.data);
+      });
+    },
+    fetchSearchHome: function fetchSearchHome(context) {
+      var url = "http://localhost:8000/api/home";
+      var config = {
+        'headers': {}
+      };
+      var data = {
+        cityID: home.searchForm.cityID,
+        destrictID: home.searchForm.destrictID,
+        categoryID: home.searchForm.categoryID
+      };
+      axios.get(url, data, config).then(function (response) {
+        context.commit('FETCH_SEARCH_HOME', response.data);
       });
     },
     fetchCompanies: function fetchCompanies(context) {
@@ -2458,6 +2494,15 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       var url = "http://localhost:8000/api/companies";
       axios.get(url, config).then(function (response) {
         context.commit('FETCH_COMPANIES', response.data);
+      });
+    },
+    fetchDashboard: function fetchDashboard(context) {
+      var config = {
+        'headers': {}
+      };
+      var url = "http://localhost:8000/api/dashboard";
+      axios.get(url, config).then(function (response) {
+        context.commit('c', response.data);
       });
     },
     boardCreateUpdates: function boardCreateUpdates(context, details) {
@@ -37623,7 +37668,7 @@ module.exports = index_cjs;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_home_vue":1,"resources_js_Pages_ompany_vue":1,"resources_js_Pages_blog_vue":1,"resources_js_Pages_map_vue":1,"resources_js_Pages_contact_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_home_vue":1,"resources_js_Pages_ompany_vue":1,"resources_js_Pages_blog_vue":1,"resources_js_Pages_map_vue":1,"resources_js_Pages_contact_vue":1,"resources_js_Pages_dashboard_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -27,9 +27,11 @@ export default new Vuex.Store({
         updates:null,
         hascompanies_data:false,
         hashome_data:false,
+        hasdashboard_data:false,
         companies:[],
         home:{  searchForm:{cityID:-1, destrictID:-1, categoryID:-1}, 
                 companies: [], categories: [], cities: [], districts: [], blogs: []},
+        dashboard:{ data:[]}
     },
     mutations:{
         SOCKET_CONNECT: (state,  status ) => {
@@ -129,17 +131,39 @@ export default new Vuex.Store({
             state.home.districts = data.districts
             state.home.blogs = data.blogs
         },
+        FETCH_SEARCH_HOME:(state, data)=> {
+            data
+        },
         FETCH_COMPANIES:(state, data)=> {
             state.hascompanies_data = true
             state.companies = data.companies
+        },
+        FETCH_DASHBOARD:(state, data)=> {
+            state.hasdashboard_data = true
+            data
         }
     },
     actions: {
         fetchHome:(context)=> {
-            let config = {'headers': {}}
             let url = `http://localhost:8000/api/home`;
-            axios.get(url, config).then(response=> {
+            let config = {'headers': {}}
+            let data = {}
+            axios.get(url, data, config).then(response=> {
                 context.commit('FETCH_HOME', response.data)
+            });
+        },
+        fetchSearchHome:(context)=> {
+          
+            let url = `http://localhost:8000/api/home`;
+            let config = {'headers': {}}
+            let data = {
+                cityID: home.searchForm.cityID,
+                destrictID: home.searchForm.destrictID,
+                categoryID: home.searchForm.categoryID
+            }
+            
+            axios.get(url, data, config).then(response=> {
+                context.commit('FETCH_SEARCH_HOME', response.data)
             });
         },
         fetchCompanies:(context)=> {
@@ -149,6 +173,15 @@ export default new Vuex.Store({
             axios.get(url, config).then(response=> {
                 context.commit('FETCH_COMPANIES', response.data)
             });
+        },
+        fetchDashboard:(context)=> {
+            
+            let config = {'headers': {}}
+            let url = `http://localhost:8000/api/dashboard`;
+            axios.get(url, config).then(response=> {
+                context.commit('c', response.data)
+            });
+
         },
         boardCreateUpdates:(context, details) => {
             context.commit('CREATE_BOARD_UPDATE', details)

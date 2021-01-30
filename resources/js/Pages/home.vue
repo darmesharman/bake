@@ -14,7 +14,8 @@ rgr
                         <p class="grey-text mg-text">Детские сады, образовательные центры, спортивные кружки и многое другое.</p>
                         <div class="fs-search mb3 mt3">
                             <div class="search-fields">
-                                <select name="sitiID" v-model="$store.state.home.searchForm.cityID" class="dynamic-list required">
+                                {{searchForm.cityID}}
+                                <select name="sitiID" v-model="searchForm.cityID" class="dynamic-list required">
                                     <option value=""></option>
                                     
                                     <option :value="city.id" v-for="(city, index) in this.$store.state.home.cities" :key="city.id" >
@@ -27,7 +28,7 @@ rgr
                                         </option>
                                     @endforeach -->
                                 </select>
-                                <select name="distID" v-model="this.$store.state.home.searchForm.destrictID" class="dynamic-list required">
+                                <select name="distID" v-model="searchForm.destrictID" class="dynamic-list required">
                                     <option value=""></option>
                                     <option :value="district.id" v-for="(district, index) in this.$store.state.home.districts" :key="district.id" >
                                         {{district.name}}
@@ -39,7 +40,7 @@ rgr
                                     @endforeach -->
                                 </select>
                                 
-                                <select name="kategoriID" v-model="this.$store.state.home.searchForm.categoryID" class="dynamic-list required">
+                                <select name="kategoriID" v-model="searchForm.categoryID" class="dynamic-list required">
                                     <option value=""></option>
                                         <option :value="category.id" v-for="(category, index) in this.$store.state.home.categories" :key="category.id" >
                                             {{category.name}}
@@ -213,8 +214,10 @@ rgr
 <script>
 
     export default {
-        data: {
-            
+        data:function() {
+            return {
+                searchForm: this.$store.state.home.searchForm
+            }
         },
         props: {
         },
@@ -224,12 +227,9 @@ rgr
             
         },
         methods: {
-            fetchSearchCompanies: function() {
-                console.log('iceeee')
-            }
-            
-        },
-        methods: {
+            fetchSearchCompanies() {
+                this.$store.dispatch('fetchSearchHome');
+            },
             get_companies() {
 
             },
