@@ -38,13 +38,15 @@ class SetDataDashboardUpdates extends Command
      */
     public function handle()
     {
-        dd('nice');
+
+        // Query
+
+        // Broadcast
         Redis::publish('updates', json_encode([
             ['id' => 0, 'name' => 'Adam Wathan'],
             ['id' => 1, 'name' => 'Adam Stetham'],
             ['id' => 2, 'name' => 'Adam Stork'],
         ]));
-
         
         // return 0;
     }

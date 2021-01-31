@@ -123,6 +123,7 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'client' => 'predis',
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -177,7 +178,6 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
-        Illuminate\Redis\RedisServiceProvider::class,
     ],
 
     /*

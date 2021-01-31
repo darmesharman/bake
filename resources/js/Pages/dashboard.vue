@@ -1,10 +1,11 @@
 
 <template>
     <div>
-
+{{this.dashboard.items }}
+{{this.dashboard.token }}
         <div class="container">
         <!-- {{data}} -->
-            <div class="board-context"  v-for="(item, index) in this.$store.state.items"  v-bind:key="item.id" 
+            <div class="board-context"  v-for="(item, index) in dashboard.items"  v-bind:key="item.id" 
             @drop='onDrop($event, item.id)' @dragover.prevent @dragenter.prevent>
 
             <Boards ref="col" v-bind:col_index="index" v-bind:item="item" />
@@ -36,139 +37,144 @@
 
 <script>
 import Boards from './components/boards.vue'
-import axios from 'axios'
 
-    export default {
-        data: function() {
-            return {
-                data: this.$store.state.dashboard.data
-            }
-        },
-        props: {
+  export default {
+      data:function() {
+          return {
+                dashboard: this.$store.state.dashboard
+          }
+      },
+      props: {
 
-        },
-        components: { 
-            Boards
-        },
-        sockets: {
-            connection () {
-                console.log('socket connected!!')
-            },
-             users (socketname) {
-               var x =4;
-            // users(socketname){
-             
-            //  (async  () => {
-                  // the rest of the code
+      },
+      sockets: {
+          connection () {
+              console.log('socket connected!!')
+          },
+          users (socketname) {
+
+            this.sockets.subscribe(socketname, (data) => {
+
+              if(data.last_update != this.$store.state.lastupdate) {
+
+                
+                let switchOptions = (option, details)=> {
+
+                  switch (option) {
+                    case 0:
+                      this.$store.dispatch('boardCreateUpdates', details);
+                    break;
+                    case 1:
+                      this.$store.dispatch('boardUpdateUpdates', details);
+                    break;
+                    case 2:
+                      this.$store.dispatch('boardDeleteUpdates', details);
+                    break; 
+                    case 10:
+                      this.$store.dispatch('leadCreateUpdates', details);
+                    break;
+                    case 11:
+                      this.$store.dispatch('leadUpdateUpdates', details);
+                    break;
+                    case 12:
+                      this.$store.dispatch('leadDeleteUpdates', details);
+                    break;
+                  } 
+                }
+                data.data.forEach(event => {
+                  
+                    if(event.details[0] != null){
+                        event.details.forEach(detail => {
+                          switchOptions(event.event, detail )
+                        });
+                    }
+
+                });
+              }
+
+
+          })
+
+        }
+          
+      },
+      components: { 
+          Boards
+      },
+      computed: {
+      },
+      sockets: {
+          connection () {
+              console.log('socket connected!!')
+          },
+          users (socketname) {
+
+            //   this.sockets.subscribe(socketname, (data) => {
+
               
+              
+            //   console.log(data.last_update)
+            //     if(data.last_update != this.$store.state.lastupdate)
+            //     {
+            //       console.log('data', data.data)
+            //       this.$store.state.lastupdate = data.last_update
 
-                this.sockets.subscribe(socketname, (data) => {
+            //     let switchOptions = (option, details)=> {
 
-                
-                
-                console.log(data.last_update)
-                // console.log(this.$store.state.lastupdate)
-                // if(data.last_update != this.$store.state.lastupdate) {
-                  if(data.last_update != this.$store.state.lastupdate)
-                  {
-                    console.log('data', data.data)
-                    this.$store.state.lastupdate = data.last_update
-                    // console.log('newdata date is: ', data.last_update)
-                    // console.log('newdata is: ', data.data[0])
-                    // console.log('newdata is: ', data.data[1].details[0]==null)
+            //       switch (option) {
+            //         case 0:
+            //           this.$store.dispatch('boardCreateUpdates', details);
+            //           break;
+            //         case 1:
+            //           this.$store.dispatch('boardUpdateUpdates', details);
+            //           break;
+            //           case 2:
+            //           this.$store.dispatch('boardDeleteUpdates', details);
+            //           break; 
+            //         case 10:
+            //           this.$store.dispatch('leadCreateUpdates', details);
+            //           break;
+            //         case 11:
+            //           this.$store.dispatch('leadUpdateUpdates', details);
+            //           break;
+            //         case 12:
+            //           this.$store.dispatch('leadDeleteUpdates', details);
+            //           break;
+                  
+            //         // default:
+            //           // break;
+            //       } 
+            //     }
 
-                  let switchOptions = (option, details)=> {
-                      // console.log('details')
-                      // console.log(option)
-                      // console.log(i)
-                      console.log(details)
-                     switch (option) {
-                      case 0:
-                        this.$store.dispatch('boardCreateUpdates', details);
-                        break;
-                      case 1:
-                        this.$store.dispatch('boardUpdateUpdates', details);
-                        break;
-                       case 2:
-                        this.$store.dispatch('boardDeleteUpdates', details);
-                        break; 
-                      case 10:
-                        this.$store.dispatch('leadCreateUpdates', details);
-                        break;
-                      case 11:
-                        this.$store.dispatch('leadUpdateUpdates', details);
-                        break;
-                      case 12:
-                        this.$store.dispatch('leadDeleteUpdates', details);
-                        break;
+            //       data.data.forEach(event => {
                     
-                      // default:
-                        // break;
-                    } 
-                  }
-
-                    data.data.forEach(event => {
-                      
-                      if(event.details[0] != null)
-                        // if(event.details.length > 1)
-                          event.details.forEach(detail => {
-                            switchOptions(event.event, detail )
-                          });
-                        // else
-                          // switchOptions(event.event, event.details[0])
+            //         if(event.details[0] != null)
+            //           // if(event.details.length > 1)
+            //             event.details.forEach(detail => {
+            //               switchOptions(event.event, detail )
+            //             });
+            //           // else
+            //             // switchOptions(event.event, event.details[0])
 
 
 
-                    });
+            //       });
 
-                  }
+            //     }
 
-                  // this.$store.lastupdate = data.last_update
-                  // console.log(this.$store.state.updates)
-                // }
-                // this.$store.state.lastupdate = data.last_update
+              
+            // })
 
-                // var x = data.data[0].list.split('},{')
-                // x.forEach((e, i)=>{
-                //     if(i!=0)
-                //         x[i] = '{' + x[i]
-                //     if(i!=x.length-1)
-                //     x[i] = x[i]+'}'
-                // })
-                // console.log(x)
-                // console.log(x)
-                // console.log(JSON.parse(x))
-                // console.log(JSON.parse(new Object()))
-                
-                // JSON.parse("[" + string + "]");
-
-                // this.sockets.unsubscribe('EVENT_NAME');
-              })
-
-              // })();
-            }
-            
-        },
-        methods: {
+          }
+      },
+      methods: {
           boardAddEvent() {
             this.$store.state.addingboard = true
           },
           boardCreate(evt) {
             this.$store.dispatch('boardCreate', this.$refs.newboardtextarea.value);
             this.$store.state.addingboard = false
-            
-
-            // var id = this.$store.state.items[this.$store.state.items.length-1].id+1;
-            // var order = this.$store.state.items[this.$store.state.items.length-1].order;
-            // var title = this.$store.state.newcoltitle;
-            
-            // console.log(order, id, title)
-            
-            // var url = `http://localhost:8001/api/update_boards/${title}/${order}`;
-            
-            // let config = {'headers': {}}
-            // axios.get(url, config);
-            // this.$store.state.items.push({id:id, title: title, leads:[]})
+        
           },
           onDrop(evt, itemid2) {
 
@@ -217,27 +223,36 @@ import axios from 'axios'
                 })
           }, */
       },
-  mounted() {
-      
-      this.$store.dispatch('fetchDashboard');
-      this.$store.state.items = this.boards
+    mounted() {
+        
+        this.$store.dispatch('fetchDashboard', this.sockets);
+        var name = 'TOM';
 
-      // console.log(this.last_update)
-      // this.$store.state.lastupdate = this.last_update;
-      var name = 'TOM';
-      let x =this.last_update[0].updated_at
-      if('updated_at' in this.last_update[0])
-        this.$store.state.lastupdate = x
-      
-      console.log(this.last_update[0].updated_at)
-      
-      this.$socket.emit('loaded', {username:name, last_update:this.$store.state.lastupdate})
+        // this.$store.dispatch('fetchSockets');
+        // while(true) {
+        //   if(this.dashboard.token!=null)
+        //   break
+        // }
+        // console.log(this.$store.state.dashboard.token)
+         
+        // setTimeout(function() {
+        //   console.log('subed to: ', this.$store.state.dashboard.token)
+          // this.dashboard.token
+        
+          // this.sockets.subscribe(this.$store.state.dashboard.token, (data) => {
+          //   console.log(data);
+          //   console.log('wtfhithat');
+          // });
+        // }, 3000)
 
-      // this.sockets.listener.subscribe("users", (data) => {
-          // console.log("users", data);
-      // });
+        
+    },
+    created() {
 
-  }
+        // this.$socket.emit('loaded', {token: this.$store.state.dashboard.token})
+
+
+    }
 }
 </script>
 

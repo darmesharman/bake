@@ -354,8 +354,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony import */ var _components_boards_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/boards.vue */ "./resources/js/Pages/components/boards.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+var _data$props$sockets$c;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
 //
 //
 //
@@ -393,17 +396,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_data$props$sockets$c = {
   data: function data() {
     return {
-      data: this.$store.state.dashboard.data
+      dashboard: this.$store.state.dashboard
     };
   },
   props: {},
-  components: {
-    Boards: _components_boards_vue__WEBPACK_IMPORTED_MODULE_0__.default
-  },
   sockets: {
     connection: function connection() {
       console.log('socket connected!!');
@@ -411,26 +410,9 @@ __webpack_require__.r(__webpack_exports__);
     users: function users(socketname) {
       var _this = this;
 
-      var x = 4; // users(socketname){
-      //  (async  () => {
-      // the rest of the code
-
       this.sockets.subscribe(socketname, function (data) {
-        console.log(data.last_update); // console.log(this.$store.state.lastupdate)
-        // if(data.last_update != this.$store.state.lastupdate) {
-
         if (data.last_update != _this.$store.state.lastupdate) {
-          console.log('data', data.data);
-          _this.$store.state.lastupdate = data.last_update; // console.log('newdata date is: ', data.last_update)
-          // console.log('newdata is: ', data.data[0])
-          // console.log('newdata is: ', data.data[1].details[0]==null)
-
           var switchOptions = function switchOptions(option, details) {
-            // console.log('details')
-            // console.log(option)
-            // console.log(i)
-            console.log(details);
-
             switch (option) {
               case 0:
                 _this.$store.dispatch('boardCreateUpdates', details);
@@ -461,119 +443,143 @@ __webpack_require__.r(__webpack_exports__);
                 _this.$store.dispatch('leadDeleteUpdates', details);
 
                 break;
-              // default:
-              // break;
             }
           };
 
           data.data.forEach(function (event) {
-            if (event.details[0] != null) // if(event.details.length > 1)
+            if (event.details[0] != null) {
               event.details.forEach(function (detail) {
                 switchOptions(event.event, detail);
-              }); // else
-            // switchOptions(event.event, event.details[0])
+              });
+            }
           });
-        } // this.$store.lastupdate = data.last_update
-        // console.log(this.$store.state.updates)
-        // }
-        // this.$store.state.lastupdate = data.last_update
-        // var x = data.data[0].list.split('},{')
-        // x.forEach((e, i)=>{
-        //     if(i!=0)
-        //         x[i] = '{' + x[i]
-        //     if(i!=x.length-1)
-        //     x[i] = x[i]+'}'
-        // })
-        // console.log(x)
-        // console.log(x)
-        // console.log(JSON.parse(x))
-        // console.log(JSON.parse(new Object()))
-        // JSON.parse("[" + string + "]");
-        // this.sockets.unsubscribe('EVENT_NAME');
-
-      }); // })();
+        }
+      });
     }
   },
-  methods: {
-    boardAddEvent: function boardAddEvent() {
-      this.$store.state.addingboard = true;
-    },
-    boardCreate: function boardCreate(evt) {
-      this.$store.dispatch('boardCreate', this.$refs.newboardtextarea.value);
-      this.$store.state.addingboard = false; // var id = this.$store.state.items[this.$store.state.items.length-1].id+1;
-      // var order = this.$store.state.items[this.$store.state.items.length-1].order;
-      // var title = this.$store.state.newcoltitle;
-      // console.log(order, id, title)
-      // var url = `http://localhost:8001/api/update_boards/${title}/${order}`;
-      // let config = {'headers': {}}
-      // axios.get(url, config);
-      // this.$store.state.items.push({id:id, title: title, leads:[]})
-    },
-    onDrop: function onDrop(evt, itemid2) {
-      if (this.$store.state.cold) {
-        var itemid = evt.dataTransfer.getData('itemid');
-        this.$store.dispatch('swapBoards', {
-          itemid: itemid,
-          itemid2: itemid2
-        });
-        this.$store.state.cold = false;
-        this.$store.state.isediting = true;
-      }
+  components: {
+    Boards: _components_boards_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  computed: {}
+}, _defineProperty(_data$props$sockets$c, "sockets", {
+  connection: function connection() {
+    console.log('socket connected!!');
+  },
+  users: function users(socketname) {//   this.sockets.subscribe(socketname, (data) => {
+    //   console.log(data.last_update)
+    //     if(data.last_update != this.$store.state.lastupdate)
+    //     {
+    //       console.log('data', data.data)
+    //       this.$store.state.lastupdate = data.last_update
+    //     let switchOptions = (option, details)=> {
+    //       switch (option) {
+    //         case 0:
+    //           this.$store.dispatch('boardCreateUpdates', details);
+    //           break;
+    //         case 1:
+    //           this.$store.dispatch('boardUpdateUpdates', details);
+    //           break;
+    //           case 2:
+    //           this.$store.dispatch('boardDeleteUpdates', details);
+    //           break; 
+    //         case 10:
+    //           this.$store.dispatch('leadCreateUpdates', details);
+    //           break;
+    //         case 11:
+    //           this.$store.dispatch('leadUpdateUpdates', details);
+    //           break;
+    //         case 12:
+    //           this.$store.dispatch('leadDeleteUpdates', details);
+    //           break;
+    //         // default:
+    //           // break;
+    //       } 
+    //     }
+    //       data.data.forEach(event => {
+    //         if(event.details[0] != null)
+    //           // if(event.details.length > 1)
+    //             event.details.forEach(detail => {
+    //               switchOptions(event.event, detail )
+    //             });
+    //           // else
+    //             // switchOptions(event.event, event.details[0])
+    //       });
+    //     }
+    // })
+  }
+}), _defineProperty(_data$props$sockets$c, "methods", {
+  boardAddEvent: function boardAddEvent() {
+    this.$store.state.addingboard = true;
+  },
+  boardCreate: function boardCreate(evt) {
+    this.$store.dispatch('boardCreate', this.$refs.newboardtextarea.value);
+    this.$store.state.addingboard = false;
+  },
+  onDrop: function onDrop(evt, itemid2) {
+    if (this.$store.state.cold) {
+      var itemid = evt.dataTransfer.getData('itemid');
+      this.$store.dispatch('swapBoards', {
+        itemid: itemid,
+        itemid2: itemid2
+      });
+      this.$store.state.cold = false;
+      this.$store.state.isediting = true;
     }
-    /*GET_BOARDS(response) {
-      var data = response.data[1]["00"];
-      this.$store.state.lastupdate = response.data[0];
-      // console.log(response.data);
-      if(data.length >= 1)
-        for (var idx = 0; idx < data.length; idx++) {
-          console.log(data[idx])
-          if("id" in data[idx])
-            this.data.items.push({id:data[idx].id, title: data[idx].title, order: data[idx].order, leads:[]})
-        }
-    },
-    GET_LEADS(response) {
-      var data = response.data[1]["01"];
-      this.$store.state.lastupdate = response.data[0];
-      console.log(response.data[1]["01"])
-      if(data.length >= 1)
-        for (var idx = 0; idx < data.length; idx++) {
-          for (var idy = 0; idy < this.data.items.length; idy++) {
-            if(this.data.items[idy].id == data[idx].board_id) {
-              this.data.items[idy].leads.push({id: data[idx].id, board_id: data[idx].board_id, description: data[idx].description, order: data[idx].order})
-              break;
-            }
+  }
+  /*GET_BOARDS(response) {
+    var data = response.data[1]["00"];
+    this.$store.state.lastupdate = response.data[0];
+    // console.log(response.data);
+    if(data.length >= 1)
+      for (var idx = 0; idx < data.length; idx++) {
+        console.log(data[idx])
+        if("id" in data[idx])
+          this.data.items.push({id:data[idx].id, title: data[idx].title, order: data[idx].order, leads:[]})
+      }
+  },
+  GET_LEADS(response) {
+    var data = response.data[1]["01"];
+    this.$store.state.lastupdate = response.data[0];
+    console.log(response.data[1]["01"])
+    if(data.length >= 1)
+      for (var idx = 0; idx < data.length; idx++) {
+        for (var idy = 0; idy < this.data.items.length; idy++) {
+          if(this.data.items[idy].id == data[idx].board_id) {
+            this.data.items[idy].leads.push({id: data[idx].id, board_id: data[idx].board_id, description: data[idx].description, order: data[idx].order})
+            break;
           }
         }
-    },   */
+      }
+  },   */
 
-    /* getUpdates() {
-      var url = "http://localhost:8001/api/update_boards/"+this.$store.state.lastupdate;
-      let config = {'headers': {}}
-      axios.get(url, config)
-          .then(response => {
-            this.GET_BOARDS(response);
-            this.GET_LEADS(response);
-          })
-    }, */
+  /* getUpdates() {
+    var url = "http://localhost:8001/api/update_boards/"+this.$store.state.lastupdate;
+    let config = {'headers': {}}
+    axios.get(url, config)
+        .then(response => {
+          this.GET_BOARDS(response);
+          this.GET_LEADS(response);
+        })
+  }, */
 
-  },
-  mounted: function mounted() {
-    this.$store.dispatch('fetchDashboard');
-    this.$store.state.items = this.boards; // console.log(this.last_update)
-    // this.$store.state.lastupdate = this.last_update;
-
-    var name = 'TOM';
-    var x = this.last_update[0].updated_at;
-    if ('updated_at' in this.last_update[0]) this.$store.state.lastupdate = x;
-    console.log(this.last_update[0].updated_at);
-    this.$socket.emit('loaded', {
-      username: name,
-      last_update: this.$store.state.lastupdate
-    }); // this.sockets.listener.subscribe("users", (data) => {
-    // console.log("users", data);
-    // });
-  }
-});
+}), _defineProperty(_data$props$sockets$c, "mounted", function mounted() {
+  this.$store.dispatch('fetchDashboard', this.sockets);
+  var name = 'TOM'; // this.$store.dispatch('fetchSockets');
+  // while(true) {
+  //   if(this.dashboard.token!=null)
+  //   break
+  // }
+  // console.log(this.$store.state.dashboard.token)
+  // setTimeout(function() {
+  //   console.log('subed to: ', this.$store.state.dashboard.token)
+  // this.dashboard.token
+  // this.sockets.subscribe(this.$store.state.dashboard.token, (data) => {
+  //   console.log(data);
+  //   console.log('wtfhithat');
+  // });
+  // }, 3000)
+}), _defineProperty(_data$props$sockets$c, "created", function created() {// this.$socket.emit('loaded', {token: this.$store.state.dashboard.token})
+}), _data$props$sockets$c);
 
 /***/ }),
 
@@ -1452,11 +1458,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm._v(
+      "\n" +
+        _vm._s(this.dashboard.items) +
+        "\n" +
+        _vm._s(this.dashboard.token) +
+        "\n        "
+    ),
     _c(
       "div",
       { staticClass: "container" },
       [
-        _vm._l(this.$store.state.items, function(item, index) {
+        _vm._l(_vm.dashboard.items, function(item, index) {
           return _c(
             "div",
             {
@@ -1523,7 +1536,9 @@ var render = function() {
             [
               !this.$store.state.addingboard
                 ? _c("div", [
-                    _vm._v("\n                  add board\n                  ")
+                    _vm._v(
+                      "\n                    add board\n                    "
+                    )
                   ])
                 : _vm._e()
             ]

@@ -11,8 +11,8 @@ import Vue from 'vue';
 import VueCookies from 'vue-cookies'
 Vue.use(VueCookies)
 
-// import socket from './sockets'
-// Vue.use(socket)
+import socket from './sockets'
+Vue.use(socket)
 
 import store from './store'
 Vue.use(store)

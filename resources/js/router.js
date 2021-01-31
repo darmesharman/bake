@@ -5,6 +5,7 @@ Vue.use(Router)
 // const Home = require('./Pages/home.vue')
 // const Main = require('./Pages/main.vue')
 const Home = r => require.ensure([], () => r(require('./Pages/home.vue')))
+const Login = r => require.ensure([], () => r(require('./Pages/login.vue')))
 
 const Company = r => require.ensure([], () => r(require('./Pages/сompany.vue')))
 const Blog = r => require.ensure([], () => r(require('./Pages/blog.vue')))
@@ -17,8 +18,13 @@ export default new Router({
     path:'/vue/',
     routes: [
         {
+            path: '/vue/login',
+            name: 'login',
+            component: Login 
+        },
+        {
             path: '/vue/home',
-            name: 'main',
+            name: 'home',
             component: Home 
         },
         {
@@ -42,7 +48,7 @@ export default new Router({
             component: Contact
         },
         {
-            path: '/vue/dashboard',
+            path: '/vue/dashboard/:name',
             name: 'dashboard',
             component: Dashboard
         },

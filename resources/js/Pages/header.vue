@@ -46,6 +46,10 @@
                     <div class="btns">
                         
                         <div class="line">
+
+                            <router-link  class="btn bordered-theme icon-user"  to='/vue/login' exact>Личный кабинет</router-link>
+
+
                             <!-- <a href="{{ route('companies.create') }}" class="btn icon-add">Добавить компанию</a> -->1
                             <!-- <a href="https://mykid.init.kz/dashboard" class="btn bordered-theme icon-user">Личный кабинет</a> -->1
                         </div>
@@ -56,7 +60,7 @@
 
                     
                 </div>
-
+<!-- 
                  <div class="nav-login">
                     <div class="nav-login-container">
                         
@@ -81,7 +85,7 @@
                             </div>
                         </form>
                     </div>
-                    </div>
+                    </div> -->
 
             
             </div>
@@ -110,12 +114,11 @@
 </script>
 
 <style scoped>
- .nav-login {
+ /* .nav-login {
      position: absolute;
      right:0;
      height: 240px;
      width: 180px;
-     /* z-index:  999; */
      background-color: red;
  }
  
@@ -134,6 +137,6 @@
  }
  .nav-login-hidden {
      display: none;
- }
+ } */
 
 </style>

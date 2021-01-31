@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex);
 
+import api from "./api";
+
 export default new Vuex.Store({
     state: {
         connect: false,
@@ -24,14 +26,16 @@ export default new Vuex.Store({
         isdraggable:false,
         leadadding: false,
         newleadcontent:'',
-        updates:null,
         hascompanies_data:false,
         hashome_data:false,
         hasdashboard_data:false,
         companies:[],
         home:{  searchForm:{cityID:-1, destrictID:-1, categoryID:-1}, 
                 companies: [], categories: [], cities: [], districts: [], blogs: []},
-        dashboard:{ data:[]}
+        dashboard:{ items:[], token:null, updates:null, },
+        user:null,
+        
+
     },
     mutations:{
         SOCKET_CONNECT: (state,  status ) => {
@@ -46,7 +50,7 @@ export default new Vuex.Store({
             status
         },
         CREATE_LEAD:(state, data)=> {
-            state.items[data.colidx].leads.push({
+            state.dashboard.items[data.colidx].leads.push({
                 id:data.id,
                 board_id: data.item.id,
                 description: data.value,
@@ -55,54 +59,55 @@ export default new Vuex.Store({
             })
         },
         REMOVE_LEAD:(state, data)=> {
-            // state.items
-            // let index = state.items[data.colidx].leads[data.leadidx]
-            state.items[data.colidx].leads.splice(data.leadidx, 1)
+            // state.dashboard.items
+            // let index = state.dashboard.items[data.colidx].leads[data.leadidx]
+            state.dashboard.items[data.colidx].leads.splice(data.leadidx, 1)
         },
         UPDATE_LEAD:(state, data)=> {
-            let index = state.items[data.colidx].leads.findIndex(y => y.id == data.lead.id)
-            state.items[data.colidx].leads[index].description = data.value
+            let index = state.dashboard.items[data.colidx].leads.findIndex(y => y.id == data.lead.id)
+            state.dashboard.items[data.colidx].leads[index].description = data.value
         },
         CREATE_BOARD:(state, data)=> {
-            state.items.push({id:data.id, title: data.title, order: data.order, leads: [], created_at:data.created_at, updated_at:data.updated_at})
+            console.log(data)
+            state.dashboard.items.push({id:data.id, title: data.title, order: data.order, leads: [], created_at:data.created_at, updated_at:data.updated_at})
         },
         REMOVE_BOARD:(state, item)=> {
-            let index = state.items.findIndex(y => y.id == item.id)
-            state.items.splice(index, 1)
+            let index = state.dashboard.items.findIndex(y => y.id == item.id)
+            state.dashboard.items.splice(index, 1)
         },
         UPDATE_BOARD:(state, data)=> {
-            let index = state.items.findIndex(y => y.id == data.item.id)
-            state.items[index].title = data.value
+            let index = state.dashboard.items.findIndex(y => y.id == data.item.id)
+            state.dashboard.items[index].title = data.value
         },
         SWAP_BOARDS:(state, data)=> {
-            var index = state.items.findIndex(item => item.id == data.itemid)
-            var index2 = state.items.findIndex(item => item.id == data.itemid2)
-            let rows = [state.items[index], state.items[index2]];
-            state.items.splice(index2, 1, rows[0] );
-            state.items.splice(index, 1, rows[1] );
+            var index = state.dashboard.items.findIndex(item => item.id == data.itemid)
+            var index2 = state.dashboard.items.findIndex(item => item.id == data.itemid2)
+            let rows = [state.dashboard.items[index], state.dashboard.items[index2]];
+            state.dashboard.items.splice(index2, 1, rows[0] );
+            state.dashboard.items.splice(index, 1, rows[1] );
         },
         CREATE_BOARD_UPDATE:(state, details)=> {
-            // let index = state.items.findIndex(y => y.id == data.item.id)
-            state.items.push({ id:details.id, order:details.order,
+            // let index = state.dashboard.items.findIndex(y => y.id == data.item.id)
+            state.dashboard.items.push({ id:details.id, order:details.order,
                 title:details.title, created_at:details.created_at, updated_at:details.updated_at, leads:[]})
         },
         UPDATE_BOARD_UPDATE:(state, details)=> {
 
-            let index = state.items.findIndex(y => y.id == details.id)
+            let index = state.dashboard.items.findIndex(y => y.id == details.id)
 
-                state.items[index].order = details.order
-                state.items[index].title = details.title
-                state.items[index].updated_at = details.updated_at
+                state.dashboard.items[index].order = details.order
+                state.dashboard.items[index].title = details.title
+                state.dashboard.items[index].updated_at = details.updated_at
         },
         DELETE_BOARD_UPDATE:(state, details)=> {
-            let index = state.items.findIndex(y => y.id == details.id)
-            state.items.splice(index, 1)
-            // state.items.push({ id:details.id,
+            let index = state.dashboard.items.findIndex(y => y.id == details.id)
+            state.dashboard.items.splice(index, 1)
+            // state.dashboard.items.push({ id:details.id,
                 // title:details.title, order:details.order, updated_at:details.updated_at})
         },
         CREATE_LEAD_UPDATE:(state, details)=> {
-            let index = state.items.findIndex(y => y.id == details.board_id)
-            state.items[index].leads.push({
+            let index = state.dashboard.items.findIndex(y => y.id == details.board_id)
+            state.dashboard.items[index].leads.push({
                 id:details.id,
                 board_id: details.board_id,
                 description: details.description,
@@ -111,16 +116,16 @@ export default new Vuex.Store({
             })
         },
         UPDATE_LEAD_UPDATE:(state, details)=> {
-            let index = state.items.findIndex(y => y.id == details.board_id)
-            let idx = state.items[index].leads.findIndex(y => y.id == details.id)
-            state.items[index].leads[idx].description = details.description
+            let index = state.dashboard.items.findIndex(y => y.id == details.board_id)
+            let idx = state.dashboard.items[index].leads.findIndex(y => y.id == details.id)
+            state.dashboard.items[index].leads[idx].description = details.description
             updated_at = details.updated_at
         },
         DELETE_LEAD_UPDATE:(state, details)=> {
-            let index = state.items.findIndex(y => y.id == details.board_id)
-            let idx = state.items[index].leads.findIndex(y => y.id == details.id)
+            let index = state.dashboard.items.findIndex(y => y.id == details.board_id)
+            let idx = state.dashboard.items[index].leads.findIndex(y => y.id == details.id)
             console.log(idx)
-            state.items[index].leads.splice(idx, 1)
+            state.dashboard.items[index].leads.splice(idx, 1)
         },
         FETCH_HOME:(state, data)=> {
             
@@ -140,10 +145,54 @@ export default new Vuex.Store({
         },
         FETCH_DASHBOARD:(state, data)=> {
             state.hasdashboard_data = true
-            data
+            
+            data.boards.forEach(element => {
+                element = element.value
+            });
+            state.dashboard.items = data.boards
+            state.dashboard.token = data.token
+            
+
+            // console.log(state.dashboard.data )
+
+        },
+        FETCH_SOCKETS:(state, data)=> {
+            
         }
     },
     actions: {
+        fetchDashboard:(context, sockets)=> {
+            
+            let config = {'headers': {}}
+            let url = `http://localhost:8000/api/dashboard`;
+            axios.get(url, config).then(response=> {
+                console.log(response.data.token)
+                sockets.subscribe(response.data.token, (data) => {
+                    console.log(data);
+                    console.log('wtfhithat');
+                });
+    
+                context.commit('FETCH_DASHBOARD', response.data)
+            });
+
+        },
+        fetchSockets:(context, sockets)=> {
+            
+            // sockets.subscribe(this.dashboard.token, (data) => {
+            //     console.log(data);
+            //     console.log('wtfhithat');
+            // });
+            context.commit('FETCH_SOCKETS', sockets)
+        },
+        login:(context)=> {
+
+            api.createSession();
+            const { data } =  api.login(user);
+            sessionStorage.user = JSON.stringify(data);            
+            console.log(data)
+            context.commit('SET_USER', data)
+            sessionStorage.user = JSON.stringify(data);
+        },
         fetchHome:(context)=> {
             let url = `http://localhost:8000/api/home`;
             let config = {'headers': {}}
@@ -174,15 +223,7 @@ export default new Vuex.Store({
                 context.commit('FETCH_COMPANIES', response.data)
             });
         },
-        fetchDashboard:(context)=> {
-            
-            let config = {'headers': {}}
-            let url = `http://localhost:8000/api/dashboard`;
-            axios.get(url, config).then(response=> {
-                context.commit('c', response.data)
-            });
-
-        },
+       
         boardCreateUpdates:(context, details) => {
             context.commit('CREATE_BOARD_UPDATE', details)
         },
@@ -219,7 +260,7 @@ export default new Vuex.Store({
             }}
             // console.log(`http://localhost:8000/api/update_boards/newboard=${title}`)
             let url = `http://localhost:8000/api/update_boards/newboard/${title}`;
-            console.log('hello');
+
             axios.get(url, config).then(response=> {
                 if(response.status == 200)
                     context.commit('CREATE_BOARD', response.data)

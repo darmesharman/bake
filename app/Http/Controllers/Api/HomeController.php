@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redis;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\City;
@@ -22,8 +24,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // $value = session()->all();
+        // session()->put('_token', $value["_token"]);
+        // dd($value, $request, $value["_token"] , session()->all());
+        // dd($request);
+        // $value = session('key');
+
         $categories = Category::select('id', 'name')->get();
         // $subCategories = SubCategory::select('id', 'name')->get();
 
@@ -35,11 +43,19 @@ class HomeController extends Controller
             'city:id,name',
             'profileImages',
         );
-
         $blogs = Blog::all();
         $companies = $companies->orderByDesc('views')->take(6)->get();
 
         // return view('welcome', );
+        
+        // $redis = Redis::connection();
+        Redis::publish('updates2', 'test 125');
+        Redis::set('updates', 'test 125'); 
+        // echo $redis->get('updates2');
+        
+        // Redis::set('updates', 'test 1');
+        // $redis = app()->make('redis');
+
         return response()->json(compact('companies', 'categories', 'cities', 'districts', 'blogs'), 200, ['Content-Type' => 'application/json']);
 
         // return (new CompanyCollection($companies))->response();
