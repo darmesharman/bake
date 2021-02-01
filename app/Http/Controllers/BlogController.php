@@ -61,7 +61,7 @@ class BlogController extends Controller
                 'name' => $request->file('blog_image')->getClientOriginalName(),
                 'path' => $path,
                 'blog_id' => $blog->id,
-                'blog' => true,
+                'profile' => true,
             ]);
         }
 
@@ -111,22 +111,18 @@ class BlogController extends Controller
             'content' => $request->input('content'),
         ]);
         if ($request->hasfile('blog_image')) {
-            $request->validate([
-                'blog_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-                'name' => ['string'],
-            ]);
             Storage::delete($blog->profile->path);
             $profile = BlogImage::where('path', $blog->profile->path);
             $profile->delete();
 
             $path = $request->file('blog_image')->store('images');
-            $img = new BlogImage([
+
+            BlogImage::create([
                 'name' => $request->file('blog_image')->getClientOriginalName(),
                 'path' => $path,
                 'blog_id' => $blog->id,
-                'blog' => true,
+                'profile' => true,
             ]);
-            $img->save();
         }
 
         $blog->tags()->detach(Tag::all());
@@ -157,6 +153,7 @@ class BlogController extends Controller
         Validator::make($request->input(), [
             'title' => ['required', 'string', 'max:10240'],
             'content' => ['required', 'string', 'max:10240'],
+            'blog_image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ])->validate();
     }
 }

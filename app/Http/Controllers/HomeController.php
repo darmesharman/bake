@@ -27,7 +27,6 @@ class HomeController extends BaseController
 
         $companies = Company::with(
             'city:id,name',
-            'profileCompanyImages',
         );
 
         $blogs = Blog::take(6)->get();

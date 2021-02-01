@@ -37,7 +37,6 @@ class CompanyController extends Controller
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
-            'profileCompanyImages',
         )->withCount('companyImages');
 
         if (request()->input('kategoriID')) {
@@ -108,26 +107,10 @@ class CompanyController extends Controller
             'category_id' => $request->input('category'),
             'city_id' => $request->input('city'),
             'phone_number' => $request->input('phone_number'),
+            'profile_image' => $request->file('profile_image')->store('images'),
         ]);
-        $company->save();
 
-        // Get image file
-        if ($request->hasfile('company_images')) {
-            $request->validate([
-                'company_images.*' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            ]);
-            foreach ($request->file('company_images') as $key => $file) {
-                $path = $file->store('images');
-                $name = $file->getClientOriginalName();
-                $insert[$key]['name'] = $name;
-                $insert[$key]['path'] = $path;
-                $insert[$key]['company_id'] = $company->id;
-            }
-            CompanyImage::insert($insert);
-        }
-
-        $company->save();
-
+        $this->createOrUpdateCompanyImages($request->file('company_images'), $company);
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
         $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
         $this->createOrUpdateSchedule($request->input('start_times'), $request->input('end_times'), $request->input('week_days'), $company);
@@ -195,34 +178,9 @@ class CompanyController extends Controller
             'phone_number' => $request->input('phone_number'),
         ]);
 
-        if ($request->hasfile('company_images')) {
-            $request->validate([
-                'company_images.*' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            ]);
-            foreach ($company->galleryImages as $gallery) {
-                Storage::delete($gallery->path);
-                $companyImage = CompanyImage::where('path', $gallery->path);
-                $companyImage->delete();
-            }
-
-            foreach ($request->file('company_images') as $key => $file) {
-                $path = $file->store('images');
-                $name = $file->getClientOriginalName();
-                $insert[$key]['name'] = $name;
-                $insert[$key]['path'] = $path;
-                $insert[$key]['company_id'] = $company->id;
-            }
-            CompanyImage::insert($insert);
-        }
-<<<<<<< HEAD
-
-        CompanyImage::insert($insert);
-=======
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
-
-
         $company->save();
 
+        $this->createOrUpdateCompanyImages($request->input('company_images'), $company);
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
         $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
         $this->createOrUpdateSchedule($request->input('start_times'), $request->input('end_times'), $request->input('week_days'), $company);
@@ -253,7 +211,8 @@ class CompanyController extends Controller
     {
         $rules = [
             'name' => ['required', 'string', 'max:255'],
-            'company_image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+
+            'company_images.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'description' => ['required', 'string', 'min:255', 'max:10240'],
             'short_description' => ['required', 'string', 'min:255', 'max:5120'],
             'city' => ['required', 'exists:cities,id'],
@@ -273,6 +232,35 @@ class CompanyController extends Controller
         $messages = [];
 
         return Validator::make($request->input(), $rules, $messages);
+    }
+
+    protected function createOrUpdateCompanyImages($input_company_images, $company)
+    {
+        // if company has company Images then it is update
+        // so we check does he input new images
+        // if yes then delete old ones
+        if ($company->companyImages and $input_company_images) {
+            foreach ($company->companyImages as $image) {
+                Storage::delete($image->path);
+                $companyImage = CompanyImage::where('path', $image->path);
+                $companyImage->delete();
+            }
+        }
+        // if user does not input new images then return
+        if (!$input_company_images) {
+            return;
+        }
+
+        // insert new images
+        foreach ($input_company_images as $key => $file) {
+            $path = $file->store('images');
+            $name = $file->getClientOriginalName();
+            $insert[$key]['name'] = $name;
+            $insert[$key]['path'] = $path;
+            $insert[$key]['company_id'] = $company->id;
+        }
+
+        CompanyImage::insert($insert);
     }
 
     protected function createOrUpdateAdditionalPhoneNumbers($input_additional_phone_numbers, $company)

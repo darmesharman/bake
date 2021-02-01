@@ -21,7 +21,7 @@ class CreateCompaniesTable extends Migration
             $table->foreignId('city_id')->constrained(); // Город
             $table->foreignId('district_id')->nullable()->constrained(); // Район
             $table->foreignId('micro_district_id')->nullable()->constrained(); // Микрорайон
-            $table->string('company_image')->nullable(); //Фото
+            $table->string('profile_image'); //Фото
             $table->longText('description'); // Описание
             $table->longText('short_description'); // Краткое описание
             $table->string('site')->nullable(); //Сайт
