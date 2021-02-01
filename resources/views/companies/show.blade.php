@@ -149,32 +149,22 @@
 
                             <span class="green-text">Сейчас открыто</span><div class="time">02:00 - 12:00</div>
                         </div>
-                        <div class="schedult-content">
+                        <div class="schedult-contnt">
                             <ul class="parameters-list">
-                                <li>
-                                                <span>Понедельник</span>
-                                        <span>02:00 - 12:00</span></li>
-                                <li>
-                                                <span>Понедельник</span>
-                                        <span>02:00 - 12:00</span></li>
-                                <li>
-                                                <span>Понедельник</span>
-                                        <span>02:00 - 12:00</span></li>
-                                <li>
-                                                <span>Понедельник</span>
-                                        <span>02:00 - 12:00</span></li>
-                                <li>
-                                                <span>Понедельник</span>
-                                        <span>02:00 - 12:00</span></li>
-                                <li>
-                                                <span>Понедельник</span>
-                                        <span>02:00 - 12:00</span></li>
-                                <li>
-                                                <span>Понедельник</span>
-                                        <span>02:00 - 12:00</span></li>
+                                @foreach ($company->companySchedules as $companySchedule)
+                                    <li>
+                                        <span>{{ $companySchedule->week_day }}</span>
+                                        @if ($companySchedule->working)
+                                            <span>{{ $companySchedule->start_time }} - {{ $companySchedule->end_time }}</span>
+                                        @else
+                                            <span>Smoking day</span>
+                                        @endif
+
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
-                        <div class="toggle-schedule">+ Показать полное расписание</div>
+                        {{-- <div class="toggle-schedule">+ Показать полное расписание</div> --}}
                     </div>
 
                     <div class="single-block big contacts">

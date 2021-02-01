@@ -15,13 +15,14 @@ class CreateCompanySchedulesTable extends Migration
     {
         Schema::create('company_schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('start_time');
-            $table->string('end_time');
-            $table->integer('day_of_the_week');
+            $table->string('week_day');
+            $table->boolean('working')->default(false);
+            $table->string('start_time')->nullable();
+            $table->string('end_time')->nullable();
             $table->foreignId('company_id');
             $table->timestamps();
 
-            $table->unique(['day_of_the_week', 'company_id']);
+            $table->unique(['week_day', 'company_id']);
         });
     }
 
