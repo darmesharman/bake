@@ -3,43 +3,28 @@
 @section('content')
 <section class="company">
     <div class="company-header">
-        @if(count($company->galleryImages) > 4)
+        @if(count($company->companyImages) > 4)
             <div class="company-header-image">
                 <div class="company-header-slider">
-                    @foreach($company->galleryImages as $image)
+                    @foreach($company->companyImages as $image)
                         <div class="image" style="background-image: url({{ asset($image->path) }})">
                         </div>
                     @endforeach
                 </div>
         @else
-        @foreach($company->galleryImages as $image)
+        @foreach($company->companyImages as $image)
             <div class="company-header-image bg-cov" style="background-image: url({{ asset($image->path) }})">
         @endforeach
 
         @endif
 
-<<<<<<< HEAD
         <div class="top-bar-wrapper">
             <div class="container">
                 <div class="top-bar df aie">
                     <div class="company-avatar">
                         <div class="image bg-cov"
-                            @if($company->profileCompanyImages->isNotEmpty())
-                                style="background-image: url( {{ asset($company->profileCompanyImages[0]->path) }})"
-                            @endif
+                            style="background-image: url( {{ asset($company->profile_image) }})"
                         >
-=======
-            <div class="top-bar-wrapper">
-                <div class="container">
-                    <div class="top-bar df aie">
-                        <div class="company-avatar">
-                            <div class="image bg-cov"
-                                @if($company->profileImages->isNotEmpty())
-                                    style="background-image: url( {{ asset($company->profileImages[0]->path) }})"
-                                @endif
-                            >
-                            </div>
->>>>>>> b34fdf827bbb66b312c42ae0defe46cecd5c0c36
                         </div>
 
                         <div class="top-bar-info df aic jcsb fg white">
@@ -100,7 +85,7 @@
 
                     <div class="single-block slider-wrapper">
                         <div class="main-slider">
-                        @foreach($company->galleryImages as $image)
+                        @foreach($company->companyImages as $image)
                             <div class="image" style="background-image: url({{ asset($image->path) }} )">
                             </div>
                         @endforeach
@@ -291,8 +276,8 @@
                                             <div class="line">
                                                 <button class="btn bordered small icon-like @auth {{ $comment->isLikedBy(Auth::user()) ? 'bg-warning' : '' }} @endauth">
                                                     Like
-                                                    {{ $comment->likes }}
-                                                </button>
+                                                    {{ $comment->likes_count }}
+                                            </button>
 
 
                                                 <a rel="nofollow"

@@ -25,25 +25,7 @@ class CompanyImageFactory extends Factory
         return [
             'name' => 'somename',
             'path' => 'img/default.jpg',
-            'profile' => true,
-            'gallery' => true,
             'company_id' => Company::factory(),
         ];
-    }
-
-    public function profile()
-    {
-        return $this->state([
-            'profile' => true,
-            'gallery' => false,
-        ]);
-    }
-
-    public function gallery()
-    {
-        return $this->state([
-            'profile' => false,
-            'gallery' => true,
-        ]);
     }
 }

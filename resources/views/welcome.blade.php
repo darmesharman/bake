@@ -65,11 +65,7 @@
 
                 @foreach ($companies as $company)
                         <a href="{{ route('companies.show', $company) }}" class="company-item bg-cov rel db"
-                        @if ($company->profileCompanyImages->isNotEmpty())
-                            style="background-image: url(
-                                {{ asset($company->profileCompanyImages[0]->path) }}
-                                );"
-                        @endif
+                            style="background-image: url({{ asset($company->profile_image) }})"
                         >
                         <div class="stretch-a mask"></div>
                         <div class="content">

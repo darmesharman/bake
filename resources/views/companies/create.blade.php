@@ -65,21 +65,35 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="company_image" class="col-md-4 col-form-label text-md-right">Comapny Image</label>
+                        <label class="col-md-4 col-form-label text-md-right">Company Profile</label>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <input
                                     id="images"
                                     type="file"
                                     class="myfrm form-control"
                                     accept="image/*"
-                                    name="company_images[]"
-                                    required
-                                    multiple >
+                                    name="profile_image"
+                                    >
                                 </div>
                             </div>
                         </div>
+                        <label for="company_image" class="col-md-4 col-form-label text-md-right">Comapny Galleries</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input
+                                    id="company_image"
+                                    type="file"
+                                    class="myfrm form-control"
+                                    accept="image/*"
+                                    name="company_images[]"
+                                    multiple>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="inline form-group">
                         <label>Monday</label>
@@ -90,7 +104,7 @@
                             <label for="enable_monday"><span></span></label>
                         </div>
                     </div>
-                    <div class="inline form-group">
+                    {{-- <div class="inline form-group">
                         <label>Tuesday</label>
                         <input type="time" class="without_ampm" name="start_times[]" >
                         <input type="time" class="without_ampm" name="end_times[]" >
@@ -143,7 +157,7 @@
                             <input type="checkbox" checked id="enable_sunday" name="week_days[]" value="0">
                             <label for="enable_sunday"><span></span></label>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Описание</label>
@@ -213,24 +227,4 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        $(function() {
-        // Multiple images preview with JavaScript
-            var previewImages = function(input, imgPreviewPlaceholder) {
-            if (input.files) {
-                var filesAmount = input.files.length;
-                for (i = 0; i < filesAmount; i++) {
-                    var reader = new FileReader();
-                    reader.onload = function(event) {
-                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
-                    }
-                    reader.readAsDataURL(input.files[i]);
-                }
-            }
-        };
-        $('#company_images').on('change', function() {
-        previewImages(this, 'div.images-preview-div');
-        });
-        });
-    </script>
 @endsection

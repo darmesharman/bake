@@ -18,7 +18,7 @@ class Company extends Model
         'city_id',
         'district_id',
         'micro_district_id',
-        'company_image',
+        'profile_image',
         'description',
         'short_description',
         'site',
@@ -91,26 +91,6 @@ class Company extends Model
     public function companyImages()
     {
         return $this->hasMany(CompanyImage::class);
-    }
-
-    public function hasProfile(CompanyImage $image)
-    {
-        return $this->profileCompanyImages->contains($image);
-    }
-
-    public function profileCompanyImages()
-    {
-        return $this->hasMany(CompanyImage::class)->where('profile', true);
-    }
-
-    public function hasGallery(CompanyImage $image)
-    {
-        return $this->galleryImages->contains($image);
-    }
-
-    public function galleryImages()
-    {
-        return $this->hasMany(CompanyImage::class)->where('gallery', true);
     }
 
     public function socialMedias()
