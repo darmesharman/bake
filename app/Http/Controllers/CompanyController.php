@@ -131,7 +131,7 @@ class CompanyController extends Controller
 
         $company->load(['comments' => function ($query) {
             $query->with('user');
-        }]);
+        }, 'companySchedules']);
 
         return view('companies.show', compact('company'));
     }

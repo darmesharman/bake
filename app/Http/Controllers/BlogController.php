@@ -20,7 +20,6 @@ class BlogController extends Controller
     {
         $blogs = Blog::with('profile')->get();
 
-
         return view('blogs.index', compact('blogs'));
     }
 
