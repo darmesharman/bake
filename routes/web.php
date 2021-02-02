@@ -14,7 +14,10 @@ use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
 use Inertia\Inertia;
+use Laravel\Fortify\Features;
+use Laravel\Fortify\Http\Controllers\ProfileInformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,3 +104,6 @@ Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name(
 // });
 
 Route::get('/instagram', [InstagramController::class, 'index']);
+
+Route::get('/user/profile-information', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/user/profile-information', [UserController::class, 'update'])->name('user.update');
