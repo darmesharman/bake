@@ -113,7 +113,7 @@ class CompanyController extends Controller
         $this->createOrUpdateCompanyImages($request->file('company_images'), $company);
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
         $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
-        $this->createOrUpdateSchedule($request->input('start_times'), $request->input('end_times'), $request->input('week_days'), $company);
+        $this->createOrUpdateSchedule($request->input('start_times'), $request->input('end_times'), $request->input('working'), $company);
 
         return Redirect(route('companies.index'));
     }
@@ -131,7 +131,7 @@ class CompanyController extends Controller
 
         $company->load(['comments' => function ($query) {
             $query->with('user');
-        }]);
+        }, 'companySchedules']);
 
         return view('companies.show', compact('company'));
     }
@@ -183,7 +183,7 @@ class CompanyController extends Controller
         $this->createOrUpdateCompanyImages($request->input('company_images'), $company);
         $this->createOrUpdateAdditionalPhoneNumbers($request->input('additional_phone_numbers'), $company);
         $this->createOrUpdateSocialMedia($request->input('social_media_links'), $company);
-        $this->createOrUpdateSchedule($request->input('start_times'), $request->input('end_times'), $request->input('week_days'), $company);
+        $this->createOrUpdateSchedule($request->input('start_times'), $request->input('end_times'), $request->input('working'), $company);
 
         return redirect()->route('companies.show', $company);
     }
@@ -336,15 +336,27 @@ class CompanyController extends Controller
         return $link;
     }
 
-    protected function createOrUpdateSchedule($start_times, $end_times, $week_days, $company)
+    protected function createOrUpdateSchedule($start_times, $end_times, $working, $company)
     {
-        foreach ($week_days as $key => $week) {
-            CompanySchedule::create([
-                'start_time' => $start_times[$key],
-                'end_time' => $end_times[$key],
-                'company_id' => $company->id,
-                'day_of_the_week' => $week,
-            ]);
+        // dd($start_times, $end_times, $working);
+        if (!$working) {
+            return;
+        }
+
+        foreach (range(0, 6) as $week) {
+            CompanySchedule::updateOrCreate(
+                [
+                    'company_id' => $company->id,
+                    'week_day' => jddayofweek($week, 1),
+                ],
+                [
+                    'week_day' => jddayofweek($week, 1),
+                    'working' => in_array($week, $working) ? true : false,
+                    'start_time' => $start_times[$week],
+                    'end_time' => $end_times[$week],
+                    'company_id' => $company->id,
+                ]
+            );
         }
     }
 }

@@ -95,15 +95,18 @@
                         </div>
 
                     </div>
-                    <div class="inline form-group">
-                        <label>Monday</label>
-                        <input type="time" class="without_ampm" name="start_times[]" >
-                        <input type="time" class="without_ampm" name="end_times[]" >
-                        <div class="form-group toggler fit large">
-                            <input type="checkbox" checked id="enable_monday" name="week_days[]" value="1">
-                            <label for="enable_monday"><span></span></label>
+
+                    @foreach (['Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday', 'Sunday'] as $index => $weekDay)
+                        <div class="inline form-group">
+                            <label>{{ $weekDay }}</label>
+                            <input type="time" class="" name="start_times[]" >
+                            <input type="time" class="without_ampm" name="end_times[]" >
+                            <div class="form-group toggler fit large">
+                                <input type="checkbox" id="enable_monday{{ $index }}" name="working[]" value="{{ $index }}">
+                                <label for="enable_monday{{ $index }}"><span></span></label>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                     {{-- <div class="inline form-group">
                         <label>Tuesday</label>
                         <input type="time" class="without_ampm" name="start_times[]" >

@@ -103,8 +103,8 @@ class Company extends Model
         return $this->hasMany(SocialMediaLink::class)->where('company_id', $this->id);
     }
 
-    public function companySchedule()
+    public function companySchedules()
     {
-        return $this->hasOne(CompanySchedule::class);
+        return $this->hasMany(CompanySchedule::class);
     }
 }

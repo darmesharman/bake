@@ -88,6 +88,20 @@
                 </div>
             </div>
 
+            @foreach ($company->companySchedules as $index => $companySchedule)
+                <div class="inline form-group">
+                    <label>{{ $companySchedule->week_day }}</label>
+                    <input type="time" class="" name="start_times[]" value={{ $companySchedule->start_time }}>
+                    <input type="time" class="without_ampm" name="end_times[]" value={{ $companySchedule->start_time }}>
+                    <div class="form-group toggler fit large">
+                        <input type="checkbox" id="enable_monday{{ $index }}" name="working[]" value="{{ $index }}"
+                            {{ $companySchedule->working ? 'checked' : '' }}
+                        >
+                        <label for="enable_monday{{ $index }}"><span></span></label>
+                    </div>
+                </div>
+            @endforeach
+
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Описание</label>
                 <textarea class="form-control" name="description" rows="3">{{ $company->description }}</textarea>
