@@ -14,8 +14,8 @@ use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
 
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Controllers\LoginController;
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
@@ -64,12 +64,15 @@ Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/vue/das
     
 // Route::resource('contacts', ContactController::class)->middleware(['auth', 'phone.verified']);
 
+Route::post('/auth', [LoginController::class, 'login']);
+
+//->where('/path','([A-z\d-\/_.]+)?');;
+
 Route::get('/vue/{any}', function () {
     return view('home');
 })->where('any', '.*');
 
 
-// Route::post('login', [LoginController::class, 'login']);
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');  
 // Route::get('/1', [HomeController::class, 'indexInertia'])->name('home.indexInertia');

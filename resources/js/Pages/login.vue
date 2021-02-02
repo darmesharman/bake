@@ -49,8 +49,8 @@
 
                     <div class="form-group">
                         <label for="phone_number">Номер телефона</label>
-                        {{user.phonenumber  }}
-                        <input name="phone_number" v-model="user.phonenumber"  type="text" id="phone_number" class="phone-mask required" data-type="phone">
+                        {{user.phone_number  }}
+                        <input name="phone_number" v-model="user.phone_number"  type="text" id="phone_number" class="phone-mask required" data-type="phone">
                     </div>
                     <div class="form-group">
                         <label for="login_password">Пароль</label>
@@ -87,8 +87,8 @@ import axios from 'axios'
             return {
               
               user:{ 
-                  phone_number:null,
-                  password:null
+                  phone_number:'',
+                  password:''
                 },
             }
         },
@@ -106,7 +106,7 @@ import axios from 'axios'
         },
         methods: {
              login() {
-                this.error = null;
+                // this.error = null;
                 try {
                     this.$store.dispatch('login', this.user);
                     // await this.$router.push({ name: 'posts' });

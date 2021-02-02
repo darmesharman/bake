@@ -35,11 +35,14 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "axios-cookiejar-support": "^1.0.1",
+        "form-data": "^3.0.0",
         "mysql": "^2.18.1",
         "nodemon": "^2.0.7",
         "parse-json": "^5.2.0",
         "socket.io": "^3.1.0",
         "socket.io-client": "^3.1.0",
+        "tough-cookie": "^4.0.0",
         "vue-cookies": "^1.7.4",
         "vue-router": "^3.5.1",
         "vue-socket.io": "^3.0.7",

@@ -54,7 +54,6 @@ class Authenticate extends Middleware
         //   }
 
         
-        
         if (! $request->expectsJson()) {
             // return Redirect::to('http://localhost:8000/vue/dashboard');
             return route('login');

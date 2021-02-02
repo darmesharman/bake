@@ -4,10 +4,10 @@
 
       <div class="leads-outer-outline">
         <div>
-          <div class="leads-outer-context-fh" :style="fhstyles"  @drop='onDrop1($event, lead.order, colid, index, 0)'  
+          <div class="leads-outer-context-fh" :style="fhstyles"  @drop='onDrop1($event, colid, 0)'  
           @dragover.prevent @dragenter.prevent >
           </div>
-          <div class="leads-outer-context-sh" :style="shstyles" @drop='onDrop1($event, lead.order, colid, index, 1)'  
+          <div class="leads-outer-context-sh" :style="shstyles" @drop='onDrop1($event, colid, 1)'  
           @dragover.prevent @dragenter.prevent >
           </div>
         </div>
@@ -103,50 +103,51 @@ export default {
       this.editLead()
       this.$store.dispatch('saveLead', {colidx: colidx, lead:lead, value: this.$refs.formdesc.innerText});
     },
-    startDrag1 (evt, item, colid, index)  {
+    startDrag1 (evt, item)  {
         evt.dataTransfer.dropEffect = 'move'
         evt.dataTransfer.effectAllowed = 'move'
-        evt.dataTransfer.setData('itemID', item.id)
-        evt.dataTransfer.setData('columnID', colid)
-        evt.dataTransfer.setData('leadIndex', index)
+        evt.dataTransfer.setData('item', item)
     },
-    onDrop1(evt, order, colid, index, ident) {
-        const itemID = evt.dataTransfer.getData('itemID')
-        const columnID = evt.dataTransfer.getData('columnID')
-        const leadIndex = evt.dataTransfer.getData('leadIndex')
+    onDrop1(evt, item, ident) {
+        // const itemID = 
+        // const columnID = evt.dataTransfer.getData('columnID')
+        // const leadIndex = evt.dataTransfer.getData('leadIndex')
 
-        var item2 = this.$store.state.items.find(item => item.id == colid)
-        // var lead = item.leads.find(item => item.id == list)
-        console.log(order)
-        console.log(this.$store.state.items[this.col_index].leads[index-1])
-        console.log(this.$store.state.items[this.col_index].leads[index])
-        console.log(this.$store.state.items[this.col_index].leads[index+1])
-
-        if(ident == 0)
-          if(typeof this.$store.state.items[this.col_index].leads[index-1] != undefined && 'order' in this.$store.state.items[this.col_index].leads[index-1])
-              order = this.$store.state.items[this.col_index].leads[index-1].order
-        else
-          if(typeof this.$store.state.items[this.col_index].leads[index+1] != undefined && 'order' in this.$store.state.items[this.col_index].leads[index+1])
-            order = this.$store.state.items[this.col_index].leads[index+1].order
-
-
-        console.log(order)
-        var item = this.$store.state.items.find(item => item.id == columnID)
-        var lead = item.leads.find(item => item.id == itemID)
-
-        // var item2 = this.$store.state.items.find(item => item.id == colid)
-        
-        // lead.id += item2.leads[item2.leads.length-1].id+1
-        var url = `http://localhost:8001/api/update_boards/${columnID}/${colid}/${this.lead.id}/${order}`;
-        let config = {'headers': {}}
-        axios.put(url, config);
+        this.$store.dispatch('moveLead', {
+          item_target: evt.dataTransfer.getData('item'),
+          item: item,
+          ident: ident
+        });
         
 
-        if(ident==1)
-        index+=1
-        item2.leads.splice(index, 0, lead)
-        item2.leads.join()
-        this.$delete(item.leads, leadIndex)
+
+        // // var lead = item.leads.find(item => item.id == list)
+
+        // if(ident == 0)
+        //   if(typeof this.$store.state.dashboard.items[this.col_index].leads[index-1] != undefined && 'order' in this.$store.state.dashboard.items[this.col_index].leads[index-1])
+        //       order = this.$store.state.dashboard.items[this.col_index].leads[index-1].order
+        // else
+        //   if(typeof this.$store.state.dashboard.items[this.col_index].leads[index+1] != undefined && 'order' in this.$store.state.dashboard.items[this.col_index].leads[index+1])
+        //     order = this.$store.state.dashboard.items[this.col_index].leads[index+1].order
+
+
+        // console.log(order)
+        // var item = this.$store.state.dashboard.items.find(item => item.id == columnID)
+        // var lead = item.leads.find(item => item.id == itemID)
+
+        // // var item2 = this.$store.state.dashboard.items.find(item => item.id == colid)
+        
+        // // lead.id += item2.leads[item2.leads.length-1].id+1
+        // var url = `http://localhost:8001/api/update_boards/${columnID}/${colid}/${this.lead.id}/${order}`;
+        // let config = {'headers': {}}
+        // axios.put(url, config);
+        
+
+        // // if(ident==1)
+        // // index+=1
+        // item2.leads.splice(index, 0, lead)
+        // item2.leads.join()
+        // this.$delete(item.leads, leadIndex)
     },
     loadFhstyles() {
         try {
@@ -177,7 +178,7 @@ export default {
     // // this.$store.state.fhStyles[thi= []
     // this.$store.state.fhStyles[this.index1] = [0, 1]
     // var arr =  []
-    // this.$store.state.items[this.index1].leads.forEach((element, id) => {
+    // this.$store.state.dashboard.items[this.index1].leads.forEach((element, id) => {
     //     arr.push( {height: this.$refs.innercontext.clientHeight/1.7+'px', margin:'-10px 0 0 -13px ' })
     //   });
     //   this.$store.state.fhStyles[this.index1] = arr
@@ -219,7 +220,7 @@ export default {
     display: block;
     width: 117.5%;
     background-color: red!important;
-    /* display: none; */
+    display: none;
   }
   .leads-outer-context-sh {
     position: absolute;

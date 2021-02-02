@@ -157,8 +157,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 //
 //
 //
@@ -257,44 +255,39 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         value: this.$refs.formdesc.innerText
       });
     },
-    startDrag1: function startDrag1(evt, item, colid, index) {
+    startDrag1: function startDrag1(evt, item) {
       evt.dataTransfer.dropEffect = 'move';
       evt.dataTransfer.effectAllowed = 'move';
-      evt.dataTransfer.setData('itemID', item.id);
-      evt.dataTransfer.setData('columnID', colid);
-      evt.dataTransfer.setData('leadIndex', index);
+      evt.dataTransfer.setData('item', item);
     },
-    onDrop1: function onDrop1(evt, order, colid, index, ident) {
-      var itemID = evt.dataTransfer.getData('itemID');
-      var columnID = evt.dataTransfer.getData('columnID');
-      var leadIndex = evt.dataTransfer.getData('leadIndex');
-      var item2 = this.$store.state.items.find(function (item) {
-        return item.id == colid;
-      }); // var lead = item.leads.find(item => item.id == list)
-
-      console.log(order);
-      console.log(this.$store.state.items[this.col_index].leads[index - 1]);
-      console.log(this.$store.state.items[this.col_index].leads[index]);
-      console.log(this.$store.state.items[this.col_index].leads[index + 1]);
-      if (ident == 0) if (_typeof(this.$store.state.items[this.col_index].leads[index - 1]) != undefined && 'order' in this.$store.state.items[this.col_index].leads[index - 1]) order = this.$store.state.items[this.col_index].leads[index - 1].order;else if (_typeof(this.$store.state.items[this.col_index].leads[index + 1]) != undefined && 'order' in this.$store.state.items[this.col_index].leads[index + 1]) order = this.$store.state.items[this.col_index].leads[index + 1].order;
-      console.log(order);
-      var item = this.$store.state.items.find(function (item) {
-        return item.id == columnID;
-      });
-      var lead = item.leads.find(function (item) {
-        return item.id == itemID;
-      }); // var item2 = this.$store.state.items.find(item => item.id == colid)
-      // lead.id += item2.leads[item2.leads.length-1].id+1
-
-      var url = "http://localhost:8001/api/update_boards/".concat(columnID, "/").concat(colid, "/").concat(this.lead.id, "/").concat(order);
-      var config = {
-        'headers': {}
-      };
-      axios.put(url, config);
-      if (ident == 1) index += 1;
-      item2.leads.splice(index, 0, lead);
-      item2.leads.join();
-      this.$delete(item.leads, leadIndex);
+    onDrop1: function onDrop1(evt, item, ident) {
+      // const itemID = 
+      // const columnID = evt.dataTransfer.getData('columnID')
+      // const leadIndex = evt.dataTransfer.getData('leadIndex')
+      this.$store.dispatch('moveLead', {
+        item_target: evt.dataTransfer.getData('item'),
+        item: item,
+        ident: ident
+      }); // // var lead = item.leads.find(item => item.id == list)
+      // if(ident == 0)
+      //   if(typeof this.$store.state.dashboard.items[this.col_index].leads[index-1] != undefined && 'order' in this.$store.state.dashboard.items[this.col_index].leads[index-1])
+      //       order = this.$store.state.dashboard.items[this.col_index].leads[index-1].order
+      // else
+      //   if(typeof this.$store.state.dashboard.items[this.col_index].leads[index+1] != undefined && 'order' in this.$store.state.dashboard.items[this.col_index].leads[index+1])
+      //     order = this.$store.state.dashboard.items[this.col_index].leads[index+1].order
+      // console.log(order)
+      // var item = this.$store.state.dashboard.items.find(item => item.id == columnID)
+      // var lead = item.leads.find(item => item.id == itemID)
+      // // var item2 = this.$store.state.dashboard.items.find(item => item.id == colid)
+      // // lead.id += item2.leads[item2.leads.length-1].id+1
+      // var url = `http://localhost:8001/api/update_boards/${columnID}/${colid}/${this.lead.id}/${order}`;
+      // let config = {'headers': {}}
+      // axios.put(url, config);
+      // // if(ident==1)
+      // // index+=1
+      // item2.leads.splice(index, 0, lead)
+      // item2.leads.join()
+      // this.$delete(item.leads, leadIndex)
     },
     loadFhstyles: function loadFhstyles() {
       try {
@@ -327,7 +320,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       // // this.$store.state.fhStyles[thi= []
       // this.$store.state.fhStyles[this.index1] = [0, 1]
       // var arr =  []
-      // this.$store.state.items[this.index1].leads.forEach((element, id) => {
+      // this.$store.state.dashboard.items[this.index1].leads.forEach((element, id) => {
       //     arr.push( {height: this.$refs.innercontext.clientHeight/1.7+'px', margin:'-10px 0 0 -13px ' })
       //   });
       //   this.$store.state.fhStyles[this.index1] = arr
@@ -358,7 +351,6 @@ var _data$props$sockets$c;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -465,48 +457,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   connection: function connection() {
     console.log('socket connected!!');
   },
-  users: function users(socketname) {//   this.sockets.subscribe(socketname, (data) => {
-    //   console.log(data.last_update)
-    //     if(data.last_update != this.$store.state.lastupdate)
-    //     {
-    //       console.log('data', data.data)
-    //       this.$store.state.lastupdate = data.last_update
-    //     let switchOptions = (option, details)=> {
-    //       switch (option) {
-    //         case 0:
-    //           this.$store.dispatch('boardCreateUpdates', details);
-    //           break;
-    //         case 1:
-    //           this.$store.dispatch('boardUpdateUpdates', details);
-    //           break;
-    //           case 2:
-    //           this.$store.dispatch('boardDeleteUpdates', details);
-    //           break; 
-    //         case 10:
-    //           this.$store.dispatch('leadCreateUpdates', details);
-    //           break;
-    //         case 11:
-    //           this.$store.dispatch('leadUpdateUpdates', details);
-    //           break;
-    //         case 12:
-    //           this.$store.dispatch('leadDeleteUpdates', details);
-    //           break;
-    //         // default:
-    //           // break;
-    //       } 
-    //     }
-    //       data.data.forEach(event => {
-    //         if(event.details[0] != null)
-    //           // if(event.details.length > 1)
-    //             event.details.forEach(detail => {
-    //               switchOptions(event.event, detail )
-    //             });
-    //           // else
-    //             // switchOptions(event.event, event.details[0])
-    //       });
-    //     }
-    // })
-  }
+  users: function users(socketname) {}
 }), _defineProperty(_data$props$sockets$c, "methods", {
   boardAddEvent: function boardAddEvent() {
     this.$store.state.addingboard = true;
@@ -624,7 +575,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.leads-inner-context[data-v-744cfee7]{\n  box-shadow: 0 .5px 1px .5px rgba(9,30,66,.25);\n\n  display: block;\n  position: relative;\n  word-wrap: break-word;\n  margin-bottom: 8px;\n  /* box-shadow: .1px .2px black; */\n}\n.leads-outer-outline[data-v-744cfee7] {\n  position:absolute;\n  z-index: 11;\n  /* background-color:blue; */\n  width:100%;\n  height:100%;\n}\n.leads-outer-context-fh[data-v-744cfee7] {\n  position: absolute;\n  opacity: 0%;\n  position: relative;\n  display: block;\n  width: 117.5%;\n  background-color: red!important;\n  /* display: none; */\n}\n.leads-outer-context-sh[data-v-744cfee7] {\n  position: absolute;\n  opacity: 0%;\n  position: relative;\n  display: block;\n  width: 117.5%;\n  background-color: blue!important;\n  /* display: none; */\n}\n.leads-container[data-v-744cfee7] {\n  position: relative;\n  display: block;\n  overflow: auto;\n  width: 90%;\n  margin:0 auto;\n}\n.leads-content[data-v-744cfee7] {\n  display:block;\n  position: relative;\n  float: left;\n  text-align: left;\n  max-width: 280px;\n  height: auto;\n  padding-left:5px ;\n  width: 80%;\n\n  /* padding:5px 3px 5px 5px; */\n  /* padding:0 0 0 5px; */\n}\n.leads-content span[data-v-744cfee7]{\n}\n.btn-wrapper-node-modify[data-v-744cfee7] {\n  display:block;\n  float: right;\n  position: relative;\n  height: 25px;\n  /* position: relative; */\n  /* vertical-align:top; */\n  /* padding:5px; */\n  /* margin-top: 15px; */\n  /* float: left; */\n}\n.btn-wrapper-node-modify a[data-v-744cfee7] {\n  /* display: block; */\n  /* justify-content: center; */\n  /* align-items: center; */\n  z-index: 15;\n  position: absolute;\n  right: 0;\n  top:0;\n}\n.btn-wrapper-node-modify a span[data-v-744cfee7]{\n  /* display: block; */\n}\n.leads-content-row[data-v-744cfee7] {\n  margin-top: 10px;\n  min-height: 40px;\n  /* height: 40px; */\n  /* box-shadow: .5px .5px 1px .5px rgba(9,30,66,.25); */\n}\n.btn-wrapper-node-modify a[data-v-744cfee7]:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n.svginverted[data-v-744cfee7] {\n  filter: invert(40%);\n}\n.btn-wrapper-node-delete[data-v-744cfee7] {\n  position: relative;\n  display: block;\n  clear: both;\n  float: right;\n  margin-bottom: 5px;\n  height: 15px;\n}\n.btn-wrapper-node-delete a[data-v-744cfee7]{\n  position: absolute;\n  z-index: 15;\n  bottom: 0;\n  right:0;\n}\n.btn-node-delete[data-v-744cfee7] {\n  font-size: 16px;\n  font-weight:500;\n  cursor: pointer;\n}\n.btn-node-delete[data-v-744cfee7]:active {\n  color: rgb(194, 99, 99);\n}\n.popup-context[data-v-744cfee7] {\n\n  text-align: left;\n  display: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 99;\n}\n.popup-container[data-v-744cfee7] {\n  position: relative;\n}\n.popup-context[data-v-744cfee7] {\n}\n.popup-text-container[data-v-744cfee7] {\n  border: 7px;\n  height:auto;\n  display:block;\n  float: left;\n  width: 80%;\n}\n.popup-text-container span[data-v-744cfee7]  {\n  display: block;\n\n  border-bottom: 1px dotted blue;\n  position: absolute;\n  z-index: 15;\n  top: -4px;\n  height: 100%;\n  padding:0 5px 0 5px ;\n  background-color: #fffeee;\n  text-align: start;\n  /* width: 100%;  */\n  min-height: 40px;\n  height: auto;\n  overflow: hidden;\n  outline: none;\n  border: none;\n}\n.popup-btn-save[data-v-744cfee7]{\n  position: relative;\n  display:block;\n  float: right;\n  cursor: pointer;\n}\n.popup-btn-save a[data-v-744cfee7]{\n  position: absolute;\n  right:0;\n  z-index: 15;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.leads-inner-context[data-v-744cfee7]{\n  box-shadow: 0 .5px 1px .5px rgba(9,30,66,.25);\n\n  display: block;\n  position: relative;\n  word-wrap: break-word;\n  margin-bottom: 8px;\n  /* box-shadow: .1px .2px black; */\n}\n.leads-outer-outline[data-v-744cfee7] {\n  position:absolute;\n  z-index: 11;\n  /* background-color:blue; */\n  width:100%;\n  height:100%;\n}\n.leads-outer-context-fh[data-v-744cfee7] {\n  position: absolute;\n  opacity: 0%;\n  position: relative;\n  display: block;\n  width: 117.5%;\n  background-color: red!important;\n  display: none;\n}\n.leads-outer-context-sh[data-v-744cfee7] {\n  position: absolute;\n  opacity: 0%;\n  position: relative;\n  display: block;\n  width: 117.5%;\n  background-color: blue!important;\n  /* display: none; */\n}\n.leads-container[data-v-744cfee7] {\n  position: relative;\n  display: block;\n  overflow: auto;\n  width: 90%;\n  margin:0 auto;\n}\n.leads-content[data-v-744cfee7] {\n  display:block;\n  position: relative;\n  float: left;\n  text-align: left;\n  max-width: 280px;\n  height: auto;\n  padding-left:5px ;\n  width: 80%;\n\n  /* padding:5px 3px 5px 5px; */\n  /* padding:0 0 0 5px; */\n}\n.leads-content span[data-v-744cfee7]{\n}\n.btn-wrapper-node-modify[data-v-744cfee7] {\n  display:block;\n  float: right;\n  position: relative;\n  height: 25px;\n  /* position: relative; */\n  /* vertical-align:top; */\n  /* padding:5px; */\n  /* margin-top: 15px; */\n  /* float: left; */\n}\n.btn-wrapper-node-modify a[data-v-744cfee7] {\n  /* display: block; */\n  /* justify-content: center; */\n  /* align-items: center; */\n  z-index: 15;\n  position: absolute;\n  right: 0;\n  top:0;\n}\n.btn-wrapper-node-modify a span[data-v-744cfee7]{\n  /* display: block; */\n}\n.leads-content-row[data-v-744cfee7] {\n  margin-top: 10px;\n  min-height: 40px;\n  /* height: 40px; */\n  /* box-shadow: .5px .5px 1px .5px rgba(9,30,66,.25); */\n}\n.btn-wrapper-node-modify a[data-v-744cfee7]:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n.svginverted[data-v-744cfee7] {\n  filter: invert(40%);\n}\n.btn-wrapper-node-delete[data-v-744cfee7] {\n  position: relative;\n  display: block;\n  clear: both;\n  float: right;\n  margin-bottom: 5px;\n  height: 15px;\n}\n.btn-wrapper-node-delete a[data-v-744cfee7]{\n  position: absolute;\n  z-index: 15;\n  bottom: 0;\n  right:0;\n}\n.btn-node-delete[data-v-744cfee7] {\n  font-size: 16px;\n  font-weight:500;\n  cursor: pointer;\n}\n.btn-node-delete[data-v-744cfee7]:active {\n  color: rgb(194, 99, 99);\n}\n.popup-context[data-v-744cfee7] {\n\n  text-align: left;\n  display: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 99;\n}\n.popup-container[data-v-744cfee7] {\n  position: relative;\n}\n.popup-context[data-v-744cfee7] {\n}\n.popup-text-container[data-v-744cfee7] {\n  border: 7px;\n  height:auto;\n  display:block;\n  float: left;\n  width: 80%;\n}\n.popup-text-container span[data-v-744cfee7]  {\n  display: block;\n\n  border-bottom: 1px dotted blue;\n  position: absolute;\n  z-index: 15;\n  top: -4px;\n  height: 100%;\n  padding:0 5px 0 5px ;\n  background-color: #fffeee;\n  text-align: start;\n  /* width: 100%;  */\n  min-height: 40px;\n  height: auto;\n  overflow: hidden;\n  outline: none;\n  border: none;\n}\n.popup-btn-save[data-v-744cfee7]{\n  position: relative;\n  display:block;\n  float: right;\n  cursor: pointer;\n}\n.popup-btn-save a[data-v-744cfee7]{\n  position: absolute;\n  right:0;\n  z-index: 15;\n}\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1249,13 +1200,7 @@ var render = function() {
             style: _vm.fhstyles,
             on: {
               drop: function($event) {
-                return _vm.onDrop1(
-                  $event,
-                  _vm.lead.order,
-                  _vm.colid,
-                  _vm.index,
-                  0
-                )
+                return _vm.onDrop1($event, _vm.colid, 0)
               },
               dragover: function($event) {
                 $event.preventDefault()
@@ -1271,13 +1216,7 @@ var render = function() {
             style: _vm.shstyles,
             on: {
               drop: function($event) {
-                return _vm.onDrop1(
-                  $event,
-                  _vm.lead.order,
-                  _vm.colid,
-                  _vm.index,
-                  1
-                )
+                return _vm.onDrop1($event, _vm.colid, 1)
               },
               dragover: function($event) {
                 $event.preventDefault()
@@ -1458,13 +1397,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v(
-      "\n" +
-        _vm._s(this.dashboard.items) +
-        "\n" +
-        _vm._s(this.dashboard.token) +
-        "\n        "
-    ),
+    _vm._v("\n" + _vm._s(this.dashboard.token) + "\n        "),
     _c(
       "div",
       { staticClass: "container" },

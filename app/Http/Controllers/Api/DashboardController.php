@@ -24,14 +24,16 @@ class DashboardController extends Controller
             [0]->updated_at;
 
         $boards = Board::with('leads')->get();
-
-
+        
         $token = session()->all()["_token"];
         $token = substr($token, 0, 9);
         
         // dd($token, $last_update);
         
         Redis::hmset('user_tokens',[$token => $last_update ]);
+        
+
+
         // Redis::hmset('user_tokens', [$token => $last_update ] );
 
         // Redis::publish('updates', json_encode([

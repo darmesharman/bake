@@ -32,8 +32,10 @@ class Kernel extends ConsoleKernel
         // $schedule->command('command:get-data-from-instagram')
             // ->everyMinute();
 
-        $schedule->command('command:set-data-dashboard-updates')
-            ->everyMinute();
+            $schedule->command('command:set-data-dashboard-updates');
+        
+            $schedule->command('command:set-data-dashboard-updates')
+            ->everyMinute()->withoutOverlapping();
             
     }
 

@@ -105,25 +105,47 @@ io.on('connection', function(socket) {
     subscriber.on('message', function(subscribed, data) {
     
         var data = JSON.parse(data)
-        console.log(data)
+        var index = 1;
+        var count = data[0];
+        var data = data[1];
+        // console.log(data[1])
         
+
+        var results = []
+        for (let index = 1; index < count; index++) {
+            results.push([])
+        }
+
+        data.forEach(element => {
+            for (let index = 1; index < count; index++) {
+
+                results[index-1].push({
+                    event: element["event"],
+                    data: element["details_"+index]
+                });
+                
+            }
+            
+        });
         publisher.hgetall('laravel_database_user_tokens', function (err, res) {
         
             console.log()
-        
+            let index = 0;
+            
             for (var token in res) {
-                console.log(token)
+                // console.log(token)
                 console.log()
 
                 if (Object.hasOwnProperty.call(res, token)) {
         
                     socket.emit(token,  {
-                        updates: res[token]
+                        updates: results[index]
                     });
         
                     const element = res[token];
                     // console.log(token, ': ', element)
                 }
+                index+=1;
             }
         
         });

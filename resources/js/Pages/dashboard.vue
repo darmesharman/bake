@@ -1,7 +1,6 @@
 
 <template>
     <div>
-{{this.dashboard.items }}
 {{this.dashboard.token }}
         <div class="container">
         <!-- {{data}} -->
@@ -109,61 +108,7 @@ import Boards from './components/boards.vue'
           },
           users (socketname) {
 
-            //   this.sockets.subscribe(socketname, (data) => {
-
-              
-              
-            //   console.log(data.last_update)
-            //     if(data.last_update != this.$store.state.lastupdate)
-            //     {
-            //       console.log('data', data.data)
-            //       this.$store.state.lastupdate = data.last_update
-
-            //     let switchOptions = (option, details)=> {
-
-            //       switch (option) {
-            //         case 0:
-            //           this.$store.dispatch('boardCreateUpdates', details);
-            //           break;
-            //         case 1:
-            //           this.$store.dispatch('boardUpdateUpdates', details);
-            //           break;
-            //           case 2:
-            //           this.$store.dispatch('boardDeleteUpdates', details);
-            //           break; 
-            //         case 10:
-            //           this.$store.dispatch('leadCreateUpdates', details);
-            //           break;
-            //         case 11:
-            //           this.$store.dispatch('leadUpdateUpdates', details);
-            //           break;
-            //         case 12:
-            //           this.$store.dispatch('leadDeleteUpdates', details);
-            //           break;
-                  
-            //         // default:
-            //           // break;
-            //       } 
-            //     }
-
-            //       data.data.forEach(event => {
-                    
-            //         if(event.details[0] != null)
-            //           // if(event.details.length > 1)
-            //             event.details.forEach(detail => {
-            //               switchOptions(event.event, detail )
-            //             });
-            //           // else
-            //             // switchOptions(event.event, event.details[0])
-
-
-
-            //       });
-
-            //     }
-
-              
-            // })
+          
 
           }
       },

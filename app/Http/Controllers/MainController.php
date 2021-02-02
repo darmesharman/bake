@@ -172,6 +172,7 @@ class MainController extends Controller
         return response()
             ->json(['id' => $lead->id]);
     }
+    // update lead
     public function update_lead(Request $request, $leadid, $description)
     {
         $board = Lead::where("id", "=", $leadid)->first();
@@ -180,12 +181,43 @@ class MainController extends Controller
         return response()
             ->json([], 200, ['Content-Type' => 'application/json']);
     }
-
+    // remove lead
     public function remove_lead(Request $request, $leadid)
     {
         Lead::where("id", "=", $leadid)->delete();
         return response()->json([], 200, ['Content-Type' => 'application/json']);
     }
+    public function move_lead(Request $request, $target_lead_id, $board_id, $lead_id, $order, $ident)
+    {   
+        $target_lead = Lead::where("id", "=", $target_lead_id);
+
+        
+        if($ident == 0)
+        {
+            $lead = Lead::where([
+                // "board_id", "=", $board_id,
+                "order", "<", $order
+            ])->orderBy('order', 'desc')->first();
+            $order = $lead->order + ($order - $lead->order)/2;
+            
+        }
+        else {
+            $lead = Lead::where([
+                // "board_id", "=", $board_id,
+                "order", ">", $order
+            ])->first();
+            $order = $order + ($lead->order - $order)/2 ;
+        
+        }
+
+        $target_lead->board_id = $board_id;
+        $target_lead->order = $order;
+        $target_lead->save();
+        
+        return response()
+            ->json(['board_id'=> $board_id, 'order' => $order], 200, ['Content-Type' => 'application/json']);
+    }
+    //update board
     public function update_boards_title(Request $request, $boardid, $title)
     {
         $board = Board::where("id", "=", $boardid)->first();
@@ -221,9 +253,9 @@ class MainController extends Controller
         // $lead1->order = $order;
         $lead->save();
 
-        $flight = Lead::find(7);
-        $flight->delete();
-        $flight->save();
+        // $flight = Lead::find(7);
+        // $flight->delete();
+        // $flight->save();
     }
     // update leads order
     public function update_leads_order($board_id)

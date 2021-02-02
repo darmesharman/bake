@@ -50,6 +50,7 @@ Route::put('/update_boards/updateboard/{boardid}/newtitle/{title}', [MainControl
 Route::get('/update_boards/createlead/{boardid}/newleaddescription/{description}', [MainController::class, 'create_lead']);
 Route::put('/update_boards/updatelead/{leadid}/description/{description}', [MainController::class, 'update_lead']);
 Route::put('/update_boards/removelead/{leadid}', [MainController::class, 'remove_lead'])->name('remove_lead');
+Route::put('/update_boards/movelead/{target_lead_id}/{board_id}/{lead_id}/{order}/{ident}', [MainController::class, 'move_lead'])->name('move_lead');
 // Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
 
 // create board

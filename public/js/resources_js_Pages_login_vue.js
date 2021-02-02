@@ -99,8 +99,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       user: {
-        phone_number: null,
-        password: null
+        phone_number: '',
+        password: ''
       }
     };
   },
@@ -112,8 +112,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     login: function login() {
-      this.error = null;
-
+      // this.error = null;
       try {
         this.$store.dispatch('login', this.user); // await this.$router.push({ name: 'posts' });
       } catch (error) {
@@ -228,7 +227,7 @@ var render = function() {
               ]),
               _vm._v(
                 "\r\n                        " +
-                  _vm._s(_vm.user.phonenumber) +
+                  _vm._s(_vm.user.phone_number) +
                   "\r\n                        "
               ),
               _c("input", {
@@ -236,8 +235,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.user.phonenumber,
-                    expression: "user.phonenumber"
+                    value: _vm.user.phone_number,
+                    expression: "user.phone_number"
                   }
                 ],
                 staticClass: "phone-mask required",
@@ -247,13 +246,13 @@ var render = function() {
                   id: "phone_number",
                   "data-type": "phone"
                 },
-                domProps: { value: _vm.user.phonenumber },
+                domProps: { value: _vm.user.phone_number },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.user, "phonenumber", $event.target.value)
+                    _vm.$set(_vm.user, "phone_number", $event.target.value)
                   }
                 }
               })
