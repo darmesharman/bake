@@ -2102,7 +2102,7 @@ vue__WEBPACK_IMPORTED_MODULE_1__.default.component('footer-component', __webpack
 //   { path: '/main', component: MainPage },
 //   { path: '/page1', component: Page1 }
 // ]
-// let Home = require('./Pages/home.vue') 
+// let Home = require('./Pages/home.vue')
 
 new vue__WEBPACK_IMPORTED_MODULE_1__.default({
   router: _router__WEBPACK_IMPORTED_MODULE_4__.default,
@@ -2112,7 +2112,7 @@ new vue__WEBPACK_IMPORTED_MODULE_1__.default({
   // components: { Main, Home }
 
 }); // import Vue from 'vue'
-// import App from './App.vue' 
+// import App from './App.vue'
 // import store from './store'
 // const NotFound = { template: '<div app="id"> <p>Page not found</p></div>' }
 // import VueSocketIO from 'vue-socket.io';
@@ -25467,19 +25467,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   // Check for `exports` after `define` in case a build optimizer adds it.
   else {}
 }.call(this));
-
-
-/***/ }),
-
-/***/ "./resources/php/scss/theme.scss":
-/*!***************************************!*\
-  !*** ./resources/php/scss/theme.scss ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -51213,7 +51200,6 @@ module.exports = yeast;
 /******/ 		
 /******/ 		var deferredModules = [
 /******/ 			["./resources/js/app.js"],
-/******/ 			["./resources/php/scss/theme.scss"],
 /******/ 			["./resources/css/app.css"]
 /******/ 		];
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
@@ -51225,7 +51211,7 @@ module.exports = yeast;
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^css\/(app|theme)$/.test(chunkId)) {
+/******/ 						if("css/app" != chunkId) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => {
 /******/ 								installedChunkData = installedChunks[chunkId] = [resolve, reject];

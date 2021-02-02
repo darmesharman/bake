@@ -88,6 +88,20 @@
                 </div>
             </div>
 
+            @foreach ($company->companySchedules as $index => $companySchedule)
+                <div class="inline form-group">
+                    <label>{{ $companySchedule->week_day }}</label>
+                    <input type="time" class="" name="start_times[]" value={{ $companySchedule->start_time }}>
+                    <input type="time" class="without_ampm" name="end_times[]" value={{ $companySchedule->start_time }}>
+                    <div class="form-group toggler fit large">
+                        <input type="checkbox" id="enable_monday{{ $index }}" name="working[]" value="{{ $index }}"
+                            {{ $companySchedule->working ? 'checked' : '' }}
+                        >
+                        <label for="enable_monday{{ $index }}"><span></span></label>
+                    </div>
+                </div>
+            @endforeach
+
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Описание</label>
                 <textarea class="form-control" name="description" rows="3">{{ $company->description }}</textarea>
@@ -114,8 +128,19 @@
                             value="{{ $additional_phone_number->phone_number }}">
                     </div>
                 @endforeach
+
             </div>
 
+            <div class="form-row">
+                @foreach ($company->companySocialMediaLinks as $link)
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Social media</label>
+                        <input type="text" class="form-control" name="social_media_links[]"
+                            placeholder="+7(_ _ _)_ _ _ - _ _ - _ _"
+                            value="{{ $link->company_link }}">
+                    </div>
+                @endforeach
+            </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">

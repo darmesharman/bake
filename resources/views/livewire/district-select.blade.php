@@ -5,7 +5,7 @@
             <select wire:model="district_select" name="distID" class="dynamic-list required">
                 <option value=""></option>
                 @foreach($districts as $district)
-                    <option value="{{ $district->id }}" {{ Request::input('distID') == $district->id ? 'selected' : '' }}>
+                    <option value="{{ $district->id }}">
                         {{ $district->name }}
                     </option>
                 @endforeach

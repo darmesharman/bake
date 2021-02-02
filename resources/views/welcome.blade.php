@@ -65,11 +65,7 @@
 
                 @foreach ($companies as $company)
                         <a href="{{ route('companies.show', $company) }}" class="company-item bg-cov rel db"
-                        @if ($company->profileImages->isNotEmpty())
-                            style="background-image: url(
-                                {{ asset($company->profileImages[0]->path) }}
-                                );"
-                        @endif
+                            style="background-image: url({{ asset($company->profile_image) }})"
                         >
                         <div class="stretch-a mask"></div>
                         <div class="content">
@@ -126,7 +122,7 @@
 
                             </div>
                         </div>
-                        <div class="image bg-cov stretch-a" style="background-image: url({{ asset($blog->blogImage->path) }})"></div>
+                        <div class="image bg-cov stretch-a" style="background-image: url({{ asset($blog->profile->path) }})"></div>
                         <a href="#" class="content-wrapper db rel z2 grey static">
                             <div class="content article-sm">
                                 <div class="date highlight no-hov grey small">{{ date_format($blog->created_at, 'Y-m-d') }}</div>
@@ -140,7 +136,7 @@
 
                 </div>
             </div>
-            <a href="/blog" class="btn bordered-theme mxa large">Смотреть все</a>
+            <a href="{{ route('blogs.index') }}" class="btn bordered-theme mxa large">Смотреть все</a>
         </div>
     </div>
 </section>

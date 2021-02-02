@@ -19,7 +19,7 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,14 +32,7 @@ use Inertia\Inertia;
 |
 */
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
+
 
 // Route::mixddleware(['auth:sanctum'])->group( function($routes) {
 // });
@@ -62,11 +55,9 @@ Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/vue/das
     return Redirect::to('http://localhost:8000/vue/dashboard/1');
     });
     
-// Route::resource('contacts', ContactController::class)->middleware(['auth', 'phone.verified']);
 
 Route::post('/auth', [LoginController::class, 'login']);
 
-//->where('/path','([A-z\d-\/_.]+)?');;
 
 Route::get('/vue/{any}', function () {
     return view('home');
@@ -76,9 +67,6 @@ Route::get('/vue/{any}', function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');  
 // Route::get('/1', [HomeController::class, 'indexInertia'])->name('home.indexInertia');
-// Route::get('/homeindexInertia2', [MainController::class, 'index']);
-
-
 
 // Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboard', function () {
     // return view('dashboard');
@@ -96,36 +84,24 @@ Route::prefix('companies/{company}/')->middleware('auth')->group(function () {
     Route::put('comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
     Route::delete('comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
     Route::post('/comments/{comment}/like', [CommentController::class, 'like'])->name('comments.like');
-
     Route::post('/comments/{comment}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
 });
 
 Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
-
 Route::post('/register', [RegistrationController::class, 'store'])->name('registration.store');
 
 
 
 Route::get('/verify/phone/{user}/{token}', [VerifyPhoneController::class, 'getVerify'])->name('verifyPhone.getVerify');
-
 Route::post('/verify/phone', [VerifyPhoneController::class, 'postVerify'])->name('verifyPhone.postVerify');
 
 Route::post('/verification-resend', [VerifyPhoneController::class, 'resend'])->name('verifyPhone.resend');
-
-
-
 Route::get('/verification-send/{user}', [SendSmsController::class, 'sendSmsToVerify'])->name('sendSms.sendSmsToVerify');
 
-
-
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index');
-
 Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgotPassword.store');
 
-
-
 Route::get('/reset-password/{user}/{token}', [ResetPasswordController::class, 'index'])->name('resetPassword.index');
-
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('resetPassword.store');
 
 

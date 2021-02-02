@@ -17,7 +17,7 @@ rgr
                                 {{searchForm.cityID}}
                                 <select name="sitiID" v-model="searchForm.cityID" class="dynamic-list required">
                                     <option value=""></option>
-                                    
+
                                     <option :value="city.id" v-for="(city, index) in this.$store.state.home.cities" :key="city.id" >
                                         {{city.name}}
                                     </option>
@@ -41,6 +41,8 @@ rgr
                                 </select>
                                 
                                 <select name="kategoriID" v-model="searchForm.categoryID" class="dynamic-list required">
+
+                                <!-- <select name="kategoriID" v-model="this.$store.state.home.searchForm.categoryID" class="dynamic-list required"> -->
                                     <option value=""></option>
                                         <option :value="category.id" v-for="(category, index) in this.$store.state.home.categories" :key="category.id" >
                                             {{category.name}}
@@ -82,7 +84,7 @@ rgr
                         </div>
                         <div class="companies-slider slick-m">
 
-                            <a href="" v-for="(company, index) in this.$store.state.home.companies" :key="company.id" class="company-item bg-cov rel db" 
+                            <a href="" v-for="(company, index) in this.$store.state.home.companies" :key="company.id" class="company-item bg-cov rel db"
                              style="background-image: url('../images/HlgZihTyFOE.jpg');">
                                 <div class="stretch-a mask"></div>
 
@@ -98,13 +100,13 @@ rgr
                                         <p class="grey-text lg-text"> {{company.city.name }}</p>
                                     </div>
                                 </div>
-                                
+
                             </a>
                             <!-- @foreach ($companies as $company)
                                     <a href=" route('companies.show', $company) }}" class="company-item bg-cov rel db"
-                                    @if ($company->profileImages->isNotEmpty())
+                                    @if ($company->profileCompanyImages->isNotEmpty())
                                         style="background-image: url(
-                                            asset($company->profileImages[0]->path) }}
+                                            asset($company->profileCompanyImages[0]->path) }}
                                             );"
                                     @endif
                                     >
@@ -157,9 +159,9 @@ rgr
                                 <div class="blog-card rel white" v-for="(blog, index) in this.$store.state.home.blogs" :key="blog.id" >
                                     <div class="tags abs z3 small theme">
                                         <div class="line">
-                                            
+
                                             <a  v-for="(tag, tag_index) in blog.tags" :key="tag.id" href="#" class="tag"> {{ tag.name }}</a>
-                                            
+
                                             <!-- @foreach ($blog->tags as $tag)
                                                 <a class="tag" href="#"> $tag->name }}</a>
                                             @endforeach -->
@@ -224,7 +226,7 @@ rgr
         components: {
         },
         sockets: {
-            
+
         },
         methods: {
             fetchSearchCompanies() {

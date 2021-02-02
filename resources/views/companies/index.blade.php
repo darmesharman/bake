@@ -25,10 +25,8 @@
                         <article class="catalog-item line">
                             <div class="content">
 
-                                <a href="{{ route('companies.show', $company) }}" class="image bg-cov" "
-                                @if ($company->profileImages->isNotEmpty())
-                                    style="background-image: url( {{ asset($company->profileImages[0]->path) }} )"
-                                @endif
+                                <a href="{{ route('companies.show', $company) }}" class="image bg-cov"
+                                    style="background-image: url( {{ asset($company->profile_image) }} )"
                                 >
                                     <div class="images-count icon-picture">{{ $company->company_images_count }}</div>
                                 </a>
@@ -96,6 +94,7 @@
                 <div class="archive-sidebar article">
 
                     <form action="{{ route('companies.index') }}" method="get">
+                        @csrf
                         <div class="form-group">
                             <label for="archive_search">Поиск</label>
                             <div class="inline">
@@ -108,9 +107,72 @@
 
                         <h5>Фильтры</h5>
 
-                        @livewire('category-select')
+                        <div class="form-group">
+                            <label for="category">Категория</label>
+                            <div class="select-wrapper">
+                                <select name="kategoriID" class="dynamic-list required">
+                                    <option value=""></option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}" {{ Request::input('kategoriID') == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <ul class="select-dropdown">
 
-                        @livewire('city-select')
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subcategory">Подкатегория</label>
+                            <div class="select-wrapper">
+                                <select name="subKategoriID" class="dynamic-list required">
+                                    <option value=""></option>
+                                    @foreach($subCategories as $subCategory)
+                                        <option value="{{ $subCategory->id }}" {{ Request::input('subKategoriID') == $subCategory->id ? 'selected' : '' }}>
+                                            {{ $subCategory->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <ul class="select-dropdown"></ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">Город или область</label>
+                            <div class="select-wrapper">
+                                <select name="sitiID" class="dynamic-list required">
+                                    <option value=""></option>
+                                    @foreach($cities as $city)
+                                        <option value="{{ $city->id }}">
+                                            {{ $city->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <ul class="select-dropdown">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="district">Регион или район</label>
+                            <div class="select-wrapper">
+                                <input type="text" id="district" placeholder="Выберите регион или район" readonly disabled
+                                    name="district" class="dynamic-list parent required" data-type="select" data-child="#microdistrict">
+                                <ul class="select-dropdown"></ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="microdistrict">Микрорайон</label>
+                            <div class="select-wrapper">
+                                <input type="text" id="microdistrict" placeholder="Выберите микрорайон" readonly disabled
+                                    name="micro_district" class="dynamic-list required" data-type="select">
+                                <ul class="select-dropdown"></ul>
+                            </div>
+                        </div>
+
 
                         <button type="submit" class="btn btn-primary mxa">
                             Отфильтровать

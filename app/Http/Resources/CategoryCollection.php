@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class CategoryCollection extends ResourceCollection
 {
+    public static $wrap = 'categories';
+
     /**
      * Transform the resource collection into an array.
      *
@@ -13,8 +15,6 @@ class CategoryCollection extends ResourceCollection
      * @return array
      *
      */
-    public static $wrap = 'categories';
-
     public function toArray($request)
     {
         return [

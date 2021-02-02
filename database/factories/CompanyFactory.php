@@ -58,7 +58,7 @@ class CompanyFactory extends Factory
             'district_id' => ($district)
                 ? $district->id
                 : null,
-            'company_image' => 'img/default.jpg',
+            'profile_image' => 'img/default.jpg',
             'description' => $this->faker->text,
             'short_description' => $this->faker->text,
             'site' => $this->faker->url,

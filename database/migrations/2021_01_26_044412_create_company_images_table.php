@@ -17,8 +17,6 @@ class CreateCompanyImagesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('path');
-            $table->boolean('profile')->default(false);
-            $table->boolean('gallery')->default(true);
             $table->foreignId('company_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

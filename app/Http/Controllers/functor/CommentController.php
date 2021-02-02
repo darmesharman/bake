@@ -27,7 +27,7 @@ class CommentController extends Controller
             'company_id' => $company->id,
         ]);
 
-        $company->rating = $company->rating();
+        $company->rating = $company->ratingCount();
         $company->save();
 
         return back();

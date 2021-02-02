@@ -4,9 +4,9 @@
         <label for="category">Категория</label>
         <div class="select-wrapper">
             <select wire:model="category_select" name="kategoriID" class="dynamic-list required">
+                <option value=""></option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">
-
                         {{ $category->name }}
                     </option>
                 @endforeach
@@ -17,5 +17,5 @@
         </div>
     </div>
 
-    @livewire('sub-category-select', [$category])
+    @livewire('sub-category-select')
 </div>

@@ -34,7 +34,7 @@ class CompanyController extends Controller
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
-            'profileImages',
+            'profileCompanyImages',
         )->withCount('images');
 
 

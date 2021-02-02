@@ -41,7 +41,7 @@ class HomeController extends Controller
 
         $companies = Company::with(
             'city:id,name',
-            'profileImages',
+            'profileCompanyImages',
         );
         $blogs = Blog::all();
         $companies = $companies->orderByDesc('views')->take(6)->get();
@@ -59,8 +59,5 @@ class HomeController extends Controller
         return response()->json(compact('companies', 'categories', 'cities', 'districts', 'blogs'), 200, ['Content-Type' => 'application/json']);
 
         // return (new CompanyCollection($companies))->response();
-
     }
-
-
 }

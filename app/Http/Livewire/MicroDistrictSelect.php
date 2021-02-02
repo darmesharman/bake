@@ -3,15 +3,23 @@
 namespace App\Http\Livewire;
 
 use App\Models\District;
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class MicroDistrictSelect extends Component
 {
-    public $micro_districts;
+    public $micro_districts = [];
 
-    protected $listeners = ['districtSelected'];
+    protected $listeners = ['citySelected', 'districtSelected'];
 
-    public function mount()
+    public function mount(Request $request)
+    {
+        if ($request->input('distID')) {
+            $this->micro_districts = District::find($request->input('distId'))->micro_districts;
+        }
+    }
+
+    public function citySelected()
     {
         $this->micro_districts = [];
     }

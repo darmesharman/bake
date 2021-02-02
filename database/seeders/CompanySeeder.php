@@ -16,17 +16,15 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        $profile_image = CompanyImage::factory()->profile();
-        $gallery_image = CompanyImage::factory()->gallery();
+        $company_images = CompanyImage::factory(5);
 
         Company::factory()
             ->count(3)
-            ->has($profile_image)
-            ->has($gallery_image)
+            ->has($company_images)
             ->create();
 
         foreach (Company::all() as $company) {
-            $company->rating = $company->rating();
+            $company->rating = $company->ratingCount();
             $company->save();
         }
     }

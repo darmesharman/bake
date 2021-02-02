@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class SubCategoryResource extends JsonResource
 {
-    public static $wrap = 'subCategories';
+    public static $wrap = 'subCategory';
     /**
      * Transform the resource into an array.
      *

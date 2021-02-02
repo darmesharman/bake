@@ -18,12 +18,13 @@ class Company extends Model
         'city_id',
         'district_id',
         'micro_district_id',
-        'company_image',
+        'profile_image',
         'description',
         'short_description',
         'site',
         'email',
         'phone_number',
+        'company_links',
     ];
 
 
@@ -47,6 +48,11 @@ class Company extends Model
         return $this->category->id == $category->id;
     }
 
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategory::class);
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class);
@@ -55,6 +61,16 @@ class Company extends Model
     public function hasCity(City $city)
     {
         return $this->city->id == $city->id;
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function microDistrict()
+    {
+        return $this->belongsTo(MicroDistrict::class);
     }
 
     public function additional_phone_numbers()
@@ -67,7 +83,7 @@ class Company extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function rating()
+    public function ratingCount()
     {
         return number_format($this->comments->avg('rating'), 1);
     }
@@ -77,23 +93,18 @@ class Company extends Model
         return $this->hasMany(CompanyImage::class);
     }
 
-    public function hasProfile(CompanyImage $image)
+    public function socialMedias()
     {
-        return $this->profileImages->contains($image);
+        return $this->belongsToMany(SocialMediaLink::class);
     }
 
-    public function profileImages()
+    public function companySocialMediaLinks()
     {
-        return $this->hasMany(CompanyImage::class)->where('profile', true);
+        return $this->hasMany(SocialMediaLink::class)->where('company_id', $this->id);
     }
 
-    public function hasGallery(CompanyImage $image)
+    public function companySchedules()
     {
-        return $this->galleryImages->contains($image);
-    }
-
-    public function galleryImages()
-    {
-        return $this->hasMany(CompanyImage::class)->where('gallery', true);
+        return $this->hasMany(CompanySchedule::class);
     }
 }

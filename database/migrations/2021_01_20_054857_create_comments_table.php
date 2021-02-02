@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->text('comment');
             $table->integer('rating');
+            $table->integer('likes_count')->default(0);
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('company_id')->constrained();

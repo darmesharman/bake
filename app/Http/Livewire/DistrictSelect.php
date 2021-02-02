@@ -4,18 +4,22 @@ namespace App\Http\Livewire;
 
 use App\Models\City;
 use App\Models\District;
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class DistrictSelect extends Component
 {
     public $district_select;
-    public $districts;
+    public $districts = [];
 
     protected $listeners = ['citySelected'];
 
-    public function mount()
+    public function mount(Request $request)
     {
-        $this->districts = [];
+        $this->district_select = $request->input('distID');
+        if ($request->input('sitiID')) {
+            $this->districts = City::find($request->input('sitiID'))->districts;
+        }
     }
 
     public function updatedDistrictSelect()
