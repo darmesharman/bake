@@ -16,7 +16,6 @@
         <script src="jquery/1.9.1/jquery.js"></script>
     </head>
     <body class="font-sans antialiased">
-<<<<<<< HEAD
 
     <div class="preloader" id="dashboard_preloader">
         <div class="preloader-wrapper">
@@ -256,8 +255,8 @@
 
             <nav class="lg-text">
                 <ul>
-                    <li><a href="/dashboard" class="active">Главная</a></li>
-                    <li><a href="/dashboard/edit-profile">Редактировать профиль</a></li>
+                    <li><a href="{{ route('dashboard') }}" class="active">Главная</a></li>
+                    <li><a href="{{ route('profile.show') }}">Редактировать профиль</a></li>
                     <li><a href="#">Избранные</a></li>
                     <li><a href="#">Мои отзывы</a></li>
                 </ul>
@@ -298,9 +297,6 @@
         </div>
 
         <div class="dashboard-content article-lg">
-=======
-        <div class="min-h-screen bg-gray-100">
->>>>>>> b7370e0300254836f02b6396e64d846ae4fb1bc5
             @yield('content')
         </div>
     </div>
@@ -314,12 +310,8 @@ var dropParam = {"upload":"https:\/\/mykid.init.kz\/wp-admin\/admin-ajax.php?act
 <script type="text/javascript" src="https://mykid.init.kz/wp-content/themes/init/js/scripts.js" id="init-scripts-js"></script>
 <script type="text/javascript" src="https://mykid.init.kz/wp-includes/js/wp-embed.min.js?ver=5.6" id="wp-embed-js"></script>
 
-<<<<<<< HEAD
 
 <div id="wt-sky-root"></div>
 
-=======
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
->>>>>>> b7370e0300254836f02b6396e64d846ae4fb1bc5
     </body>
 </html>
