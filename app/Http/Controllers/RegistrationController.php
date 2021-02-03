@@ -51,6 +51,9 @@ class RegistrationController extends Controller
     {
         $user = $creator->create($request->all());
 
-        return redirect()->route('sendSms.sendSmsToVerify', compact('user'));
+        return redirect()->route('sendSms.sendSmsToVerify', [
+            'user' => $user,
+            'phone_number' => $user->phone_number,
+        ]);
     }
 }

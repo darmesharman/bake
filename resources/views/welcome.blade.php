@@ -122,7 +122,7 @@
 
                             </div>
                         </div>
-                        <div class="image bg-cov stretch-a" style="background-image: url({{ asset($blog->profile->path) }})"></div>
+                        <div class="image bg-cov stretch-a" style="background-image: url({{ asset($blog->profile_path) }})"></div>
                         <a href="#" class="content-wrapper db rel z2 grey static">
                             <div class="content article-sm">
                                 <div class="date highlight no-hov grey small">{{ date_format($blog->created_at, 'Y-m-d') }}</div>

@@ -58,11 +58,11 @@ Route::post('/register', [RegistrationController::class, 'store'])->name('regist
 
 
 
-Route::get('/verify/phone/{user}/{token}', [VerifyPhoneController::class, 'getVerify'])->name('verifyPhone.getVerify');
+Route::get('/verify/phone/{user}/{phone_number}/{token}', [VerifyPhoneController::class, 'getVerify'])->name('verifyPhone.getVerify');
 Route::post('/verify/phone', [VerifyPhoneController::class, 'postVerify'])->name('verifyPhone.postVerify');
 
 Route::post('/verification-resend', [VerifyPhoneController::class, 'resend'])->name('verifyPhone.resend');
-Route::get('/verification-send/{user}', [SendSmsController::class, 'sendSmsToVerify'])->name('sendSms.sendSmsToVerify');
+Route::get('/verification-send/{user}/{phone_number}', [SendSmsController::class, 'sendSmsToVerify'])->name('sendSms.sendSmsToVerify');
 
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword.index');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('forgotPassword.store');
@@ -80,6 +80,7 @@ Route::get('/instagram', [InstagramController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/user/profile', [UserProfileController::class, 'show'])->middleware('auth')->name('profile.show');
-    Route::put('/user/profile-information', [UserProfileController::class, 'update'])->name('user-profile-information.update');
+    Route::put('/user/profile-information', [UserProfileController::class, 'updateProfileInformation'])->name('user-profile-information.update');
+    Route::put('/user/phone-number', [UserProfileController::class, 'updatePhoneNumber'])->name('user-phone-number.update');
     Route::put('/user/password', [PasswordController::class, 'update'])->name('user-password.update');
 });

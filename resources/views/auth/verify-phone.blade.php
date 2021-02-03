@@ -36,6 +36,7 @@
                             Для защиты Вашего аккаунта мы отправили SMS с кодом на Ваш мобильный телефон. Это бесплатно.
                         </p>
                         <div class="code-input-wrapper">
+                            <input type="hidden" name="user_id" class="code-input code-mask code" id="code" value="{{ $user->id }}" >
                             <input type="hidden" name="token" class="code-input code-mask code" id="code" value="{{ $token }}" >
                             <input type="hidden" name="phone_number" class="code-input code-mask code" id="code" value="{{ $phone_number }}">
                             <input type="text" name="code" class="code-input code-mask code" id="code">

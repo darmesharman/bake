@@ -30,10 +30,11 @@ class VerifyPhoneController extends Controller
         $this->guard = $guard;
     }
 
-    public function getVerify(User $user, $token)
+    public function getVerify(User $user, $phone_number, $token)
     {
         return view('auth.verify-phone', [
-            'phone_number' => $user->phone_number,
+            'user' => $user,
+            'phone_number' => $phone_number,
             'token' => $token,
         ]);
     }
@@ -44,7 +45,7 @@ class VerifyPhoneController extends Controller
             'code' => ['required', 'regex:/^\d{4}$/'],
         ])->validate();
 
-        $user = User::where('phone_number', $request->input('phone_number'))->first();
+        $user = User::find($request->input('user_id'));
 
         if (!Hash::check($request->input('token'), $user->token)) {
             return back()->with('wrong_code', 'Invalid token');
@@ -55,12 +56,14 @@ class VerifyPhoneController extends Controller
         }
 
         $isRegistering = !$user->phone_verified_at;
+        $isChangingPhoneNumber = $user->phone_number != $request->input('phone_number');
 
-        if ($isRegistering) {
+        if ($isRegistering or $isChangingPhoneNumber) {
             $user->update([
                 'code' => null,
                 'token' => null,
                 'phone_verified_at' => now(),
+                'phone_number' => $request->input('phone_number'),
             ]);
 
             $user->save();

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class SendSmsController extends Controller
 {
-    public function sendSmsToVerify(User $user)
+    public function sendSmsToVerify(User $user, $phone_number)
     {
         $code = $this->generateFourDigitCode();
         $token = Str::random(40);
@@ -23,19 +23,21 @@ class SendSmsController extends Controller
 
         $user->save();
 
-        $validation = 'wait';
+        $validation_message = 'wait';
         if (!$user->phone_verification_send or $user->phone_verification_send->addSeconds(15) <= Carbon::now()) {
             $message = $this->getMessage($user, $code);
+
             SendSms::sendSms($user->phone_number, $message);
+
             $user->update(['phone_verification_send' => Carbon::now()]);
-            $user->save();
-            $validation = null;
+
+            $validation_message = null;
         }
 
         return redirect()->action(
             [VerifyPhoneController::class, 'getVerify'],
-            compact('user', 'token'),
-        )->with('wrong_code', $validation);
+            compact('user', 'phone_number', 'token'),
+        )->with('wrong_code', $validation_message);
     }
 
     protected function getMessage($user, $code)
