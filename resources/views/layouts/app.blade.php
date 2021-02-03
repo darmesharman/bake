@@ -66,13 +66,13 @@
                     <li class="d-tab show-s-window icon-chat" data-sidebar="reviews">Отзывы</li>
                     <li class="d-tab show-s-window icon-wallet" data-sidebar="payments">Платежи</li>
                     <li class="d-tab show-s-window icon-help" data-sidebar="help">Помощь</li>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <li><button type="submit" class="d-tab icon-off">Выйти</buttona></li>
+                    </form>
                 </ul>
             </nav>
 
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <li><button type="submit" class="d-tab icon-off">Выйти</button></li>
-            </form>
         </div>
 
         <div class="links">

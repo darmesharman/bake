@@ -21,9 +21,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required', 'string', 'max:12'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'image', 'max:1024'],
         ])->validate();
 
 
@@ -38,7 +36,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'first_name' => $input['first_name'],
                 'last_name' => $input['last_name'],
-                'phone_number' => $input['phone_number'],
                 'email' => $input['email'],
             ])->save();
         }

@@ -114,6 +114,10 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
+        $company->load(['comments' => function ($query) {
+            $query->with('user');
+        }, 'companySchedules', 'city']);
+
         return (new CompanyResource($company))->response();
     }
 
