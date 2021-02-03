@@ -957,16 +957,16 @@
         },
         {
             "name": "enlightn/enlightn",
-            "version": "v1.7.1",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/enlightn.git",
-                "reference": "637cf6496b526da312d5aab4d78393e06cc7afb4"
+                "reference": "3755969ae7c0149c4ec2143a39fe8b4a96d909cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/637cf6496b526da312d5aab4d78393e06cc7afb4",
-                "reference": "637cf6496b526da312d5aab4d78393e06cc7afb4",
+                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/3755969ae7c0149c4ec2143a39fe8b4a96d909cf",
+                "reference": "3755969ae7c0149c4ec2143a39fe8b4a96d909cf",
                 "shasum": ""
             },
             "require": {
@@ -1032,35 +1032,35 @@
             "support": {
                 "docs": "https://www.laravel-enlightn.com/docs/",
                 "issues": "https://github.com/enlightn/enlightn/issues",
-                "source": "https://github.com/enlightn/enlightn/tree/v1.7.1"
+                "source": "https://github.com/enlightn/enlightn/tree/v1.8.0"
             },
-            "time": "2021-01-29T08:46:05+00:00"
+            "time": "2021-01-31T20:15:39+00:00"
         },
         {
             "name": "enlightn/security-checker",
-            "version": "v1.3",
+            "version": "v1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/security-checker.git",
-                "reference": "a56e3f06b3edf57d2f70cf0c26c620577f3c4353"
+                "reference": "378b2493cb3bc7961c836ad164b3393c33a20754"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/security-checker/zipball/a56e3f06b3edf57d2f70cf0c26c620577f3c4353",
-                "reference": "a56e3f06b3edf57d2f70cf0c26c620577f3c4353",
+                "url": "https://api.github.com/repos/enlightn/security-checker/zipball/378b2493cb3bc7961c836ad164b3393c33a20754",
+                "reference": "378b2493cb3bc7961c836ad164b3393c33a20754",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-zip": "*",
                 "guzzlehttp/guzzle": "^6.3|^7.0",
-                "php": "^7.2.5|^8.0",
+                "php": ">=5.6",
                 "symfony/console": "^3.4|^4|^5",
                 "symfony/finder": "^3|^4|^5",
                 "symfony/yaml": "^3.4|^4|^5"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.5|^8.0|^9.0"
+                "phpunit/phpunit": "^5.5|^6|^7|^8|^9"
             },
             "bin": [
                 "security-checker"
@@ -1096,9 +1096,9 @@
             ],
             "support": {
                 "issues": "https://github.com/enlightn/security-checker/issues",
-                "source": "https://github.com/enlightn/security-checker/tree/v1.3"
+                "source": "https://github.com/enlightn/security-checker/tree/v1.4"
             },
-            "time": "2021-01-28T15:47:42+00:00"
+            "time": "2021-02-01T13:49:38+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -3280,16 +3280,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.70",
+            "version": "0.12.71",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "07f0ef37f5f876e8cee44cc8ea0ec3fe80d499ee"
+                "reference": "d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/07f0ef37f5f876e8cee44cc8ea0ec3fe80d499ee",
-                "reference": "07f0ef37f5f876e8cee44cc8ea0ec3fe80d499ee",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5",
+                "reference": "d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5",
                 "shasum": ""
             },
             "require": {
@@ -3320,7 +3320,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.70"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.71"
             },
             "funding": [
                 {
@@ -3336,7 +3336,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T17:06:47+00:00"
+            "time": "2021-02-01T18:24:00+00:00"
         },
         {
             "name": "pragmarx/google2fa",
@@ -7077,16 +7077,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.5.9",
+            "version": "2.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "66b3138ecce38024723fb3bfc66ef8852a779ea9"
+                "reference": "98154e8b991fb616304c213cd405299ffedc26f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/66b3138ecce38024723fb3bfc66ef8852a779ea9",
-                "reference": "66b3138ecce38024723fb3bfc66ef8852a779ea9",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/98154e8b991fb616304c213cd405299ffedc26f5",
+                "reference": "98154e8b991fb616304c213cd405299ffedc26f5",
                 "shasum": ""
             },
             "require": {
@@ -7150,7 +7150,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-01-26T14:45:19+00:00"
+            "time": "2021-02-02T10:15:48+00:00"
         },
         {
             "name": "facade/ignition-contracts",

@@ -1,43 +1,50 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                @livewire('profile.update-profile-information-form')
+    @section('content')
 
-                <x-jet-section-border />
-            @endif
+        <div class="dashboard-content article-lg">
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
+    <div class="d-block edit-profile">
+        <div class="d-block-header"><h2 class="mb0">Редактировать профиль</h2></div>
+        <form class="d-block-body article" id="edit_profile_form">
+            <div class="grid-2">
+                <div class="line">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input name="name" type="text" id="name" placeholder="Введите имя" class="required name-mask" data-type="name" value="Тест">
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Фамилия</label>
+                        <input name="surname" type="text" id="surname" placeholder="Введите фамилию" class="required name-mask" data-type="surname" value="Тест">
+                    </div>
+                    <div class="form-group full">
+                        <label for="city">Город или область</label>
+                        <div class="select-wrapper">
+                            <input name="city" type="text" id="city" placeholder="Выберите город или область" readonly="" class="required" data-type="select" value="Алматы">
+                            <ul class="select-dropdown"><li data-id="11">Алматинская область</li><li data-id="13">Алматы</li><li data-id="29">Нур-Султан</li></ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Номер телефона</label>
+                        <input name="phone" type="text" id="phone" class="phone-mask required" data-type="phone" value="+7 (747) 499-12-03" placeholder="+7 (747) 499-12-03">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input name="email" type="text" id="email" placeholder="Введите Email" class="required" data-type="email" value="test@init.kz">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Новый пароль</label>
+                        <input name="password" type="password" id="password" placeholder="Введите новый пароль">
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirm">Повторите пароль</label>
+                        <input name="password_confirm" type="password" id="password_confirm" placeholder="Повторите новый пароль">
+                    </div>
                 </div>
-
-                <x-jet-section-border />
-            @endif
-
-            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.two-factor-authentication-form')
-                </div>
-
-                <x-jet-section-border />
-            @endif
-
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.logout-other-browser-sessions-form')
             </div>
-
-            <x-jet-section-border />
-
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.delete-user-form')
-            </div>
-        </div>
+            <button class="btn full large square" id="save_edit_profile">Сохранить</button>
+        </form>
     </div>
-</x-app-layout>
+
+            </div>
+@endsection
