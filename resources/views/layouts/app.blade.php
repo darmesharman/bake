@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
+        <title>@yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/fav.png') }}" />
+        <link rel="profile" href="https://gmpg.org/xfn/11">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        @livewireStyles
+        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/theme.css">
 
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="jquery/1.9.1/jquery.js"></script>
     </head>
     <body class="font-sans antialiased">
+<<<<<<< HEAD
 
     <div class="preloader" id="dashboard_preloader">
         <div class="preloader-wrapper">
@@ -305,6 +298,9 @@
         </div>
 
         <div class="dashboard-content article-lg">
+=======
+        <div class="min-h-screen bg-gray-100">
+>>>>>>> b7370e0300254836f02b6396e64d846ae4fb1bc5
             @yield('content')
         </div>
     </div>
@@ -318,8 +314,12 @@ var dropParam = {"upload":"https:\/\/mykid.init.kz\/wp-admin\/admin-ajax.php?act
 <script type="text/javascript" src="https://mykid.init.kz/wp-content/themes/init/js/scripts.js" id="init-scripts-js"></script>
 <script type="text/javascript" src="https://mykid.init.kz/wp-includes/js/wp-embed.min.js?ver=5.6" id="wp-embed-js"></script>
 
+<<<<<<< HEAD
 
 <div id="wt-sky-root"></div>
 
+=======
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+>>>>>>> b7370e0300254836f02b6396e64d846ae4fb1bc5
     </body>
 </html>
