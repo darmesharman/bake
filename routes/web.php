@@ -14,6 +14,8 @@ use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\PasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +77,9 @@ Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name(
 // });
 
 Route::get('/instagram', [InstagramController::class, 'index']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/user/profile', [UserProfileController::class, 'show'])->middleware('auth')->name('profile.show');
+    Route::put('/user/profile-information', [UserProfileController::class, 'update'])->name('user-profile-information.update');
+    Route::put('/user/password', [PasswordController::class, 'update'])->name('user-password.update');
+});

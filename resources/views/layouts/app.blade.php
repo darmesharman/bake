@@ -69,8 +69,10 @@
                 </ul>
             </nav>
 
-            <a href="https://mykid.init.kz/wp-login.php?action=logout&amp;_wpnonce=0e32d431d1" class="d-tab icon-off">Выйти</a>
-
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <li><button type="submit" class="d-tab icon-off">Выйти</button></li>
+            </form>
         </div>
 
         <div class="links">
@@ -139,14 +141,14 @@
 
                     <ul>
                         <li>
-                            <a href="/dashboard" class="active">
+                            <a href="{{ route('dashboard') }}" class="active">
                                 <h6>Главная</h6>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/dashboard/edit-profile/">
+                            <a href="{{ route('profile.show') }}">
                                 <h6>Редактировать профиль</h6>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                             </a>
@@ -265,7 +267,7 @@
             <div class="dashboard-user-block rel toggle-dropdown">
 
                 <div class="content icon-user">
-                    <span>Тест Тест</span>
+                    <span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
                 </div>
 
                 <div class="d-dropdown">
@@ -274,20 +276,24 @@
                         <div class="avatar">Т</div>
                         <div class="text">
                             <h6>Тест Тест</h6>
-                            <p class="grey-text">+7 (747) 499-12-03</p>
+                            <p class="grey-text">{{ Auth::user()->phone_number }}</p>
                             <div class="label theme">Пользователь</div>
                         </div>
                     </div>
 
                     <ul>
-                        <li><a href="/dashboard" class="icon-user">Личный кабинет</a></li>
+                        <li><a href="{{ route('dashboard') }}" class="icon-user">Личный кабинет</a></li>
                         <li><a href="#" class="icon-archive">Мои компании</a></li>
                         <li><a href="#" class="icon-inbox">Заявки</a></li>
                     </ul>
 
                     <ul>
-                        <li><a href="/dashboard/edit-profile" class="icon-edit">Редактировать профиль</a></li>
-                        <li><a href="https://mykid.init.kz/wp-login.php?action=logout&amp;_wpnonce=0e32d431d1" class="icon-off red">Выйти из аккаунта</a></li>
+                        <li><a href="{{ route('profile.show') }}" class="icon-edit">Редактировать профиль</a></li>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <li><a type="submit" class="icon-off red">Выйти из аккаунта</a></li>
+                        </form>
+
                     </ul>
 
                 </div>
