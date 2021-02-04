@@ -1,9 +1,7 @@
 
 <template>
     <div>
-{{this.dashboard.token }}
         <div class="container">
-        <!-- {{data}} -->
             <div class="board-context"  v-for="(item, index) in dashboard.items"  v-bind:key="item.id" 
             @drop='onDrop($event, item.id)' @dragover.prevent @dragenter.prevent>
 
@@ -12,15 +10,17 @@
             </div>
 
             <div class="boards-append">
-                <div  v-bind:class="{'boards-append-adding-form': this.$store.state.addingboard}"  hidden >
+                <div  v-bind:class="{'boards-append-adding-form': this.$store.state.dashboard.addingboard}"  hidden >
                     <textarea ref="newboardtextarea" name="" id="" cols="30"  rows="10"></textarea>
                     <input type="button"  value="save board" @click="boardCreate($event)" >
                 </div>
 
-                <div class="btn-boards-append" v-bind:class="{'boards-append-adding-btn': this.$store.state.addingboard}" @click="boardAddEvent">
-                    <div v-if="!this.$store.state.addingboard">
+                <div v-if="!this.dashboard.addingboard" class="boards-append-area" v-bind:class="{'boards-append-adding-btn': this.dashboard.addingboard}" @click="boardAddEvent">
+                    <a style="cursor:pointer;width:70px;display:block; margin:0 auto;">
                     add board
-                    </div>
+                    </a>
+                    
+                    
                 </div>
 
 
@@ -49,52 +49,7 @@ import Boards from './components/boards.vue'
       sockets: {
           connection () {
               console.log('socket connected!!')
-          },
-          users (socketname) {
-
-            this.sockets.subscribe(socketname, (data) => {
-
-              if(data.last_update != this.$store.state.lastupdate) {
-
-                
-                let switchOptions = (option, details)=> {
-
-                  switch (option) {
-                    case 0:
-                      this.$store.dispatch('boardCreateUpdates', details);
-                    break;
-                    case 1:
-                      this.$store.dispatch('boardUpdateUpdates', details);
-                    break;
-                    case 2:
-                      this.$store.dispatch('boardDeleteUpdates', details);
-                    break; 
-                    case 10:
-                      this.$store.dispatch('leadCreateUpdates', details);
-                    break;
-                    case 11:
-                      this.$store.dispatch('leadUpdateUpdates', details);
-                    break;
-                    case 12:
-                      this.$store.dispatch('leadDeleteUpdates', details);
-                    break;
-                  } 
-                }
-                data.data.forEach(event => {
-                  
-                    if(event.details[0] != null){
-                        event.details.forEach(detail => {
-                          switchOptions(event.event, detail )
-                        });
-                    }
-
-                });
-              }
-
-
-          })
-
-        }
+          }
           
       },
       components: { 
@@ -114,28 +69,28 @@ import Boards from './components/boards.vue'
       },
       methods: {
           boardAddEvent() {
-            this.$store.state.addingboard = true
+            this.$store.state.dashboard.addingboard = true
           },
           boardCreate(evt) {
             this.$store.dispatch('boardCreate', this.$refs.newboardtextarea.value);
-            this.$store.state.addingboard = false
+            this.$store.state.dashboard.addingboard = false
         
           },
           onDrop(evt, itemid2) {
 
-            if(this.$store.state.cold) {
+            if(this.$store.state.dashboard.cold) {
                 const itemid = evt.dataTransfer.getData('itemid')
 
                 this.$store.dispatch('swapBoards', {itemid:itemid, itemid2: itemid2});
 
-                this.$store.state.cold = false;
-                this.$store.state.isediting=true
+                this.$store.state.dashboard.cold = false;
+                this.$store.state.dashboard.isediting=true
 
             }
         },
           /*GET_BOARDS(response) {
             var data = response.data[1]["00"];
-            this.$store.state.lastupdate = response.data[0];
+            this.$store.state.dashboard.lastupdate = response.data[0];
             // console.log(response.data);
             if(data.length >= 1)
               for (var idx = 0; idx < data.length; idx++) {
@@ -146,7 +101,7 @@ import Boards from './components/boards.vue'
           },
           GET_LEADS(response) {
             var data = response.data[1]["01"];
-            this.$store.state.lastupdate = response.data[0];
+            this.$store.state.dashboard.lastupdate = response.data[0];
             console.log(response.data[1]["01"])
             if(data.length >= 1)
               for (var idx = 0; idx < data.length; idx++) {
@@ -159,7 +114,7 @@ import Boards from './components/boards.vue'
               }
           },   */
           /* getUpdates() {
-            var url = "http://localhost:8001/api/update_boards/"+this.$store.state.lastupdate;
+            var url = "http://localhost:8001/api/update_boards/"+this.$store.state.dashboard.lastupdate;
             let config = {'headers': {}}
             axios.get(url, config)
                 .then(response => {
@@ -205,12 +160,11 @@ import Boards from './components/boards.vue'
 
   .container {
     position: relative;
+    display: flex;
     min-width: 1360px;
-    max-width: 1600px;
-    /* display: block; */ 
-    /* justify-content: center; */
+    width: 1360px;
     margin: 0 auto;
-    border: 1.2px solid;
+    overflow: scroll;
   }
   .board-context {
     display: inline-block;
@@ -220,27 +174,44 @@ import Boards from './components/boards.vue'
     background-color:#EBEBEB;
   }
    .boards-append {
-    position: relative;
     display: inline-block;
-    min-width: 80px;
-    width:80px ;
-    background-color: azure;
-    border-radius: 14px;
+    position: relative;
+    /* justify-content: center; */
+    width: 272px;
+    margin:0 4px;
+    margin: 0 auto;
+    /* background-color: azure; */
+    /* border-radius: 14px; */
+  }
+  .boards-append-area {
+    display: inline-block;
+    position: relative;
+    width: 172px;
+    margin:0 4px;
+  }
+  .boards-append-area a:hover {
+    text-decoration: underline;
   }
 
   .boards-append-adding-form {
     position: relative;
-    min-height: 70px;
     display: block;
     margin: 0 auto;
-    min-width: 70px;
     width: 100%;
+  }
+  .boards-append-adding-form input {
+    padding: 2px 5px;
+    letter-spacing: .3px;
+    box-shadow: inset 0 0 0 .2px #0079bf;
+  }
+  .boards-append-adding-form input:hover {
+    background-color: azure;
+    transition:.8s;
   }
   .boards-append-adding-form  textarea {
     height: 27px;
     line-height: 27px;
     width:auto;
-    max-width: 120px;
     overflow: hidden; 
     overflow: none;
     outline: none;
@@ -257,7 +228,6 @@ import Boards from './components/boards.vue'
   }
  
    .boards-append-adding-form  textarea [type=text] {
-    width: 90px;
     height: auto;
     word-wrap: break-word;
     word-break: break-all;
@@ -268,11 +238,11 @@ import Boards from './components/boards.vue'
   .btn-boards-append:hover {
     text-decoration: underline;
     cursor: pointer;
+    width: 100%;
   }
   .boards-append-adding-card {
     height: 125px;
     transition:1.6s;
-    
   }
   .boards-append-adding-card .btn-boards-append {
     display: none;

@@ -77,10 +77,10 @@ class SetDataDashboardUpdates extends Command
      */
     public function handle()
     {
-        for ($i=0; $i < 20; $i++) { 
+        // for ($i=0; $i < 20; $i++) { 
             $this->iterate();
-            sleep(3);
-        }
+            // sleep(3);
+        // }
         
     }
 }

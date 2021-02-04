@@ -94,6 +94,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -312,7 +314,21 @@ var render = function() {
               [_vm._v("Войти")]
             ),
             _vm._v(" "),
-            _vm._m(2)
+            _c(
+              "p",
+              [
+                _vm._v("Если у Вас еще нет аккаунта - "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "mr-4",
+                    attrs: { to: "/vue/register", exact: "" }
+                  },
+                  [_vm._v("зарегистрируйтесь")]
+                )
+              ],
+              1
+            )
           ])
         ])
       ])
@@ -390,17 +406,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("a", { attrs: { href: " route('forgotPassword.index') }}" } }, [
         _vm._v("Забыли пароль?")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _vm._v("Если у Вас еще нет аккаунта - "),
-      _c("a", { attrs: { href: " route('registration.create') }}" } }, [
-        _vm._v("зарегистрируйтесь")
       ])
     ])
   }

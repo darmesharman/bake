@@ -1,9 +1,9 @@
 // ===================================================
 // Theme Global
 // ===================================================
-@import 'global/variables';
+@import 'global/variables'; 
 @import 'global/global';
-@import 'global/icons';
+// @import 'global/icons';
 
 // ===================================================
 // Theme Layouts
@@ -12,23 +12,12 @@
 @import 'layouts/footer';
 @import 'layouts/templates';
 @import 'layouts/auth';
-@import 'layouts/datapicker';
-@import 'layouts/dropzone';
-@import 'layouts/animation';
 
 // ===================================================
 // Theme Dashboard
 // ===================================================
 @import 'dashboard/dashboard';
 @import 'dashboard/main';
-@import 'dashboard/pricing';
-@import 'dashboard/kanban';
-@import 'dashboard/extend';
-@import 'dashboard/bill';
-@import 'dashboard/payments';
-@import 'dashboard/reviews';
-@import 'dashboard/members';
-@import 'dashboard/edit-company';
 
 // ===================================================
 // Theme Pages
@@ -39,4 +28,3 @@
 @import 'pages/article';
 @import 'pages/news-single';
 @import 'pages/add-company';
-@import 'pages/success';

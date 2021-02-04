@@ -23,7 +23,11 @@ class DashboardController extends Controller
         $last_update = DB::select(DB::raw('select MAX(updated_at) as updated_at from updates'))
             [0]->updated_at;
 
-        $boards = Board::with('leads')->get();
+           
+
+        $boards = Board::with(array('leads' => function($query) {
+            $query->orderBy('order');
+          }))->get();
         
         $token = session()->all()["_token"];
         $token = substr($token, 0, 9);

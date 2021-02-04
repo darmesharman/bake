@@ -224,6 +224,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -340,7 +342,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm._v("\r\nrgr\r\n\r\n    "),
-    this.$store.state.hashome_data
+    this.$store.state.home.hashome_data
       ? _c("div", [
           _c("form", [
             _c(

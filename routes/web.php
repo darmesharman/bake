@@ -59,7 +59,7 @@ Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/vue/das
 Route::post('/auth', [LoginController::class, 'login']);
 
 
-Route::get('/vue/{any}', function () {
+Route::get('/dashboard', function () {
     return view('home');
 })->where('any', '.*');
 
@@ -69,7 +69,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 // Route::get('/1', [HomeController::class, 'indexInertia'])->name('home.indexInertia');
 
 // Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboard', function () {
-    // return view('dashboard');
+//     return view('dashboard');
 // })->name('dashboard');
 
 Route::resource('leads', LeadController::class)->middleware(['auth', 'phone.verified']);

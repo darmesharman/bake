@@ -18,7 +18,7 @@ class HomeController extends BaseController
 {
     public function index(Request $reqeust)
     {
-        dd($reqeust, session()->all()["_token"]);
+        // dd($reqeust, session()->all()["_token"]);
 
         $categories = Category::select('id', 'name')->get();
         // $subCategories = SubCategory::select('id', 'name')->get();

@@ -158,15 +158,25 @@ class MainController extends Controller
         return response()->json([], 200, ['Content-Type' => 'application/json']);
     }
     // create lead
-    public function create_lead(Request $request, $boardid, $description)
+    public function create_lead(Request $request, $board_id, $description)
     {
+
+
         $lead = new Lead();
-        $lead->board_id = $boardid;
+        $max_lead = Board::orderBy('order','desc')->where([
+            ["board_id", "=", $board_id]
+        ])->first();
+        if($max_lead==null) {
+            $lead->order = 1;
+        }
+        else {
+            $lead->order =  $max_lead->order;
+        }
+        $lead->board_id = $board_id;
         $lead->description = $description;
         $lead->status_id = 1;
         $lead->sum = 1;
         $lead->company_id = 1;
-        $lead->order = -99;
         $lead->save();
 
         return response()
@@ -187,36 +197,45 @@ class MainController extends Controller
         Lead::where("id", "=", $leadid)->delete();
         return response()->json([], 200, ['Content-Type' => 'application/json']);
     }
+
     public function move_lead(Request $request, $target_lead_id, $board_id, $lead_id, $order, $ident)
     {   
-        $target_lead = Lead::where("id", "=", $target_lead_id);
-
         
-        if($ident == 0)
-        {
-            $lead = Lead::where([
-                // "board_id", "=", $board_id,
-                "order", "<", $order
-            ])->orderBy('order', 'desc')->first();
-            $order = $lead->order + ($order - $lead->order)/2;
-            
-        }
-        else {
-            $lead = Lead::where([
-                // "board_id", "=", $board_id,
-                "order", ">", $order
+        $target_lead = Lead::where("id", "=", $target_lead_id)->first();
+        if($ident == 0) {
+            $lead = Lead::orderBy('order','desc')->where([
+                ["board_id", "=", $board_id],
+                ["order", "<", $order],
             ])->first();
-            $order = $order + ($lead->order - $order)/2 ;
-        
-        }
 
-        $target_lead->board_id = $board_id;
-        $target_lead->order = $order;
-        $target_lead->save();
+            if($lead==null) {
+                $order-=1;
+            }else {
+                $fshid = $lead->id;
+                $order = ($order+$lead->order)/2;
+            }
+        }else {
+            $lead = Lead::orderBy('order')->where([
+                ["board_id", "=", $board_id],
+                ["order", ">", $order],
+            ])->first();
+
+            if($lead==null) {
+                $order+=1;
+            }else {
+                $order = ($lead->order+$order)/2;
+            }
+        }
         
+        $target_lead->order = $order;
+        $target_lead->board_id = $board_id;
+        $target_lead->save();
+
         return response()
-            ->json(['board_id'=> $board_id, 'order' => $order], 200, ['Content-Type' => 'application/json']);
+            ->json(['lead_id'=> $lead_id, 'lead'=>$target_lead], 200, ['Content-Type' => 'application/json']);
+   
     }
+    
     //update board
     public function update_boards_title(Request $request, $boardid, $title)
     {

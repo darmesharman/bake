@@ -33,14 +33,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/companies', [CompanyController::class, 'index']);
+Route::get('/companies/{companyid}', [CompanyController::class, 'show']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::apiResource('leads', LeadController::class);
 Route::apiResource('contacts', ContactController::class);
-Route::apiResource('companies', CompanyController::class);
+// Route::apiResource('companies', CompanyController::class);
 
 // Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
+
 
 
 Route::get('/update_boards/newboard/{title}', [MainController::class, 'create_board'])->name('create_board');
@@ -50,7 +52,9 @@ Route::put('/update_boards/updateboard/{boardid}/newtitle/{title}', [MainControl
 Route::get('/update_boards/createlead/{boardid}/newleaddescription/{description}', [MainController::class, 'create_lead']);
 Route::put('/update_boards/updatelead/{leadid}/description/{description}', [MainController::class, 'update_lead']);
 Route::put('/update_boards/removelead/{leadid}', [MainController::class, 'remove_lead'])->name('remove_lead');
+
 Route::put('/update_boards/movelead/{target_lead_id}/{board_id}/{lead_id}/{order}/{ident}', [MainController::class, 'move_lead'])->name('move_lead');
+
 // Route::get('/update_boards/{updated_at}', [MainController::class, 'update_boards'])->name('update_boards');
 
 // create board

@@ -25,13 +25,160 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 _vue["default"].use(_vuex["default"]);
 
-var _default = new _vuex["default"].Store({
+/* 
+login: moduleB,
+home: moduleE,
+companies: moduleF,
+dashboard: moduleG,
+ */
+var moduleB = {
+  state: {
+    user: sessionStorage.user ? JSON.parse(sessionStorage.getItem('user')) : null
+  },
+  mutations: {
+    SET_USER: function SET_USER(state, user) {
+      state.user = user;
+    }
+  },
+  actions: {
+    login: function login(context, user) {
+      var config, url, cookieJar, instance;
+      return regeneratorRuntime.async(function login$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              config = {
+                'headers': {
+                  'Accept': 'application/json',
+                  'Content-Type': 'multipart/form-data'
+                }
+              };
+              url = 'http://localhost:8000/sanctum/csrf-cookie';
+              _context.next = 4;
+              return regeneratorRuntime.awrap(_axios["default"].get(url, {}).then(function (response) {
+                config.headers["X-XSRF-TOKEN"] = response.config.headers['X-XSRF-TOKEN'];
+              }));
+
+            case 4:
+              cookieJar = new _toughCookie["default"].CookieJar();
+              instance = _axios["default"].create({
+                jar: cookieJar,
+                withCredentials: true
+              });
+              instance.defaults.headers['X-CSRF-TOKEN'] = config.headers["X-XSRF-TOKEN"];
+              instance.defaults.headers['Accept'] = 'application/json';
+              instance.post('http://localhost:8000/auth', user).then(function (response) {
+                console.log(response);
+              });
+              context.commit('SET_USER', user);
+              sessionStorage.user = JSON.stringify(user);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      });
+    }
+  }
+};
+var moduleE = {
+  state: {
+    searchForm: {
+      cityID: -1,
+      destrictID: -1,
+      categoryID: -1
+    },
+    companies: [],
+    categories: [],
+    cities: [],
+    districts: [],
+    blogs: [],
+    hashome_data: false
+  },
+  mutations: {
+    FETCH_HOME: function FETCH_HOME(state, data) {
+      state.hashome_data = true;
+      state.companies = data.companies;
+      state.categories = data.companies;
+      state.cities = data.cities;
+      state.districts = data.districts;
+      state.blogs = data.blogs;
+    }
+  },
+  actions: {
+    fetchHome: function fetchHome(context) {
+      var url = "http://localhost:8000/api/home";
+      var config = {
+        'headers': {}
+      };
+      var data = {};
+
+      _axios["default"].get(url, data, config).then(function (response) {
+        context.commit('FETCH_HOME', response.data);
+      });
+    }
+  }
+};
+var moduleF = {
+  state: {
+    hascompanies_data: false,
+    data: [],
+    currentcompany: null
+  },
+  mutations: {
+    FETCH_COMPANIES: function FETCH_COMPANIES(state, data) {
+      state.hascompanies_data = true;
+      state.data = data.companies;
+    },
+    FETCH_COMPANY: function FETCH_COMPANY(state, data) {
+      state.currentcompany = data.company;
+    }
+  },
+  actions: {
+    fetchCompanies: function fetchCompanies(context) {
+      var config = {
+        'headers': {}
+      };
+      var url = "http://localhost:8000/api/companies";
+
+      _axios["default"].get(url, config).then(function (response) {
+        console.log(response.data);
+        context.commit('FETCH_COMPANIES', response.data);
+      });
+    },
+    fetchCompany: function fetchCompany(context, id) {
+      var config, url;
+      return regeneratorRuntime.async(function fetchCompany$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              config = {
+                'headers': {}
+              };
+              url = "http://localhost:8000/api/companies/".concat(id);
+              _context2.next = 4;
+              return regeneratorRuntime.awrap(_axios["default"].get(url, config).then(function (response) {
+                console.log(response.data);
+                context.commit('FETCH_COMPANY', response.data);
+              }));
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      });
+    }
+  }
+};
+var moduleG = {
   state: {
     connect: false,
     message: null,
     socketid: null,
     lastupdate: null,
-    items: null,
+    items: [],
     addingboard: false,
     newleaddescription: 'none',
     medifylead: [],
@@ -46,32 +193,11 @@ var _default = new _vuex["default"].Store({
     isdraggable: false,
     leadadding: false,
     newleadcontent: '',
-    hascompanies_data: false,
-    hashome_data: false,
-    hasdashboard_data: false,
-    companies: [],
-    home: {
-      searchForm: {
-        cityID: -1,
-        destrictID: -1,
-        categoryID: -1
-      },
-      companies: [],
-      categories: [],
-      cities: [],
-      districts: [],
-      blogs: []
-    },
-    dashboard: {
-      items: [],
-      token: null,
-      updates: null
-    },
-    user: sessionStorage.user ? JSON.parse(sessionStorage.getItem('user')) : null
+    token: null,
+    updates: null
   },
   mutations: {
     SOCKET_CONNECT: function SOCKET_CONNECT(state, status) {
-      console.log(55);
       state;
       status;
       state.connect = true;
@@ -82,7 +208,7 @@ var _default = new _vuex["default"].Store({
       status;
     },
     CREATE_LEAD: function CREATE_LEAD(state, data) {
-      state.dashboard.items[data.colidx].leads.push({
+      state.items[data.colidx].leads.push({
         id: data.id,
         board_id: data.item.id,
         description: data.value,
@@ -91,19 +217,19 @@ var _default = new _vuex["default"].Store({
       });
     },
     REMOVE_LEAD: function REMOVE_LEAD(state, data) {
-      // state.dashboard.items
-      // let index = state.dashboard.items[data.colidx].leads[data.leadidx]
-      state.dashboard.items[data.colidx].leads.splice(data.leadidx, 1);
+      // state.items
+      // let index = state.items[data.colidx].leads[data.leadidx]
+      state.items[data.colidx].leads.splice(data.leadidx, 1);
     },
     UPDATE_LEAD: function UPDATE_LEAD(state, data) {
-      var index = state.dashboard.items[data.colidx].leads.findIndex(function (y) {
+      var index = state.items[data.colidx].leads.findIndex(function (y) {
         return y.id == data.lead.id;
       });
-      state.dashboard.items[data.colidx].leads[index].description = data.value;
+      state.items[data.colidx].leads[index].description = data.value;
     },
     CREATE_BOARD: function CREATE_BOARD(state, data) {
       console.log(data);
-      state.dashboard.items.push({
+      state.items.push({
         id: data.id,
         title: data.title,
         order: data.order,
@@ -113,33 +239,33 @@ var _default = new _vuex["default"].Store({
       });
     },
     REMOVE_BOARD: function REMOVE_BOARD(state, item) {
-      var index = state.dashboard.items.findIndex(function (y) {
+      var index = state.items.findIndex(function (y) {
         return y.id == item.id;
       });
-      state.dashboard.items.splice(index, 1);
+      state.items.splice(index, 1);
     },
     UPDATE_BOARD: function UPDATE_BOARD(state, data) {
-      var index = state.dashboard.items.findIndex(function (y) {
+      var index = state.items.findIndex(function (y) {
         return y.id == data.item.id;
       });
-      state.dashboard.items[index].title = data.value;
+      state.items[index].title = data.value;
     },
     SWAP_BOARDS: function SWAP_BOARDS(state, data) {
-      var index = state.dashboard.items.findIndex(function (item) {
+      var index = state.items.findIndex(function (item) {
         return item.id == data.itemid;
       });
-      var index2 = state.dashboard.items.findIndex(function (item) {
+      var index2 = state.items.findIndex(function (item) {
         return item.id == data.itemid2;
       });
-      var rows = [state.dashboard.items[index], state.dashboard.items[index2]];
-      state.dashboard.items.splice(index2, 1, rows[0]);
-      state.dashboard.items.splice(index, 1, rows[1]);
+      var rows = [state.items[index], state.items[index2]];
+      state.items.splice(index2, 1, rows[0]);
+      state.items.splice(index, 1, rows[1]);
     },
     CREATE_BOARD_UPDATE: function CREATE_BOARD_UPDATE(state, details) {
-      // let index = state.dashboard.items.findIndex(y => y.id == data.item.id)
-      if (!state.dashboard.items.some(function (e) {
+      // let index = state.items.findIndex(y => y.id == data.item.id)
+      if (!state.items.some(function (e) {
         return e.id == details.id;
-      })) state.dashboard.items.push({
+      })) state.items.push({
         id: details.id,
         order: details.order,
         title: details.title,
@@ -149,33 +275,33 @@ var _default = new _vuex["default"].Store({
       });
     },
     UPDATE_BOARD_UPDATE: function UPDATE_BOARD_UPDATE(state, details) {
-      var index = state.dashboard.items.findIndex(function (y) {
+      var index = state.items.findIndex(function (y) {
         return y.id == details.id;
       });
-      state.dashboard.items[index].order = details.order;
-      state.dashboard.items[index].title = details.title;
-      state.dashboard.items[index].updated_at = details.updated_at;
+      state.items[index].order = details.order;
+      state.items[index].title = details.title;
+      state.items[index].updated_at = details.updated_at;
     },
     DELETE_BOARD_UPDATE: function DELETE_BOARD_UPDATE(state, details) {
       console.log();
 
-      if (state.dashboard.items.some(function (e) {
+      if (state.items.some(function (e) {
         return e.id == details.id;
       })) {
-        var index = state.dashboard.items.findIndex(function (y) {
+        var index = state.items.findIndex(function (y) {
           return y.id == details.id;
         });
-        state.dashboard.items.splice(index, 1); // state.dashboard.items.push({ id:details.id,
+        state.items.splice(index, 1); // state.items.push({ id:details.id,
         // title:details.title, order:details.order, updated_at:details.updated_at})
       }
     },
     CREATE_LEAD_UPDATE: function CREATE_LEAD_UPDATE(state, details) {
-      var index = state.dashboard.items.findIndex(function (y) {
+      var index = state.items.findIndex(function (y) {
         return y.id == details.board_id;
       });
-      if (!state.dashboard.items[index].leads.some(function (e) {
+      if (!state.items[index].leads.some(function (e) {
         return e.id == details.id;
-      })) state.dashboard.items[index].leads.push({
+      })) state.items[index].leads.push({
         id: details.id,
         board_id: details.board_id,
         description: details.description,
@@ -184,74 +310,137 @@ var _default = new _vuex["default"].Store({
       });
     },
     UPDATE_LEAD_UPDATE: function UPDATE_LEAD_UPDATE(state, details) {
-      var index = state.dashboard.items.findIndex(function (y) {
+      var index = state.items.findIndex(function (y) {
         return y.id == details.board_id;
       });
-      var idx = state.dashboard.items[index].leads.findIndex(function (y) {
+      var idx = state.items[index].leads.findIndex(function (y) {
         return y.id == details.id;
       });
-      state.dashboard.items[index].leads[idx].description = details.description;
+      state.items[index].leads[idx].description = details.description;
       updated_at = details.updated_at;
     },
+    MOVE_LEAD_UPDATE: function MOVE_LEAD_UPDATE(state, details) {
+      return regeneratorRuntime.async(function MOVE_LEAD_UPDATE$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              console.log('omggg');
+              _context3.next = 3;
+              return regeneratorRuntime.awrap(function () {
+                var index = state.items.findIndex(function (item) {
+                  return item.id == details.board_id;
+                });
+                var idx = state.items[index].leads.findIndex(function (item) {
+                  return item.order < details.order;
+                });
+                if (idx == -1) state.items[index].leads.push(details);else {
+                  state.items[index].leads.splice(idx, 0, details);
+                }
+              }());
+
+            case 3:
+              _context3.next = 5;
+              return regeneratorRuntime.awrap(function () {
+                var index = state.items.findIndex(function (item) {
+                  return item.id == details.old_board_id;
+                });
+                var idx = state.items[index].leads.findIndex(function (item) {
+                  return item.id == details.id;
+                });
+                state.items[index].leads.splice(idx, 1);
+              }());
+
+            case 5:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      });
+    },
     DELETE_LEAD_UPDATE: function DELETE_LEAD_UPDATE(state, details) {
-      var index = state.dashboard.items.findIndex(function (y) {
+      var index = state.items.findIndex(function (y) {
         return y.id == details.board_id;
       });
 
-      if (state.dashboard.items[index].leads.some(function (e) {
+      if (state.items[index].leads.some(function (e) {
         return e.id == details.id;
       })) {
-        var idx = state.dashboard.items[index].leads.findIndex(function (y) {
+        var idx = state.items[index].leads.findIndex(function (y) {
           return y.id == details.id;
         });
         console.log(idx);
-        state.dashboard.items[index].leads.splice(idx, 1);
+        state.items[index].leads.splice(idx, 1);
       }
     },
     FETCH_HOME: function FETCH_HOME(state, data) {
       state.hashome_data = true;
-      state.home.companies = data.companies;
-      state.home.categories = data.companies;
-      state.home.cities = data.cities;
-      state.home.districts = data.districts;
-      state.home.blogs = data.blogs;
+      state.companies = data.companies;
+      state.categories = data.companies;
+      state.cities = data.cities;
+      state.districts = data.districts;
+      state.blogs = data.blogs;
     },
     FETCH_SEARCH_HOME: function FETCH_SEARCH_HOME(state, data) {
       data;
-    },
-    FETCH_COMPANIES: function FETCH_COMPANIES(state, data) {
-      state.hascompanies_data = true;
-      state.companies = data.companies;
     },
     FETCH_DASHBOARD: function FETCH_DASHBOARD(state, data) {
       state.hasdashboard_data = true;
       data.boards.forEach(function (element) {
         element = element.value;
       });
-      state.dashboard.items = data.boards;
-      state.dashboard.token = data.token; // console.log(state.dashboard.data )
+      state.items = data.boards;
+      state.token = data.token; // console.log(state.data )
     },
-    MOVE_LEAD: function MOVE_LEAD(state, data) {
-      var index = state.dashboard.items.findIndex(function (item) {
-        return item.id == data.r_data.board_id;
+    MOVE_LEAD: function MOVE_LEAD(state, _ref) {
+      var response_data, lead_id, boardID, lead, ident;
+      return regeneratorRuntime.async(function MOVE_LEAD$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              response_data = _ref.response_data, lead_id = _ref.lead_id, boardID = _ref.boardID, lead = _ref.lead, ident = _ref.ident;
+              _context4.next = 3;
+              return regeneratorRuntime.awrap(function () {
+                var index = state.items.findIndex(function (item) {
+                  return item.id == response_data.lead.board_id;
+                });
+                var idx = state.items[index].leads.findIndex(function (item) {
+                  return item.id == response_data.lead_id;
+                });
+
+                if (ident == 0) {
+                  state.items[index].leads.splice(idx, 0, response_data.lead);
+                } else {
+                  state.items[index].leads.splice(idx + 1, 0, response_data.lead);
+                }
+              }());
+
+            case 3:
+              _context4.next = 5;
+              return regeneratorRuntime.awrap(function () {
+                var index = state.items.findIndex(function (item) {
+                  return item.id == boardID;
+                });
+                var idx = state.items[index].leads.findIndex(function (item) {
+                  return item.id == lead_id;
+                });
+                state.items[index].leads.splice(idx, 1);
+              }());
+
+            case 5:
+            case "end":
+              return _context4.stop();
+          }
+        }
       });
-      var idx;
-      if (data.data.ident == 0) idx = state.dashboard.items[index].leads.findIndex(function (item) {
-        return item.order > data.r_data.order;
-      }) - 1;else idx = state.dashboard.items[index].leads.findIndex(function (item) {
-        return item.order > data.r_data.order;
-      });
-      state.dashboard.items[index].leads.splice(idx, 0, data.data.item_target); // idx = state.dashboard.items[index].leads.findIndex(item => == )
-      // state.dashboard.items[index].leads.splice()
     },
     SET_USER: function SET_USER(state, user) {
       state.user = user;
     }
   },
   actions: {
-    fetchDashboardUpdates: function fetchDashboardUpdates(_ref, data) {
-      var context = _ref.context,
-          dispatch = _ref.dispatch;
+    fetchDashboardUpdates: function fetchDashboardUpdates(_ref2, data) {
+      var context = _ref2.context,
+          dispatch = _ref2.dispatch;
 
       var switchOptions = function switchOptions(option, details) {
         switch (option) {
@@ -278,6 +467,10 @@ var _default = new _vuex["default"].Store({
           case 12:
             dispatch('leadDeleteUpdates', details);
             break;
+
+          case 13:
+            dispatch('leadMoveUpdates', details);
+            break;
           // default:
           // break;
         }
@@ -293,18 +486,35 @@ var _default = new _vuex["default"].Store({
         } catch (error) {}
       }); // context.commit('FETCH_DASHBOARD_UPDATES', data)
     },
-    moveLead: function moveLead(context, data) {
-      var url = "http://localhost:8000/api/update_boards/movelead/".concat(data.item_target.id, "/").concat(data.item.board_id, "/").concat(data.item.id, "/").concat(data.item.order, "/").concat(data.ident);
-      var config = {
-        'headers': {}
-      };
-      var data1 = {};
+    moveLead: function moveLead(context, _ref3) {
+      var target_item_id, boardID, lead, ident, url, config, data1;
+      return regeneratorRuntime.async(function moveLead$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              target_item_id = _ref3.target_item_id, boardID = _ref3.boardID, lead = _ref3.lead, ident = _ref3.ident;
+              console.log(target_item_id, lead.board_id, lead.id, lead.order, ident);
+              url = "http://localhost:8000/api/update_boards/movelead/".concat(target_item_id, "/").concat(lead.board_id, "/").concat(lead.id, "/").concat(lead.order, "/").concat(ident);
+              config = {
+                'headers': {}
+              };
+              data1 = {};
+              _context5.next = 7;
+              return regeneratorRuntime.awrap(_axios["default"].put(url, data1, config).then(function (response) {
+                context.commit('MOVE_LEAD', {
+                  response_data: response.data,
+                  lead_id: target_item_id,
+                  boardID: boardID,
+                  lead: lead,
+                  ident: ident
+                });
+              }));
 
-      _axios["default"].put(url, data1, config).then(function (response) {
-        context.commit('MOVE_LEAD', {
-          r_data: response.data,
-          data: data
-        });
+            case 7:
+            case "end":
+              return _context5.stop();
+          }
+        }
       });
     },
     fetchDashboard: function fetchDashboard(context, sockets) {
@@ -325,9 +535,9 @@ var _default = new _vuex["default"].Store({
     },
     login: function login(context, user) {
       var config, url, cookieJar, instance;
-      return regeneratorRuntime.async(function login$(_context) {
+      return regeneratorRuntime.async(function login$(_context6) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
               config = {
                 'headers': {
@@ -336,7 +546,7 @@ var _default = new _vuex["default"].Store({
                 }
               };
               url = 'http://localhost:8000/sanctum/csrf-cookie';
-              _context.next = 4;
+              _context6.next = 4;
               return regeneratorRuntime.awrap(_axios["default"].get(url, {}).then(function (response) {
                 config.headers["X-XSRF-TOKEN"] = response.config.headers['X-XSRF-TOKEN']; // config.headers["X-XSRF-TOKEN"] =
               }));
@@ -382,7 +592,7 @@ var _default = new _vuex["default"].Store({
 
             case 11:
             case "end":
-              return _context.stop();
+              return _context6.stop();
           }
         }
       });
@@ -413,16 +623,6 @@ var _default = new _vuex["default"].Store({
         context.commit('FETCH_SEARCH_HOME', response.data);
       });
     },
-    fetchCompanies: function fetchCompanies(context) {
-      var config = {
-        'headers': {}
-      };
-      var url = "http://localhost:8000/api/companies";
-
-      _axios["default"].get(url, config).then(function (response) {
-        context.commit('FETCH_COMPANIES', response.data);
-      });
-    },
     boardCreateUpdates: function boardCreateUpdates(context, details) {
       context.commit('CREATE_BOARD_UPDATE', details);
     },
@@ -441,6 +641,9 @@ var _default = new _vuex["default"].Store({
     },
     leadDeleteUpdates: function leadDeleteUpdates(context, details) {
       context.commit('DELETE_LEAD_UPDATE', details);
+    },
+    leadMoveUpdates: function leadMoveUpdates(context, details) {
+      context.commit('MOVE_LEAD_UPDATE', details);
     },
     swapBoards: function swapBoards(context, data) {
       context.commit('SWAP_BOARDS', data);
@@ -534,6 +737,15 @@ var _default = new _vuex["default"].Store({
         context.dispatch('alertImportantMessage', message);
       }
     }
+  }
+};
+
+var _default = new _vuex["default"].Store({
+  modules: {
+    login: moduleB,
+    home: moduleE,
+    companies: moduleF,
+    dashboard: moduleG
   }
 });
 
