@@ -12,9 +12,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+
         <link rel="stylesheet" href="/css/theme.css">
 
         <script src="jquery/1.9.1/jquery.js"></script>
+        <!-- <link rel="stylesheet" href="{{ mix('css/app.css') }} " > -->
     </head>
 
 <body>
@@ -26,7 +28,7 @@
     </div>
 
     <main id="content" class="site-content">
-        @yield('content')
+            @yield('content')
     </main>
 
 
@@ -95,7 +97,6 @@
 
     @livewireScripts
     <script src="{{ asset('js/app.js') }}"></script>
-
 </body>
 
 

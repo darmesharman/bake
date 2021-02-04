@@ -1,0 +1,50 @@
+section.add-company {
+    position: relative;
+
+    .page-content {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+
+        .steps-wrapper {
+            width: 25%;
+            margin: 0;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 0 4rem 4rem;
+        }
+
+        form {
+            width: calc(75%);
+            padding: 5rem 5rem 4rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .steps-block {
+                box-shadow: var(--shadow-l);
+                border-radius: 6px;
+
+                .block-content {
+                    padding: 4rem;
+                }
+
+                .block-footer {
+                    padding: 2rem 4rem;
+                    border-top: 1px solid var(--border);
+                }
+
+                .step:not(.show) {
+                    display: none;
+                }
+
+            }
+
+        }
+
+    }
+
+}

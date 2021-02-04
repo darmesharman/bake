@@ -12,7 +12,13 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SendSmsController;
 use App\Http\Controllers\VerifyPhoneController;
+
+use Illuminate\Support\Facades\Redirect;
+
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\PasswordController;
@@ -28,15 +34,45 @@ use App\Http\Controllers\PasswordController;
 |
 */
 
-Route::get('/vue/{any}', function () {
+
+
+// Route::mixddleware(['auth:sanctum'])->group( function($routes) {
+// });
+    // ->prefix('api')
+    // ->namespace('Api')
+    // ->as('api.')
+    // ->group(function ($request) {
+    // $value = session()->all();
+    // dd($routes);
+    // session()->put('_token', $value["_token"]);
+    // dd($value, $value ["_token"] , session()->all() );
+    // });
+// ->group(function () {
+    // you can write your routes here.
+// }
+
+
+Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/vue/dashboard', function (Request $request) {
+    // dd($request);
+    return Redirect::to('http://localhost:8000/vue/dashboard/1');
+    });
+    
+
+Route::post('/auth', [LoginController::class, 'login']);
+
+
+Route::get('/dashboard', function () {
     return view('home');
 })->where('any', '.*');
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');  
+// Route::get('/1', [HomeController::class, 'indexInertia'])->name('home.indexInertia');
+
+// Route::middleware(['auth:sanctum', 'verified', 'phone.verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
 Route::resource('leads', LeadController::class)->middleware(['auth', 'phone.verified']);
 Route::resource('companies', CompanyController::class);

@@ -1,0 +1,80 @@
+.article-block {
+    font-size: calc(var(--fz) * 1.1);
+
+    p, ul, ol {
+
+        b, strong {
+            font-weight: 500;
+        }
+
+    }
+
+    ul, ol {
+
+        li {
+            margin-bottom: 0.6em;
+            position: relative;
+            padding-left: 1.6rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+        }
+
+    }
+
+    ul {
+
+        li {
+
+            &:before {
+                content: '▪';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: var(--theme);
+            }
+
+        }
+
+    }
+
+    ol {
+        counter-reset: list;
+
+        li {
+            counter-increment: list;
+            padding-left: 2.5rem;
+
+            &:before {
+                content: counter(list) '.';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: var(--theme);
+            }
+
+        }
+
+    }
+
+    .wp-block-image {
+        width: 100%;
+        display: flex;
+        border-radius: 1rem;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+
+    }
+
+    blockquote {
+        margin-left: 0;
+        padding-left: 3rem;
+        border-left: 2px solid var(--theme);
+    }
+
+}

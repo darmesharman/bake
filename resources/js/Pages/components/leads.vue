@@ -1,13 +1,14 @@
 <template>
 
-    <div class="leads-inner-context" ref="innercontext" draggable @dragstart='startDrag1($event, lead, colid, index)' >
+    <div class="leads-inner-context" ref="innercontext" draggable @dragstart='startDrag1($event, lead)' >
+    {{lead.order}}
 
       <div class="leads-outer-outline">
         <div>
-          <div class="leads-outer-context-fh" :style="fhstyles"  @drop='onDrop1($event, lead.order, colid, index, 0)'  
+          <div class="leads-outer-context-fh" :style="fhstyles"  @drop='onDrop1($event, lead, 0)'  
           @dragover.prevent @dragenter.prevent >
           </div>
-          <div class="leads-outer-context-sh" :style="shstyles" @drop='onDrop1($event, lead.order, colid, index, 1)'  
+          <div class="leads-outer-context-sh" :style="shstyles" @drop='onDrop1($event, lead, 1)'  
           @dragover.prevent @dragenter.prevent >
           </div>
         </div>
@@ -15,11 +16,11 @@
 
       <div class="leads-container" >
 
-        <div v-if="this.$store.state.modifyingleadID==index && col_index==this.$store.state.modifyinleadcolID"  class="popup-context">
+        <div v-if="this.$store.state.dashboard.modifyingleadID==index && col_index==this.$store.state.dashboard.modifyinleadcolID"  class="popup-context">
           <div class="popup-container">
 
             <div  class="leads-content-row popup-text-container" >
-                <span  class="textarea" ref="formdesc" role="textbox" contenteditable>{{lead.description}}
+                <span  ref="formdesc" role="textbox" contenteditable>{{lead.description}}
                 </span>
             </div>
 
@@ -33,7 +34,7 @@
         <div v-else>
           <!-- v-else -->
           <div class="leads-content-row leads-content">
-            <span>
+            <span >
               {{lead.description}} 
               <!-- some basic leads with bigg and long text is writen in here -->
             </span>
@@ -84,104 +85,107 @@ export default {
     },
     editLead () {
       
-      console.log(this.col_index, this.$store.state.modifyinleadcolID)
+      console.log(this.col_index, this.$store.state.dashboard.modifyinleadcolID)
       
-      if(this.$store.state.modifyinleadcolID==-1)
-        this.$store.state.modifyinleadcolID = this.col_index
+      if(this.$store.state.dashboard.modifyinleadcolID==-1)
+        this.$store.state.dashboard.modifyinleadcolID = this.col_index
       else
-        this.$store.state.modifyinleadcolID= -1
+        this.$store.state.dashboard.modifyinleadcolID= -1
 
-      console.log(this.$store.state.modifyinleadcolID)
+      console.log(this.$store.state.dashboard.modifyinleadcolID)
 
-      if(this.$store.state.modifyingleadID==-1)
-        this.$store.state.modifyingleadID = this.index
+      if(this.$store.state.dashboard.modifyingleadID==-1)
+        this.$store.state.dashboard.modifyingleadID = this.index
       else
-        this.$store.state.modifyingleadID= -1
+        this.$store.state.dashboard.modifyingleadID= -1
 
     },
     saveLead(colidx, lead) {
       this.editLead()
       this.$store.dispatch('saveLead', {colidx: colidx, lead:lead, value: this.$refs.formdesc.innerText});
     },
-    startDrag1 (evt, item, colid, index)  {
+    startDrag1 (evt, item)  {
+        console.log(item)
         evt.dataTransfer.dropEffect = 'move'
         evt.dataTransfer.effectAllowed = 'move'
         evt.dataTransfer.setData('itemID', item.id)
-        evt.dataTransfer.setData('columnID', colid)
-        evt.dataTransfer.setData('leadIndex', index)
+        evt.dataTransfer.setData('boardID', item.board_id)
     },
-    onDrop1(evt, order, colid, index, ident) {
+    onDrop1(evt, lead, ident) {
         const itemID = evt.dataTransfer.getData('itemID')
-        const columnID = evt.dataTransfer.getData('columnID')
-        const leadIndex = evt.dataTransfer.getData('leadIndex')
-
-        var item2 = this.$store.state.items.find(item => item.id == colid)
-        // var lead = item.leads.find(item => item.id == list)
-        console.log(order)
-        console.log(this.$store.state.items[this.col_index].leads[index-1])
-        console.log(this.$store.state.items[this.col_index].leads[index])
-        console.log(this.$store.state.items[this.col_index].leads[index+1])
-
-        if(ident == 0)
-          if(typeof this.$store.state.items[this.col_index].leads[index-1] != undefined && 'order' in this.$store.state.items[this.col_index].leads[index-1])
-              order = this.$store.state.items[this.col_index].leads[index-1].order
-        else
-          if(typeof this.$store.state.items[this.col_index].leads[index+1] != undefined && 'order' in this.$store.state.items[this.col_index].leads[index+1])
-            order = this.$store.state.items[this.col_index].leads[index+1].order
-
-
-        console.log(order)
-        var item = this.$store.state.items.find(item => item.id == columnID)
-        var lead = item.leads.find(item => item.id == itemID)
-
-        // var item2 = this.$store.state.items.find(item => item.id == colid)
-        
-        // lead.id += item2.leads[item2.leads.length-1].id+1
-        var url = `http://localhost:8001/api/update_boards/${columnID}/${colid}/${this.lead.id}/${order}`;
-        let config = {'headers': {}}
-        axios.put(url, config);
+        const boardID = evt.dataTransfer.getData('boardID')
+        // const leadIndex = evt.dataTransfer.getData('leadIndex')
+        this.$store.dispatch('moveLead', {
+          target_item_id: itemID,
+          boardID:boardID,
+          lead: lead,
+          ident: ident
+        });
         
 
-        if(ident==1)
-        index+=1
-        item2.leads.splice(index, 0, lead)
-        item2.leads.join()
-        this.$delete(item.leads, leadIndex)
+
+        // // var lead = item.leads.find(item => item.id == list)
+
+        // if(ident == 0)
+        //   if(typeof this.$store.state.dashboard.dashboard.items[this.col_index].leads[index-1] != undefined && 'order' in this.$store.state.dashboard.dashboard.items[this.col_index].leads[index-1])
+        //       order = this.$store.state.dashboard.dashboard.items[this.col_index].leads[index-1].order
+        // else
+        //   if(typeof this.$store.state.dashboard.dashboard.items[this.col_index].leads[index+1] != undefined && 'order' in this.$store.state.dashboard.dashboard.items[this.col_index].leads[index+1])
+        //     order = this.$store.state.dashboard.dashboard.items[this.col_index].leads[index+1].order
+
+
+        // console.log(order)
+        // var item = this.$store.state.dashboard.dashboard.items.find(item => item.id == columnID)
+        // var lead = item.leads.find(item => item.id == itemID)
+
+        // // var item2 = this.$store.state.dashboard.dashboard.items.find(item => item.id == colid)
+        
+        // // lead.id += item2.leads[item2.leads.length-1].id+1
+        // var url = `http://localhost:8001/api/update_boards/${columnID}/${colid}/${this.lead.id}/${order}`;
+        // let config = {'headers': {}}
+        // axios.put(url, config);
+        
+
+        // // if(ident==1)
+        // // index+=1
+        // item2.leads.splice(index, 0, lead)
+        // item2.leads.join()
+        // this.$delete(item.leads, leadIndex)
     },
     loadFhstyles() {
         try {
-          if(this.$store.state.loaded)
-            return {height:this.$refs.innercontext.clientHeight/2+10+'px', margin:'-9px 5px 0 -13px'}
+          if(this.$store.state.dashboard.loaded)
+            return {height:this.$refs.innercontext.clientHeight/2+10+'px', margin:'-3px 0px 0px 0px'}
           }
           catch(error) {
             return 
           }
           return 
           },
-        loadShstyles() {
-          try {
-            if(this.$store.state.loaded)
-              return {height:this.$refs.innercontext.clientHeight/2.1+'px', margin:'0px 5px 0 -13px'}
-          }
-          catch(error) {
-            return 
-          }
-          return 
-      },
+    loadShstyles() {
+      try {
+        if(this.$store.state.dashboard.loaded)
+          return {height:this.$refs.innercontext.clientHeight/2.1+'px'}
+      }
+      catch(error) {
+        return 
+      }
+      return 
+    },
 
   },mounted(){
     this.$nextTick(function () {
-    this.$store.state.loaded = true
+    this.$store.state.dashboard.loaded = true
 
     // For invoking property from child element
-    // // this.$store.state.fhStyles[thi= []
-    // this.$store.state.fhStyles[this.index1] = [0, 1]
+    // // this.$store.state.dashboard.fhStyles[thi= []
+    // this.$store.state.dashboard.fhStyles[this.index1] = [0, 1]
     // var arr =  []
-    // this.$store.state.items[this.index1].leads.forEach((element, id) => {
+    // this.$store.state.dashboard.dashboard.items[this.index1].leads.forEach((element, id) => {
     //     arr.push( {height: this.$refs.innercontext.clientHeight/1.7+'px', margin:'-10px 0 0 -13px ' })
     //   });
-    //   this.$store.state.fhStyles[this.index1] = arr
-    //     this.$store.state.loaded = true
+    //   this.$store.state.dashboard.fhStyles[this.index1] = arr
+    //     this.$store.state.dashboard.loaded = true
     //     console.log(5555555555555)
     //     console.log(5555555555555)
     //     console.log(5555555555555)
@@ -203,6 +207,7 @@ export default {
     word-wrap: break-word;
     margin-bottom: 8px;
     /* box-shadow: .1px .2px black; */
+    margin:0 5px;
     
   }
   .leads-outer-outline {
@@ -217,7 +222,7 @@ export default {
     opacity: 0%;
     position: relative;
     display: block;
-    width: 117.5%;
+    width: 100%;
     background-color: red!important;
     /* display: none; */
   }
@@ -226,7 +231,7 @@ export default {
     opacity: 0%;
     position: relative;
     display: block;
-    width: 117.5%;
+    width: 100%;
     background-color: blue!important;
     /* display: none; */
   }
@@ -251,6 +256,7 @@ export default {
     /* padding:0 0 0 5px; */
   }
   .leads-content span{
+    word-wrap:break-word;
   }
 
   .btn-wrapper-node-modify {
@@ -281,9 +287,6 @@ export default {
   .leads-content-row {
     margin-top: 10px;
     min-height: 40px;
-    /* height: 40px; */
-    /* box-shadow: .5px .5px 1px .5px rgba(9,30,66,.25); */
-    
   } 
   .btn-wrapper-node-modify a:hover {
     cursor: pointer;
@@ -326,9 +329,6 @@ export default {
     height: 100%;
     z-index: 99;
   }
-  .popup-container {
-    position: relative;
-  }
   .popup-context {
   }
   .popup-text-container {
@@ -336,19 +336,16 @@ export default {
     height:auto;
     display:block;
     float: left;
-    width: 80%;
+    width: 90%;
   }
 
   .popup-text-container span  {
     display: block;
-
-    border-bottom: 1px dotted blue;
-    position: absolute;
+    padding-left:5px ;
     z-index: 15;
-    top: -4px;
     height: 100%;
-    padding:0 5px 0 5px ;
-    background-color: #fffeee;
+    background-color: #b4b6b81a;
+    transition:.8s;
     text-align: start;
     /* width: 100%;  */
     min-height: 40px;
@@ -356,6 +353,8 @@ export default {
     overflow: hidden;
     outline: none;
     border: none;
+    width:90%;
+    position: relative;
   }
   .popup-btn-save{
     position: relative;

@@ -44,7 +44,6 @@ io.on('connection', socket => {
   console.log('con')
   
   
-  
   socket.on('loaded', (data) => {
     socket_name = socket.id.toString().replace(/[^\w\s.&-]-/g, '').substring(0, 4)
     users[socket_name] = new User() 
@@ -164,8 +163,6 @@ io.on('connection', socket => {
       })
 
 
-          
-
           // users[socketname].data = []
         // });
       }
@@ -219,15 +216,7 @@ io.on('connection', socket => {
           
       //     }
       //   });
-
-     
-
-      
-        
-
-        
       // }
-
     
   
 }); 

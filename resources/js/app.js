@@ -11,8 +11,8 @@ import Vue from 'vue';
 import VueCookies from 'vue-cookies'
 Vue.use(VueCookies)
 
-// import socket from './sockets'
-// Vue.use(socket)
+import socket from './sockets'
+Vue.use(socket)
 
 import store from './store'
 Vue.use(store)
@@ -28,8 +28,8 @@ Vue.use(router)
 // import Header  from './Pages/header.vue'
 // let  Header = require ('./Pages/header.vue')
 
-Vue.component('header-component', require ('./Pages/header.vue').default);
-Vue.component('footer-component', require ('./Pages/footer.vue').default);
+// Vue.component('header-component', require ('./Pages/header.vue').default);
+// Vue.component('footer-component', require ('./Pages/footer.vue').default);
 
 // const routes = [
 //   { path: '/main', component: MainPage },
@@ -40,7 +40,7 @@ Vue.component('footer-component', require ('./Pages/footer.vue').default);
 new Vue({
     router,
     // components: { 'header': vue.Component(Header), },
-    el: '#app',
+    el: '#content',
     store,
     // ,socket
     // components: { Main, Home }
