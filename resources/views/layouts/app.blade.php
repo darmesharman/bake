@@ -68,7 +68,7 @@
                     <li class="d-tab show-s-window icon-help" data-sidebar="help">Помощь</li>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <li><button type="submit" class="d-tab icon-off">Выйти</buttona></li>
+                        <li><button type="submit" class="d-tab icon-off">Выйти</button></li>
                     </form>
                 </ul>
             </nav>
@@ -85,49 +85,22 @@
 
                     <div class="last-notifs">
 
-                        <a href="#" class="item">
-                            <div class="avatar">Ж</div>
+                        @foreach (Auth::user()->notifications as $notification)
+                        <a href="{{ $notification->link }}" class="item">
+                            {{-- <div class="avatar">Ж</div> --}}
+                            <img src="{{ asset($notification->icon) }}" alt="icon"
+                                class="avatar"
+                            >
                             <div class="text">
                                 <div class="header">
-                                    <h5>Жан Ильяс</h5>
+                                    <h5>{{ $notification->title }}</h5>
                                     <div class="time">12 минут назад</div>
                                 </div>
-                                <p>Оставил комментарий на фотографии</p>
+                                <p>{{ $notification->text }}</p>
                             </div>
                         </a>
+                        @endforeach
 
-                        <a href="#" class="item">
-                            <div class="avatar">Ж</div>
-                            <div class="text">
-                                <div class="header">
-                                    <h5>Жан Ильяс</h5>
-                                    <div class="time">12 минут назад</div>
-                                </div>
-                                <p>Оставил комментарий на фотографии</p>
-                            </div>
-                        </a>
-
-                        <a href="#" class="item">
-                            <div class="avatar">Ж</div>
-                            <div class="text">
-                                <div class="header">
-                                    <h5>Жан Ильяс</h5>
-                                    <div class="time">12 минут назад</div>
-                                </div>
-                                <p>Оставил комментарий на фотографии</p>
-                            </div>
-                        </a>
-
-                        <a href="#" class="item">
-                            <div class="avatar">Ж</div>
-                            <div class="text">
-                                <div class="header">
-                                    <h5>Жан Ильяс</h5>
-                                    <div class="time">12 минут назад</div>
-                                </div>
-                                <p>Оставил комментарий на фотографии</p>
-                            </div>
-                        </a>
 
                         <a href="/notifications" class="watch-all">Посмотреть все уведомления</a>
 

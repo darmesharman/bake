@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ProfileInformationUpdated;
 use App\Models\City;
 use App\Models\User;
 use App\Rules\NewPhoneNumber;
@@ -39,6 +40,8 @@ class UserProfileController extends Controller
     public function updateProfileInformation(Request $request, UpdatesUserProfileInformation $updater)
     {
         $updater->update($request->user(), $request->all());
+
+        ProfileInformationUpdated::dispatch($request->user());
 
         return back();
     }
