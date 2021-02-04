@@ -37,7 +37,7 @@ class CompanyController extends Controller
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
-        )->withCount('companyImages');
+        )->withCount('profileCompanyImages');
 
         if (request()->input('kategoriID')) {
             $companies = $companies->where('category_id', request()->input('kategoriID'));

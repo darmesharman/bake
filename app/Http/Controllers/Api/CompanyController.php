@@ -27,12 +27,12 @@ class CompanyController extends Controller
      */
     public function index()
     {
+
         $companies = Company::with(
             'category:id,name',
             'city:id,name',
             'profileCompanyImages',
-        )->withCount('companyImages');
-
+        )->withCount('profileCompanyImages');
         if (request()->input('kategoriID')) {
             $companies = $companies->where('category_id', request()->input('kategoriID'));
         }
@@ -58,7 +58,6 @@ class CompanyController extends Controller
         }
 
         $companies = $companies->get();
-
         return (new CompanyCollection($companies))->response();
     }
 
@@ -112,8 +111,15 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show(Request $request, $companyid)
     {
+        
+        $company = Company::where('id', '=', $companyid)->first();
+
+        $company->load(['comments' => function ($query) {
+            $query->with('user');
+        }, 'companySchedules', 'city']);
+
         return (new CompanyResource($company))->response();
     }
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\City;
@@ -13,11 +12,14 @@ use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Board;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller as BaseController;
 class HomeController extends BaseController
 {
-    public function index()
+    public function index(Request $reqeust)
     {
+        // dd($reqeust, session()->all()["_token"]);
+
         $categories = Category::select('id', 'name')->get();
         // $subCategories = SubCategory::select('id', 'name')->get();
 

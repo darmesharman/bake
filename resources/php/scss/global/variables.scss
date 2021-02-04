@@ -1,0 +1,358 @@
+$theme: #f91942;
+$d-theme: #44519e;
+$font: 'Rubik';
+
+$red: #ff1515;
+$blue: #152cff;
+$orange: #ffae00;
+$white-orange: #ffc64b;
+$green: #2DAF53;
+
+$instagram: #e1306c;
+$vk: #3f8ae0;
+$facebook: #1877f2;
+$telegram: #398dd8;
+$tik-tok: #fe2c55;
+$messenger: #0a7cff;
+$viber: #7360f2;
+$tumblr: #001935;
+$reddit: #FF4500;
+$ok: #ee8208;
+$pinterest: #e60023;
+$skype: #00a8e9;
+$twitter: #1da1f2;
+$youtube: #f00;
+$whatsapp: #00e676;
+$linkedin: #2977c9;
+$google-plus: #dd5044;
+
+:root {
+    --theme: #{$theme};
+    --dark: #{darken($theme, 10%)};
+    --light: #{lighten($theme, 10%)};
+    --focus: #{transparentize($theme, .7)};
+    --opacity: #{transparentize($theme, .9)};
+    --preloader: #{transparentize($theme, .1)};
+    --d-theme: #{$d-theme};
+    --d-dark: #{darken($d-theme, 10%)};
+    --d-light: #{lighten($d-theme, 10%)};
+    --d-focus: #{transparentize($d-theme, .7)};
+    --d-opacity: #{transparentize($d-theme, .9)};
+    --d-preloader: #{transparentize($d-theme, .1)};
+    --shadow-s: 0 0.66rem 2rem rgba(0,0,0,0.1);
+    --shadow-m: 0 1rem 3rem rgba(0,0,0,0.1);
+    --shadow-l: 0 1.5rem 4.5rem rgba(0,0,0,0.15);
+    --fz: 1.4rem;
+    --font: #{$font}, sans-serif;
+    --text: #000;
+    --text-focus: rgba(0, 0, 0, 0.4);
+    --text-op: #fff;
+    --grey: rgba(0,0,0,0.6);
+    --grey-l: rgba(0,0,0,0.45);
+    --placeholder: rgba(0,0,0,0.25);
+    --border: rgba(0,0,0,0.08);
+    --blur: blur(12px);
+    --padding: 5.8rem;
+    --padding-m: -5.8rem;
+    --article-container: calc(100vw - 75rem);
+    --container: 124rem;
+    --header: 7rem;
+    --d-header: 7rem;
+    --d-sidebar: 45rem;
+    --a-sidebar: 28rem;
+    --single-aside: 34rem;
+    --main-slider: calc(var(--container) * 0.37);
+    --main-slider-nav: 11rem;
+    --single-map: calc(var(--container) * 0.4);
+    --db-cont-p: 9rem;
+    --db-cont-p-m: -9rem;
+    --logo-mh: calc(var(--header) * 0.7);
+    --bg: #fff;
+    --bg-op: rgba(255, 255, 255, 0.7);
+    --grey-bg: rgba(162, 128, 128, 0.05);
+    --theme-blackout: #{transparentize($theme, 0.15)};
+    --d-theme-blackout: #{transparentize($d-theme, 0.15)};
+    --blackout: rgba(0,0,0,0.3);
+    --blackout-l: rgba(0,0,0,0.1);
+    --blackout-h: rgba(0,0,0,0.5);
+    --item-blackout: linear-gradient(transparent, rgba(0,0,0,0.8));
+    --block-p: 3.8rem;
+    --d-p: 3.2rem;
+    --section-p: calc((100vw - var(--container)) / 2);
+    --separation: 3rem;
+    --separation-m: -3rem;
+    --separation-s: calc(var(--separation) / 2);
+    --separation-sm: calc(var(--separation-m) / 2);
+    --separation-l: calc(var(--separation) * 2);
+    --separation-lm: calc(var(--separation-m) * 2);
+    --separation-h: calc(var(--separation) / 2);
+    --separation-hm: calc(var(--separation-m) / 2);
+    --grid-5-sep: 5;
+    --grid-4-sep: 4;
+    --grid-3-sep: 3;
+    --grid-2-sep: 2;
+    --xsm-block-p: calc(var(--block-p) * 0.4);
+    --sm-block-p: calc(var(--block-p) * 0.8);
+    --lg-block-p: calc(var(--block-p) * 1.2);
+    --ci-height: 22rem;
+    --cc-height: 26rem;
+    --bi-height: 46rem;
+    --file: 22rem;
+    --map-size: 38rem;
+    --cb-m-height: 40rem;
+    --cb-s-height: 16rem;
+    --bc-height: 48rem;
+    --cs-image-height: calc((var(--container) * 0.7) * 0.6);
+    --d-tab-size: 10rem;
+    --kanban-col: 32rem;
+
+    --green: #{$green};
+    --green-dark: #{darken($green, 10%)};
+    --green-light: #{lighten($green, 10%)};
+    --green-focus: #{transparentize($green, .7)};
+    --green-opacity: #{transparentize($green, .9)};
+
+    --red: #{$red};
+    --red-dark: #{darken($red, 10%)};
+    --red-light: #{lighten($red, 10%)};
+    --red-focus: #{transparentize($red, .7)};
+    --red-opacity: #{transparentize($red, .9)};
+
+    --blue: #{$blue};
+    --blue-dark: #{darken($blue, 10%)};
+    --blue-light: #{lighten($blue, 10%)};
+    --blue-focus: #{transparentize($blue, .7)};
+    --blue-opacity: #{transparentize($blue, .9)};
+
+    --orange: #{$orange};
+    --orange-dark: #{darken($orange, 10%)};
+    --orange-light: #{lighten($orange, 10%)};
+    --orange-focus: #{transparentize($orange, .7)};
+    --orange-opacity: #{transparentize($orange, .9)};
+
+    --slider-mask: rgba(0,0,0,0.3);
+    --btn-fz: 1.1rem;
+    --input: 5rem;
+    --input-sm: 4.5rem;
+    --input-lg: 5.5rem;
+    --field: 4.4rem;
+    --field-sm: 3.9rem;
+    --field-lg: 4.9rem;
+    --label-size: 1.3rem;
+    --subtitle-size: 1.2rem;
+    --icon-size: 3rem;
+    --icon-size-sm: 1.8rem;
+    --social-sep: 1rem;
+    --footer-sep: 3;
+
+    --instagram: #{$instagram};
+    --instagram-dark: #{darken($instagram, 10%)};
+    --instagram-light: #{lighten($instagram, 10%)};
+    --instagram-focus: #{transparentize($instagram, .7)};
+    --whatsapp: #{$whatsapp};
+    --whatsapp-dark: #{darken($whatsapp, 10%)};
+    --whatsapp-light: #{lighten($whatsapp, 10%)};
+    --whatsapp-focus: #{transparentize($whatsapp, .7)};
+    --vk: #{$vk};
+    --vk-dark: #{darken($vk, 10%)};
+    --vk-light: #{lighten($vk, 10%)};
+    --vk-focus: #{transparentize($vk, .7)};
+    --facebook: #{$facebook};
+    --facebook-dark: #{darken($facebook, 10%)};
+    --facebook-light: #{lighten($facebook, 10%)};
+    --facebook-focus: #{transparentize($facebook, .7)};
+    --telegram: #{$telegram};
+    --telegram-dark: #{darken($telegram, 10%)};
+    --telegram-light: #{lighten($telegram, 10%)};
+    --telegram-focus: #{transparentize($telegram, .7)};
+    --ok: #{$ok};
+    --ok-dark: #{darken($ok, 10%)};
+    --ok-light: #{lighten($ok, 10%)};
+    --ok-focus: #{transparentize($ok, .7)};
+    --tik-tok: #{$tik-tok};
+    --tik-tok-dark: #{darken($tik-tok, 10%)};
+    --tik-tok-light: #{lighten($tik-tok, 10%)};
+    --tik-tok-focus: #{transparentize($tik-tok, .7)};
+    --messenger: #{$messenger};
+    --messenger-dark: #{darken($messenger, 10%)};
+    --messenger-light: #{lighten($messenger, 10%)};
+    --messenger-focus: #{transparentize($messenger, .7)};
+    --viber: #{$viber};
+    --viber-dark: #{darken($viber, 10%)};
+    --viber-light: #{lighten($viber, 10%)};
+    --viber-focus: #{transparentize($viber, .7)};
+    --tumblr: #{$tumblr};
+    --tumblr-dark: #{darken($tumblr, 10%)};
+    --tumblr-light: #{lighten($tumblr, 10%)};
+    --tumblr-focus: #{transparentize($tumblr, .7)};
+    --reddit: #{$reddit};
+    --reddit-dark: #{darken($reddit, 10%)};
+    --reddit-light: #{lighten($reddit, 10%)};
+    --reddit-focus: #{transparentize($reddit, .7)};
+    --pinterest: #{$pinterest};
+    --pinterest-dark: #{darken($pinterest, 10%)};
+    --pinterest-light: #{lighten($pinterest, 10%)};
+    --pinterest-focus: #{transparentize($pinterest, .7)};
+    --skype: #{$skype};
+    --skype-dark: #{darken($skype, 10%)};
+    --skype-light: #{lighten($skype, 10%)};
+    --skype-focus: #{transparentize($skype, .7)};
+    --twitter: #{$twitter};
+    --twitter-dark: #{darken($twitter, 10%)};
+    --twitter-light: #{lighten($twitter, 10%)};
+    --twitter-focus: #{transparentize($twitter, .7)};
+    --youtube: #{$youtube};
+    --youtube-dark: #{darken($youtube, 10%)};
+    --youtube-light: #{lighten($youtube, 10%)};
+    --youtube-focus: #{transparentize($youtube, .7)};
+    --linkedin: #{$linkedin};
+    --linkedin-dark: #{darken($linkedin, 10%)};
+    --linkedin-light: #{lighten($linkedin, 10%)};
+    --linkedin-focus: #{transparentize($linkedin, .7)};
+    --google-plus: #{$google-plus};
+    --google-plus-dark: #{darken($google-plus, 10%)};
+    --google-plus-light: #{lighten($google-plus, 10%)};
+    --google-plus-focus: #{transparentize($google-plus, .7)};
+    --rating-1: rgba(255, 0, 0, 0.1);
+    --rating-2: rgba(255, 155, 0, 0.1);
+    --rating-3: rgba(255, 255, 0, 0.1);
+    --rating-4: rgba(155, 255, 0, 0.1);
+    --rating-5: rgba(0, 255, 0, 0.1);
+}
+
+.white {
+    --bg: #010913;
+    --bg-op: rgba(1, 9, 19, 0.7);
+    --grey-bg: rgba(255,255,255,0.05);
+    --text: #fff;
+    --text-focus: rgba(255, 255, 255, 0.4);
+    --text-op: #000;
+    --grey: rgba(255,255,255,0.65);
+    --grey-l: rgba(255,255,255,0.35);
+    --placeholder: rgba(255,255,255,0.25);
+    --border: rgba(255,255,255,0.25);
+
+    --orange: #{$white-orange};
+    --orange-dark: #{darken($white-orange, 10%)};
+    --orange-light: #{lighten($white-orange, 10%)};
+    --orange-focus: #{transparentize($white-orange, .7)};
+    --orange-opacity: #{transparentize($white-orange, .9)};
+
+    color: var(--text);
+
+    .breadcrumbs {
+
+        a, a:visited {
+            color: var(--text);
+            padding: 0.4em;
+            border-radius: 3px;
+            margin: -0.4em;
+
+            &:hover {
+                color: var(--text);
+                background: var(--border);
+            }
+
+        }
+
+    }
+
+}
+
+section.dashboard.second {
+    --theme: var(--d-theme);
+    --dark: var(--d-dark);
+    --light: var(--d-light);
+    --focus: var(--d-focus);
+    --opacity: var(--d-opacity);
+    --preloader: var(--d-preloader);
+    --theme-blackout: var(--theme-blackout);
+    --grey-bg: #efeff5;
+}
+
+.green-theme {
+    --theme: var(--green);
+    --dark: var(--green-dark);
+    --light: var(--green-light);
+    --focus: var(--green-focus);
+    --opacity: var(--green-opacity);
+}
+
+.red-theme {
+    --theme: var(--red);
+    --dark: var(--red-dark);
+    --light: var(--red-light);
+    --focus: var(--red-focus);
+    --opacity: var(--red-opacity);
+}
+
+.orange-theme {
+    --theme: var(--orange);
+    --dark: var(--orange-dark);
+    --light: var(--orange-light);
+    --focus: var(--orange-focus);
+    --opacity: var(--orange-opacity);
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 767px) {
+
+    :root {
+        --article-half: 100%;
+        --container: calc(100vw - 5rem);
+        --block-p: 3.6rem;
+        --btn-fz: 1.3rem;
+        --field: 4.5rem;
+        --field-sm: 4rem;
+        --field-lg: 5rem;
+        --fz: 1.7rem;
+        --info-sep: 1;
+        --def-sep: 1;
+        --services-sep: 1;
+        --contacts-sep: 1;
+    }
+
+    .sm-white {
+        --bg: #010913;
+        --bg-op: rgba(1, 9, 19, 0.7);
+        --grey-bg: rgba(255,255,255,0.05);
+        --text: #fff;
+        --grey: rgba(255,255,255,0.65);
+        --placeholder: rgba(255,255,255,0.4);
+        --border: rgba(255,255,255,0.1);
+        color: var(--text);
+    }
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    :root {
+        --article-half: 60%;
+        --container: calc(100vw - 16rem);
+        --block-p: 3.6rem;
+        --fz: 1.6rem;
+        --info-sep: 2;
+    }
+
+    .md-white {
+        --bg: #010913;
+        --bg-op: rgba(1, 9, 19, 0.7);
+        --grey-bg: rgba(255,255,255,0.05);
+        --text: #fff;
+        --grey: rgba(255,255,255,0.65);
+        --placeholder: rgba(255,255,255,0.4);
+        --border: rgba(255,255,255,0.1);
+        color: var(--text);
+    }
+
+}
+
+@media (max-width: 1399px) and (min-width: 1024px) {
+    
+    :root {
+        --fz: 1.6rem;
+    }
+
+}

@@ -1,5 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<template>
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="/css/theme.css">
+
+        <link rel="stylesheet" href="{{ mix('css/app.css') }} " >
+
+    </head>
+    <body class="font-sans antialiased">
+    
+   @include('layouts.initheader')
+
+    <div class="notifications">
+
+    </div>
+        <div id="content">
+        
+                
+              @yield('content')
+              
+            
+        </div>
+
+        
     <footer id="colophon" class="site-footer bt">
 
         <div class="container">
@@ -43,9 +72,7 @@
 
             <div class="footer-bottom df jcsb aic pt3 pb3 bt">
 
-                <p class="grey-text mb0">© 
-                    <!-- <?php echo date('Y'); ?> MyKid. Все права защищены -->
-                    </p>
+                <p class="grey-text mb0">© <?php echo date('Y'); ?> MyKid. Все права защищены</p>
 
                 <a class="developer text" href="https://init.kz" target="_blank" rel="noopener noreferrer">Сайт
 
@@ -55,29 +82,14 @@
 
         </div>
 
+
+
+
+
+
+
     </footer>
-</template>
 
-
-<script>
-
-    export default {
-        props: {
-
-        },
-        components: {
-        },
-        sockets: {
-           
-        },
-        methods: {
-         
-      },
-  mounted() {
-  }
-}
-</script>
-
-<style scoped>
-
-</style>
+        <script  src="{{ mix('js/app.js') }}" defer></script>
+    </body>
+</html>

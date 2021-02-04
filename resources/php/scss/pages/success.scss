@@ -1,0 +1,15 @@
+.success-block {
+    height: calc(100vh - var(--d-tab-size) - 3rem - var(--padding));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-bar {
+
+    .success-block {
+        height: calc(100vh - var(--d-tab-size) - 3rem - var(--padding) - 32px);
+    }
+    
+
+}

@@ -1,125 +1,40 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ({
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
-<<<<<<< HEAD
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/axios-cookiejar-support/noop.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios-cookiejar-support/noop.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+function noopEnableCookieJarSupport (instance) {
+  return instance;
+}
+
+module.exports = noopEnableCookieJarSupport;
+
+
+/***/ }),
+
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-=======
-/***/ "./node_modules/alpinejs/dist/alpine.js":
-/*!**********************************************!*\
-  !*** ./node_modules/alpinejs/dist/alpine.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-(function (global, factory) {
-   true ? module.exports = factory() :
-  undefined;
-}(this, (function () { 'use strict';
-
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/lib/axios.js");
 
@@ -1130,7 +1045,6 @@ defaults.headers = {
   }
 };
 
-<<<<<<< HEAD
 utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
   defaults.headers[method] = {};
 });
@@ -1140,14 +1054,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-=======
-/***/ "./node_modules/axios/index.js":
-/*!*************************************!*\
-  !*** ./node_modules/axios/index.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 
 /***/ }),
@@ -1156,55 +1062,23 @@ module.exports = defaults;
 /*!************************************************!*\
   !*** ./node_modules/axios/lib/helpers/bind.js ***!
   \************************************************/
-<<<<<<< HEAD
 /***/ ((module) => {
-=======
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 "use strict";
 
 
-<<<<<<< HEAD
 module.exports = function bind(fn, thisArg) {
   return function wrap() {
     var args = new Array(arguments.length);
     for (var i = 0; i < args.length; i++) {
       args[i] = arguments[i];
-=======
-var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
-var settle = __webpack_require__(/*! ./../core/settle */ "./node_modules/axios/lib/core/settle.js");
-var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ "./node_modules/axios/lib/helpers/buildURL.js");
-var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ "./node_modules/axios/lib/core/buildFullPath.js");
-var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "./node_modules/axios/lib/helpers/parseHeaders.js");
-var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ "./node_modules/axios/lib/helpers/isURLSameOrigin.js");
-var createError = __webpack_require__(/*! ../core/createError */ "./node_modules/axios/lib/core/createError.js");
-
-module.exports = function xhrAdapter(config) {
-  return new Promise(function dispatchXhrRequest(resolve, reject) {
-    var requestData = config.data;
-    var requestHeaders = config.headers;
-
-    if (utils.isFormData(requestData)) {
-      delete requestHeaders['Content-Type']; // Let the browser set it
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
     }
     return fn.apply(thisArg, args);
   };
 };
 
 
-<<<<<<< HEAD
 /***/ }),
-=======
-    // HTTP basic authentication
-    if (config.auth) {
-      var username = config.auth.username || '';
-      var password = config.auth.password || '';
-      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
-    }
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 /***/ "./node_modules/axios/lib/helpers/buildURL.js":
 /*!****************************************************!*\
@@ -1253,55 +1127,10 @@ module.exports = function buildURL(url, params, paramsSerializer) {
         return;
       }
 
-<<<<<<< HEAD
       if (utils.isArray(val)) {
         key = key + '[]';
       } else {
         val = [val];
-=======
-      reject(createError('Request aborted', config, 'ECONNABORTED', request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle low level network errors
-    request.onerror = function handleError() {
-      // Real errors are hidden from us by the browser
-      // onerror should only fire if it's a network error
-      reject(createError('Network Error', config, null, request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle timeout
-    request.ontimeout = function handleTimeout() {
-      var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';
-      if (config.timeoutErrorMessage) {
-        timeoutErrorMessage = config.timeoutErrorMessage;
-      }
-      reject(createError(timeoutErrorMessage, config, 'ECONNABORTED',
-        request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Add xsrf header
-    // This is only done if running in a standard browser environment.
-    // Specifically not if we're in a web worker, or react-native.
-    if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
-
-      // Add xsrf header
-      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
-        cookies.read(config.xsrfCookieName) :
-        undefined;
-
-      if (xsrfValue) {
-        requestHeaders[config.xsrfHeaderName] = xsrfValue;
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
       }
 
       utils.forEach(val, function parseValue(v) {
@@ -1323,14 +1152,8 @@ module.exports = function buildURL(url, params, paramsSerializer) {
       url = url.slice(0, hashmarkIndex);
     }
 
-<<<<<<< HEAD
     url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
   }
-=======
-    if (requestData === undefined) {
-      requestData = null;
-    }
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   return url;
 };
@@ -1338,20 +1161,11 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/axios/lib/helpers/combineURLs.js":
 /*!*******************************************************!*\
   !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
   \*******************************************************/
 /***/ ((module) => {
-=======
-/***/ "./node_modules/axios/lib/axios.js":
-/*!*****************************************!*\
-  !*** ./node_modules/axios/lib/axios.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 "use strict";
 
@@ -1386,7 +1200,6 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
 module.exports = (
   utils.isStandardBrowserEnv() ?
 
-<<<<<<< HEAD
   // Standard browser envs support document.cookie
     (function standardBrowserEnv() {
       return {
@@ -1397,9 +1210,6 @@ module.exports = (
           if (utils.isNumber(expires)) {
             cookie.push('expires=' + new Date(expires).toGMTString());
           }
-=======
-module.exports = axios;
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
           if (utils.isString(path)) {
             cookie.push('path=' + path);
@@ -1413,17 +1223,8 @@ module.exports = axios;
             cookie.push('secure');
           }
 
-<<<<<<< HEAD
           document.cookie = cookie.join('; ');
         },
-=======
-/***/ "./node_modules/axios/lib/cancel/Cancel.js":
-/*!*************************************************!*\
-  !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
         read: function read(name) {
           var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
@@ -1496,20 +1297,11 @@ module.exports = function isAxiosError(payload) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
 /*!***********************************************************!*\
   !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
   \***********************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-=======
-/***/ "./node_modules/axios/lib/cancel/CancelToken.js":
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 "use strict";
 
@@ -1584,20 +1376,11 @@ module.exports = (
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
 /*!***************************************************************!*\
   !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
   \***************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-=======
-/***/ "./node_modules/axios/lib/cancel/isCancel.js":
-/*!***************************************************!*\
-  !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 "use strict";
 
@@ -1616,20 +1399,11 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
 /*!********************************************************!*\
   !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
   \********************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-=======
-/***/ "./node_modules/axios/lib/core/Axios.js":
-/*!**********************************************!*\
-  !*** ./node_modules/axios/lib/core/Axios.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 "use strict";
 
@@ -1686,7 +1460,6 @@ module.exports = function parseHeaders(headers) {
   return parsed;
 };
 
-<<<<<<< HEAD
 
 /***/ }),
 
@@ -1695,41 +1468,6 @@ module.exports = function parseHeaders(headers) {
   !*** ./node_modules/axios/lib/helpers/spread.js ***!
   \**************************************************/
 /***/ ((module) => {
-=======
-// Provide aliases for supported request methods
-utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
-  /*eslint func-names:0*/
-  Axios.prototype[method] = function(url, config) {
-    return this.request(utils.merge(config || {}, {
-      method: method,
-      url: url
-    }));
-  };
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  /*eslint func-names:0*/
-  Axios.prototype[method] = function(url, data, config) {
-    return this.request(utils.merge(config || {}, {
-      method: method,
-      url: url,
-      data: data
-    }));
-  };
-});
-
-module.exports = Axios;
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/lib/core/InterceptorManager.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 "use strict";
 
@@ -1763,56 +1501,16 @@ module.exports = function spread(callback) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/axios/lib/utils.js":
 /*!*****************************************!*\
   !*** ./node_modules/axios/lib/utils.js ***!
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-=======
-/***/ "./node_modules/axios/lib/core/buildFullPath.js":
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 "use strict";
 
 
-<<<<<<< HEAD
 var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
-=======
-var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ "./node_modules/axios/lib/helpers/isAbsoluteURL.js");
-var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ "./node_modules/axios/lib/helpers/combineURLs.js");
-
-/**
- * Creates a new URL by combining the baseURL with the requestedURL,
- * only when the requestedURL is not already an absolute URL.
- * If the requestURL is absolute, this function returns the requestedURL untouched.
- *
- * @param {string} baseURL The base URL
- * @param {string} requestedURL Absolute or relative URL to combine
- * @returns {string} The combined full path
- */
-module.exports = function buildFullPath(baseURL, requestedURL) {
-  if (baseURL && !isAbsoluteURL(requestedURL)) {
-    return combineURLs(baseURL, requestedURL);
-  }
-  return requestedURL;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/lib/core/createError.js":
-/*!****************************************************!*\
-  !*** ./node_modules/axios/lib/core/createError.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 /*global toString:true*/
 
@@ -1826,34 +1524,9 @@ var toString = Object.prototype.toString;
  * @param {Object} val The value to test
  * @returns {boolean} True if value is an Array, otherwise false
  */
-<<<<<<< HEAD
 function isArray(val) {
   return toString.call(val) === '[object Array]';
 }
-=======
-module.exports = function createError(message, config, code, request, response) {
-  var error = new Error(message);
-  return enhanceError(error, config, code, request, response);
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/lib/core/dispatchRequest.js":
-/*!********************************************************!*\
-  !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
-var transformData = __webpack_require__(/*! ./transformData */ "./node_modules/axios/lib/core/transformData.js");
-var isCancel = __webpack_require__(/*! ../cancel/isCancel */ "./node_modules/axios/lib/cancel/isCancel.js");
-var defaults = __webpack_require__(/*! ../defaults */ "./node_modules/axios/lib/defaults.js");
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 /**
  * Determine if a value is undefined
@@ -1912,7 +1585,6 @@ function isArrayBufferView(val) {
   return result;
 }
 
-<<<<<<< HEAD
 /**
  * Determine if a value is a String
  *
@@ -1922,14 +1594,6 @@ function isArrayBufferView(val) {
 function isString(val) {
   return typeof val === 'string';
 }
-=======
-/***/ "./node_modules/axios/lib/core/enhanceError.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/axios/lib/core/enhanceError.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 /**
  * Determine if a value is a Number
@@ -1966,7 +1630,6 @@ function isPlainObject(val) {
   return prototype === null || prototype === Object.prototype;
 }
 
-<<<<<<< HEAD
 /**
  * Determine if a value is a Date
  *
@@ -1976,28 +1639,6 @@ function isPlainObject(val) {
 function isDate(val) {
   return toString.call(val) === '[object Date]';
 }
-=======
-  error.toJSON = function() {
-    return {
-      // Standard
-      message: this.message,
-      name: this.name,
-      // Microsoft
-      description: this.description,
-      number: this.number,
-      // Mozilla
-      fileName: this.fileName,
-      lineNumber: this.lineNumber,
-      columnNumber: this.columnNumber,
-      stack: this.stack,
-      // Axios
-      config: this.config,
-      code: this.code
-    };
-  };
-  return error;
-};
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 /**
  * Determine if a value is a File
@@ -2019,7 +1660,6 @@ function isBlob(val) {
   return toString.call(val) === '[object Blob]';
 }
 
-<<<<<<< HEAD
 /**
  * Determine if a value is a Function
  *
@@ -2029,14 +1669,6 @@ function isBlob(val) {
 function isFunction(val) {
   return toString.call(val) === '[object Function]';
 }
-=======
-/***/ "./node_modules/axios/lib/core/mergeConfig.js":
-/*!****************************************************!*\
-  !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 /**
  * Determine if a value is a Stream
@@ -2095,7 +1727,6 @@ function isStandardBrowserEnv() {
   );
 }
 
-<<<<<<< HEAD
 /**
  * Iterate over an Array or an Object invoking a function for each item.
  *
@@ -2163,25 +1794,9 @@ function merge(/* obj1, obj2, obj3, ... */) {
       result[key] = val.slice();
     } else {
       result[key] = val;
-=======
-  var valueFromConfig2Keys = ['url', 'method', 'params', 'data'];
-  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy'];
-  var defaultToConfig2Keys = [
-    'baseURL', 'url', 'transformRequest', 'transformResponse', 'paramsSerializer',
-    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
-    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress',
-    'maxContentLength', 'validateStatus', 'maxRedirects', 'httpAgent',
-    'httpsAgent', 'cancelToken', 'socketPath'
-  ];
-
-  utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
     }
   }
 
-<<<<<<< HEAD
   for (var i = 0, l = arguments.length; i < l; i++) {
     forEach(arguments[i], assignValue);
   }
@@ -2202,23 +1817,11 @@ function extend(a, b, thisArg) {
       a[key] = bind(val, thisArg);
     } else {
       a[key] = val;
-=======
-  utils.forEach(mergeDeepPropertiesKeys, function mergeDeepProperties(prop) {
-    if (utils.isObject(config2[prop])) {
-      config[prop] = utils.deepMerge(config1[prop], config2[prop]);
-    } else if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (utils.isObject(config1[prop])) {
-      config[prop] = utils.deepMerge(config1[prop]);
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
     }
   });
   return a;
 }
 
-<<<<<<< HEAD
 /**
  * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
  *
@@ -2259,237 +1862,6 @@ module.exports = {
 
 
 /***/ }),
-=======
-  utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
-    }
-  });
-
-  var axiosKeys = valueFromConfig2Keys
-    .concat(mergeDeepPropertiesKeys)
-    .concat(defaultToConfig2Keys);
-
-  var otherKeys = Object
-    .keys(config2)
-    .filter(function filterAxiosKeys(key) {
-      return axiosKeys.indexOf(key) === -1;
-    });
-
-  utils.forEach(otherKeys, function otherKeysDefaultToConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
-    }
-  });
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/footer.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/footer.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {},
-  components: {},
-  sockets: {},
-  methods: {},
-  mounted: function mounted() {}
-});
-
-/***/ }),
-
-<<<<<<< HEAD
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-=======
-/***/ "./node_modules/axios/lib/core/settle.js":
-/*!***********************************************!*\
-  !*** ./node_modules/axios/lib/core/settle.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {},
-  components: {},
-  sockets: {},
-  methods: {},
-  mounted: function mounted() {}
-});
-
-/***/ }),
 
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
@@ -2502,8 +1874,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_cookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-cookies.js");
 /* harmony import */ var vue_cookies__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_cookies__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
+/* harmony import */ var _sockets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sockets */ "./resources/js/sockets.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
  // import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
@@ -2513,34 +1886,34 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 // Vue.use(PortalVue);
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__.default.use((vue_cookies__WEBPACK_IMPORTED_MODULE_0___default())); // import socket from './sockets'
-// Vue.use(socket)
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use((vue_cookies__WEBPACK_IMPORTED_MODULE_0___default()));
+
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use(_sockets__WEBPACK_IMPORTED_MODULE_2__.default);
+
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use(_store__WEBPACK_IMPORTED_MODULE_3__.default);
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__.default.use(_store__WEBPACK_IMPORTED_MODULE_2__.default);
-
-
-vue__WEBPACK_IMPORTED_MODULE_1__.default.use(_router__WEBPACK_IMPORTED_MODULE_3__.default); // const app = document.getElementById('app');
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use(_router__WEBPACK_IMPORTED_MODULE_4__.default); // const app = document.getElementById('app');
 // const Page1 = r => require.ensure([], () => r(require('./routes/Page1.vue')))
 // import Header  from './Pages/header.vue'
 // let  Header = require ('./Pages/header.vue')
-
-vue__WEBPACK_IMPORTED_MODULE_1__.default.component('header-component', __webpack_require__(/*! ./Pages/header.vue */ "./resources/js/Pages/header.vue").default);
-vue__WEBPACK_IMPORTED_MODULE_1__.default.component('footer-component', __webpack_require__(/*! ./Pages/footer.vue */ "./resources/js/Pages/footer.vue").default); // const routes = [
+// Vue.component('header-component', require ('./Pages/header.vue').default);
+// Vue.component('footer-component', require ('./Pages/footer.vue').default);
+// const routes = [
 //   { path: '/main', component: MainPage },
 //   { path: '/page1', component: Page1 }
 // ]
-// let Home = require('./Pages/home.vue') 
+// let Home = require('./Pages/home.vue')
 
 new vue__WEBPACK_IMPORTED_MODULE_1__.default({
-  router: _router__WEBPACK_IMPORTED_MODULE_3__.default,
+  router: _router__WEBPACK_IMPORTED_MODULE_4__.default,
   // components: { 'header': vue.Component(Header), },
-  el: '#app',
-  store: _store__WEBPACK_IMPORTED_MODULE_2__.default // ,socket
+  el: '#content',
+  store: _store__WEBPACK_IMPORTED_MODULE_3__.default // ,socket
   // components: { Main, Home }
 
 }); // import Vue from 'vue'
-// import App from './App.vue' 
+// import App from './App.vue'
 // import store from './store'
 // const NotFound = { template: '<div app="id"> <p>Page not found</p></div>' }
 // import VueSocketIO from 'vue-socket.io';
@@ -2616,23 +1989,6 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-<<<<<<< HEAD
-=======
-module.exports = function settle(resolve, reject, response) {
-  var validateStatus = response.config.validateStatus;
-  if (!validateStatus || validateStatus(response.status)) {
-    resolve(response);
-  } else {
-    reject(createError(
-      'Request failed with status code ' + response.status,
-      response.config,
-      null,
-      response.request,
-      response
-    ));
-  }
-};
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -2652,20 +2008,58 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-<<<<<<< HEAD
+/***/ "./resources/js/repository.js":
+/*!************************************!*\
+  !*** ./resources/js/repository.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      session: null,
+      login: null
+    };
+  },
+  createSession: function createSession() {},
+  login: function login(params) {
+    var _this = this;
+
+    var url = 'http://localhost:8000/api/auth';
+    var config = {
+      'headers': {
+        'Accept': 'application/json',
+        'x-csrf-token': params.token
+      }
+    };
+    var data = params.data;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data, config).then(function (response) {
+      _this.login = response;
+    }); // return api.post('http://localhost:8000/api/auth', params);
+  },
+  logout: function logout() {
+    return api["delete"]('http://localhost:8000/logout');
+  },
+  getPosts: function getPosts() {
+    return api.get("http://localhost:8000/api/posts");
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-=======
-/***/ "./node_modules/axios/lib/core/transformData.js":
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/core/transformData.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -2678,48 +2072,18 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default); // const Home = require('./Pages/home.vue')
 // const Main = require('./Pages/main.vue')
+// const Home = r => require.ensure([], () => r(require('./Pages/home.vue')))
+// const Login = r => require.ensure([], () => r(require('./Pages/login.vue')))
+// const Register = r => require.ensure([], () => r(require('./Pages/register.vue')))
+// const Company = r => require.ensure([], () => r(require('./Pages/company.vue')))
+// const Companies = r => require.ensure([], () => r(require('./Pages/companies.vue')))
+// const Blog = r => require.ensure([], () => r(require('./Pages/blog.vue')))
+// const Map = r => require.ensure([], () => r(require('./Pages/map.vue')))
+// const Contact = r => require.ensure([], () => r(require('./Pages/contact.vue')))
 
-var Home = function Home(r) {
-  return __webpack_require__.e(/*! require.ensure */ "resources_js_Pages_home_vue").then((function () {
-    return r(__webpack_require__(/*! ./Pages/home.vue */ "./resources/js/Pages/home.vue"));
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
-
-var Company = function Company(r) {
-  return __webpack_require__.e(/*! require.ensure */ "resources_js_Pages_ompany_vue").then((function () {
-    return r(__webpack_require__(/*! ./Pages/сompany.vue */ "./resources/js/Pages/сompany.vue"));
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
-
-<<<<<<< HEAD
-var Blog = function Blog(r) {
-  return __webpack_require__.e(/*! require.ensure */ "resources_js_Pages_blog_vue").then((function () {
-    return r(__webpack_require__(/*! ./Pages/blog.vue */ "./resources/js/Pages/blog.vue"));
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
-=======
-/***/ }),
-
-/***/ "./node_modules/axios/lib/defaults.js":
-/*!********************************************!*\
-  !*** ./node_modules/axios/lib/defaults.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
-
-var Map = function Map(r) {
-  return __webpack_require__.e(/*! require.ensure */ "resources_js_Pages_map_vue").then((function () {
-    return r(__webpack_require__(/*! ./Pages/map.vue */ "./resources/js/Pages/map.vue"));
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
-
-var Contact = function Contact(r) {
-  return __webpack_require__.e(/*! require.ensure */ "resources_js_Pages_contact_vue").then((function () {
-    return r(__webpack_require__(/*! ./Pages/contact.vue */ "./resources/js/Pages/contact.vue"));
+var Dashboard = function Dashboard(r) {
+  return __webpack_require__.e(/*! require.ensure */ "resources_js_Pages_dashboard_vue").then((function () {
+    return r(__webpack_require__(/*! ./Pages/dashboard.vue */ "./resources/js/Pages/dashboard.vue"));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
@@ -2727,27 +2091,49 @@ var Contact = function Contact(r) {
   mode: 'history',
   path: '/vue/',
   routes: [{
-    path: '/vue/home',
-    name: 'main',
-    component: Home
-  }, {
-    path: '/vue/companies',
-    name: 'companies',
-    component: Company
-  }, {
-    path: '/vue/blog',
-    name: 'blog',
-    component: Blog
-  }, {
-    path: '/vue/maps',
-    name: 'maps',
-    component: Map
-  }, {
-    path: '/vue/contacts',
-    name: 'contacts',
-    component: Contact
+    path: '/dashboard',
+    name: 'dashboard',
+    component: Dashboard
   }] // root:'/',
 
+}));
+
+/***/ }),
+
+/***/ "./resources/js/sockets.js":
+/*!*********************************!*\
+  !*** ./resources/js/sockets.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/wrapper.mjs");
+/* harmony import */ var vue_socket_io__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-socket.io */ "./node_modules/vue-socket.io/dist/vue-socketio.js");
+/* harmony import */ var vue_socket_io__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_socket_io__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+
+
+
+
+var options = {
+  debug: false,
+  transports: ['websocket'],
+  //, 'polling', 'flashsocket'
+  'load-on-start': false
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new (vue_socket_io__WEBPACK_IMPORTED_MODULE_1___default())({
+  debug: true,
+  connection: (0,socket_io_client__WEBPACK_IMPORTED_MODULE_0__.default)('http://localhost:4000', options),
+  //options object is Optional
+  vuex: {
+    store: _store__WEBPACK_IMPORTED_MODULE_2__.default,
+    actionPrefix: "SOCKET_",
+    mutationPrefix: "SOCKET_"
+  }
 }));
 
 /***/ }),
@@ -2763,19 +2149,197 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.common.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuex__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.common.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vuex__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios_cookiejar_support__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios-cookiejar-support */ "./node_modules/axios-cookiejar-support/noop.js");
+/* harmony import */ var axios_cookiejar_support__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios_cookiejar_support__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var tough_cookie__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tough-cookie */ "./node_modules/tough-cookie/lib/cookie.js");
+/* harmony import */ var _repository__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./repository */ "./resources/js/repository.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___default()));
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new (vuex__WEBPACK_IMPORTED_MODULE_1___default().Store)({
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+
+axios_cookiejar_support__WEBPACK_IMPORTED_MODULE_3___default()((axios__WEBPACK_IMPORTED_MODULE_1___default()));
+vue__WEBPACK_IMPORTED_MODULE_5__.default.use((vuex__WEBPACK_IMPORTED_MODULE_6___default()));
+
+/* 
+login: moduleB,
+home: moduleE,
+companies: moduleF,
+dashboard: moduleG,
+ */
+
+var moduleB = {
+  state: {
+    user: sessionStorage.user ? JSON.parse(sessionStorage.getItem('user')) : null
+  },
+  mutations: {
+    SET_USER: function SET_USER(state, user) {
+      state.user = user;
+    }
+  },
+  actions: {
+    login: function login(context, user) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var config, url, cookieJar, instance;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                config = {
+                  'headers': {
+                    'Accept': 'application/json',
+                    'Content-Type': 'multipart/form-data'
+                  }
+                };
+                url = 'http://localhost:8000/sanctum/csrf-cookie';
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, {}).then(function (response) {
+                  config.headers["X-XSRF-TOKEN"] = response.config.headers['X-XSRF-TOKEN'];
+                });
+
+              case 4:
+                cookieJar = new tough_cookie__WEBPACK_IMPORTED_MODULE_4__.CookieJar();
+                instance = axios__WEBPACK_IMPORTED_MODULE_1___default().create({
+                  jar: cookieJar,
+                  withCredentials: true
+                });
+                instance.defaults.headers['X-CSRF-TOKEN'] = config.headers["X-XSRF-TOKEN"];
+                instance.defaults.headers['Accept'] = 'application/json';
+                instance.post('http://localhost:8000/auth', user).then(function (response) {
+                  console.log(response);
+                });
+                context.commit('SET_USER', user);
+                sessionStorage.user = JSON.stringify(user);
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+};
+var moduleE = {
+  state: {
+    searchForm: {
+      cityID: -1,
+      destrictID: -1,
+      categoryID: -1
+    },
+    companies: [],
+    categories: [],
+    cities: [],
+    districts: [],
+    blogs: [],
+    hashome_data: false
+  },
+  mutations: {
+    FETCH_HOME: function FETCH_HOME(state, data) {
+      state.hashome_data = true;
+      state.companies = data.companies;
+      state.categories = data.companies;
+      state.cities = data.cities;
+      state.districts = data.districts;
+      state.blogs = data.blogs;
+    }
+  },
+  actions: {
+    fetchHome: function fetchHome(context) {
+      var url = "http://localhost:8000/api/home";
+      var config = {
+        'headers': {}
+      };
+      var data = {};
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, data, config).then(function (response) {
+        context.commit('FETCH_HOME', response.data);
+      });
+    }
+  }
+};
+var moduleF = {
+  state: {
+    hascompanies_data: false,
+    data: [],
+    currentcompany: null
+  },
+  mutations: {
+    FETCH_COMPANIES: function FETCH_COMPANIES(state, data) {
+      state.hascompanies_data = true;
+      state.data = data.companies;
+    },
+    FETCH_COMPANY: function FETCH_COMPANY(state, data) {
+      state.currentcompany = data.company;
+    }
+  },
+  actions: {
+    fetchCompanies: function fetchCompanies(context) {
+      var config = {
+        'headers': {}
+      };
+      var url = "http://localhost:8000/api/companies";
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, config).then(function (response) {
+        console.log(response.data);
+        context.commit('FETCH_COMPANIES', response.data);
+      });
+    },
+    fetchCompany: function () {
+      var _fetchCompany = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(context, id) {
+        var config, url;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                config = {
+                  'headers': {}
+                };
+                url = "http://localhost:8000/api/companies/".concat(id);
+                _context2.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, config).then(function (response) {
+                  console.log(response.data);
+                  context.commit('FETCH_COMPANY', response.data);
+                });
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function fetchCompany(_x, _x2) {
+        return _fetchCompany.apply(this, arguments);
+      }
+
+      return fetchCompany;
+    }()
+  }
+};
+var moduleG = {
   state: {
     connect: false,
     message: null,
     socketid: null,
     lastupdate: null,
-    items: null,
+    items: [],
     addingboard: false,
     newleaddescription: 'none',
     medifylead: [],
@@ -2790,26 +2354,11 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
     isdraggable: false,
     leadadding: false,
     newleadcontent: '',
-    updates: null,
-    hascompanies_data: false,
-    hashome_data: false,
-    companies: [],
-    home: {
-      searchForm: {
-        cityID: -1,
-        destrictID: -1,
-        categoryID: -1
-      },
-      companies: [],
-      categories: [],
-      cities: [],
-      districts: [],
-      blogs: []
-    }
+    token: null,
+    updates: null
   },
   mutations: {
     SOCKET_CONNECT: function SOCKET_CONNECT(state, status) {
-      console.log(55);
       state;
       status;
       state.connect = true;
@@ -2840,6 +2389,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       state.items[data.colidx].leads[index].description = data.value;
     },
     CREATE_BOARD: function CREATE_BOARD(state, data) {
+      console.log(data);
       state.items.push({
         id: data.id,
         title: data.title,
@@ -2874,7 +2424,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
     },
     CREATE_BOARD_UPDATE: function CREATE_BOARD_UPDATE(state, details) {
       // let index = state.items.findIndex(y => y.id == data.item.id)
-      state.items.push({
+      if (!state.items.some(function (e) {
+        return e.id == details.id;
+      })) state.items.push({
         id: details.id,
         order: details.order,
         title: details.title,
@@ -2892,17 +2444,25 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       state.items[index].updated_at = details.updated_at;
     },
     DELETE_BOARD_UPDATE: function DELETE_BOARD_UPDATE(state, details) {
-      var index = state.items.findIndex(function (y) {
-        return y.id == details.id;
-      });
-      state.items.splice(index, 1); // state.items.push({ id:details.id,
-      // title:details.title, order:details.order, updated_at:details.updated_at})
+      console.log();
+
+      if (state.items.some(function (e) {
+        return e.id == details.id;
+      })) {
+        var index = state.items.findIndex(function (y) {
+          return y.id == details.id;
+        });
+        state.items.splice(index, 1); // state.items.push({ id:details.id,
+        // title:details.title, order:details.order, updated_at:details.updated_at})
+      }
     },
     CREATE_LEAD_UPDATE: function CREATE_LEAD_UPDATE(state, details) {
       var index = state.items.findIndex(function (y) {
         return y.id == details.board_id;
       });
-      state.items[index].leads.push({
+      if (!state.items[index].leads.some(function (e) {
+        return e.id == details.id;
+      })) state.items[index].leads.push({
         id: details.id,
         board_id: details.board_id,
         description: details.description,
@@ -2920,46 +2480,331 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       state.items[index].leads[idx].description = details.description;
       updated_at = details.updated_at;
     },
+    MOVE_LEAD_UPDATE: function () {
+      var _MOVE_LEAD_UPDATE = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(state, details) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                console.log('omggg');
+                _context3.next = 3;
+                return function () {
+                  var index = state.items.findIndex(function (item) {
+                    return item.id == details.board_id;
+                  });
+                  var idx = state.items[index].leads.findIndex(function (item) {
+                    return item.order < details.order;
+                  });
+                  if (idx == -1) state.items[index].leads.push(details);else {
+                    state.items[index].leads.splice(idx, 0, details);
+                  }
+                }();
+
+              case 3:
+                _context3.next = 5;
+                return function () {
+                  var index = state.items.findIndex(function (item) {
+                    return item.id == details.old_board_id;
+                  });
+                  var idx = state.items[index].leads.findIndex(function (item) {
+                    return item.id == details.id;
+                  });
+                  state.items[index].leads.splice(idx, 1);
+                }();
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      function MOVE_LEAD_UPDATE(_x3, _x4) {
+        return _MOVE_LEAD_UPDATE.apply(this, arguments);
+      }
+
+      return MOVE_LEAD_UPDATE;
+    }(),
     DELETE_LEAD_UPDATE: function DELETE_LEAD_UPDATE(state, details) {
       var index = state.items.findIndex(function (y) {
         return y.id == details.board_id;
       });
-      var idx = state.items[index].leads.findIndex(function (y) {
-        return y.id == details.id;
-      });
-      console.log(idx);
-      state.items[index].leads.splice(idx, 1);
+
+      if (state.items[index].leads.some(function (e) {
+        return e.id == details.id;
+      })) {
+        var idx = state.items[index].leads.findIndex(function (y) {
+          return y.id == details.id;
+        });
+        console.log(idx);
+        state.items[index].leads.splice(idx, 1);
+      }
     },
     FETCH_HOME: function FETCH_HOME(state, data) {
       state.hashome_data = true;
-      state.home.companies = data.companies;
-      state.home.categories = data.companies;
-      state.home.cities = data.cities;
-      state.home.districts = data.districts;
-      state.home.blogs = data.blogs;
-    },
-    FETCH_COMPANIES: function FETCH_COMPANIES(state, data) {
-      state.hascompanies_data = true;
       state.companies = data.companies;
+      state.categories = data.companies;
+      state.cities = data.cities;
+      state.districts = data.districts;
+      state.blogs = data.blogs;
+    },
+    FETCH_SEARCH_HOME: function FETCH_SEARCH_HOME(state, data) {
+      data;
+    },
+    FETCH_DASHBOARD: function FETCH_DASHBOARD(state, data) {
+      state.hasdashboard_data = true;
+      data.boards.forEach(function (element) {
+        element = element.value;
+      });
+      state.items = data.boards;
+      state.token = data.token; // console.log(state.data )
+    },
+    MOVE_LEAD: function () {
+      var _MOVE_LEAD = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(state, _ref) {
+        var response_data, lead_id, boardID, lead, ident;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                response_data = _ref.response_data, lead_id = _ref.lead_id, boardID = _ref.boardID, lead = _ref.lead, ident = _ref.ident;
+                _context4.next = 3;
+                return function () {
+                  var index = state.items.findIndex(function (item) {
+                    return item.id == response_data.lead.board_id;
+                  });
+                  var idx = state.items[index].leads.findIndex(function (item) {
+                    return item.id == response_data.lead_id;
+                  });
+
+                  if (ident == 0) {
+                    state.items[index].leads.splice(idx, 0, response_data.lead);
+                  } else {
+                    state.items[index].leads.splice(idx + 1, 0, response_data.lead);
+                  }
+                }();
+
+              case 3:
+                _context4.next = 5;
+                return function () {
+                  var index = state.items.findIndex(function (item) {
+                    return item.id == boardID;
+                  });
+                  var idx = state.items[index].leads.findIndex(function (item) {
+                    return item.id == lead_id;
+                  });
+                  state.items[index].leads.splice(idx, 1);
+                }();
+
+              case 5:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      function MOVE_LEAD(_x5, _x6) {
+        return _MOVE_LEAD.apply(this, arguments);
+      }
+
+      return MOVE_LEAD;
+    }(),
+    SET_USER: function SET_USER(state, user) {
+      state.user = user;
     }
   },
   actions: {
-    fetchHome: function fetchHome(context) {
+    fetchDashboardUpdates: function fetchDashboardUpdates(_ref2, data) {
+      var context = _ref2.context,
+          dispatch = _ref2.dispatch;
+
+      var switchOptions = function switchOptions(option, details) {
+        switch (option) {
+          case 0:
+            dispatch('boardCreateUpdates', details);
+            break;
+
+          case 1:
+            dispatch('boardUpdateUpdates', details);
+            break;
+
+          case 2:
+            dispatch('boardDeleteUpdates', details);
+            break;
+
+          case 10:
+            dispatch('leadCreateUpdates', details);
+            break;
+
+          case 11:
+            dispatch('leadUpdateUpdates', details);
+            break;
+
+          case 12:
+            dispatch('leadDeleteUpdates', details);
+            break;
+
+          case 13:
+            dispatch('leadMoveUpdates', details);
+            break;
+          // default:
+          // break;
+        }
+      };
+
+      data.forEach(function (element) {
+        try {
+          var details = JSON.parse("[" + element.data + "]");
+          if (element.data != null) details.forEach(function (detail) {
+            // console.log(detail)
+            switchOptions(element.event, detail);
+          });
+        } catch (error) {}
+      }); // context.commit('FETCH_DASHBOARD_UPDATES', data)
+    },
+    moveLead: function () {
+      var _moveLead = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(context, _ref3) {
+        var target_item_id, boardID, lead, ident, url, config, data1;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                target_item_id = _ref3.target_item_id, boardID = _ref3.boardID, lead = _ref3.lead, ident = _ref3.ident;
+                console.log(target_item_id, lead.board_id, lead.id, lead.order, ident);
+                url = "http://localhost:8000/api/update_boards/movelead/".concat(target_item_id, "/").concat(lead.board_id, "/").concat(lead.id, "/").concat(lead.order, "/").concat(ident);
+                config = {
+                  'headers': {}
+                };
+                data1 = {};
+                _context5.next = 7;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().put(url, data1, config).then(function (response) {
+                  context.commit('MOVE_LEAD', {
+                    response_data: response.data,
+                    lead_id: target_item_id,
+                    boardID: boardID,
+                    lead: lead,
+                    ident: ident
+                  });
+                });
+
+              case 7:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }));
+
+      function moveLead(_x7, _x8) {
+        return _moveLead.apply(this, arguments);
+      }
+
+      return moveLead;
+    }(),
+    fetchDashboard: function fetchDashboard(context, sockets) {
       var config = {
         'headers': {}
       };
+      var url = "http://localhost:8000/api/dashboard";
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, config).then(function (response) {
+        console.log(response.data.token);
+        sockets.subscribe(response.data.token, function (data) {
+          // console.log(data);
+          context.dispatch('fetchDashboardUpdates', data.updates);
+          console.log('wtfhithat');
+        });
+        context.commit('FETCH_DASHBOARD', response.data);
+      });
+    },
+    login: function login(context, user) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var config, url, cookieJar, instance;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                config = {
+                  'headers': {
+                    'Accept': 'application/json',
+                    'Content-Type': 'multipart/form-data'
+                  }
+                };
+                url = 'http://localhost:8000/sanctum/csrf-cookie';
+                _context6.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, {}).then(function (response) {
+                  config.headers["X-XSRF-TOKEN"] = response.config.headers['X-XSRF-TOKEN']; // config.headers["X-XSRF-TOKEN"] =
+                });
+
+              case 4:
+                // var data = new FormData();
+                // data.append('phone_number', '77026651625');
+                // data.append('password', 'password');
+                // config = {
+                //     method: 'put',
+                //     url: 'http://localhost:8000/api/auth',
+                //     headers: { 
+                //         // 'X-Requested-With': 'XMLHttpRequest',
+                //      "X-CSRF-TOKEN": config.headers["X-XSRF-TOKEN"],
+                //      'Accept': 'application/json',
+                //      'Content-Type': 'application/json;charset=utf-8',
+                //      'Access-Control-Allow-Origin' : '*'
+                //     //   'Cookie': 'laravel_session=Mb6avHg3H8jxyspOxTozypGhzy24MPUu8NatZXAh'
+                //     //   ...data.getHeaders()
+                //     },
+                //     data : data
+                //   };
+                // // axios.defaults.withCredentials = true;
+                // axios(config).then(response=> {
+                //     console.log(response)
+                // }).catch(function (error) {
+                //     // handle error
+                //     console.log(error);
+                //   })
+                cookieJar = new tough_cookie__WEBPACK_IMPORTED_MODULE_4__.CookieJar();
+                instance = axios__WEBPACK_IMPORTED_MODULE_1___default().create({
+                  jar: cookieJar,
+                  withCredentials: true // httpsAgent: new https.Agent({ rejectUnauthorized: false, requestCert: true, keepAlive: true})
+
+                });
+                instance.defaults.headers['X-CSRF-TOKEN'] = config.headers["X-XSRF-TOKEN"];
+                instance.defaults.headers['Accept'] = 'application/json';
+                instance.post('http://localhost:8000/auth', user).then(function (response) {
+                  console.log(response);
+                });
+                context.commit('SET_USER', user);
+                sessionStorage.user = JSON.stringify(user);
+
+              case 11:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    fetchHome: function fetchHome(context) {
       var url = "http://localhost:8000/api/home";
-      axios.get(url, config).then(function (response) {
+      var config = {
+        'headers': {}
+      };
+      var data = {};
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, data, config).then(function (response) {
         context.commit('FETCH_HOME', response.data);
       });
     },
-    fetchCompanies: function fetchCompanies(context) {
+    fetchSearchHome: function fetchSearchHome(context) {
+      var url = "http://localhost:8000/api/home";
       var config = {
         'headers': {}
       };
-      var url = "http://localhost:8000/api/companies";
-      axios.get(url, config).then(function (response) {
-        context.commit('FETCH_COMPANIES', response.data);
+      var data = {
+        cityID: home.searchForm.cityID,
+        destrictID: home.searchForm.destrictID,
+        categoryID: home.searchForm.categoryID
+      };
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, data, config).then(function (response) {
+        context.commit('FETCH_SEARCH_HOME', response.data);
       });
     },
     boardCreateUpdates: function boardCreateUpdates(context, details) {
@@ -2972,6 +2817,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       context.commit('DELETE_BOARD_UPDATE', details);
     },
     leadCreateUpdates: function leadCreateUpdates(context, details) {
+      console.log('lead create');
       context.commit('CREATE_LEAD_UPDATE', details);
     },
     leadUpdateUpdates: function leadUpdateUpdates(context, details) {
@@ -2979,6 +2825,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
     },
     leadDeleteUpdates: function leadDeleteUpdates(context, details) {
       context.commit('DELETE_LEAD_UPDATE', details);
+    },
+    leadMoveUpdates: function leadMoveUpdates(context, details) {
+      context.commit('MOVE_LEAD_UPDATE', details);
     },
     swapBoards: function swapBoards(context, data) {
       context.commit('SWAP_BOARDS', data);
@@ -2988,7 +2837,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
         'headers': {}
       };
       var url = "http://localhost:8000/api/update_boards/updateboard/".concat(data.item.id, "/newtitle/").concat(data.value);
-      axios.put(url, config).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().put(url, config).then(function (response) {
         console.log(response.data);
         context.commit('UPDATE_BOARD', data);
       });
@@ -3001,8 +2850,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       }; // console.log(`http://localhost:8000/api/update_boards/newboard=${title}`)
 
       var url = "http://localhost:8000/api/update_boards/newboard/".concat(title);
-      console.log('hello');
-      axios.get(url, config).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, config).then(function (response) {
         if (response.status == 200) context.commit('CREATE_BOARD', response.data); // console.log(response.data)
       });
     },
@@ -3014,7 +2862,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       }; // console.log(`http://localhost:8000/api/update_boards/newboard=${title}`)
 
       var url = "http://localhost:8000/api/update_boards/removeboard/".concat(data.item.id);
-      axios.put(url, config).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().put(url, config).then(function (response) {
         if (response.status == 200) context.commit('REMOVE_BOARD', data.item);
       });
     },
@@ -3025,7 +2873,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
         }
       };
       var url = "http://localhost:8000/api/update_boards/createlead/".concat(data.item.id, "/newleaddescription/").concat(data.value);
-      axios.get(url, config).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(url, config).then(function (response) {
         if (response.status == 200) data.id = response.data.id;
         data.created_at = response.data.created_at;
         data.updated_at = response.data.updated_at;
@@ -3040,7 +2888,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       };
       var url = "http://localhost:8000/api/update_boards/removelead/".concat(data.lead.id); // console.log(url)
 
-      axios.put(url, config).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().put(url, config).then(function (response) {
         if (response.status == 200) context.commit('REMOVE_LEAD', data);
       });
     },
@@ -3052,8 +2900,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
       };
       var url = "http://localhost:8000/api/update_boards/updatelead/".concat(data.lead.id, "/description/").concat(data.value); // console.log(url)
 
-<<<<<<< HEAD
-      axios.put(url, config).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().put(url, config).then(function (response) {
         if (response.status == 200) context.commit('UPDATE_LEAD', data);
       });
     },
@@ -3065,168 +2912,5301 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use((vuex__WEBPACK_IMPORTED_MODULE_1___
     socket_userMessage: function socket_userMessage(context, message) {
       context.dispatch('newMessage', message);
       context.commit('NEW_MESSAGE_RECEIVED', message);
-=======
-  maxContentLength: -1,
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
       if (message.is_important) {
         context.dispatch('alertImportantMessage', message);
       }
     }
   }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new (vuex__WEBPACK_IMPORTED_MODULE_6___default().Store)({
+  modules: {
+    login: moduleB,
+    home: moduleE,
+    companies: moduleF,
+    dashboard: moduleG
+  }
 }));
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-login[data-v-698c8ed6] {\n    position: absolute;\n    right:0;\n    height: 240px;\n    width: 180px;\n    /* z-index:  999; */\n    background-color: red;\n}\n.nav-login-container[data-v-698c8ed6] {\n    \n    position: relative;\n    margin: 5px;\n    padding: 5px;\n    background-color:azure; overflow-wrap: break-word;\n box-shadow: 0 0 8px rgba(0,0,0,0.1);\n}\n.nav-login-form[data-v-698c8ed6]{\n}\n.nav-login-hidden[data-v-698c8ed6] {\n    display: none;\n}\n\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
-<<<<<<< HEAD
-/***/ "./node_modules/css-loader/dist/runtime/api.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
+/***/ "./node_modules/backo2/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/backo2/index.js ***!
+  \**************************************/
 /***/ ((module) => {
-=======
-/***/ "./node_modules/axios/lib/helpers/bind.js":
-/*!************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/bind.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
-
-"use strict";
 
 
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-// eslint-disable-next-line func-names
-module.exports = function (cssWithMappingToString) {
-  var list = []; // return the list of modules as css string
+/**
+ * Expose `Backoff`.
+ */
 
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = cssWithMappingToString(item);
+module.exports = Backoff;
 
-      if (item[2]) {
-        return "@media ".concat(item[2], " {").concat(content, "}");
-      }
+/**
+ * Initialize backoff timer with `opts`.
+ *
+ * - `min` initial timeout in milliseconds [100]
+ * - `max` max timeout [10000]
+ * - `jitter` [0]
+ * - `factor` [2]
+ *
+ * @param {Object} opts
+ * @api public
+ */
 
-<<<<<<< HEAD
-      return content;
-    }).join('');
-  }; // import a list of modules into the list
-  // eslint-disable-next-line func-names
-=======
-/***/ "./node_modules/axios/lib/helpers/buildURL.js":
-/*!****************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
-
-
-  list.i = function (modules, mediaQuery, dedupe) {
-    if (typeof modules === 'string') {
-      // eslint-disable-next-line no-param-reassign
-      modules = [[null, modules, '']];
-    }
-
-    var alreadyImportedModules = {};
-
-<<<<<<< HEAD
-    if (dedupe) {
-      for (var i = 0; i < this.length; i++) {
-        // eslint-disable-next-line prefer-destructuring
-        var id = this[i][0];
-=======
-function encode(val) {
-  return encodeURIComponent(val).
-    replace(/%40/gi, '@').
-    replace(/%3A/gi, ':').
-    replace(/%24/g, '$').
-    replace(/%2C/gi, ',').
-    replace(/%20/g, '+').
-    replace(/%5B/gi, '[').
-    replace(/%5D/gi, ']');
+function Backoff(opts) {
+  opts = opts || {};
+  this.ms = opts.min || 100;
+  this.max = opts.max || 10000;
+  this.factor = opts.factor || 2;
+  this.jitter = opts.jitter > 0 && opts.jitter <= 1 ? opts.jitter : 0;
+  this.attempts = 0;
 }
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
+/**
+ * Return the backoff duration.
+ *
+ * @return {Number}
+ * @api public
+ */
 
-    for (var _i = 0; _i < modules.length; _i++) {
-      var item = [].concat(modules[_i]);
-
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        // eslint-disable-next-line no-continue
-        continue;
-      }
-
-      if (mediaQuery) {
-        if (!item[2]) {
-          item[2] = mediaQuery;
-        } else {
-          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
-        }
-      }
-
-      list.push(item);
-    }
-  };
-
-  return list;
+Backoff.prototype.duration = function(){
+  var ms = this.ms * Math.pow(this.factor, this.attempts++);
+  if (this.jitter) {
+    var rand =  Math.random();
+    var deviation = Math.floor(rand * this.jitter * ms);
+    ms = (Math.floor(rand * 10) & 1) == 0  ? ms - deviation : ms + deviation;
+  }
+  return Math.min(ms, this.max) | 0;
 };
 
+/**
+ * Reset the number of attempts.
+ *
+ * @api public
+ */
+
+Backoff.prototype.reset = function(){
+  this.attempts = 0;
+};
+
+/**
+ * Set the minimum duration
+ *
+ * @api public
+ */
+
+Backoff.prototype.setMin = function(min){
+  this.ms = min;
+};
+
+/**
+ * Set the maximum duration
+ *
+ * @api public
+ */
+
+Backoff.prototype.setMax = function(max){
+  this.max = max;
+};
+
+/**
+ * Set the jitter
+ *
+ * @api public
+ */
+
+Backoff.prototype.setJitter = function(jitter){
+  this.jitter = jitter;
+};
+
+
+
 /***/ }),
 
-<<<<<<< HEAD
+/***/ "./node_modules/base64-arraybuffer/lib/base64-arraybuffer.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/base64-arraybuffer/lib/base64-arraybuffer.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+/*
+ * base64-arraybuffer
+ * https://github.com/niklasvh/base64-arraybuffer
+ *
+ * Copyright (c) 2012 Niklas von Hertzen
+ * Licensed under the MIT license.
+ */
+(function(chars){
+  "use strict";
+
+  exports.encode = function(arraybuffer) {
+    var bytes = new Uint8Array(arraybuffer),
+    i, len = bytes.length, base64 = "";
+
+    for (i = 0; i < len; i+=3) {
+      base64 += chars[bytes[i] >> 2];
+      base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
+      base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
+      base64 += chars[bytes[i + 2] & 63];
+    }
+
+    if ((len % 3) === 2) {
+      base64 = base64.substring(0, base64.length - 1) + "=";
+    } else if (len % 3 === 1) {
+      base64 = base64.substring(0, base64.length - 2) + "==";
+    }
+
+    return base64;
+  };
+
+  exports.decode =  function(base64) {
+    var bufferLength = base64.length * 0.75,
+    len = base64.length, i, p = 0,
+    encoded1, encoded2, encoded3, encoded4;
+
+    if (base64[base64.length - 1] === "=") {
+      bufferLength--;
+      if (base64[base64.length - 2] === "=") {
+        bufferLength--;
+      }
+    }
+
+    var arraybuffer = new ArrayBuffer(bufferLength),
+    bytes = new Uint8Array(arraybuffer);
+
+    for (i = 0; i < len; i+=4) {
+      encoded1 = chars.indexOf(base64[i]);
+      encoded2 = chars.indexOf(base64[i+1]);
+      encoded3 = chars.indexOf(base64[i+2]);
+      encoded4 = chars.indexOf(base64[i+3]);
+
+      bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
+      bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
+      bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
+    }
+
+    return arraybuffer;
+  };
+})("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
+
+
+/***/ }),
+
+/***/ "./node_modules/base64-js/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/base64-js/index.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+exports.byteLength = byteLength
+exports.toByteArray = toByteArray
+exports.fromByteArray = fromByteArray
+
+var lookup = []
+var revLookup = []
+var Arr = typeof Uint8Array !== 'undefined' ? Uint8Array : Array
+
+var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+for (var i = 0, len = code.length; i < len; ++i) {
+  lookup[i] = code[i]
+  revLookup[code.charCodeAt(i)] = i
+}
+
+// Support decoding URL-safe base64 strings, as Node.js does.
+// See: https://en.wikipedia.org/wiki/Base64#URL_applications
+revLookup['-'.charCodeAt(0)] = 62
+revLookup['_'.charCodeAt(0)] = 63
+
+function getLens (b64) {
+  var len = b64.length
+
+  if (len % 4 > 0) {
+    throw new Error('Invalid string. Length must be a multiple of 4')
+  }
+
+  // Trim off extra bytes after placeholder bytes are found
+  // See: https://github.com/beatgammit/base64-js/issues/42
+  var validLen = b64.indexOf('=')
+  if (validLen === -1) validLen = len
+
+  var placeHoldersLen = validLen === len
+    ? 0
+    : 4 - (validLen % 4)
+
+  return [validLen, placeHoldersLen]
+}
+
+// base64 is 4/3 + up to two characters of the original data
+function byteLength (b64) {
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
+}
+
+function _byteLength (b64, validLen, placeHoldersLen) {
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
+}
+
+function toByteArray (b64) {
+  var tmp
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
+
+  var arr = new Arr(_byteLength(b64, validLen, placeHoldersLen))
+
+  var curByte = 0
+
+  // if there are placeholders, only get up to the last complete 4 chars
+  var len = placeHoldersLen > 0
+    ? validLen - 4
+    : validLen
+
+  var i
+  for (i = 0; i < len; i += 4) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 18) |
+      (revLookup[b64.charCodeAt(i + 1)] << 12) |
+      (revLookup[b64.charCodeAt(i + 2)] << 6) |
+      revLookup[b64.charCodeAt(i + 3)]
+    arr[curByte++] = (tmp >> 16) & 0xFF
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  if (placeHoldersLen === 2) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 2) |
+      (revLookup[b64.charCodeAt(i + 1)] >> 4)
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  if (placeHoldersLen === 1) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 10) |
+      (revLookup[b64.charCodeAt(i + 1)] << 4) |
+      (revLookup[b64.charCodeAt(i + 2)] >> 2)
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  return arr
+}
+
+function tripletToBase64 (num) {
+  return lookup[num >> 18 & 0x3F] +
+    lookup[num >> 12 & 0x3F] +
+    lookup[num >> 6 & 0x3F] +
+    lookup[num & 0x3F]
+}
+
+function encodeChunk (uint8, start, end) {
+  var tmp
+  var output = []
+  for (var i = start; i < end; i += 3) {
+    tmp =
+      ((uint8[i] << 16) & 0xFF0000) +
+      ((uint8[i + 1] << 8) & 0xFF00) +
+      (uint8[i + 2] & 0xFF)
+    output.push(tripletToBase64(tmp))
+  }
+  return output.join('')
+}
+
+function fromByteArray (uint8) {
+  var tmp
+  var len = uint8.length
+  var extraBytes = len % 3 // if we have 1 byte left, pad 2 bytes
+  var parts = []
+  var maxChunkLength = 16383 // must be multiple of 3
+
+  // go through the array every three bytes, we'll deal with trailing stuff later
+  for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
+    parts.push(encodeChunk(uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)))
+  }
+
+  // pad the end with zeros, but make sure to not forget the extra bytes
+  if (extraBytes === 1) {
+    tmp = uint8[len - 1]
+    parts.push(
+      lookup[tmp >> 2] +
+      lookup[(tmp << 4) & 0x3F] +
+      '=='
+    )
+  } else if (extraBytes === 2) {
+    tmp = (uint8[len - 2] << 8) + uint8[len - 1]
+    parts.push(
+      lookup[tmp >> 10] +
+      lookup[(tmp >> 4) & 0x3F] +
+      lookup[(tmp << 2) & 0x3F] +
+      '='
+    )
+  }
+
+  return parts.join('')
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/buffer/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/buffer/index.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+/* eslint-disable no-proto */
+
+
+
+var base64 = __webpack_require__(/*! base64-js */ "./node_modules/base64-js/index.js")
+var ieee754 = __webpack_require__(/*! ieee754 */ "./node_modules/ieee754/index.js")
+var isArray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js")
+
+exports.Buffer = Buffer
+exports.SlowBuffer = SlowBuffer
+exports.INSPECT_MAX_BYTES = 50
+
+/**
+ * If `Buffer.TYPED_ARRAY_SUPPORT`:
+ *   === true    Use Uint8Array implementation (fastest)
+ *   === false   Use Object implementation (most compatible, even IE6)
+ *
+ * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
+ * Opera 11.6+, iOS 4.2+.
+ *
+ * Due to various browser bugs, sometimes the Object implementation will be used even
+ * when the browser supports typed arrays.
+ *
+ * Note:
+ *
+ *   - Firefox 4-29 lacks support for adding new properties to `Uint8Array` instances,
+ *     See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438.
+ *
+ *   - Chrome 9-10 is missing the `TypedArray.prototype.subarray` function.
+ *
+ *   - IE10 has a broken `TypedArray.prototype.subarray` function which returns arrays of
+ *     incorrect length in some situations.
+
+ * We detect these buggy browsers and set `Buffer.TYPED_ARRAY_SUPPORT` to `false` so they
+ * get the Object implementation, which is slower but behaves correctly.
+ */
+Buffer.TYPED_ARRAY_SUPPORT = __webpack_require__.g.TYPED_ARRAY_SUPPORT !== undefined
+  ? __webpack_require__.g.TYPED_ARRAY_SUPPORT
+  : typedArraySupport()
+
+/*
+ * Export kMaxLength after typed array support is determined.
+ */
+exports.kMaxLength = kMaxLength()
+
+function typedArraySupport () {
+  try {
+    var arr = new Uint8Array(1)
+    arr.__proto__ = {__proto__: Uint8Array.prototype, foo: function () { return 42 }}
+    return arr.foo() === 42 && // typed array instances can be augmented
+        typeof arr.subarray === 'function' && // chrome 9-10 lack `subarray`
+        arr.subarray(1, 1).byteLength === 0 // ie10 has broken `subarray`
+  } catch (e) {
+    return false
+  }
+}
+
+function kMaxLength () {
+  return Buffer.TYPED_ARRAY_SUPPORT
+    ? 0x7fffffff
+    : 0x3fffffff
+}
+
+function createBuffer (that, length) {
+  if (kMaxLength() < length) {
+    throw new RangeError('Invalid typed array length')
+  }
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    // Return an augmented `Uint8Array` instance, for best performance
+    that = new Uint8Array(length)
+    that.__proto__ = Buffer.prototype
+  } else {
+    // Fallback: Return an object instance of the Buffer class
+    if (that === null) {
+      that = new Buffer(length)
+    }
+    that.length = length
+  }
+
+  return that
+}
+
+/**
+ * The Buffer constructor returns instances of `Uint8Array` that have their
+ * prototype changed to `Buffer.prototype`. Furthermore, `Buffer` is a subclass of
+ * `Uint8Array`, so the returned instances will have all the node `Buffer` methods
+ * and the `Uint8Array` methods. Square bracket notation works as expected -- it
+ * returns a single octet.
+ *
+ * The `Uint8Array` prototype remains unmodified.
+ */
+
+function Buffer (arg, encodingOrOffset, length) {
+  if (!Buffer.TYPED_ARRAY_SUPPORT && !(this instanceof Buffer)) {
+    return new Buffer(arg, encodingOrOffset, length)
+  }
+
+  // Common case.
+  if (typeof arg === 'number') {
+    if (typeof encodingOrOffset === 'string') {
+      throw new Error(
+        'If encoding is specified then the first argument must be a string'
+      )
+    }
+    return allocUnsafe(this, arg)
+  }
+  return from(this, arg, encodingOrOffset, length)
+}
+
+Buffer.poolSize = 8192 // not used by this implementation
+
+// TODO: Legacy, not needed anymore. Remove in next major version.
+Buffer._augment = function (arr) {
+  arr.__proto__ = Buffer.prototype
+  return arr
+}
+
+function from (that, value, encodingOrOffset, length) {
+  if (typeof value === 'number') {
+    throw new TypeError('"value" argument must not be a number')
+  }
+
+  if (typeof ArrayBuffer !== 'undefined' && value instanceof ArrayBuffer) {
+    return fromArrayBuffer(that, value, encodingOrOffset, length)
+  }
+
+  if (typeof value === 'string') {
+    return fromString(that, value, encodingOrOffset)
+  }
+
+  return fromObject(that, value)
+}
+
+/**
+ * Functionally equivalent to Buffer(arg, encoding) but throws a TypeError
+ * if value is a number.
+ * Buffer.from(str[, encoding])
+ * Buffer.from(array)
+ * Buffer.from(buffer)
+ * Buffer.from(arrayBuffer[, byteOffset[, length]])
+ **/
+Buffer.from = function (value, encodingOrOffset, length) {
+  return from(null, value, encodingOrOffset, length)
+}
+
+if (Buffer.TYPED_ARRAY_SUPPORT) {
+  Buffer.prototype.__proto__ = Uint8Array.prototype
+  Buffer.__proto__ = Uint8Array
+  if (typeof Symbol !== 'undefined' && Symbol.species &&
+      Buffer[Symbol.species] === Buffer) {
+    // Fix subarray() in ES2016. See: https://github.com/feross/buffer/pull/97
+    Object.defineProperty(Buffer, Symbol.species, {
+      value: null,
+      configurable: true
+    })
+  }
+}
+
+function assertSize (size) {
+  if (typeof size !== 'number') {
+    throw new TypeError('"size" argument must be a number')
+  } else if (size < 0) {
+    throw new RangeError('"size" argument must not be negative')
+  }
+}
+
+function alloc (that, size, fill, encoding) {
+  assertSize(size)
+  if (size <= 0) {
+    return createBuffer(that, size)
+  }
+  if (fill !== undefined) {
+    // Only pay attention to encoding if it's a string. This
+    // prevents accidentally sending in a number that would
+    // be interpretted as a start offset.
+    return typeof encoding === 'string'
+      ? createBuffer(that, size).fill(fill, encoding)
+      : createBuffer(that, size).fill(fill)
+  }
+  return createBuffer(that, size)
+}
+
+/**
+ * Creates a new filled Buffer instance.
+ * alloc(size[, fill[, encoding]])
+ **/
+Buffer.alloc = function (size, fill, encoding) {
+  return alloc(null, size, fill, encoding)
+}
+
+function allocUnsafe (that, size) {
+  assertSize(size)
+  that = createBuffer(that, size < 0 ? 0 : checked(size) | 0)
+  if (!Buffer.TYPED_ARRAY_SUPPORT) {
+    for (var i = 0; i < size; ++i) {
+      that[i] = 0
+    }
+  }
+  return that
+}
+
+/**
+ * Equivalent to Buffer(num), by default creates a non-zero-filled Buffer instance.
+ * */
+Buffer.allocUnsafe = function (size) {
+  return allocUnsafe(null, size)
+}
+/**
+ * Equivalent to SlowBuffer(num), by default creates a non-zero-filled Buffer instance.
+ */
+Buffer.allocUnsafeSlow = function (size) {
+  return allocUnsafe(null, size)
+}
+
+function fromString (that, string, encoding) {
+  if (typeof encoding !== 'string' || encoding === '') {
+    encoding = 'utf8'
+  }
+
+  if (!Buffer.isEncoding(encoding)) {
+    throw new TypeError('"encoding" must be a valid string encoding')
+  }
+
+  var length = byteLength(string, encoding) | 0
+  that = createBuffer(that, length)
+
+  var actual = that.write(string, encoding)
+
+  if (actual !== length) {
+    // Writing a hex string, for example, that contains invalid characters will
+    // cause everything after the first invalid character to be ignored. (e.g.
+    // 'abxxcd' will be treated as 'ab')
+    that = that.slice(0, actual)
+  }
+
+  return that
+}
+
+function fromArrayLike (that, array) {
+  var length = array.length < 0 ? 0 : checked(array.length) | 0
+  that = createBuffer(that, length)
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+function fromArrayBuffer (that, array, byteOffset, length) {
+  array.byteLength // this throws if `array` is not a valid ArrayBuffer
+
+  if (byteOffset < 0 || array.byteLength < byteOffset) {
+    throw new RangeError('\'offset\' is out of bounds')
+  }
+
+  if (array.byteLength < byteOffset + (length || 0)) {
+    throw new RangeError('\'length\' is out of bounds')
+  }
+
+  if (byteOffset === undefined && length === undefined) {
+    array = new Uint8Array(array)
+  } else if (length === undefined) {
+    array = new Uint8Array(array, byteOffset)
+  } else {
+    array = new Uint8Array(array, byteOffset, length)
+  }
+
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    // Return an augmented `Uint8Array` instance, for best performance
+    that = array
+    that.__proto__ = Buffer.prototype
+  } else {
+    // Fallback: Return an object instance of the Buffer class
+    that = fromArrayLike(that, array)
+  }
+  return that
+}
+
+function fromObject (that, obj) {
+  if (Buffer.isBuffer(obj)) {
+    var len = checked(obj.length) | 0
+    that = createBuffer(that, len)
+
+    if (that.length === 0) {
+      return that
+    }
+
+    obj.copy(that, 0, 0, len)
+    return that
+  }
+
+  if (obj) {
+    if ((typeof ArrayBuffer !== 'undefined' &&
+        obj.buffer instanceof ArrayBuffer) || 'length' in obj) {
+      if (typeof obj.length !== 'number' || isnan(obj.length)) {
+        return createBuffer(that, 0)
+      }
+      return fromArrayLike(that, obj)
+    }
+
+    if (obj.type === 'Buffer' && isArray(obj.data)) {
+      return fromArrayLike(that, obj.data)
+    }
+  }
+
+  throw new TypeError('First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.')
+}
+
+function checked (length) {
+  // Note: cannot use `length < kMaxLength()` here because that fails when
+  // length is NaN (which is otherwise coerced to zero.)
+  if (length >= kMaxLength()) {
+    throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
+                         'size: 0x' + kMaxLength().toString(16) + ' bytes')
+  }
+  return length | 0
+}
+
+function SlowBuffer (length) {
+  if (+length != length) { // eslint-disable-line eqeqeq
+    length = 0
+  }
+  return Buffer.alloc(+length)
+}
+
+Buffer.isBuffer = function isBuffer (b) {
+  return !!(b != null && b._isBuffer)
+}
+
+Buffer.compare = function compare (a, b) {
+  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
+    throw new TypeError('Arguments must be Buffers')
+  }
+
+  if (a === b) return 0
+
+  var x = a.length
+  var y = b.length
+
+  for (var i = 0, len = Math.min(x, y); i < len; ++i) {
+    if (a[i] !== b[i]) {
+      x = a[i]
+      y = b[i]
+      break
+    }
+  }
+
+  if (x < y) return -1
+  if (y < x) return 1
+  return 0
+}
+
+Buffer.isEncoding = function isEncoding (encoding) {
+  switch (String(encoding).toLowerCase()) {
+    case 'hex':
+    case 'utf8':
+    case 'utf-8':
+    case 'ascii':
+    case 'latin1':
+    case 'binary':
+    case 'base64':
+    case 'ucs2':
+    case 'ucs-2':
+    case 'utf16le':
+    case 'utf-16le':
+      return true
+    default:
+      return false
+  }
+}
+
+Buffer.concat = function concat (list, length) {
+  if (!isArray(list)) {
+    throw new TypeError('"list" argument must be an Array of Buffers')
+  }
+
+  if (list.length === 0) {
+    return Buffer.alloc(0)
+  }
+
+  var i
+  if (length === undefined) {
+    length = 0
+    for (i = 0; i < list.length; ++i) {
+      length += list[i].length
+    }
+  }
+
+  var buffer = Buffer.allocUnsafe(length)
+  var pos = 0
+  for (i = 0; i < list.length; ++i) {
+    var buf = list[i]
+    if (!Buffer.isBuffer(buf)) {
+      throw new TypeError('"list" argument must be an Array of Buffers')
+    }
+    buf.copy(buffer, pos)
+    pos += buf.length
+  }
+  return buffer
+}
+
+function byteLength (string, encoding) {
+  if (Buffer.isBuffer(string)) {
+    return string.length
+  }
+  if (typeof ArrayBuffer !== 'undefined' && typeof ArrayBuffer.isView === 'function' &&
+      (ArrayBuffer.isView(string) || string instanceof ArrayBuffer)) {
+    return string.byteLength
+  }
+  if (typeof string !== 'string') {
+    string = '' + string
+  }
+
+  var len = string.length
+  if (len === 0) return 0
+
+  // Use a for loop to avoid recursion
+  var loweredCase = false
+  for (;;) {
+    switch (encoding) {
+      case 'ascii':
+      case 'latin1':
+      case 'binary':
+        return len
+      case 'utf8':
+      case 'utf-8':
+      case undefined:
+        return utf8ToBytes(string).length
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return len * 2
+      case 'hex':
+        return len >>> 1
+      case 'base64':
+        return base64ToBytes(string).length
+      default:
+        if (loweredCase) return utf8ToBytes(string).length // assume utf8
+        encoding = ('' + encoding).toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+Buffer.byteLength = byteLength
+
+function slowToString (encoding, start, end) {
+  var loweredCase = false
+
+  // No need to verify that "this.length <= MAX_UINT32" since it's a read-only
+  // property of a typed array.
+
+  // This behaves neither like String nor Uint8Array in that we set start/end
+  // to their upper/lower bounds if the value passed is out of range.
+  // undefined is handled specially as per ECMA-262 6th Edition,
+  // Section 13.3.3.7 Runtime Semantics: KeyedBindingInitialization.
+  if (start === undefined || start < 0) {
+    start = 0
+  }
+  // Return early if start > this.length. Done here to prevent potential uint32
+  // coercion fail below.
+  if (start > this.length) {
+    return ''
+  }
+
+  if (end === undefined || end > this.length) {
+    end = this.length
+  }
+
+  if (end <= 0) {
+    return ''
+  }
+
+  // Force coersion to uint32. This will also coerce falsey/NaN values to 0.
+  end >>>= 0
+  start >>>= 0
+
+  if (end <= start) {
+    return ''
+  }
+
+  if (!encoding) encoding = 'utf8'
+
+  while (true) {
+    switch (encoding) {
+      case 'hex':
+        return hexSlice(this, start, end)
+
+      case 'utf8':
+      case 'utf-8':
+        return utf8Slice(this, start, end)
+
+      case 'ascii':
+        return asciiSlice(this, start, end)
+
+      case 'latin1':
+      case 'binary':
+        return latin1Slice(this, start, end)
+
+      case 'base64':
+        return base64Slice(this, start, end)
+
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return utf16leSlice(this, start, end)
+
+      default:
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
+        encoding = (encoding + '').toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+
+// The property is used by `Buffer.isBuffer` and `is-buffer` (in Safari 5-7) to detect
+// Buffer instances.
+Buffer.prototype._isBuffer = true
+
+function swap (b, n, m) {
+  var i = b[n]
+  b[n] = b[m]
+  b[m] = i
+}
+
+Buffer.prototype.swap16 = function swap16 () {
+  var len = this.length
+  if (len % 2 !== 0) {
+    throw new RangeError('Buffer size must be a multiple of 16-bits')
+  }
+  for (var i = 0; i < len; i += 2) {
+    swap(this, i, i + 1)
+  }
+  return this
+}
+
+Buffer.prototype.swap32 = function swap32 () {
+  var len = this.length
+  if (len % 4 !== 0) {
+    throw new RangeError('Buffer size must be a multiple of 32-bits')
+  }
+  for (var i = 0; i < len; i += 4) {
+    swap(this, i, i + 3)
+    swap(this, i + 1, i + 2)
+  }
+  return this
+}
+
+Buffer.prototype.swap64 = function swap64 () {
+  var len = this.length
+  if (len % 8 !== 0) {
+    throw new RangeError('Buffer size must be a multiple of 64-bits')
+  }
+  for (var i = 0; i < len; i += 8) {
+    swap(this, i, i + 7)
+    swap(this, i + 1, i + 6)
+    swap(this, i + 2, i + 5)
+    swap(this, i + 3, i + 4)
+  }
+  return this
+}
+
+Buffer.prototype.toString = function toString () {
+  var length = this.length | 0
+  if (length === 0) return ''
+  if (arguments.length === 0) return utf8Slice(this, 0, length)
+  return slowToString.apply(this, arguments)
+}
+
+Buffer.prototype.equals = function equals (b) {
+  if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
+  if (this === b) return true
+  return Buffer.compare(this, b) === 0
+}
+
+Buffer.prototype.inspect = function inspect () {
+  var str = ''
+  var max = exports.INSPECT_MAX_BYTES
+  if (this.length > 0) {
+    str = this.toString('hex', 0, max).match(/.{2}/g).join(' ')
+    if (this.length > max) str += ' ... '
+  }
+  return '<Buffer ' + str + '>'
+}
+
+Buffer.prototype.compare = function compare (target, start, end, thisStart, thisEnd) {
+  if (!Buffer.isBuffer(target)) {
+    throw new TypeError('Argument must be a Buffer')
+  }
+
+  if (start === undefined) {
+    start = 0
+  }
+  if (end === undefined) {
+    end = target ? target.length : 0
+  }
+  if (thisStart === undefined) {
+    thisStart = 0
+  }
+  if (thisEnd === undefined) {
+    thisEnd = this.length
+  }
+
+  if (start < 0 || end > target.length || thisStart < 0 || thisEnd > this.length) {
+    throw new RangeError('out of range index')
+  }
+
+  if (thisStart >= thisEnd && start >= end) {
+    return 0
+  }
+  if (thisStart >= thisEnd) {
+    return -1
+  }
+  if (start >= end) {
+    return 1
+  }
+
+  start >>>= 0
+  end >>>= 0
+  thisStart >>>= 0
+  thisEnd >>>= 0
+
+  if (this === target) return 0
+
+  var x = thisEnd - thisStart
+  var y = end - start
+  var len = Math.min(x, y)
+
+  var thisCopy = this.slice(thisStart, thisEnd)
+  var targetCopy = target.slice(start, end)
+
+  for (var i = 0; i < len; ++i) {
+    if (thisCopy[i] !== targetCopy[i]) {
+      x = thisCopy[i]
+      y = targetCopy[i]
+      break
+    }
+  }
+
+  if (x < y) return -1
+  if (y < x) return 1
+  return 0
+}
+
+// Finds either the first index of `val` in `buffer` at offset >= `byteOffset`,
+// OR the last index of `val` in `buffer` at offset <= `byteOffset`.
+//
+// Arguments:
+// - buffer - a Buffer to search
+// - val - a string, Buffer, or number
+// - byteOffset - an index into `buffer`; will be clamped to an int32
+// - encoding - an optional encoding, relevant is val is a string
+// - dir - true for indexOf, false for lastIndexOf
+function bidirectionalIndexOf (buffer, val, byteOffset, encoding, dir) {
+  // Empty buffer means no match
+  if (buffer.length === 0) return -1
+
+  // Normalize byteOffset
+  if (typeof byteOffset === 'string') {
+    encoding = byteOffset
+    byteOffset = 0
+  } else if (byteOffset > 0x7fffffff) {
+    byteOffset = 0x7fffffff
+  } else if (byteOffset < -0x80000000) {
+    byteOffset = -0x80000000
+  }
+  byteOffset = +byteOffset  // Coerce to Number.
+  if (isNaN(byteOffset)) {
+    // byteOffset: it it's undefined, null, NaN, "foo", etc, search whole buffer
+    byteOffset = dir ? 0 : (buffer.length - 1)
+  }
+
+  // Normalize byteOffset: negative offsets start from the end of the buffer
+  if (byteOffset < 0) byteOffset = buffer.length + byteOffset
+  if (byteOffset >= buffer.length) {
+    if (dir) return -1
+    else byteOffset = buffer.length - 1
+  } else if (byteOffset < 0) {
+    if (dir) byteOffset = 0
+    else return -1
+  }
+
+  // Normalize val
+  if (typeof val === 'string') {
+    val = Buffer.from(val, encoding)
+  }
+
+  // Finally, search either indexOf (if dir is true) or lastIndexOf
+  if (Buffer.isBuffer(val)) {
+    // Special case: looking for empty string/buffer always fails
+    if (val.length === 0) {
+      return -1
+    }
+    return arrayIndexOf(buffer, val, byteOffset, encoding, dir)
+  } else if (typeof val === 'number') {
+    val = val & 0xFF // Search for a byte value [0-255]
+    if (Buffer.TYPED_ARRAY_SUPPORT &&
+        typeof Uint8Array.prototype.indexOf === 'function') {
+      if (dir) {
+        return Uint8Array.prototype.indexOf.call(buffer, val, byteOffset)
+      } else {
+        return Uint8Array.prototype.lastIndexOf.call(buffer, val, byteOffset)
+      }
+    }
+    return arrayIndexOf(buffer, [ val ], byteOffset, encoding, dir)
+  }
+
+  throw new TypeError('val must be string, number or Buffer')
+}
+
+function arrayIndexOf (arr, val, byteOffset, encoding, dir) {
+  var indexSize = 1
+  var arrLength = arr.length
+  var valLength = val.length
+
+  if (encoding !== undefined) {
+    encoding = String(encoding).toLowerCase()
+    if (encoding === 'ucs2' || encoding === 'ucs-2' ||
+        encoding === 'utf16le' || encoding === 'utf-16le') {
+      if (arr.length < 2 || val.length < 2) {
+        return -1
+      }
+      indexSize = 2
+      arrLength /= 2
+      valLength /= 2
+      byteOffset /= 2
+    }
+  }
+
+  function read (buf, i) {
+    if (indexSize === 1) {
+      return buf[i]
+    } else {
+      return buf.readUInt16BE(i * indexSize)
+    }
+  }
+
+  var i
+  if (dir) {
+    var foundIndex = -1
+    for (i = byteOffset; i < arrLength; i++) {
+      if (read(arr, i) === read(val, foundIndex === -1 ? 0 : i - foundIndex)) {
+        if (foundIndex === -1) foundIndex = i
+        if (i - foundIndex + 1 === valLength) return foundIndex * indexSize
+      } else {
+        if (foundIndex !== -1) i -= i - foundIndex
+        foundIndex = -1
+      }
+    }
+  } else {
+    if (byteOffset + valLength > arrLength) byteOffset = arrLength - valLength
+    for (i = byteOffset; i >= 0; i--) {
+      var found = true
+      for (var j = 0; j < valLength; j++) {
+        if (read(arr, i + j) !== read(val, j)) {
+          found = false
+          break
+        }
+      }
+      if (found) return i
+    }
+  }
+
+  return -1
+}
+
+Buffer.prototype.includes = function includes (val, byteOffset, encoding) {
+  return this.indexOf(val, byteOffset, encoding) !== -1
+}
+
+Buffer.prototype.indexOf = function indexOf (val, byteOffset, encoding) {
+  return bidirectionalIndexOf(this, val, byteOffset, encoding, true)
+}
+
+Buffer.prototype.lastIndexOf = function lastIndexOf (val, byteOffset, encoding) {
+  return bidirectionalIndexOf(this, val, byteOffset, encoding, false)
+}
+
+function hexWrite (buf, string, offset, length) {
+  offset = Number(offset) || 0
+  var remaining = buf.length - offset
+  if (!length) {
+    length = remaining
+  } else {
+    length = Number(length)
+    if (length > remaining) {
+      length = remaining
+    }
+  }
+
+  // must be an even number of digits
+  var strLen = string.length
+  if (strLen % 2 !== 0) throw new TypeError('Invalid hex string')
+
+  if (length > strLen / 2) {
+    length = strLen / 2
+  }
+  for (var i = 0; i < length; ++i) {
+    var parsed = parseInt(string.substr(i * 2, 2), 16)
+    if (isNaN(parsed)) return i
+    buf[offset + i] = parsed
+  }
+  return i
+}
+
+function utf8Write (buf, string, offset, length) {
+  return blitBuffer(utf8ToBytes(string, buf.length - offset), buf, offset, length)
+}
+
+function asciiWrite (buf, string, offset, length) {
+  return blitBuffer(asciiToBytes(string), buf, offset, length)
+}
+
+function latin1Write (buf, string, offset, length) {
+  return asciiWrite(buf, string, offset, length)
+}
+
+function base64Write (buf, string, offset, length) {
+  return blitBuffer(base64ToBytes(string), buf, offset, length)
+}
+
+function ucs2Write (buf, string, offset, length) {
+  return blitBuffer(utf16leToBytes(string, buf.length - offset), buf, offset, length)
+}
+
+Buffer.prototype.write = function write (string, offset, length, encoding) {
+  // Buffer#write(string)
+  if (offset === undefined) {
+    encoding = 'utf8'
+    length = this.length
+    offset = 0
+  // Buffer#write(string, encoding)
+  } else if (length === undefined && typeof offset === 'string') {
+    encoding = offset
+    length = this.length
+    offset = 0
+  // Buffer#write(string, offset[, length][, encoding])
+  } else if (isFinite(offset)) {
+    offset = offset | 0
+    if (isFinite(length)) {
+      length = length | 0
+      if (encoding === undefined) encoding = 'utf8'
+    } else {
+      encoding = length
+      length = undefined
+    }
+  // legacy write(string, encoding, offset, length) - remove in v0.13
+  } else {
+    throw new Error(
+      'Buffer.write(string, encoding, offset[, length]) is no longer supported'
+    )
+  }
+
+  var remaining = this.length - offset
+  if (length === undefined || length > remaining) length = remaining
+
+  if ((string.length > 0 && (length < 0 || offset < 0)) || offset > this.length) {
+    throw new RangeError('Attempt to write outside buffer bounds')
+  }
+
+  if (!encoding) encoding = 'utf8'
+
+  var loweredCase = false
+  for (;;) {
+    switch (encoding) {
+      case 'hex':
+        return hexWrite(this, string, offset, length)
+
+      case 'utf8':
+      case 'utf-8':
+        return utf8Write(this, string, offset, length)
+
+      case 'ascii':
+        return asciiWrite(this, string, offset, length)
+
+      case 'latin1':
+      case 'binary':
+        return latin1Write(this, string, offset, length)
+
+      case 'base64':
+        // Warning: maxLength not taken into account in base64Write
+        return base64Write(this, string, offset, length)
+
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return ucs2Write(this, string, offset, length)
+
+      default:
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
+        encoding = ('' + encoding).toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+
+Buffer.prototype.toJSON = function toJSON () {
+  return {
+    type: 'Buffer',
+    data: Array.prototype.slice.call(this._arr || this, 0)
+  }
+}
+
+function base64Slice (buf, start, end) {
+  if (start === 0 && end === buf.length) {
+    return base64.fromByteArray(buf)
+  } else {
+    return base64.fromByteArray(buf.slice(start, end))
+  }
+}
+
+function utf8Slice (buf, start, end) {
+  end = Math.min(buf.length, end)
+  var res = []
+
+  var i = start
+  while (i < end) {
+    var firstByte = buf[i]
+    var codePoint = null
+    var bytesPerSequence = (firstByte > 0xEF) ? 4
+      : (firstByte > 0xDF) ? 3
+      : (firstByte > 0xBF) ? 2
+      : 1
+
+    if (i + bytesPerSequence <= end) {
+      var secondByte, thirdByte, fourthByte, tempCodePoint
+
+      switch (bytesPerSequence) {
+        case 1:
+          if (firstByte < 0x80) {
+            codePoint = firstByte
+          }
+          break
+        case 2:
+          secondByte = buf[i + 1]
+          if ((secondByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0x1F) << 0x6 | (secondByte & 0x3F)
+            if (tempCodePoint > 0x7F) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 3:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0xC | (secondByte & 0x3F) << 0x6 | (thirdByte & 0x3F)
+            if (tempCodePoint > 0x7FF && (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF)) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 4:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          fourthByte = buf[i + 3]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80 && (fourthByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0x12 | (secondByte & 0x3F) << 0xC | (thirdByte & 0x3F) << 0x6 | (fourthByte & 0x3F)
+            if (tempCodePoint > 0xFFFF && tempCodePoint < 0x110000) {
+              codePoint = tempCodePoint
+            }
+          }
+      }
+    }
+
+    if (codePoint === null) {
+      // we did not generate a valid codePoint so insert a
+      // replacement char (U+FFFD) and advance only 1 byte
+      codePoint = 0xFFFD
+      bytesPerSequence = 1
+    } else if (codePoint > 0xFFFF) {
+      // encode to utf16 (surrogate pair dance)
+      codePoint -= 0x10000
+      res.push(codePoint >>> 10 & 0x3FF | 0xD800)
+      codePoint = 0xDC00 | codePoint & 0x3FF
+    }
+
+    res.push(codePoint)
+    i += bytesPerSequence
+  }
+
+  return decodeCodePointsArray(res)
+}
+
+// Based on http://stackoverflow.com/a/22747272/680742, the browser with
+// the lowest limit is Chrome, with 0x10000 args.
+// We go 1 magnitude less, for safety
+var MAX_ARGUMENTS_LENGTH = 0x1000
+
+function decodeCodePointsArray (codePoints) {
+  var len = codePoints.length
+  if (len <= MAX_ARGUMENTS_LENGTH) {
+    return String.fromCharCode.apply(String, codePoints) // avoid extra slice()
+  }
+
+  // Decode in chunks to avoid "call stack size exceeded".
+  var res = ''
+  var i = 0
+  while (i < len) {
+    res += String.fromCharCode.apply(
+      String,
+      codePoints.slice(i, i += MAX_ARGUMENTS_LENGTH)
+    )
+  }
+  return res
+}
+
+function asciiSlice (buf, start, end) {
+  var ret = ''
+  end = Math.min(buf.length, end)
+
+  for (var i = start; i < end; ++i) {
+    ret += String.fromCharCode(buf[i] & 0x7F)
+  }
+  return ret
+}
+
+function latin1Slice (buf, start, end) {
+  var ret = ''
+  end = Math.min(buf.length, end)
+
+  for (var i = start; i < end; ++i) {
+    ret += String.fromCharCode(buf[i])
+  }
+  return ret
+}
+
+function hexSlice (buf, start, end) {
+  var len = buf.length
+
+  if (!start || start < 0) start = 0
+  if (!end || end < 0 || end > len) end = len
+
+  var out = ''
+  for (var i = start; i < end; ++i) {
+    out += toHex(buf[i])
+  }
+  return out
+}
+
+function utf16leSlice (buf, start, end) {
+  var bytes = buf.slice(start, end)
+  var res = ''
+  for (var i = 0; i < bytes.length; i += 2) {
+    res += String.fromCharCode(bytes[i] + bytes[i + 1] * 256)
+  }
+  return res
+}
+
+Buffer.prototype.slice = function slice (start, end) {
+  var len = this.length
+  start = ~~start
+  end = end === undefined ? len : ~~end
+
+  if (start < 0) {
+    start += len
+    if (start < 0) start = 0
+  } else if (start > len) {
+    start = len
+  }
+
+  if (end < 0) {
+    end += len
+    if (end < 0) end = 0
+  } else if (end > len) {
+    end = len
+  }
+
+  if (end < start) end = start
+
+  var newBuf
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    newBuf = this.subarray(start, end)
+    newBuf.__proto__ = Buffer.prototype
+  } else {
+    var sliceLen = end - start
+    newBuf = new Buffer(sliceLen, undefined)
+    for (var i = 0; i < sliceLen; ++i) {
+      newBuf[i] = this[i + start]
+    }
+  }
+
+  return newBuf
+}
+
+/*
+ * Need to make sure that buffer isn't trying to write out of bounds.
+ */
+function checkOffset (offset, ext, length) {
+  if ((offset % 1) !== 0 || offset < 0) throw new RangeError('offset is not uint')
+  if (offset + ext > length) throw new RangeError('Trying to access beyond buffer length')
+}
+
+Buffer.prototype.readUIntLE = function readUIntLE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  var val = this[offset]
+  var mul = 1
+  var i = 0
+  while (++i < byteLength && (mul *= 0x100)) {
+    val += this[offset + i] * mul
+  }
+
+  return val
+}
+
+Buffer.prototype.readUIntBE = function readUIntBE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) {
+    checkOffset(offset, byteLength, this.length)
+  }
+
+  var val = this[offset + --byteLength]
+  var mul = 1
+  while (byteLength > 0 && (mul *= 0x100)) {
+    val += this[offset + --byteLength] * mul
+  }
+
+  return val
+}
+
+Buffer.prototype.readUInt8 = function readUInt8 (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 1, this.length)
+  return this[offset]
+}
+
+Buffer.prototype.readUInt16LE = function readUInt16LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  return this[offset] | (this[offset + 1] << 8)
+}
+
+Buffer.prototype.readUInt16BE = function readUInt16BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  return (this[offset] << 8) | this[offset + 1]
+}
+
+Buffer.prototype.readUInt32LE = function readUInt32LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return ((this[offset]) |
+      (this[offset + 1] << 8) |
+      (this[offset + 2] << 16)) +
+      (this[offset + 3] * 0x1000000)
+}
+
+Buffer.prototype.readUInt32BE = function readUInt32BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset] * 0x1000000) +
+    ((this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    this[offset + 3])
+}
+
+Buffer.prototype.readIntLE = function readIntLE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  var val = this[offset]
+  var mul = 1
+  var i = 0
+  while (++i < byteLength && (mul *= 0x100)) {
+    val += this[offset + i] * mul
+  }
+  mul *= 0x80
+
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
+
+  return val
+}
+
+Buffer.prototype.readIntBE = function readIntBE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  var i = byteLength
+  var mul = 1
+  var val = this[offset + --i]
+  while (i > 0 && (mul *= 0x100)) {
+    val += this[offset + --i] * mul
+  }
+  mul *= 0x80
+
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
+
+  return val
+}
+
+Buffer.prototype.readInt8 = function readInt8 (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 1, this.length)
+  if (!(this[offset] & 0x80)) return (this[offset])
+  return ((0xff - this[offset] + 1) * -1)
+}
+
+Buffer.prototype.readInt16LE = function readInt16LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  var val = this[offset] | (this[offset + 1] << 8)
+  return (val & 0x8000) ? val | 0xFFFF0000 : val
+}
+
+Buffer.prototype.readInt16BE = function readInt16BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  var val = this[offset + 1] | (this[offset] << 8)
+  return (val & 0x8000) ? val | 0xFFFF0000 : val
+}
+
+Buffer.prototype.readInt32LE = function readInt32LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset]) |
+    (this[offset + 1] << 8) |
+    (this[offset + 2] << 16) |
+    (this[offset + 3] << 24)
+}
+
+Buffer.prototype.readInt32BE = function readInt32BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset] << 24) |
+    (this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    (this[offset + 3])
+}
+
+Buffer.prototype.readFloatLE = function readFloatLE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+  return ieee754.read(this, offset, true, 23, 4)
+}
+
+Buffer.prototype.readFloatBE = function readFloatBE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
+  return ieee754.read(this, offset, false, 23, 4)
+}
+
+Buffer.prototype.readDoubleLE = function readDoubleLE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 8, this.length)
+  return ieee754.read(this, offset, true, 52, 8)
+}
+
+Buffer.prototype.readDoubleBE = function readDoubleBE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 8, this.length)
+  return ieee754.read(this, offset, false, 52, 8)
+}
+
+function checkInt (buf, value, offset, ext, max, min) {
+  if (!Buffer.isBuffer(buf)) throw new TypeError('"buffer" argument must be a Buffer instance')
+  if (value > max || value < min) throw new RangeError('"value" argument is out of bounds')
+  if (offset + ext > buf.length) throw new RangeError('Index out of range')
+}
+
+Buffer.prototype.writeUIntLE = function writeUIntLE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) {
+    var maxBytes = Math.pow(2, 8 * byteLength) - 1
+    checkInt(this, value, offset, byteLength, maxBytes, 0)
+  }
+
+  var mul = 1
+  var i = 0
+  this[offset] = value & 0xFF
+  while (++i < byteLength && (mul *= 0x100)) {
+    this[offset + i] = (value / mul) & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeUIntBE = function writeUIntBE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) {
+    var maxBytes = Math.pow(2, 8 * byteLength) - 1
+    checkInt(this, value, offset, byteLength, maxBytes, 0)
+  }
+
+  var i = byteLength - 1
+  var mul = 1
+  this[offset + i] = value & 0xFF
+  while (--i >= 0 && (mul *= 0x100)) {
+    this[offset + i] = (value / mul) & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeUInt8 = function writeUInt8 (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 1, 0xff, 0)
+  if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
+  this[offset] = (value & 0xff)
+  return offset + 1
+}
+
+function objectWriteUInt16 (buf, value, offset, littleEndian) {
+  if (value < 0) value = 0xffff + value + 1
+  for (var i = 0, j = Math.min(buf.length - offset, 2); i < j; ++i) {
+    buf[offset + i] = (value & (0xff << (8 * (littleEndian ? i : 1 - i)))) >>>
+      (littleEndian ? i : 1 - i) * 8
+  }
+}
+
+Buffer.prototype.writeUInt16LE = function writeUInt16LE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value & 0xff)
+    this[offset + 1] = (value >>> 8)
+  } else {
+    objectWriteUInt16(this, value, offset, true)
+  }
+  return offset + 2
+}
+
+Buffer.prototype.writeUInt16BE = function writeUInt16BE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value >>> 8)
+    this[offset + 1] = (value & 0xff)
+  } else {
+    objectWriteUInt16(this, value, offset, false)
+  }
+  return offset + 2
+}
+
+function objectWriteUInt32 (buf, value, offset, littleEndian) {
+  if (value < 0) value = 0xffffffff + value + 1
+  for (var i = 0, j = Math.min(buf.length - offset, 4); i < j; ++i) {
+    buf[offset + i] = (value >>> (littleEndian ? i : 3 - i) * 8) & 0xff
+  }
+}
+
+Buffer.prototype.writeUInt32LE = function writeUInt32LE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset + 3] = (value >>> 24)
+    this[offset + 2] = (value >>> 16)
+    this[offset + 1] = (value >>> 8)
+    this[offset] = (value & 0xff)
+  } else {
+    objectWriteUInt32(this, value, offset, true)
+  }
+  return offset + 4
+}
+
+Buffer.prototype.writeUInt32BE = function writeUInt32BE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value >>> 24)
+    this[offset + 1] = (value >>> 16)
+    this[offset + 2] = (value >>> 8)
+    this[offset + 3] = (value & 0xff)
+  } else {
+    objectWriteUInt32(this, value, offset, false)
+  }
+  return offset + 4
+}
+
+Buffer.prototype.writeIntLE = function writeIntLE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) {
+    var limit = Math.pow(2, 8 * byteLength - 1)
+
+    checkInt(this, value, offset, byteLength, limit - 1, -limit)
+  }
+
+  var i = 0
+  var mul = 1
+  var sub = 0
+  this[offset] = value & 0xFF
+  while (++i < byteLength && (mul *= 0x100)) {
+    if (value < 0 && sub === 0 && this[offset + i - 1] !== 0) {
+      sub = 1
+    }
+    this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeIntBE = function writeIntBE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) {
+    var limit = Math.pow(2, 8 * byteLength - 1)
+
+    checkInt(this, value, offset, byteLength, limit - 1, -limit)
+  }
+
+  var i = byteLength - 1
+  var mul = 1
+  var sub = 0
+  this[offset + i] = value & 0xFF
+  while (--i >= 0 && (mul *= 0x100)) {
+    if (value < 0 && sub === 0 && this[offset + i + 1] !== 0) {
+      sub = 1
+    }
+    this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeInt8 = function writeInt8 (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 1, 0x7f, -0x80)
+  if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
+  if (value < 0) value = 0xff + value + 1
+  this[offset] = (value & 0xff)
+  return offset + 1
+}
+
+Buffer.prototype.writeInt16LE = function writeInt16LE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value & 0xff)
+    this[offset + 1] = (value >>> 8)
+  } else {
+    objectWriteUInt16(this, value, offset, true)
+  }
+  return offset + 2
+}
+
+Buffer.prototype.writeInt16BE = function writeInt16BE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value >>> 8)
+    this[offset + 1] = (value & 0xff)
+  } else {
+    objectWriteUInt16(this, value, offset, false)
+  }
+  return offset + 2
+}
+
+Buffer.prototype.writeInt32LE = function writeInt32LE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value & 0xff)
+    this[offset + 1] = (value >>> 8)
+    this[offset + 2] = (value >>> 16)
+    this[offset + 3] = (value >>> 24)
+  } else {
+    objectWriteUInt32(this, value, offset, true)
+  }
+  return offset + 4
+}
+
+Buffer.prototype.writeInt32BE = function writeInt32BE (value, offset, noAssert) {
+  value = +value
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  if (value < 0) value = 0xffffffff + value + 1
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    this[offset] = (value >>> 24)
+    this[offset + 1] = (value >>> 16)
+    this[offset + 2] = (value >>> 8)
+    this[offset + 3] = (value & 0xff)
+  } else {
+    objectWriteUInt32(this, value, offset, false)
+  }
+  return offset + 4
+}
+
+function checkIEEE754 (buf, value, offset, ext, max, min) {
+  if (offset + ext > buf.length) throw new RangeError('Index out of range')
+  if (offset < 0) throw new RangeError('Index out of range')
+}
+
+function writeFloat (buf, value, offset, littleEndian, noAssert) {
+  if (!noAssert) {
+    checkIEEE754(buf, value, offset, 4, 3.4028234663852886e+38, -3.4028234663852886e+38)
+  }
+  ieee754.write(buf, value, offset, littleEndian, 23, 4)
+  return offset + 4
+}
+
+Buffer.prototype.writeFloatLE = function writeFloatLE (value, offset, noAssert) {
+  return writeFloat(this, value, offset, true, noAssert)
+}
+
+Buffer.prototype.writeFloatBE = function writeFloatBE (value, offset, noAssert) {
+  return writeFloat(this, value, offset, false, noAssert)
+}
+
+function writeDouble (buf, value, offset, littleEndian, noAssert) {
+  if (!noAssert) {
+    checkIEEE754(buf, value, offset, 8, 1.7976931348623157E+308, -1.7976931348623157E+308)
+  }
+  ieee754.write(buf, value, offset, littleEndian, 52, 8)
+  return offset + 8
+}
+
+Buffer.prototype.writeDoubleLE = function writeDoubleLE (value, offset, noAssert) {
+  return writeDouble(this, value, offset, true, noAssert)
+}
+
+Buffer.prototype.writeDoubleBE = function writeDoubleBE (value, offset, noAssert) {
+  return writeDouble(this, value, offset, false, noAssert)
+}
+
+// copy(targetBuffer, targetStart=0, sourceStart=0, sourceEnd=buffer.length)
+Buffer.prototype.copy = function copy (target, targetStart, start, end) {
+  if (!start) start = 0
+  if (!end && end !== 0) end = this.length
+  if (targetStart >= target.length) targetStart = target.length
+  if (!targetStart) targetStart = 0
+  if (end > 0 && end < start) end = start
+
+  // Copy 0 bytes; we're done
+  if (end === start) return 0
+  if (target.length === 0 || this.length === 0) return 0
+
+  // Fatal error conditions
+  if (targetStart < 0) {
+    throw new RangeError('targetStart out of bounds')
+  }
+  if (start < 0 || start >= this.length) throw new RangeError('sourceStart out of bounds')
+  if (end < 0) throw new RangeError('sourceEnd out of bounds')
+
+  // Are we oob?
+  if (end > this.length) end = this.length
+  if (target.length - targetStart < end - start) {
+    end = target.length - targetStart + start
+  }
+
+  var len = end - start
+  var i
+
+  if (this === target && start < targetStart && targetStart < end) {
+    // descending copy from end
+    for (i = len - 1; i >= 0; --i) {
+      target[i + targetStart] = this[i + start]
+    }
+  } else if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
+    // ascending copy from start
+    for (i = 0; i < len; ++i) {
+      target[i + targetStart] = this[i + start]
+    }
+  } else {
+    Uint8Array.prototype.set.call(
+      target,
+      this.subarray(start, start + len),
+      targetStart
+    )
+  }
+
+  return len
+}
+
+// Usage:
+//    buffer.fill(number[, offset[, end]])
+//    buffer.fill(buffer[, offset[, end]])
+//    buffer.fill(string[, offset[, end]][, encoding])
+Buffer.prototype.fill = function fill (val, start, end, encoding) {
+  // Handle string cases:
+  if (typeof val === 'string') {
+    if (typeof start === 'string') {
+      encoding = start
+      start = 0
+      end = this.length
+    } else if (typeof end === 'string') {
+      encoding = end
+      end = this.length
+    }
+    if (val.length === 1) {
+      var code = val.charCodeAt(0)
+      if (code < 256) {
+        val = code
+      }
+    }
+    if (encoding !== undefined && typeof encoding !== 'string') {
+      throw new TypeError('encoding must be a string')
+    }
+    if (typeof encoding === 'string' && !Buffer.isEncoding(encoding)) {
+      throw new TypeError('Unknown encoding: ' + encoding)
+    }
+  } else if (typeof val === 'number') {
+    val = val & 255
+  }
+
+  // Invalid ranges are not set to a default, so can range check early.
+  if (start < 0 || this.length < start || this.length < end) {
+    throw new RangeError('Out of range index')
+  }
+
+  if (end <= start) {
+    return this
+  }
+
+  start = start >>> 0
+  end = end === undefined ? this.length : end >>> 0
+
+  if (!val) val = 0
+
+  var i
+  if (typeof val === 'number') {
+    for (i = start; i < end; ++i) {
+      this[i] = val
+    }
+  } else {
+    var bytes = Buffer.isBuffer(val)
+      ? val
+      : utf8ToBytes(new Buffer(val, encoding).toString())
+    var len = bytes.length
+    for (i = 0; i < end - start; ++i) {
+      this[i + start] = bytes[i % len]
+    }
+  }
+
+  return this
+}
+
+// HELPER FUNCTIONS
+// ================
+
+var INVALID_BASE64_RE = /[^+\/0-9A-Za-z-_]/g
+
+function base64clean (str) {
+  // Node strips out invalid characters like \n and \t from the string, base64-js does not
+  str = stringtrim(str).replace(INVALID_BASE64_RE, '')
+  // Node converts strings with length < 2 to ''
+  if (str.length < 2) return ''
+  // Node allows for non-padded base64 strings (missing trailing ===), base64-js does not
+  while (str.length % 4 !== 0) {
+    str = str + '='
+  }
+  return str
+}
+
+function stringtrim (str) {
+  if (str.trim) return str.trim()
+  return str.replace(/^\s+|\s+$/g, '')
+}
+
+function toHex (n) {
+  if (n < 16) return '0' + n.toString(16)
+  return n.toString(16)
+}
+
+function utf8ToBytes (string, units) {
+  units = units || Infinity
+  var codePoint
+  var length = string.length
+  var leadSurrogate = null
+  var bytes = []
+
+  for (var i = 0; i < length; ++i) {
+    codePoint = string.charCodeAt(i)
+
+    // is surrogate component
+    if (codePoint > 0xD7FF && codePoint < 0xE000) {
+      // last char was a lead
+      if (!leadSurrogate) {
+        // no lead yet
+        if (codePoint > 0xDBFF) {
+          // unexpected trail
+          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+          continue
+        } else if (i + 1 === length) {
+          // unpaired lead
+          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+          continue
+        }
+
+        // valid lead
+        leadSurrogate = codePoint
+
+        continue
+      }
+
+      // 2 leads in a row
+      if (codePoint < 0xDC00) {
+        if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+        leadSurrogate = codePoint
+        continue
+      }
+
+      // valid surrogate pair
+      codePoint = (leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00) + 0x10000
+    } else if (leadSurrogate) {
+      // valid bmp char, but last char was a lead
+      if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+    }
+
+    leadSurrogate = null
+
+    // encode utf8
+    if (codePoint < 0x80) {
+      if ((units -= 1) < 0) break
+      bytes.push(codePoint)
+    } else if (codePoint < 0x800) {
+      if ((units -= 2) < 0) break
+      bytes.push(
+        codePoint >> 0x6 | 0xC0,
+        codePoint & 0x3F | 0x80
+      )
+    } else if (codePoint < 0x10000) {
+      if ((units -= 3) < 0) break
+      bytes.push(
+        codePoint >> 0xC | 0xE0,
+        codePoint >> 0x6 & 0x3F | 0x80,
+        codePoint & 0x3F | 0x80
+      )
+    } else if (codePoint < 0x110000) {
+      if ((units -= 4) < 0) break
+      bytes.push(
+        codePoint >> 0x12 | 0xF0,
+        codePoint >> 0xC & 0x3F | 0x80,
+        codePoint >> 0x6 & 0x3F | 0x80,
+        codePoint & 0x3F | 0x80
+      )
+    } else {
+      throw new Error('Invalid code point')
+    }
+  }
+
+  return bytes
+}
+
+function asciiToBytes (str) {
+  var byteArray = []
+  for (var i = 0; i < str.length; ++i) {
+    // Node's code seems to be doing this and not & 0x7F..
+    byteArray.push(str.charCodeAt(i) & 0xFF)
+  }
+  return byteArray
+}
+
+function utf16leToBytes (str, units) {
+  var c, hi, lo
+  var byteArray = []
+  for (var i = 0; i < str.length; ++i) {
+    if ((units -= 2) < 0) break
+
+    c = str.charCodeAt(i)
+    hi = c >> 8
+    lo = c % 256
+    byteArray.push(lo)
+    byteArray.push(hi)
+  }
+
+  return byteArray
+}
+
+function base64ToBytes (str) {
+  return base64.toByteArray(base64clean(str))
+}
+
+function blitBuffer (src, dst, offset, length) {
+  for (var i = 0; i < length; ++i) {
+    if ((i + offset >= dst.length) || (i >= src.length)) break
+    dst[i + offset] = src[i]
+  }
+  return i
+}
+
+function isnan (val) {
+  return val !== val // eslint-disable-line no-self-compare
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/component-emitter/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/component-emitter/index.js ***!
+  \*************************************************/
+/***/ ((module) => {
+
+
+/**
+ * Expose `Emitter`.
+ */
+
+if (true) {
+  module.exports = Emitter;
+}
+
+/**
+ * Initialize a new `Emitter`.
+ *
+ * @api public
+ */
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+};
+
+/**
+ * Mixin the emitter properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Listen on the given `event` with `fn`.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.on =
+Emitter.prototype.addEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+    .push(fn);
+  return this;
+};
+
+/**
+ * Adds an `event` listener that will be invoked a single
+ * time then automatically removed.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.once = function(event, fn){
+  function on() {
+    this.off(event, on);
+    fn.apply(this, arguments);
+  }
+
+  on.fn = fn;
+  this.on(event, on);
+  return this;
+};
+
+/**
+ * Remove the given callback for `event` or all
+ * registered callbacks.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
+  var callbacks = this._callbacks['$' + event];
+  if (!callbacks) return this;
+
+  // remove all handlers
+  if (1 == arguments.length) {
+    delete this._callbacks['$' + event];
+    return this;
+  }
+
+  // remove specific handler
+  var cb;
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+
+  // Remove event specific arrays for event types that no
+  // one is subscribed for to avoid memory leak.
+  if (callbacks.length === 0) {
+    delete this._callbacks['$' + event];
+  }
+
+  return this;
+};
+
+/**
+ * Emit `event` with the given args.
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+
+Emitter.prototype.emit = function(event){
+  this._callbacks = this._callbacks || {};
+
+  var args = new Array(arguments.length - 1)
+    , callbacks = this._callbacks['$' + event];
+
+  for (var i = 1; i < arguments.length; i++) {
+    args[i - 1] = arguments[i];
+  }
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return array of callbacks for `event`.
+ *
+ * @param {String} event
+ * @return {Array}
+ * @api public
+ */
+
+Emitter.prototype.listeners = function(event){
+  this._callbacks = this._callbacks || {};
+  return this._callbacks['$' + event] || [];
+};
+
+/**
+ * Check if this emitter has `event` handlers.
+ *
+ * @param {String} event
+ * @return {Boolean}
+ * @api public
+ */
+
+Emitter.prototype.hasListeners = function(event){
+  return !! this.listeners(event).length;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/debug/src/browser.js":
+/*!*******************************************!*\
+  !*** ./node_modules/debug/src/browser.js ***!
+  \*******************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
+/* eslint-env browser */
+
+/**
+ * This is the web browser implementation of `debug()`.
+ */
+
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = localstorage();
+exports.destroy = (() => {
+	let warned = false;
+
+	return () => {
+		if (!warned) {
+			warned = true;
+			console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+		}
+	};
+})();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+	'#0000CC',
+	'#0000FF',
+	'#0033CC',
+	'#0033FF',
+	'#0066CC',
+	'#0066FF',
+	'#0099CC',
+	'#0099FF',
+	'#00CC00',
+	'#00CC33',
+	'#00CC66',
+	'#00CC99',
+	'#00CCCC',
+	'#00CCFF',
+	'#3300CC',
+	'#3300FF',
+	'#3333CC',
+	'#3333FF',
+	'#3366CC',
+	'#3366FF',
+	'#3399CC',
+	'#3399FF',
+	'#33CC00',
+	'#33CC33',
+	'#33CC66',
+	'#33CC99',
+	'#33CCCC',
+	'#33CCFF',
+	'#6600CC',
+	'#6600FF',
+	'#6633CC',
+	'#6633FF',
+	'#66CC00',
+	'#66CC33',
+	'#9900CC',
+	'#9900FF',
+	'#9933CC',
+	'#9933FF',
+	'#99CC00',
+	'#99CC33',
+	'#CC0000',
+	'#CC0033',
+	'#CC0066',
+	'#CC0099',
+	'#CC00CC',
+	'#CC00FF',
+	'#CC3300',
+	'#CC3333',
+	'#CC3366',
+	'#CC3399',
+	'#CC33CC',
+	'#CC33FF',
+	'#CC6600',
+	'#CC6633',
+	'#CC9900',
+	'#CC9933',
+	'#CCCC00',
+	'#CCCC33',
+	'#FF0000',
+	'#FF0033',
+	'#FF0066',
+	'#FF0099',
+	'#FF00CC',
+	'#FF00FF',
+	'#FF3300',
+	'#FF3333',
+	'#FF3366',
+	'#FF3399',
+	'#FF33CC',
+	'#FF33FF',
+	'#FF6600',
+	'#FF6633',
+	'#FF9900',
+	'#FF9933',
+	'#FFCC00',
+	'#FFCC33'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+// eslint-disable-next-line complexity
+function useColors() {
+	// NB: In an Electron preload script, document will be defined but not fully
+	// initialized. Since we know we're in Chrome, we'll just detect this case
+	// explicitly
+	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
+		return true;
+	}
+
+	// Internet Explorer and Edge do not support colors.
+	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+		return false;
+	}
+
+	// Is webkit? http://stackoverflow.com/a/16459606/376773
+	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+		// Is firebug? http://stackoverflow.com/a/398120/376773
+		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+		// Is firefox >= v31?
+		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+		// Double check webkit in userAgent just in case we are in a worker
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+	args[0] = (this.useColors ? '%c' : '') +
+		this.namespace +
+		(this.useColors ? ' %c' : ' ') +
+		args[0] +
+		(this.useColors ? '%c ' : ' ') +
+		'+' + module.exports.humanize(this.diff);
+
+	if (!this.useColors) {
+		return;
+	}
+
+	const c = 'color: ' + this.color;
+	args.splice(1, 0, c, 'color: inherit');
+
+	// The final "%c" is somewhat tricky, because there could be other
+	// arguments passed either before or after the %c, so we need to
+	// figure out the correct index to insert the CSS into
+	let index = 0;
+	let lastC = 0;
+	args[0].replace(/%[a-zA-Z%]/g, match => {
+		if (match === '%%') {
+			return;
+		}
+		index++;
+		if (match === '%c') {
+			// We only are interested in the *last* %c
+			// (the user may have provided their own)
+			lastC = index;
+		}
+	});
+
+	args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.debug()` when available.
+ * No-op when `console.debug` is not a "function".
+ * If `console.debug` is not available, falls back
+ * to `console.log`.
+ *
+ * @api public
+ */
+exports.log = console.debug || console.log || (() => {});
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+function save(namespaces) {
+	try {
+		if (namespaces) {
+			exports.storage.setItem('debug', namespaces);
+		} else {
+			exports.storage.removeItem('debug');
+		}
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+function load() {
+	let r;
+	try {
+		r = exports.storage.getItem('debug');
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+
+	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+	if (!r && typeof process !== 'undefined' && 'env' in process) {
+		r = process.env.DEBUG;
+	}
+
+	return r;
+}
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+	try {
+		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
+		// The Browser also has localStorage in the global context.
+		return localStorage;
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+module.exports = __webpack_require__(/*! ./common */ "./node_modules/debug/src/common.js")(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+formatters.j = function (v) {
+	try {
+		return JSON.stringify(v);
+	} catch (error) {
+		return '[UnexpectedJSONParseError]: ' + error.message;
+	}
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/debug/src/common.js":
+/*!******************************************!*\
+  !*** ./node_modules/debug/src/common.js ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ */
+
+function setup(env) {
+	createDebug.debug = createDebug;
+	createDebug.default = createDebug;
+	createDebug.coerce = coerce;
+	createDebug.disable = disable;
+	createDebug.enable = enable;
+	createDebug.enabled = enabled;
+	createDebug.humanize = __webpack_require__(/*! ms */ "./node_modules/ms/index.js");
+	createDebug.destroy = destroy;
+
+	Object.keys(env).forEach(key => {
+		createDebug[key] = env[key];
+	});
+
+	/**
+	* The currently active debug mode names, and names to skip.
+	*/
+
+	createDebug.names = [];
+	createDebug.skips = [];
+
+	/**
+	* Map of special "%n" handling functions, for the debug "format" argument.
+	*
+	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+	*/
+	createDebug.formatters = {};
+
+	/**
+	* Selects a color for a debug namespace
+	* @param {String} namespace The namespace string for the for the debug instance to be colored
+	* @return {Number|String} An ANSI color code for the given namespace
+	* @api private
+	*/
+	function selectColor(namespace) {
+		let hash = 0;
+
+		for (let i = 0; i < namespace.length; i++) {
+			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
+			hash |= 0; // Convert to 32bit integer
+		}
+
+		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+	}
+	createDebug.selectColor = selectColor;
+
+	/**
+	* Create a debugger with the given `namespace`.
+	*
+	* @param {String} namespace
+	* @return {Function}
+	* @api public
+	*/
+	function createDebug(namespace) {
+		let prevTime;
+		let enableOverride = null;
+
+		function debug(...args) {
+			// Disabled?
+			if (!debug.enabled) {
+				return;
+			}
+
+			const self = debug;
+
+			// Set `diff` timestamp
+			const curr = Number(new Date());
+			const ms = curr - (prevTime || curr);
+			self.diff = ms;
+			self.prev = prevTime;
+			self.curr = curr;
+			prevTime = curr;
+
+			args[0] = createDebug.coerce(args[0]);
+
+			if (typeof args[0] !== 'string') {
+				// Anything else let's inspect with %O
+				args.unshift('%O');
+			}
+
+			// Apply any `formatters` transformations
+			let index = 0;
+			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+				// If we encounter an escaped % then don't increase the array index
+				if (match === '%%') {
+					return '%';
+				}
+				index++;
+				const formatter = createDebug.formatters[format];
+				if (typeof formatter === 'function') {
+					const val = args[index];
+					match = formatter.call(self, val);
+
+					// Now we need to remove `args[index]` since it's inlined in the `format`
+					args.splice(index, 1);
+					index--;
+				}
+				return match;
+			});
+
+			// Apply env-specific formatting (colors, etc.)
+			createDebug.formatArgs.call(self, args);
+
+			const logFn = self.log || createDebug.log;
+			logFn.apply(self, args);
+		}
+
+		debug.namespace = namespace;
+		debug.useColors = createDebug.useColors();
+		debug.color = createDebug.selectColor(namespace);
+		debug.extend = extend;
+		debug.destroy = createDebug.destroy; // XXX Temporary. Will be removed in the next major release.
+
+		Object.defineProperty(debug, 'enabled', {
+			enumerable: true,
+			configurable: false,
+			get: () => enableOverride === null ? createDebug.enabled(namespace) : enableOverride,
+			set: v => {
+				enableOverride = v;
+			}
+		});
+
+		// Env-specific initialization logic for debug instances
+		if (typeof createDebug.init === 'function') {
+			createDebug.init(debug);
+		}
+
+		return debug;
+	}
+
+	function extend(namespace, delimiter) {
+		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+		newDebug.log = this.log;
+		return newDebug;
+	}
+
+	/**
+	* Enables a debug mode by namespaces. This can include modes
+	* separated by a colon and wildcards.
+	*
+	* @param {String} namespaces
+	* @api public
+	*/
+	function enable(namespaces) {
+		createDebug.save(namespaces);
+
+		createDebug.names = [];
+		createDebug.skips = [];
+
+		let i;
+		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+		const len = split.length;
+
+		for (i = 0; i < len; i++) {
+			if (!split[i]) {
+				// ignore empty strings
+				continue;
+			}
+
+			namespaces = split[i].replace(/\*/g, '.*?');
+
+			if (namespaces[0] === '-') {
+				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+			} else {
+				createDebug.names.push(new RegExp('^' + namespaces + '$'));
+			}
+		}
+	}
+
+	/**
+	* Disable debug output.
+	*
+	* @return {String} namespaces
+	* @api public
+	*/
+	function disable() {
+		const namespaces = [
+			...createDebug.names.map(toNamespace),
+			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
+		].join(',');
+		createDebug.enable('');
+		return namespaces;
+	}
+
+	/**
+	* Returns true if the given mode name is enabled, false otherwise.
+	*
+	* @param {String} name
+	* @return {Boolean}
+	* @api public
+	*/
+	function enabled(name) {
+		if (name[name.length - 1] === '*') {
+			return true;
+		}
+
+		let i;
+		let len;
+
+		for (i = 0, len = createDebug.skips.length; i < len; i++) {
+			if (createDebug.skips[i].test(name)) {
+				return false;
+			}
+		}
+
+		for (i = 0, len = createDebug.names.length; i < len; i++) {
+			if (createDebug.names[i].test(name)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	* Convert regexp to namespace
+	*
+	* @param {RegExp} regxep
+	* @return {String} namespace
+	* @api private
+	*/
+	function toNamespace(regexp) {
+		return regexp.toString()
+			.substring(2, regexp.toString().length - 2)
+			.replace(/\.\*\?$/, '*');
+	}
+
+	/**
+	* Coerce `val`.
+	*
+	* @param {Mixed} val
+	* @return {Mixed}
+	* @api private
+	*/
+	function coerce(val) {
+		if (val instanceof Error) {
+			return val.stack || val.message;
+		}
+		return val;
+	}
+
+	/**
+	* XXX DO NOT USE. This is a temporary stub function.
+	* XXX It WILL be removed in the next major release.
+	*/
+	function destroy() {
+		console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+	}
+
+	createDebug.enable(createDebug.load());
+
+	return createDebug;
+}
+
+module.exports = setup;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/globalThis.browser.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/globalThis.browser.js ***!
+  \*****************************************************************/
+/***/ ((module) => {
+
+module.exports = (() => {
+  if (typeof self !== "undefined") {
+    return self;
+  } else if (typeof window !== "undefined") {
+    return window;
+  } else {
+    return Function("return this")();
+  }
+})();
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/index.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const Socket = __webpack_require__(/*! ./socket */ "./node_modules/engine.io-client/lib/socket.js");
+
+module.exports = (uri, opts) => new Socket(uri, opts);
+
+/**
+ * Expose deps for legacy compatibility
+ * and standalone browser access.
+ */
+
+module.exports.Socket = Socket;
+module.exports.protocol = Socket.protocol; // this is an int
+module.exports.Transport = __webpack_require__(/*! ./transport */ "./node_modules/engine.io-client/lib/transport.js");
+module.exports.transports = __webpack_require__(/*! ./transports/index */ "./node_modules/engine.io-client/lib/transports/index.js");
+module.exports.parser = __webpack_require__(/*! engine.io-parser */ "./node_modules/engine.io-parser/lib/index.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/socket.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/socket.js ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const transports = __webpack_require__(/*! ./transports/index */ "./node_modules/engine.io-client/lib/transports/index.js");
+const Emitter = __webpack_require__(/*! component-emitter */ "./node_modules/component-emitter/index.js");
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("engine.io-client:socket");
+const parser = __webpack_require__(/*! engine.io-parser */ "./node_modules/engine.io-parser/lib/index.js");
+const parseuri = __webpack_require__(/*! parseuri */ "./node_modules/parseuri/index.js");
+const parseqs = __webpack_require__(/*! parseqs */ "./node_modules/parseqs/index.js");
+
+class Socket extends Emitter {
+  /**
+   * Socket constructor.
+   *
+   * @param {String|Object} uri or options
+   * @param {Object} options
+   * @api public
+   */
+  constructor(uri, opts = {}) {
+    super();
+
+    if (uri && "object" === typeof uri) {
+      opts = uri;
+      uri = null;
+    }
+
+    if (uri) {
+      uri = parseuri(uri);
+      opts.hostname = uri.host;
+      opts.secure = uri.protocol === "https" || uri.protocol === "wss";
+      opts.port = uri.port;
+      if (uri.query) opts.query = uri.query;
+    } else if (opts.host) {
+      opts.hostname = parseuri(opts.host).host;
+    }
+
+    this.secure =
+      null != opts.secure
+        ? opts.secure
+        : typeof location !== "undefined" && "https:" === location.protocol;
+
+    if (opts.hostname && !opts.port) {
+      // if no port is specified manually, use the protocol default
+      opts.port = this.secure ? "443" : "80";
+    }
+
+    this.hostname =
+      opts.hostname ||
+      (typeof location !== "undefined" ? location.hostname : "localhost");
+    this.port =
+      opts.port ||
+      (typeof location !== "undefined" && location.port
+        ? location.port
+        : this.secure
+        ? 443
+        : 80);
+
+    this.transports = opts.transports || ["polling", "websocket"];
+    this.readyState = "";
+    this.writeBuffer = [];
+    this.prevBufferLen = 0;
+
+    this.opts = Object.assign(
+      {
+        path: "/engine.io",
+        agent: false,
+        withCredentials: false,
+        upgrade: true,
+        jsonp: true,
+        timestampParam: "t",
+        rememberUpgrade: false,
+        rejectUnauthorized: true,
+        perMessageDeflate: {
+          threshold: 1024
+        },
+        transportOptions: {}
+      },
+      opts
+    );
+
+    this.opts.path = this.opts.path.replace(/\/$/, "") + "/";
+
+    if (typeof this.opts.query === "string") {
+      this.opts.query = parseqs.decode(this.opts.query);
+    }
+
+    // set on handshake
+    this.id = null;
+    this.upgrades = null;
+    this.pingInterval = null;
+    this.pingTimeout = null;
+
+    // set on heartbeat
+    this.pingTimeoutTimer = null;
+
+    this.open();
+  }
+
+  /**
+   * Creates transport of the given type.
+   *
+   * @param {String} transport name
+   * @return {Transport}
+   * @api private
+   */
+  createTransport(name) {
+    debug('creating transport "%s"', name);
+    const query = clone(this.opts.query);
+
+    // append engine.io protocol identifier
+    query.EIO = parser.protocol;
+
+    // transport name
+    query.transport = name;
+
+    // session id if we already have one
+    if (this.id) query.sid = this.id;
+
+    const opts = Object.assign(
+      {},
+      this.opts.transportOptions[name],
+      this.opts,
+      {
+        query,
+        socket: this,
+        hostname: this.hostname,
+        secure: this.secure,
+        port: this.port
+      }
+    );
+
+    debug("options: %j", opts);
+
+    return new transports[name](opts);
+  }
+
+  /**
+   * Initializes transport to use and starts probe.
+   *
+   * @api private
+   */
+  open() {
+    let transport;
+    if (
+      this.opts.rememberUpgrade &&
+      Socket.priorWebsocketSuccess &&
+      this.transports.indexOf("websocket") !== -1
+    ) {
+      transport = "websocket";
+    } else if (0 === this.transports.length) {
+      // Emit error on next tick so it can be listened to
+      const self = this;
+      setTimeout(function() {
+        self.emit("error", "No transports available");
+      }, 0);
+      return;
+    } else {
+      transport = this.transports[0];
+    }
+    this.readyState = "opening";
+
+    // Retry with the next transport if the transport is disabled (jsonp: false)
+    try {
+      transport = this.createTransport(transport);
+    } catch (e) {
+      debug("error while creating transport: %s", e);
+      this.transports.shift();
+      this.open();
+      return;
+    }
+
+    transport.open();
+    this.setTransport(transport);
+  }
+
+  /**
+   * Sets the current transport. Disables the existing one (if any).
+   *
+   * @api private
+   */
+  setTransport(transport) {
+    debug("setting transport %s", transport.name);
+    const self = this;
+
+    if (this.transport) {
+      debug("clearing existing transport %s", this.transport.name);
+      this.transport.removeAllListeners();
+    }
+
+    // set up transport
+    this.transport = transport;
+
+    // set up transport listeners
+    transport
+      .on("drain", function() {
+        self.onDrain();
+      })
+      .on("packet", function(packet) {
+        self.onPacket(packet);
+      })
+      .on("error", function(e) {
+        self.onError(e);
+      })
+      .on("close", function() {
+        self.onClose("transport close");
+      });
+  }
+
+  /**
+   * Probes a transport.
+   *
+   * @param {String} transport name
+   * @api private
+   */
+  probe(name) {
+    debug('probing transport "%s"', name);
+    let transport = this.createTransport(name, { probe: 1 });
+    let failed = false;
+    const self = this;
+
+    Socket.priorWebsocketSuccess = false;
+
+    function onTransportOpen() {
+      if (self.onlyBinaryUpgrades) {
+        const upgradeLosesBinary =
+          !this.supportsBinary && self.transport.supportsBinary;
+        failed = failed || upgradeLosesBinary;
+      }
+      if (failed) return;
+
+      debug('probe transport "%s" opened', name);
+      transport.send([{ type: "ping", data: "probe" }]);
+      transport.once("packet", function(msg) {
+        if (failed) return;
+        if ("pong" === msg.type && "probe" === msg.data) {
+          debug('probe transport "%s" pong', name);
+          self.upgrading = true;
+          self.emit("upgrading", transport);
+          if (!transport) return;
+          Socket.priorWebsocketSuccess = "websocket" === transport.name;
+
+          debug('pausing current transport "%s"', self.transport.name);
+          self.transport.pause(function() {
+            if (failed) return;
+            if ("closed" === self.readyState) return;
+            debug("changing transport and sending upgrade packet");
+
+            cleanup();
+
+            self.setTransport(transport);
+            transport.send([{ type: "upgrade" }]);
+            self.emit("upgrade", transport);
+            transport = null;
+            self.upgrading = false;
+            self.flush();
+          });
+        } else {
+          debug('probe transport "%s" failed', name);
+          const err = new Error("probe error");
+          err.transport = transport.name;
+          self.emit("upgradeError", err);
+        }
+      });
+    }
+
+    function freezeTransport() {
+      if (failed) return;
+
+      // Any callback called by transport should be ignored since now
+      failed = true;
+
+      cleanup();
+
+      transport.close();
+      transport = null;
+    }
+
+    // Handle any error that happens while probing
+    function onerror(err) {
+      const error = new Error("probe error: " + err);
+      error.transport = transport.name;
+
+      freezeTransport();
+
+      debug('probe transport "%s" failed because of error: %s', name, err);
+
+      self.emit("upgradeError", error);
+    }
+
+    function onTransportClose() {
+      onerror("transport closed");
+    }
+
+    // When the socket is closed while we're probing
+    function onclose() {
+      onerror("socket closed");
+    }
+
+    // When the socket is upgraded while we're probing
+    function onupgrade(to) {
+      if (transport && to.name !== transport.name) {
+        debug('"%s" works - aborting "%s"', to.name, transport.name);
+        freezeTransport();
+      }
+    }
+
+    // Remove all listeners on the transport and on self
+    function cleanup() {
+      transport.removeListener("open", onTransportOpen);
+      transport.removeListener("error", onerror);
+      transport.removeListener("close", onTransportClose);
+      self.removeListener("close", onclose);
+      self.removeListener("upgrading", onupgrade);
+    }
+
+    transport.once("open", onTransportOpen);
+    transport.once("error", onerror);
+    transport.once("close", onTransportClose);
+
+    this.once("close", onclose);
+    this.once("upgrading", onupgrade);
+
+    transport.open();
+  }
+
+  /**
+   * Called when connection is deemed open.
+   *
+   * @api public
+   */
+  onOpen() {
+    debug("socket open");
+    this.readyState = "open";
+    Socket.priorWebsocketSuccess = "websocket" === this.transport.name;
+    this.emit("open");
+    this.flush();
+
+    // we check for `readyState` in case an `open`
+    // listener already closed the socket
+    if (
+      "open" === this.readyState &&
+      this.opts.upgrade &&
+      this.transport.pause
+    ) {
+      debug("starting upgrade probes");
+      let i = 0;
+      const l = this.upgrades.length;
+      for (; i < l; i++) {
+        this.probe(this.upgrades[i]);
+      }
+    }
+  }
+
+  /**
+   * Handles a packet.
+   *
+   * @api private
+   */
+  onPacket(packet) {
+    if (
+      "opening" === this.readyState ||
+      "open" === this.readyState ||
+      "closing" === this.readyState
+    ) {
+      debug('socket receive: type "%s", data "%s"', packet.type, packet.data);
+
+      this.emit("packet", packet);
+
+      // Socket is live - any packet counts
+      this.emit("heartbeat");
+
+      switch (packet.type) {
+        case "open":
+          this.onHandshake(JSON.parse(packet.data));
+          break;
+
+        case "ping":
+          this.resetPingTimeout();
+          this.sendPacket("pong");
+          this.emit("pong");
+          break;
+
+        case "error":
+          const err = new Error("server error");
+          err.code = packet.data;
+          this.onError(err);
+          break;
+
+        case "message":
+          this.emit("data", packet.data);
+          this.emit("message", packet.data);
+          break;
+      }
+    } else {
+      debug('packet received with socket readyState "%s"', this.readyState);
+    }
+  }
+
+  /**
+   * Called upon handshake completion.
+   *
+   * @param {Object} handshake obj
+   * @api private
+   */
+  onHandshake(data) {
+    this.emit("handshake", data);
+    this.id = data.sid;
+    this.transport.query.sid = data.sid;
+    this.upgrades = this.filterUpgrades(data.upgrades);
+    this.pingInterval = data.pingInterval;
+    this.pingTimeout = data.pingTimeout;
+    this.onOpen();
+    // In case open handler closes socket
+    if ("closed" === this.readyState) return;
+    this.resetPingTimeout();
+  }
+
+  /**
+   * Sets and resets ping timeout timer based on server pings.
+   *
+   * @api private
+   */
+  resetPingTimeout() {
+    clearTimeout(this.pingTimeoutTimer);
+    this.pingTimeoutTimer = setTimeout(() => {
+      this.onClose("ping timeout");
+    }, this.pingInterval + this.pingTimeout);
+  }
+
+  /**
+   * Called on `drain` event
+   *
+   * @api private
+   */
+  onDrain() {
+    this.writeBuffer.splice(0, this.prevBufferLen);
+
+    // setting prevBufferLen = 0 is very important
+    // for example, when upgrading, upgrade packet is sent over,
+    // and a nonzero prevBufferLen could cause problems on `drain`
+    this.prevBufferLen = 0;
+
+    if (0 === this.writeBuffer.length) {
+      this.emit("drain");
+    } else {
+      this.flush();
+    }
+  }
+
+  /**
+   * Flush write buffers.
+   *
+   * @api private
+   */
+  flush() {
+    if (
+      "closed" !== this.readyState &&
+      this.transport.writable &&
+      !this.upgrading &&
+      this.writeBuffer.length
+    ) {
+      debug("flushing %d packets in socket", this.writeBuffer.length);
+      this.transport.send(this.writeBuffer);
+      // keep track of current length of writeBuffer
+      // splice writeBuffer and callbackBuffer on `drain`
+      this.prevBufferLen = this.writeBuffer.length;
+      this.emit("flush");
+    }
+  }
+
+  /**
+   * Sends a message.
+   *
+   * @param {String} message.
+   * @param {Function} callback function.
+   * @param {Object} options.
+   * @return {Socket} for chaining.
+   * @api public
+   */
+  write(msg, options, fn) {
+    this.sendPacket("message", msg, options, fn);
+    return this;
+  }
+
+  send(msg, options, fn) {
+    this.sendPacket("message", msg, options, fn);
+    return this;
+  }
+
+  /**
+   * Sends a packet.
+   *
+   * @param {String} packet type.
+   * @param {String} data.
+   * @param {Object} options.
+   * @param {Function} callback function.
+   * @api private
+   */
+  sendPacket(type, data, options, fn) {
+    if ("function" === typeof data) {
+      fn = data;
+      data = undefined;
+    }
+
+    if ("function" === typeof options) {
+      fn = options;
+      options = null;
+    }
+
+    if ("closing" === this.readyState || "closed" === this.readyState) {
+      return;
+    }
+
+    options = options || {};
+    options.compress = false !== options.compress;
+
+    const packet = {
+      type: type,
+      data: data,
+      options: options
+    };
+    this.emit("packetCreate", packet);
+    this.writeBuffer.push(packet);
+    if (fn) this.once("flush", fn);
+    this.flush();
+  }
+
+  /**
+   * Closes the connection.
+   *
+   * @api private
+   */
+  close() {
+    const self = this;
+
+    if ("opening" === this.readyState || "open" === this.readyState) {
+      this.readyState = "closing";
+
+      if (this.writeBuffer.length) {
+        this.once("drain", function() {
+          if (this.upgrading) {
+            waitForUpgrade();
+          } else {
+            close();
+          }
+        });
+      } else if (this.upgrading) {
+        waitForUpgrade();
+      } else {
+        close();
+      }
+    }
+
+    function close() {
+      self.onClose("forced close");
+      debug("socket closing - telling transport to close");
+      self.transport.close();
+    }
+
+    function cleanupAndClose() {
+      self.removeListener("upgrade", cleanupAndClose);
+      self.removeListener("upgradeError", cleanupAndClose);
+      close();
+    }
+
+    function waitForUpgrade() {
+      // wait for upgrade to finish since we can't send packets while pausing a transport
+      self.once("upgrade", cleanupAndClose);
+      self.once("upgradeError", cleanupAndClose);
+    }
+
+    return this;
+  }
+
+  /**
+   * Called upon transport error
+   *
+   * @api private
+   */
+  onError(err) {
+    debug("socket error %j", err);
+    Socket.priorWebsocketSuccess = false;
+    this.emit("error", err);
+    this.onClose("transport error", err);
+  }
+
+  /**
+   * Called upon transport close.
+   *
+   * @api private
+   */
+  onClose(reason, desc) {
+    if (
+      "opening" === this.readyState ||
+      "open" === this.readyState ||
+      "closing" === this.readyState
+    ) {
+      debug('socket close with reason: "%s"', reason);
+      const self = this;
+
+      // clear timers
+      clearTimeout(this.pingIntervalTimer);
+      clearTimeout(this.pingTimeoutTimer);
+
+      // stop event from firing again for transport
+      this.transport.removeAllListeners("close");
+
+      // ensure transport won't stay open
+      this.transport.close();
+
+      // ignore further transport communication
+      this.transport.removeAllListeners();
+
+      // set ready state
+      this.readyState = "closed";
+
+      // clear session id
+      this.id = null;
+
+      // emit close event
+      this.emit("close", reason, desc);
+
+      // clean buffers after, so users can still
+      // grab the buffers on `close` event
+      self.writeBuffer = [];
+      self.prevBufferLen = 0;
+    }
+  }
+
+  /**
+   * Filters upgrades, returning only those matching client transports.
+   *
+   * @param {Array} server upgrades
+   * @api private
+   *
+   */
+  filterUpgrades(upgrades) {
+    const filteredUpgrades = [];
+    let i = 0;
+    const j = upgrades.length;
+    for (; i < j; i++) {
+      if (~this.transports.indexOf(upgrades[i]))
+        filteredUpgrades.push(upgrades[i]);
+    }
+    return filteredUpgrades;
+  }
+}
+
+Socket.priorWebsocketSuccess = false;
+
+/**
+ * Protocol version.
+ *
+ * @api public
+ */
+
+Socket.protocol = parser.protocol; // this is an int
+
+function clone(obj) {
+  const o = {};
+  for (let i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      o[i] = obj[i];
+    }
+  }
+  return o;
+}
+
+module.exports = Socket;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/transport.js":
+/*!********************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/transport.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const parser = __webpack_require__(/*! engine.io-parser */ "./node_modules/engine.io-parser/lib/index.js");
+const Emitter = __webpack_require__(/*! component-emitter */ "./node_modules/component-emitter/index.js");
+
+class Transport extends Emitter {
+  /**
+   * Transport abstract constructor.
+   *
+   * @param {Object} options.
+   * @api private
+   */
+  constructor(opts) {
+    super();
+
+    this.opts = opts;
+    this.query = opts.query;
+    this.readyState = "";
+    this.socket = opts.socket;
+  }
+
+  /**
+   * Emits an error.
+   *
+   * @param {String} str
+   * @return {Transport} for chaining
+   * @api public
+   */
+  onError(msg, desc) {
+    const err = new Error(msg);
+    err.type = "TransportError";
+    err.description = desc;
+    this.emit("error", err);
+    return this;
+  }
+
+  /**
+   * Opens the transport.
+   *
+   * @api public
+   */
+  open() {
+    if ("closed" === this.readyState || "" === this.readyState) {
+      this.readyState = "opening";
+      this.doOpen();
+    }
+
+    return this;
+  }
+
+  /**
+   * Closes the transport.
+   *
+   * @api private
+   */
+  close() {
+    if ("opening" === this.readyState || "open" === this.readyState) {
+      this.doClose();
+      this.onClose();
+    }
+
+    return this;
+  }
+
+  /**
+   * Sends multiple packets.
+   *
+   * @param {Array} packets
+   * @api private
+   */
+  send(packets) {
+    if ("open" === this.readyState) {
+      this.write(packets);
+    } else {
+      throw new Error("Transport not open");
+    }
+  }
+
+  /**
+   * Called upon open
+   *
+   * @api private
+   */
+  onOpen() {
+    this.readyState = "open";
+    this.writable = true;
+    this.emit("open");
+  }
+
+  /**
+   * Called with data.
+   *
+   * @param {String} data
+   * @api private
+   */
+  onData(data) {
+    const packet = parser.decodePacket(data, this.socket.binaryType);
+    this.onPacket(packet);
+  }
+
+  /**
+   * Called with a decoded packet.
+   */
+  onPacket(packet) {
+    this.emit("packet", packet);
+  }
+
+  /**
+   * Called upon close.
+   *
+   * @api private
+   */
+  onClose() {
+    this.readyState = "closed";
+    this.emit("close");
+  }
+}
+
+module.exports = Transport;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/transports/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/transports/index.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+const XMLHttpRequest = __webpack_require__(/*! xmlhttprequest-ssl */ "./node_modules/engine.io-client/lib/xmlhttprequest.js");
+const XHR = __webpack_require__(/*! ./polling-xhr */ "./node_modules/engine.io-client/lib/transports/polling-xhr.js");
+const JSONP = __webpack_require__(/*! ./polling-jsonp */ "./node_modules/engine.io-client/lib/transports/polling-jsonp.js");
+const websocket = __webpack_require__(/*! ./websocket */ "./node_modules/engine.io-client/lib/transports/websocket.js");
+
+exports.polling = polling;
+exports.websocket = websocket;
+
+/**
+ * Polling transport polymorphic constructor.
+ * Decides on xhr vs jsonp based on feature detection.
+ *
+ * @api private
+ */
+
+function polling(opts) {
+  let xhr;
+  let xd = false;
+  let xs = false;
+  const jsonp = false !== opts.jsonp;
+
+  if (typeof location !== "undefined") {
+    const isSSL = "https:" === location.protocol;
+    let port = location.port;
+
+    // some user agents have empty `location.port`
+    if (!port) {
+      port = isSSL ? 443 : 80;
+    }
+
+    xd = opts.hostname !== location.hostname || port !== opts.port;
+    xs = opts.secure !== isSSL;
+  }
+
+  opts.xdomain = xd;
+  opts.xscheme = xs;
+  xhr = new XMLHttpRequest(opts);
+
+  if ("open" in xhr && !opts.forceJSONP) {
+    return new XHR(opts);
+  } else {
+    if (!jsonp) throw new Error("JSONP disabled");
+    return new JSONP(opts);
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/transports/polling-jsonp.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/transports/polling-jsonp.js ***!
+  \***********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const Polling = __webpack_require__(/*! ./polling */ "./node_modules/engine.io-client/lib/transports/polling.js");
+const globalThis = __webpack_require__(/*! ../globalThis */ "./node_modules/engine.io-client/lib/globalThis.browser.js");
+
+const rNewline = /\n/g;
+const rEscapedNewline = /\\n/g;
+
+/**
+ * Global JSONP callbacks.
+ */
+
+let callbacks;
+
+/**
+ * Noop.
+ */
+
+function empty() {}
+
+class JSONPPolling extends Polling {
+  /**
+   * JSONP Polling constructor.
+   *
+   * @param {Object} opts.
+   * @api public
+   */
+  constructor(opts) {
+    super(opts);
+
+    this.query = this.query || {};
+
+    // define global callbacks array if not present
+    // we do this here (lazily) to avoid unneeded global pollution
+    if (!callbacks) {
+      // we need to consider multiple engines in the same page
+      callbacks = globalThis.___eio = globalThis.___eio || [];
+    }
+
+    // callback identifier
+    this.index = callbacks.length;
+
+    // add callback to jsonp global
+    const self = this;
+    callbacks.push(function(msg) {
+      self.onData(msg);
+    });
+
+    // append to query string
+    this.query.j = this.index;
+
+    // prevent spurious errors from being emitted when the window is unloaded
+    if (typeof addEventListener === "function") {
+      addEventListener(
+        "beforeunload",
+        function() {
+          if (self.script) self.script.onerror = empty;
+        },
+        false
+      );
+    }
+  }
+
+  /**
+   * JSONP only supports binary as base64 encoded strings
+   */
+  get supportsBinary() {
+    return false;
+  }
+
+  /**
+   * Closes the socket.
+   *
+   * @api private
+   */
+  doClose() {
+    if (this.script) {
+      this.script.parentNode.removeChild(this.script);
+      this.script = null;
+    }
+
+    if (this.form) {
+      this.form.parentNode.removeChild(this.form);
+      this.form = null;
+      this.iframe = null;
+    }
+
+    super.doClose();
+  }
+
+  /**
+   * Starts a poll cycle.
+   *
+   * @api private
+   */
+  doPoll() {
+    const self = this;
+    const script = document.createElement("script");
+
+    if (this.script) {
+      this.script.parentNode.removeChild(this.script);
+      this.script = null;
+    }
+
+    script.async = true;
+    script.src = this.uri();
+    script.onerror = function(e) {
+      self.onError("jsonp poll error", e);
+    };
+
+    const insertAt = document.getElementsByTagName("script")[0];
+    if (insertAt) {
+      insertAt.parentNode.insertBefore(script, insertAt);
+    } else {
+      (document.head || document.body).appendChild(script);
+    }
+    this.script = script;
+
+    const isUAgecko =
+      "undefined" !== typeof navigator && /gecko/i.test(navigator.userAgent);
+
+    if (isUAgecko) {
+      setTimeout(function() {
+        const iframe = document.createElement("iframe");
+        document.body.appendChild(iframe);
+        document.body.removeChild(iframe);
+      }, 100);
+    }
+  }
+
+  /**
+   * Writes with a hidden iframe.
+   *
+   * @param {String} data to send
+   * @param {Function} called upon flush.
+   * @api private
+   */
+  doWrite(data, fn) {
+    const self = this;
+    let iframe;
+
+    if (!this.form) {
+      const form = document.createElement("form");
+      const area = document.createElement("textarea");
+      const id = (this.iframeId = "eio_iframe_" + this.index);
+
+      form.className = "socketio";
+      form.style.position = "absolute";
+      form.style.top = "-1000px";
+      form.style.left = "-1000px";
+      form.target = id;
+      form.method = "POST";
+      form.setAttribute("accept-charset", "utf-8");
+      area.name = "d";
+      form.appendChild(area);
+      document.body.appendChild(form);
+
+      this.form = form;
+      this.area = area;
+    }
+
+    this.form.action = this.uri();
+
+    function complete() {
+      initIframe();
+      fn();
+    }
+
+    function initIframe() {
+      if (self.iframe) {
+        try {
+          self.form.removeChild(self.iframe);
+        } catch (e) {
+          self.onError("jsonp polling iframe removal error", e);
+        }
+      }
+
+      try {
+        // ie6 dynamic iframes with target="" support (thanks Chris Lambacher)
+        const html = '<iframe src="javascript:0" name="' + self.iframeId + '">';
+        iframe = document.createElement(html);
+      } catch (e) {
+        iframe = document.createElement("iframe");
+        iframe.name = self.iframeId;
+        iframe.src = "javascript:0";
+      }
+
+      iframe.id = self.iframeId;
+
+      self.form.appendChild(iframe);
+      self.iframe = iframe;
+    }
+
+    initIframe();
+
+    // escape \n to prevent it from being converted into \r\n by some UAs
+    // double escaping is required for escaped new lines because unescaping of new lines can be done safely on server-side
+    data = data.replace(rEscapedNewline, "\\\n");
+    this.area.value = data.replace(rNewline, "\\n");
+
+    try {
+      this.form.submit();
+    } catch (e) {}
+
+    if (this.iframe.attachEvent) {
+      this.iframe.onreadystatechange = function() {
+        if (self.iframe.readyState === "complete") {
+          complete();
+        }
+      };
+    } else {
+      this.iframe.onload = complete;
+    }
+  }
+}
+
+module.exports = JSONPPolling;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/transports/polling-xhr.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/transports/polling-xhr.js ***!
+  \*********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/* global attachEvent */
+
+const XMLHttpRequest = __webpack_require__(/*! xmlhttprequest-ssl */ "./node_modules/engine.io-client/lib/xmlhttprequest.js");
+const Polling = __webpack_require__(/*! ./polling */ "./node_modules/engine.io-client/lib/transports/polling.js");
+const Emitter = __webpack_require__(/*! component-emitter */ "./node_modules/component-emitter/index.js");
+const { pick } = __webpack_require__(/*! ../util */ "./node_modules/engine.io-client/lib/util.js");
+const globalThis = __webpack_require__(/*! ../globalThis */ "./node_modules/engine.io-client/lib/globalThis.browser.js");
+
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("engine.io-client:polling-xhr");
+
+/**
+ * Empty function
+ */
+
+function empty() {}
+
+const hasXHR2 = (function() {
+  const xhr = new XMLHttpRequest({ xdomain: false });
+  return null != xhr.responseType;
+})();
+
+class XHR extends Polling {
+  /**
+   * XHR Polling constructor.
+   *
+   * @param {Object} opts
+   * @api public
+   */
+  constructor(opts) {
+    super(opts);
+
+    if (typeof location !== "undefined") {
+      const isSSL = "https:" === location.protocol;
+      let port = location.port;
+
+      // some user agents have empty `location.port`
+      if (!port) {
+        port = isSSL ? 443 : 80;
+      }
+
+      this.xd =
+        (typeof location !== "undefined" &&
+          opts.hostname !== location.hostname) ||
+        port !== opts.port;
+      this.xs = opts.secure !== isSSL;
+    }
+    /**
+     * XHR supports binary
+     */
+    const forceBase64 = opts && opts.forceBase64;
+    this.supportsBinary = hasXHR2 && !forceBase64;
+  }
+
+  /**
+   * Creates a request.
+   *
+   * @param {String} method
+   * @api private
+   */
+  request(opts = {}) {
+    Object.assign(opts, { xd: this.xd, xs: this.xs }, this.opts);
+    return new Request(this.uri(), opts);
+  }
+
+  /**
+   * Sends data.
+   *
+   * @param {String} data to send.
+   * @param {Function} called upon flush.
+   * @api private
+   */
+  doWrite(data, fn) {
+    const req = this.request({
+      method: "POST",
+      data: data
+    });
+    const self = this;
+    req.on("success", fn);
+    req.on("error", function(err) {
+      self.onError("xhr post error", err);
+    });
+  }
+
+  /**
+   * Starts a poll cycle.
+   *
+   * @api private
+   */
+  doPoll() {
+    debug("xhr poll");
+    const req = this.request();
+    const self = this;
+    req.on("data", function(data) {
+      self.onData(data);
+    });
+    req.on("error", function(err) {
+      self.onError("xhr poll error", err);
+    });
+    this.pollXhr = req;
+  }
+}
+
+class Request extends Emitter {
+  /**
+   * Request constructor
+   *
+   * @param {Object} options
+   * @api public
+   */
+  constructor(uri, opts) {
+    super();
+    this.opts = opts;
+
+    this.method = opts.method || "GET";
+    this.uri = uri;
+    this.async = false !== opts.async;
+    this.data = undefined !== opts.data ? opts.data : null;
+
+    this.create();
+  }
+
+  /**
+   * Creates the XHR object and sends the request.
+   *
+   * @api private
+   */
+  create() {
+    const opts = pick(
+      this.opts,
+      "agent",
+      "enablesXDR",
+      "pfx",
+      "key",
+      "passphrase",
+      "cert",
+      "ca",
+      "ciphers",
+      "rejectUnauthorized"
+    );
+    opts.xdomain = !!this.opts.xd;
+    opts.xscheme = !!this.opts.xs;
+
+    const xhr = (this.xhr = new XMLHttpRequest(opts));
+    const self = this;
+
+    try {
+      debug("xhr open %s: %s", this.method, this.uri);
+      xhr.open(this.method, this.uri, this.async);
+      try {
+        if (this.opts.extraHeaders) {
+          xhr.setDisableHeaderCheck && xhr.setDisableHeaderCheck(true);
+          for (let i in this.opts.extraHeaders) {
+            if (this.opts.extraHeaders.hasOwnProperty(i)) {
+              xhr.setRequestHeader(i, this.opts.extraHeaders[i]);
+            }
+          }
+        }
+      } catch (e) {}
+
+      if ("POST" === this.method) {
+        try {
+          xhr.setRequestHeader("Content-type", "text/plain;charset=UTF-8");
+        } catch (e) {}
+      }
+
+      try {
+        xhr.setRequestHeader("Accept", "*/*");
+      } catch (e) {}
+
+      // ie6 check
+      if ("withCredentials" in xhr) {
+        xhr.withCredentials = this.opts.withCredentials;
+      }
+
+      if (this.opts.requestTimeout) {
+        xhr.timeout = this.opts.requestTimeout;
+      }
+
+      if (this.hasXDR()) {
+        xhr.onload = function() {
+          self.onLoad();
+        };
+        xhr.onerror = function() {
+          self.onError(xhr.responseText);
+        };
+      } else {
+        xhr.onreadystatechange = function() {
+          if (4 !== xhr.readyState) return;
+          if (200 === xhr.status || 1223 === xhr.status) {
+            self.onLoad();
+          } else {
+            // make sure the `error` event handler that's user-set
+            // does not throw in the same tick and gets caught here
+            setTimeout(function() {
+              self.onError(typeof xhr.status === "number" ? xhr.status : 0);
+            }, 0);
+          }
+        };
+      }
+
+      debug("xhr data %s", this.data);
+      xhr.send(this.data);
+    } catch (e) {
+      // Need to defer since .create() is called directly from the constructor
+      // and thus the 'error' event can only be only bound *after* this exception
+      // occurs.  Therefore, also, we cannot throw here at all.
+      setTimeout(function() {
+        self.onError(e);
+      }, 0);
+      return;
+    }
+
+    if (typeof document !== "undefined") {
+      this.index = Request.requestsCount++;
+      Request.requests[this.index] = this;
+    }
+  }
+
+  /**
+   * Called upon successful response.
+   *
+   * @api private
+   */
+  onSuccess() {
+    this.emit("success");
+    this.cleanup();
+  }
+
+  /**
+   * Called if we have data.
+   *
+   * @api private
+   */
+  onData(data) {
+    this.emit("data", data);
+    this.onSuccess();
+  }
+
+  /**
+   * Called upon error.
+   *
+   * @api private
+   */
+  onError(err) {
+    this.emit("error", err);
+    this.cleanup(true);
+  }
+
+  /**
+   * Cleans up house.
+   *
+   * @api private
+   */
+  cleanup(fromError) {
+    if ("undefined" === typeof this.xhr || null === this.xhr) {
+      return;
+    }
+    // xmlhttprequest
+    if (this.hasXDR()) {
+      this.xhr.onload = this.xhr.onerror = empty;
+    } else {
+      this.xhr.onreadystatechange = empty;
+    }
+
+    if (fromError) {
+      try {
+        this.xhr.abort();
+      } catch (e) {}
+    }
+
+    if (typeof document !== "undefined") {
+      delete Request.requests[this.index];
+    }
+
+    this.xhr = null;
+  }
+
+  /**
+   * Called upon load.
+   *
+   * @api private
+   */
+  onLoad() {
+    const data = this.xhr.responseText;
+    if (data !== null) {
+      this.onData(data);
+    }
+  }
+
+  /**
+   * Check if it has XDomainRequest.
+   *
+   * @api private
+   */
+  hasXDR() {
+    return typeof XDomainRequest !== "undefined" && !this.xs && this.enablesXDR;
+  }
+
+  /**
+   * Aborts the request.
+   *
+   * @api public
+   */
+  abort() {
+    this.cleanup();
+  }
+}
+
+/**
+ * Aborts pending requests when unloading the window. This is needed to prevent
+ * memory leaks (e.g. when using IE) and to ensure that no spurious error is
+ * emitted.
+ */
+
+Request.requestsCount = 0;
+Request.requests = {};
+
+if (typeof document !== "undefined") {
+  if (typeof attachEvent === "function") {
+    attachEvent("onunload", unloadHandler);
+  } else if (typeof addEventListener === "function") {
+    const terminationEvent = "onpagehide" in globalThis ? "pagehide" : "unload";
+    addEventListener(terminationEvent, unloadHandler, false);
+  }
+}
+
+function unloadHandler() {
+  for (let i in Request.requests) {
+    if (Request.requests.hasOwnProperty(i)) {
+      Request.requests[i].abort();
+    }
+  }
+}
+
+module.exports = XHR;
+module.exports.Request = Request;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/transports/polling.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/transports/polling.js ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const Transport = __webpack_require__(/*! ../transport */ "./node_modules/engine.io-client/lib/transport.js");
+const parseqs = __webpack_require__(/*! parseqs */ "./node_modules/parseqs/index.js");
+const parser = __webpack_require__(/*! engine.io-parser */ "./node_modules/engine.io-parser/lib/index.js");
+const yeast = __webpack_require__(/*! yeast */ "./node_modules/yeast/index.js");
+
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("engine.io-client:polling");
+
+class Polling extends Transport {
+  /**
+   * Transport name.
+   */
+  get name() {
+    return "polling";
+  }
+
+  /**
+   * Opens the socket (triggers polling). We write a PING message to determine
+   * when the transport is open.
+   *
+   * @api private
+   */
+  doOpen() {
+    this.poll();
+  }
+
+  /**
+   * Pauses polling.
+   *
+   * @param {Function} callback upon buffers are flushed and transport is paused
+   * @api private
+   */
+  pause(onPause) {
+    const self = this;
+
+    this.readyState = "pausing";
+
+    function pause() {
+      debug("paused");
+      self.readyState = "paused";
+      onPause();
+    }
+
+    if (this.polling || !this.writable) {
+      let total = 0;
+
+      if (this.polling) {
+        debug("we are currently polling - waiting to pause");
+        total++;
+        this.once("pollComplete", function() {
+          debug("pre-pause polling complete");
+          --total || pause();
+        });
+      }
+
+      if (!this.writable) {
+        debug("we are currently writing - waiting to pause");
+        total++;
+        this.once("drain", function() {
+          debug("pre-pause writing complete");
+          --total || pause();
+        });
+      }
+    } else {
+      pause();
+    }
+  }
+
+  /**
+   * Starts polling cycle.
+   *
+   * @api public
+   */
+  poll() {
+    debug("polling");
+    this.polling = true;
+    this.doPoll();
+    this.emit("poll");
+  }
+
+  /**
+   * Overloads onData to detect payloads.
+   *
+   * @api private
+   */
+  onData(data) {
+    const self = this;
+    debug("polling got data %s", data);
+    const callback = function(packet, index, total) {
+      // if its the first message we consider the transport open
+      if ("opening" === self.readyState && packet.type === "open") {
+        self.onOpen();
+      }
+
+      // if its a close packet, we close the ongoing requests
+      if ("close" === packet.type) {
+        self.onClose();
+        return false;
+      }
+
+      // otherwise bypass onData and handle the message
+      self.onPacket(packet);
+    };
+
+    // decode payload
+    parser.decodePayload(data, this.socket.binaryType).forEach(callback);
+
+    // if an event did not trigger closing
+    if ("closed" !== this.readyState) {
+      // if we got data we're not polling
+      this.polling = false;
+      this.emit("pollComplete");
+
+      if ("open" === this.readyState) {
+        this.poll();
+      } else {
+        debug('ignoring poll - transport state "%s"', this.readyState);
+      }
+    }
+  }
+
+  /**
+   * For polling, send a close packet.
+   *
+   * @api private
+   */
+  doClose() {
+    const self = this;
+
+    function close() {
+      debug("writing close packet");
+      self.write([{ type: "close" }]);
+    }
+
+    if ("open" === this.readyState) {
+      debug("transport open - closing");
+      close();
+    } else {
+      // in case we're trying to close while
+      // handshaking is in progress (GH-164)
+      debug("transport not open - deferring close");
+      this.once("open", close);
+    }
+  }
+
+  /**
+   * Writes a packets payload.
+   *
+   * @param {Array} data packets
+   * @param {Function} drain callback
+   * @api private
+   */
+  write(packets) {
+    this.writable = false;
+
+    parser.encodePayload(packets, data => {
+      this.doWrite(data, () => {
+        this.writable = true;
+        this.emit("drain");
+      });
+    });
+  }
+
+  /**
+   * Generates uri for connection.
+   *
+   * @api private
+   */
+  uri() {
+    let query = this.query || {};
+    const schema = this.opts.secure ? "https" : "http";
+    let port = "";
+
+    // cache busting is forced
+    if (false !== this.opts.timestampRequests) {
+      query[this.opts.timestampParam] = yeast();
+    }
+
+    if (!this.supportsBinary && !query.sid) {
+      query.b64 = 1;
+    }
+
+    query = parseqs.encode(query);
+
+    // avoid port if default for schema
+    if (
+      this.opts.port &&
+      (("https" === schema && Number(this.opts.port) !== 443) ||
+        ("http" === schema && Number(this.opts.port) !== 80))
+    ) {
+      port = ":" + this.opts.port;
+    }
+
+    // prepend ? to query
+    if (query.length) {
+      query = "?" + query;
+    }
+
+    const ipv6 = this.opts.hostname.indexOf(":") !== -1;
+    return (
+      schema +
+      "://" +
+      (ipv6 ? "[" + this.opts.hostname + "]" : this.opts.hostname) +
+      port +
+      this.opts.path +
+      query
+    );
+  }
+}
+
+module.exports = Polling;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/transports/websocket-constructor.browser.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/transports/websocket-constructor.browser.js ***!
+  \***************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const globalThis = __webpack_require__(/*! ../globalThis */ "./node_modules/engine.io-client/lib/globalThis.browser.js");
+
+module.exports = {
+  WebSocket: globalThis.WebSocket || globalThis.MozWebSocket,
+  usingBrowserWebSocket: true,
+  defaultBinaryType: "arraybuffer"
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/transports/websocket.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/transports/websocket.js ***!
+  \*******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var Buffer = __webpack_require__(/*! buffer */ "./node_modules/buffer/index.js")["Buffer"];
+const Transport = __webpack_require__(/*! ../transport */ "./node_modules/engine.io-client/lib/transport.js");
+const parser = __webpack_require__(/*! engine.io-parser */ "./node_modules/engine.io-parser/lib/index.js");
+const parseqs = __webpack_require__(/*! parseqs */ "./node_modules/parseqs/index.js");
+const yeast = __webpack_require__(/*! yeast */ "./node_modules/yeast/index.js");
+const { pick } = __webpack_require__(/*! ../util */ "./node_modules/engine.io-client/lib/util.js");
+const {
+  WebSocket,
+  usingBrowserWebSocket,
+  defaultBinaryType
+} = __webpack_require__(/*! ./websocket-constructor */ "./node_modules/engine.io-client/lib/transports/websocket-constructor.browser.js");
+
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("engine.io-client:websocket");
+
+// detect ReactNative environment
+const isReactNative =
+  typeof navigator !== "undefined" &&
+  typeof navigator.product === "string" &&
+  navigator.product.toLowerCase() === "reactnative";
+
+class WS extends Transport {
+  /**
+   * WebSocket transport constructor.
+   *
+   * @api {Object} connection options
+   * @api public
+   */
+  constructor(opts) {
+    super(opts);
+
+    this.supportsBinary = !opts.forceBase64;
+  }
+
+  /**
+   * Transport name.
+   *
+   * @api public
+   */
+  get name() {
+    return "websocket";
+  }
+
+  /**
+   * Opens socket.
+   *
+   * @api private
+   */
+  doOpen() {
+    if (!this.check()) {
+      // let probe timeout
+      return;
+    }
+
+    const uri = this.uri();
+    const protocols = this.opts.protocols;
+
+    // React Native only supports the 'headers' option, and will print a warning if anything else is passed
+    const opts = isReactNative
+      ? {}
+      : pick(
+          this.opts,
+          "agent",
+          "perMessageDeflate",
+          "pfx",
+          "key",
+          "passphrase",
+          "cert",
+          "ca",
+          "ciphers",
+          "rejectUnauthorized",
+          "localAddress",
+          "protocolVersion",
+          "origin",
+          "maxPayload",
+          "family",
+          "checkServerIdentity"
+        );
+
+    if (this.opts.extraHeaders) {
+      opts.headers = this.opts.extraHeaders;
+    }
+
+    try {
+      this.ws =
+        usingBrowserWebSocket && !isReactNative
+          ? protocols
+            ? new WebSocket(uri, protocols)
+            : new WebSocket(uri)
+          : new WebSocket(uri, protocols, opts);
+    } catch (err) {
+      return this.emit("error", err);
+    }
+
+    this.ws.binaryType = this.socket.binaryType || defaultBinaryType;
+
+    this.addEventListeners();
+  }
+
+  /**
+   * Adds event listeners to the socket
+   *
+   * @api private
+   */
+  addEventListeners() {
+    const self = this;
+
+    this.ws.onopen = function() {
+      self.onOpen();
+    };
+    this.ws.onclose = function() {
+      self.onClose();
+    };
+    this.ws.onmessage = function(ev) {
+      self.onData(ev.data);
+    };
+    this.ws.onerror = function(e) {
+      self.onError("websocket error", e);
+    };
+  }
+
+  /**
+   * Writes data to socket.
+   *
+   * @param {Array} array of packets.
+   * @api private
+   */
+  write(packets) {
+    const self = this;
+    this.writable = false;
+
+    // encodePacket efficient as it uses WS framing
+    // no need for encodePayload
+    let total = packets.length;
+    let i = 0;
+    const l = total;
+    for (; i < l; i++) {
+      (function(packet) {
+        parser.encodePacket(packet, self.supportsBinary, function(data) {
+          // always create a new object (GH-437)
+          const opts = {};
+          if (!usingBrowserWebSocket) {
+            if (packet.options) {
+              opts.compress = packet.options.compress;
+            }
+
+            if (self.opts.perMessageDeflate) {
+              const len =
+                "string" === typeof data
+                  ? Buffer.byteLength(data)
+                  : data.length;
+              if (len < self.opts.perMessageDeflate.threshold) {
+                opts.compress = false;
+              }
+            }
+          }
+
+          // Sometimes the websocket has already been closed but the browser didn't
+          // have a chance of informing us about it yet, in that case send will
+          // throw an error
+          try {
+            if (usingBrowserWebSocket) {
+              // TypeError is thrown when passing the second argument on Safari
+              self.ws.send(data);
+            } else {
+              self.ws.send(data, opts);
+            }
+          } catch (e) {
+            debug("websocket closed before onclose event");
+          }
+
+          --total || done();
+        });
+      })(packets[i]);
+    }
+
+    function done() {
+      self.emit("flush");
+
+      // fake drain
+      // defer to next tick to allow Socket to clear writeBuffer
+      setTimeout(function() {
+        self.writable = true;
+        self.emit("drain");
+      }, 0);
+    }
+  }
+
+  /**
+   * Called upon close
+   *
+   * @api private
+   */
+  onClose() {
+    Transport.prototype.onClose.call(this);
+  }
+
+  /**
+   * Closes socket.
+   *
+   * @api private
+   */
+  doClose() {
+    if (typeof this.ws !== "undefined") {
+      this.ws.close();
+    }
+  }
+
+  /**
+   * Generates uri for connection.
+   *
+   * @api private
+   */
+  uri() {
+    let query = this.query || {};
+    const schema = this.opts.secure ? "wss" : "ws";
+    let port = "";
+
+    // avoid port if default for schema
+    if (
+      this.opts.port &&
+      (("wss" === schema && Number(this.opts.port) !== 443) ||
+        ("ws" === schema && Number(this.opts.port) !== 80))
+    ) {
+      port = ":" + this.opts.port;
+    }
+
+    // append timestamp to URI
+    if (this.opts.timestampRequests) {
+      query[this.opts.timestampParam] = yeast();
+    }
+
+    // communicate binary support capabilities
+    if (!this.supportsBinary) {
+      query.b64 = 1;
+    }
+
+    query = parseqs.encode(query);
+
+    // prepend ? to query
+    if (query.length) {
+      query = "?" + query;
+    }
+
+    const ipv6 = this.opts.hostname.indexOf(":") !== -1;
+    return (
+      schema +
+      "://" +
+      (ipv6 ? "[" + this.opts.hostname + "]" : this.opts.hostname) +
+      port +
+      this.opts.path +
+      query
+    );
+  }
+
+  /**
+   * Feature detection for WebSocket.
+   *
+   * @return {Boolean} whether this transport is available.
+   * @api public
+   */
+  check() {
+    return (
+      !!WebSocket &&
+      !("__initialize" in WebSocket && this.name === WS.prototype.name)
+    );
+  }
+}
+
+module.exports = WS;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/util.js":
+/*!***************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/util.js ***!
+  \***************************************************/
+/***/ ((module) => {
+
+module.exports.pick = (obj, ...attr) => {
+  return attr.reduce((acc, k) => {
+    if (obj.hasOwnProperty(k)) {
+      acc[k] = obj[k];
+    }
+    return acc;
+  }, {});
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-client/lib/xmlhttprequest.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/engine.io-client/lib/xmlhttprequest.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// browser shim for xmlhttprequest module
+
+const hasCORS = __webpack_require__(/*! has-cors */ "./node_modules/has-cors/index.js");
+const globalThis = __webpack_require__(/*! ./globalThis */ "./node_modules/engine.io-client/lib/globalThis.browser.js");
+
+module.exports = function(opts) {
+  const xdomain = opts.xdomain;
+
+  // scheme must be same when usign XDomainRequest
+  // http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx
+  const xscheme = opts.xscheme;
+
+  // XDomainRequest has a flow of not sending cookie, therefore it should be disabled as a default.
+  // https://github.com/Automattic/engine.io-client/pull/217
+  const enablesXDR = opts.enablesXDR;
+
+  // XMLHttpRequest can be disabled on IE
+  try {
+    if ("undefined" !== typeof XMLHttpRequest && (!xdomain || hasCORS)) {
+      return new XMLHttpRequest();
+    }
+  } catch (e) {}
+
+  // Use XDomainRequest for IE8 if enablesXDR is true
+  // because loading bar keeps flashing when using jsonp-polling
+  // https://github.com/yujiosaka/socke.io-ie8-loading-example
+  try {
+    if ("undefined" !== typeof XDomainRequest && !xscheme && enablesXDR) {
+      return new XDomainRequest();
+    }
+  } catch (e) {}
+
+  if (!xdomain) {
+    try {
+      return new globalThis[["Active"].concat("Object").join("X")](
+        "Microsoft.XMLHTTP"
+      );
+    } catch (e) {}
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-parser/lib/commons.js":
+/*!******************************************************!*\
+  !*** ./node_modules/engine.io-parser/lib/commons.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+const PACKET_TYPES = Object.create(null); // no Map = no polyfill
+PACKET_TYPES["open"] = "0";
+PACKET_TYPES["close"] = "1";
+PACKET_TYPES["ping"] = "2";
+PACKET_TYPES["pong"] = "3";
+PACKET_TYPES["message"] = "4";
+PACKET_TYPES["upgrade"] = "5";
+PACKET_TYPES["noop"] = "6";
+
+const PACKET_TYPES_REVERSE = Object.create(null);
+Object.keys(PACKET_TYPES).forEach(key => {
+  PACKET_TYPES_REVERSE[PACKET_TYPES[key]] = key;
+});
+
+const ERROR_PACKET = { type: "error", data: "parser error" };
+
+module.exports = {
+  PACKET_TYPES,
+  PACKET_TYPES_REVERSE,
+  ERROR_PACKET
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-parser/lib/decodePacket.browser.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/engine.io-parser/lib/decodePacket.browser.js ***!
+  \*******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const { PACKET_TYPES_REVERSE, ERROR_PACKET } = __webpack_require__(/*! ./commons */ "./node_modules/engine.io-parser/lib/commons.js");
+
+const withNativeArrayBuffer = typeof ArrayBuffer === "function";
+
+let base64decoder;
+if (withNativeArrayBuffer) {
+  base64decoder = __webpack_require__(/*! base64-arraybuffer */ "./node_modules/base64-arraybuffer/lib/base64-arraybuffer.js");
+}
+
+const decodePacket = (encodedPacket, binaryType) => {
+  if (typeof encodedPacket !== "string") {
+    return {
+      type: "message",
+      data: mapBinary(encodedPacket, binaryType)
+    };
+  }
+  const type = encodedPacket.charAt(0);
+  if (type === "b") {
+    return {
+      type: "message",
+      data: decodeBase64Packet(encodedPacket.substring(1), binaryType)
+    };
+  }
+  const packetType = PACKET_TYPES_REVERSE[type];
+  if (!packetType) {
+    return ERROR_PACKET;
+  }
+  return encodedPacket.length > 1
+    ? {
+        type: PACKET_TYPES_REVERSE[type],
+        data: encodedPacket.substring(1)
+      }
+    : {
+        type: PACKET_TYPES_REVERSE[type]
+      };
+};
+
+const decodeBase64Packet = (data, binaryType) => {
+  if (base64decoder) {
+    const decoded = base64decoder.decode(data);
+    return mapBinary(decoded, binaryType);
+  } else {
+    return { base64: true, data }; // fallback for old browsers
+  }
+};
+
+const mapBinary = (data, binaryType) => {
+  switch (binaryType) {
+    case "blob":
+      return data instanceof ArrayBuffer ? new Blob([data]) : data;
+    case "arraybuffer":
+    default:
+      return data; // assuming the data is already an ArrayBuffer
+  }
+};
+
+module.exports = decodePacket;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-parser/lib/encodePacket.browser.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/engine.io-parser/lib/encodePacket.browser.js ***!
+  \*******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const { PACKET_TYPES } = __webpack_require__(/*! ./commons */ "./node_modules/engine.io-parser/lib/commons.js");
+
+const withNativeBlob =
+  typeof Blob === "function" ||
+  (typeof Blob !== "undefined" &&
+    Object.prototype.toString.call(Blob) === "[object BlobConstructor]");
+const withNativeArrayBuffer = typeof ArrayBuffer === "function";
+
+// ArrayBuffer.isView method is not defined in IE10
+const isView = obj => {
+  return typeof ArrayBuffer.isView === "function"
+    ? ArrayBuffer.isView(obj)
+    : obj && obj.buffer instanceof ArrayBuffer;
+};
+
+const encodePacket = ({ type, data }, supportsBinary, callback) => {
+  if (withNativeBlob && data instanceof Blob) {
+    if (supportsBinary) {
+      return callback(data);
+    } else {
+      return encodeBlobAsBase64(data, callback);
+    }
+  } else if (
+    withNativeArrayBuffer &&
+    (data instanceof ArrayBuffer || isView(data))
+  ) {
+    if (supportsBinary) {
+      return callback(data instanceof ArrayBuffer ? data : data.buffer);
+    } else {
+      return encodeBlobAsBase64(new Blob([data]), callback);
+    }
+  }
+  // plain string
+  return callback(PACKET_TYPES[type] + (data || ""));
+};
+
+const encodeBlobAsBase64 = (data, callback) => {
+  const fileReader = new FileReader();
+  fileReader.onload = function() {
+    const content = fileReader.result.split(",")[1];
+    callback("b" + content);
+  };
+  return fileReader.readAsDataURL(data);
+};
+
+module.exports = encodePacket;
+
+
+/***/ }),
+
+/***/ "./node_modules/engine.io-parser/lib/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/engine.io-parser/lib/index.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const encodePacket = __webpack_require__(/*! ./encodePacket */ "./node_modules/engine.io-parser/lib/encodePacket.browser.js");
+const decodePacket = __webpack_require__(/*! ./decodePacket */ "./node_modules/engine.io-parser/lib/decodePacket.browser.js");
+
+const SEPARATOR = String.fromCharCode(30); // see https://en.wikipedia.org/wiki/Delimiter#ASCII_delimited_text
+
+const encodePayload = (packets, callback) => {
+  // some packets may be added to the array while encoding, so the initial length must be saved
+  const length = packets.length;
+  const encodedPackets = new Array(length);
+  let count = 0;
+
+  packets.forEach((packet, i) => {
+    // force base64 encoding for binary packets
+    encodePacket(packet, false, encodedPacket => {
+      encodedPackets[i] = encodedPacket;
+      if (++count === length) {
+        callback(encodedPackets.join(SEPARATOR));
+      }
+    });
+  });
+};
+
+const decodePayload = (encodedPayload, binaryType) => {
+  const encodedPackets = encodedPayload.split(SEPARATOR);
+  const packets = [];
+  for (let i = 0; i < encodedPackets.length; i++) {
+    const decodedPacket = decodePacket(encodedPackets[i], binaryType);
+    packets.push(decodedPacket);
+    if (decodedPacket.type === "error") {
+      break;
+    }
+  }
+  return packets;
+};
+
+module.exports = {
+  protocol: 4,
+  encodePacket,
+  encodePayload,
+  decodePacket,
+  decodePayload
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/form-data/lib/browser.js":
+/*!***********************************************!*\
+  !*** ./node_modules/form-data/lib/browser.js ***!
+  \***********************************************/
+/***/ ((module) => {
+
+/* eslint-env browser */
+module.exports = typeof self == 'object' ? self.FormData : window.FormData;
+
+
+/***/ }),
+
+/***/ "./node_modules/has-cors/index.js":
+/*!****************************************!*\
+  !*** ./node_modules/has-cors/index.js ***!
+  \****************************************/
+/***/ ((module) => {
+
+
+/**
+ * Module exports.
+ *
+ * Logic borrowed from Modernizr:
+ *
+ *   - https://github.com/Modernizr/Modernizr/blob/master/feature-detects/cors.js
+ */
+
+try {
+  module.exports = typeof XMLHttpRequest !== 'undefined' &&
+    'withCredentials' in new XMLHttpRequest();
+} catch (err) {
+  // if XMLHttp support is disabled in IE then it will throw
+  // when trying to create
+  module.exports = false;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/ieee754/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/ieee754/index.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+exports.read = function (buffer, offset, isLE, mLen, nBytes) {
+  var e, m
+  var eLen = (nBytes * 8) - mLen - 1
+  var eMax = (1 << eLen) - 1
+  var eBias = eMax >> 1
+  var nBits = -7
+  var i = isLE ? (nBytes - 1) : 0
+  var d = isLE ? -1 : 1
+  var s = buffer[offset + i]
+
+  i += d
+
+  e = s & ((1 << (-nBits)) - 1)
+  s >>= (-nBits)
+  nBits += eLen
+  for (; nBits > 0; e = (e * 256) + buffer[offset + i], i += d, nBits -= 8) {}
+
+  m = e & ((1 << (-nBits)) - 1)
+  e >>= (-nBits)
+  nBits += mLen
+  for (; nBits > 0; m = (m * 256) + buffer[offset + i], i += d, nBits -= 8) {}
+
+  if (e === 0) {
+    e = 1 - eBias
+  } else if (e === eMax) {
+    return m ? NaN : ((s ? -1 : 1) * Infinity)
+  } else {
+    m = m + Math.pow(2, mLen)
+    e = e - eBias
+  }
+  return (s ? -1 : 1) * m * Math.pow(2, e - mLen)
+}
+
+exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
+  var e, m, c
+  var eLen = (nBytes * 8) - mLen - 1
+  var eMax = (1 << eLen) - 1
+  var eBias = eMax >> 1
+  var rt = (mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0)
+  var i = isLE ? 0 : (nBytes - 1)
+  var d = isLE ? 1 : -1
+  var s = value < 0 || (value === 0 && 1 / value < 0) ? 1 : 0
+
+  value = Math.abs(value)
+
+  if (isNaN(value) || value === Infinity) {
+    m = isNaN(value) ? 1 : 0
+    e = eMax
+  } else {
+    e = Math.floor(Math.log(value) / Math.LN2)
+    if (value * (c = Math.pow(2, -e)) < 1) {
+      e--
+      c *= 2
+    }
+    if (e + eBias >= 1) {
+      value += rt / c
+    } else {
+      value += rt * Math.pow(2, 1 - eBias)
+    }
+    if (value * c >= 2) {
+      e++
+      c /= 2
+    }
+
+    if (e + eBias >= eMax) {
+      m = 0
+      e = eMax
+    } else if (e + eBias >= 1) {
+      m = ((value * c) - 1) * Math.pow(2, mLen)
+      e = e + eBias
+    } else {
+      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen)
+      e = 0
+    }
+  }
+
+  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8) {}
+
+  e = (e << mLen) | m
+  eLen += mLen
+  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
+
+  buffer[offset + i - d] |= s * 128
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/isarray/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/isarray/index.js ***!
+  \***************************************/
+/***/ ((module) => {
+
+var toString = {}.toString;
+
+module.exports = Array.isArray || function (arr) {
+  return toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
   \***************************************/
 /***/ (function(module, exports, __webpack_require__) {
-=======
-/***/ "./node_modules/axios/lib/helpers/combineURLs.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -3242,17 +8222,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   /** Used as a safe reference for `undefined` in pre-ES5 environments. */
   var undefined;
 
-<<<<<<< HEAD
   /** Used as the semantic version number. */
   var VERSION = '4.17.20';
-=======
-/***/ "./node_modules/axios/lib/helpers/cookies.js":
-/*!***************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/cookies.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -3352,7 +8323,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
       weakMapTag = '[object WeakMap]',
       weakSetTag = '[object WeakSet]';
 
-<<<<<<< HEAD
   var arrayBufferTag = '[object ArrayBuffer]',
       dataViewTag = '[object DataView]',
       float32Tag = '[object Float32Array]',
@@ -3364,14 +8334,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
       uint8ClampedTag = '[object Uint8ClampedArray]',
       uint16Tag = '[object Uint16Array]',
       uint32Tag = '[object Uint32Array]';
-=======
-/***/ "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /** Used to match empty string literals in compiled template source. */
   var reEmptyStringLeading = /\b__p \+= '';/g,
@@ -3401,7 +8363,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   var reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
       reHasRegExpChar = RegExp(reRegExpChar.source);
 
-<<<<<<< HEAD
   /** Used to match leading and trailing whitespace. */
   var reTrim = /^\s+|\s+$/g,
       reTrimStart = /^\s+/,
@@ -3417,19 +8378,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
   /** Used to match backslashes in property paths. */
   var reEscapeChar = /\\(\\)?/g;
-=======
-/***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /**
    * Used to match
@@ -3480,7 +8428,6 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
       rsVarRange = '\\ufe0e\\ufe0f',
       rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange;
 
-<<<<<<< HEAD
   /** Used to compose unicode capture groups. */
   var rsApos = "['\u2019]",
       rsAstral = '[' + rsAstralRange + ']',
@@ -3497,14 +8444,6 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
       rsSurrPair = '[\\ud800-\\udbff][\\udc00-\\udfff]',
       rsUpper = '[' + rsUpperRange + ']',
       rsZWJ = '\\u200d';
-=======
-/***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /** Used to compose unicode regexes. */
   var rsMiscLower = '(?:' + rsLower + '|' + rsMisc + ')',
@@ -3547,17 +8486,8 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
   /** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
   var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboRange + rsVarRange + ']');
 
-<<<<<<< HEAD
   /** Used to detect strings that need a more robust regexp to match words. */
   var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
-=======
-/***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
-/*!********************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /** Used to assign default `context` object properties. */
   var contextProps = [
@@ -3696,17 +8626,8 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
   /** Detect free variable `global` from Node.js. */
   var freeGlobal = typeof __webpack_require__.g == 'object' && __webpack_require__.g && __webpack_require__.g.Object === Object && __webpack_require__.g;
 
-<<<<<<< HEAD
   /** Detect free variable `self`. */
   var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-=======
-/***/ "./node_modules/axios/lib/helpers/spread.js":
-/*!**************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/spread.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /** Used as a reference to the global object. */
   var root = freeGlobal || freeSelf || Function('return this')();
@@ -3723,20 +8644,11 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
   /** Detect free variable `process` from Node.js. */
   var freeProcess = moduleExports && freeGlobal.process;
 
-<<<<<<< HEAD
   /** Used to access faster Node.js helpers. */
   var nodeUtil = (function() {
     try {
       // Use `util.types` for Node.js 10+.
       var types = freeModule && freeModule.require && freeModule.require('util').types;
-=======
-/***/ "./node_modules/axios/lib/utils.js":
-/*!*****************************************!*\
-  !*** ./node_modules/axios/lib/utils.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
       if (types) {
         return types;
@@ -3876,7 +8788,6 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
         resIndex = 0,
         result = [];
 
-<<<<<<< HEAD
     while (++index < length) {
       var value = array[index];
       if (predicate(value, index, array)) {
@@ -3912,17 +8823,6 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
   function arrayIncludesWith(array, value, comparator) {
     var index = -1,
         length = array == null ? 0 : array.length;
-=======
-/**
- * Determine if a value is a Date
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a Date, otherwise false
- */
-function isDate(val) {
-  return toString.call(val) === '[object Date]';
-}
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
     while (++index < length) {
       if (comparator(value, array[index])) {
@@ -3996,7 +8896,6 @@ function isDate(val) {
     return accumulator;
   }
 
-<<<<<<< HEAD
   /**
    * A specialized version of `_.reduceRight` for arrays without support for
    * iteratee shorthands.
@@ -4013,58 +8912,6 @@ function isDate(val) {
     var length = array == null ? 0 : array.length;
     if (initAccum && length) {
       accumulator = array[--length];
-=======
-/**
- * Accepts varargs expecting each argument to be an object, then
- * immutably merges the properties of each object and returns result.
- *
- * When multiple objects contain the same key the later object in
- * the arguments list will take precedence.
- *
- * Example:
- *
- * ```js
- * var result = merge({foo: 123}, {foo: 456});
- * console.log(result.foo); // outputs 456
- * ```
- *
- * @param {Object} obj1 Object to merge
- * @returns {Object} Result of all merge properties
- */
-function merge(/* obj1, obj2, obj3, ... */) {
-  var result = {};
-  function assignValue(val, key) {
-    if (typeof result[key] === 'object' && typeof val === 'object') {
-      result[key] = merge(result[key], val);
-    } else {
-      result[key] = val;
-    }
-  }
-
-  for (var i = 0, l = arguments.length; i < l; i++) {
-    forEach(arguments[i], assignValue);
-  }
-  return result;
-}
-
-/**
- * Function equal to merge with the difference being that no reference
- * to original objects is kept.
- *
- * @see merge
- * @param {Object} obj1 Object to merge
- * @returns {Object} Result of all merge properties
- */
-function deepMerge(/* obj1, obj2, obj3, ... */) {
-  var result = {};
-  function assignValue(val, key) {
-    if (typeof result[key] === 'object' && typeof val === 'object') {
-      result[key] = deepMerge(result[key], val);
-    } else if (typeof val === 'object') {
-      result[key] = deepMerge({}, val);
-    } else {
-      result[key] = val;
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
     }
     while (length--) {
       accumulator = iteratee(accumulator, array[length], length, array);
@@ -4091,7 +8938,6 @@ function deepMerge(/* obj1, obj2, obj3, ... */) {
         return true;
       }
     }
-<<<<<<< HEAD
     return false;
   }
 
@@ -4103,35 +8949,6 @@ function deepMerge(/* obj1, obj2, obj3, ... */) {
    * @returns {number} Returns the string size.
    */
   var asciiSize = baseProperty('length');
-=======
-  });
-  return a;
-}
-
-module.exports = {
-  isArray: isArray,
-  isArrayBuffer: isArrayBuffer,
-  isBuffer: isBuffer,
-  isFormData: isFormData,
-  isArrayBufferView: isArrayBufferView,
-  isString: isString,
-  isNumber: isNumber,
-  isObject: isObject,
-  isUndefined: isUndefined,
-  isDate: isDate,
-  isFile: isFile,
-  isBlob: isBlob,
-  isFunction: isFunction,
-  isStream: isStream,
-  isURLSearchParams: isURLSearchParams,
-  isStandardBrowserEnv: isStandardBrowserEnv,
-  forEach: forEach,
-  merge: merge,
-  deepMerge: deepMerge,
-  extend: extend,
-  trim: trim
-};
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /**
    * Converts an ASCII `string` to an array.
@@ -4155,7 +8972,6 @@ module.exports = {
     return string.match(reAsciiWord) || [];
   }
 
-<<<<<<< HEAD
   /**
    * The base implementation of methods like `_.findKey` and `_.findLastKey`,
    * without support for iteratee shorthands, which iterates over `collection`
@@ -4288,24 +9104,6 @@ module.exports = {
       return object == null ? undefined : object[key];
     };
   }
-=======
-/***/ "./node_modules/lodash/lodash.js":
-/*!***************************************!*\
-  !*** ./node_modules/lodash/lodash.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
- * @license
- * Lodash <https://lodash.com/>
- * Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
- * Released under MIT license <https://lodash.com/license>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- */
-;(function() {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /**
    * The base implementation of `_.reduce` and `_.reduceRight`, without support
@@ -4693,7 +9491,6 @@ module.exports = {
     return -1;
   }
 
-<<<<<<< HEAD
   /**
    * A specialized version of `_.lastIndexOf` which performs strict equality
    * comparisons of values, i.e. `===`.
@@ -4713,187 +9510,6 @@ module.exports = {
     }
     return index;
   }
-=======
-  /** Used to assign default `context` object properties. */
-  var contextProps = [
-    'Array', 'Buffer', 'DataView', 'Date', 'Error', 'Float32Array', 'Float64Array',
-    'Function', 'Int8Array', 'Int16Array', 'Int32Array', 'Map', 'Math', 'Object',
-    'Promise', 'RegExp', 'Set', 'String', 'Symbol', 'TypeError', 'Uint8Array',
-    'Uint8ClampedArray', 'Uint16Array', 'Uint32Array', 'WeakMap',
-    '_', 'clearTimeout', 'isFinite', 'parseInt', 'setTimeout'
-  ];
-
-  /** Used to make template sourceURLs easier to identify. */
-  var templateCounter = -1;
-
-  /** Used to identify `toStringTag` values of typed arrays. */
-  var typedArrayTags = {};
-  typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
-  typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
-  typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
-  typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
-  typedArrayTags[uint32Tag] = true;
-  typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
-  typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
-  typedArrayTags[dataViewTag] = typedArrayTags[dateTag] =
-  typedArrayTags[errorTag] = typedArrayTags[funcTag] =
-  typedArrayTags[mapTag] = typedArrayTags[numberTag] =
-  typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
-  typedArrayTags[setTag] = typedArrayTags[stringTag] =
-  typedArrayTags[weakMapTag] = false;
-
-  /** Used to identify `toStringTag` values supported by `_.clone`. */
-  var cloneableTags = {};
-  cloneableTags[argsTag] = cloneableTags[arrayTag] =
-  cloneableTags[arrayBufferTag] = cloneableTags[dataViewTag] =
-  cloneableTags[boolTag] = cloneableTags[dateTag] =
-  cloneableTags[float32Tag] = cloneableTags[float64Tag] =
-  cloneableTags[int8Tag] = cloneableTags[int16Tag] =
-  cloneableTags[int32Tag] = cloneableTags[mapTag] =
-  cloneableTags[numberTag] = cloneableTags[objectTag] =
-  cloneableTags[regexpTag] = cloneableTags[setTag] =
-  cloneableTags[stringTag] = cloneableTags[symbolTag] =
-  cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] =
-  cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
-  cloneableTags[errorTag] = cloneableTags[funcTag] =
-  cloneableTags[weakMapTag] = false;
-
-  /** Used to map Latin Unicode letters to basic Latin letters. */
-  var deburredLetters = {
-    // Latin-1 Supplement block.
-    '\xc0': 'A',  '\xc1': 'A', '\xc2': 'A', '\xc3': 'A', '\xc4': 'A', '\xc5': 'A',
-    '\xe0': 'a',  '\xe1': 'a', '\xe2': 'a', '\xe3': 'a', '\xe4': 'a', '\xe5': 'a',
-    '\xc7': 'C',  '\xe7': 'c',
-    '\xd0': 'D',  '\xf0': 'd',
-    '\xc8': 'E',  '\xc9': 'E', '\xca': 'E', '\xcb': 'E',
-    '\xe8': 'e',  '\xe9': 'e', '\xea': 'e', '\xeb': 'e',
-    '\xcc': 'I',  '\xcd': 'I', '\xce': 'I', '\xcf': 'I',
-    '\xec': 'i',  '\xed': 'i', '\xee': 'i', '\xef': 'i',
-    '\xd1': 'N',  '\xf1': 'n',
-    '\xd2': 'O',  '\xd3': 'O', '\xd4': 'O', '\xd5': 'O', '\xd6': 'O', '\xd8': 'O',
-    '\xf2': 'o',  '\xf3': 'o', '\xf4': 'o', '\xf5': 'o', '\xf6': 'o', '\xf8': 'o',
-    '\xd9': 'U',  '\xda': 'U', '\xdb': 'U', '\xdc': 'U',
-    '\xf9': 'u',  '\xfa': 'u', '\xfb': 'u', '\xfc': 'u',
-    '\xdd': 'Y',  '\xfd': 'y', '\xff': 'y',
-    '\xc6': 'Ae', '\xe6': 'ae',
-    '\xde': 'Th', '\xfe': 'th',
-    '\xdf': 'ss',
-    // Latin Extended-A block.
-    '\u0100': 'A',  '\u0102': 'A', '\u0104': 'A',
-    '\u0101': 'a',  '\u0103': 'a', '\u0105': 'a',
-    '\u0106': 'C',  '\u0108': 'C', '\u010a': 'C', '\u010c': 'C',
-    '\u0107': 'c',  '\u0109': 'c', '\u010b': 'c', '\u010d': 'c',
-    '\u010e': 'D',  '\u0110': 'D', '\u010f': 'd', '\u0111': 'd',
-    '\u0112': 'E',  '\u0114': 'E', '\u0116': 'E', '\u0118': 'E', '\u011a': 'E',
-    '\u0113': 'e',  '\u0115': 'e', '\u0117': 'e', '\u0119': 'e', '\u011b': 'e',
-    '\u011c': 'G',  '\u011e': 'G', '\u0120': 'G', '\u0122': 'G',
-    '\u011d': 'g',  '\u011f': 'g', '\u0121': 'g', '\u0123': 'g',
-    '\u0124': 'H',  '\u0126': 'H', '\u0125': 'h', '\u0127': 'h',
-    '\u0128': 'I',  '\u012a': 'I', '\u012c': 'I', '\u012e': 'I', '\u0130': 'I',
-    '\u0129': 'i',  '\u012b': 'i', '\u012d': 'i', '\u012f': 'i', '\u0131': 'i',
-    '\u0134': 'J',  '\u0135': 'j',
-    '\u0136': 'K',  '\u0137': 'k', '\u0138': 'k',
-    '\u0139': 'L',  '\u013b': 'L', '\u013d': 'L', '\u013f': 'L', '\u0141': 'L',
-    '\u013a': 'l',  '\u013c': 'l', '\u013e': 'l', '\u0140': 'l', '\u0142': 'l',
-    '\u0143': 'N',  '\u0145': 'N', '\u0147': 'N', '\u014a': 'N',
-    '\u0144': 'n',  '\u0146': 'n', '\u0148': 'n', '\u014b': 'n',
-    '\u014c': 'O',  '\u014e': 'O', '\u0150': 'O',
-    '\u014d': 'o',  '\u014f': 'o', '\u0151': 'o',
-    '\u0154': 'R',  '\u0156': 'R', '\u0158': 'R',
-    '\u0155': 'r',  '\u0157': 'r', '\u0159': 'r',
-    '\u015a': 'S',  '\u015c': 'S', '\u015e': 'S', '\u0160': 'S',
-    '\u015b': 's',  '\u015d': 's', '\u015f': 's', '\u0161': 's',
-    '\u0162': 'T',  '\u0164': 'T', '\u0166': 'T',
-    '\u0163': 't',  '\u0165': 't', '\u0167': 't',
-    '\u0168': 'U',  '\u016a': 'U', '\u016c': 'U', '\u016e': 'U', '\u0170': 'U', '\u0172': 'U',
-    '\u0169': 'u',  '\u016b': 'u', '\u016d': 'u', '\u016f': 'u', '\u0171': 'u', '\u0173': 'u',
-    '\u0174': 'W',  '\u0175': 'w',
-    '\u0176': 'Y',  '\u0177': 'y', '\u0178': 'Y',
-    '\u0179': 'Z',  '\u017b': 'Z', '\u017d': 'Z',
-    '\u017a': 'z',  '\u017c': 'z', '\u017e': 'z',
-    '\u0132': 'IJ', '\u0133': 'ij',
-    '\u0152': 'Oe', '\u0153': 'oe',
-    '\u0149': "'n", '\u017f': 's'
-  };
-
-  /** Used to map characters to HTML entities. */
-  var htmlEscapes = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  };
-
-  /** Used to map HTML entities to characters. */
-  var htmlUnescapes = {
-    '&amp;': '&',
-    '&lt;': '<',
-    '&gt;': '>',
-    '&quot;': '"',
-    '&#39;': "'"
-  };
-
-  /** Used to escape characters for inclusion in compiled string literals. */
-  var stringEscapes = {
-    '\\': '\\',
-    "'": "'",
-    '\n': 'n',
-    '\r': 'r',
-    '\u2028': 'u2028',
-    '\u2029': 'u2029'
-  };
-
-  /** Built-in method references without a dependency on `root`. */
-  var freeParseFloat = parseFloat,
-      freeParseInt = parseInt;
-
-  /** Detect free variable `global` from Node.js. */
-  var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
-  /** Detect free variable `self`. */
-  var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
-  /** Used as a reference to the global object. */
-  var root = freeGlobal || freeSelf || Function('return this')();
-
-  /** Detect free variable `exports`. */
-  var freeExports =  true && exports && !exports.nodeType && exports;
-
-  /** Detect free variable `module`. */
-  var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
-
-  /** Detect the popular CommonJS extension `module.exports`. */
-  var moduleExports = freeModule && freeModule.exports === freeExports;
-
-  /** Detect free variable `process` from Node.js. */
-  var freeProcess = moduleExports && freeGlobal.process;
-
-  /** Used to access faster Node.js helpers. */
-  var nodeUtil = (function() {
-    try {
-      // Use `util.types` for Node.js 10+.
-      var types = freeModule && freeModule.require && freeModule.require('util').types;
-
-      if (types) {
-        return types;
-      }
-
-      // Legacy `process.binding('util')` for Node.js < 10.
-      return freeProcess && freeProcess.binding && freeProcess.binding('util');
-    } catch (e) {}
-  }());
-
-  /* Node.js helper references. */
-  var nodeIsArrayBuffer = nodeUtil && nodeUtil.isArrayBuffer,
-      nodeIsDate = nodeUtil && nodeUtil.isDate,
-      nodeIsMap = nodeUtil && nodeUtil.isMap,
-      nodeIsRegExp = nodeUtil && nodeUtil.isRegExp,
-      nodeIsSet = nodeUtil && nodeUtil.isSet,
-      nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
-
-  /*--------------------------------------------------------------------------*/
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   /**
    * Gets the number of symbols in `string`.
@@ -20776,6 +25392,303 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/ms/index.js":
+/*!**********************************!*\
+  !*** ./node_modules/ms/index.js ***!
+  \**********************************/
+/***/ ((module) => {
+
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var w = d * 7;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isFinite(val)) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'weeks':
+    case 'week':
+    case 'w':
+      return n * w;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (msAbs >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (msAbs >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (msAbs >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return plural(ms, msAbs, d, 'day');
+  }
+  if (msAbs >= h) {
+    return plural(ms, msAbs, h, 'hour');
+  }
+  if (msAbs >= m) {
+    return plural(ms, msAbs, m, 'minute');
+  }
+  if (msAbs >= s) {
+    return plural(ms, msAbs, s, 'second');
+  }
+  return ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, msAbs, n, name) {
+  var isPlural = msAbs >= n * 1.5;
+  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/parseqs/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/parseqs/index.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+/**
+ * Compiles a querystring
+ * Returns string representation of the object
+ *
+ * @param {Object}
+ * @api private
+ */
+
+exports.encode = function (obj) {
+  var str = '';
+
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      if (str.length) str += '&';
+      str += encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]);
+    }
+  }
+
+  return str;
+};
+
+/**
+ * Parses a simple querystring into an object
+ *
+ * @param {String} qs
+ * @api private
+ */
+
+exports.decode = function(qs){
+  var qry = {};
+  var pairs = qs.split('&');
+  for (var i = 0, l = pairs.length; i < l; i++) {
+    var pair = pairs[i].split('=');
+    qry[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+  }
+  return qry;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/parseuri/index.js":
+/*!****************************************!*\
+  !*** ./node_modules/parseuri/index.js ***!
+  \****************************************/
+/***/ ((module) => {
+
+/**
+ * Parses an URI
+ *
+ * @author Steven Levithan <stevenlevithan.com> (MIT license)
+ * @api private
+ */
+
+var re = /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
+
+var parts = [
+    'source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host', 'port', 'relative', 'path', 'directory', 'file', 'query', 'anchor'
+];
+
+module.exports = function parseuri(str) {
+    var src = str,
+        b = str.indexOf('['),
+        e = str.indexOf(']');
+
+    if (b != -1 && e != -1) {
+        str = str.substring(0, b) + str.substring(b, e).replace(/:/g, ';') + str.substring(e, str.length);
+    }
+
+    var m = re.exec(str || ''),
+        uri = {},
+        i = 14;
+
+    while (i--) {
+        uri[parts[i]] = m[i] || '';
+    }
+
+    if (b != -1 && e != -1) {
+        uri.source = src;
+        uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ':');
+        uri.authority = uri.authority.replace('[', '').replace(']', '').replace(/;/g, ':');
+        uri.ipv6uri = true;
+    }
+
+    uri.pathNames = pathNames(uri, uri['path']);
+    uri.queryKey = queryKey(uri, uri['query']);
+
+    return uri;
+};
+
+function pathNames(obj, path) {
+    var regx = /\/{2,9}/g,
+        names = path.replace(regx, "/").split("/");
+
+    if (path.substr(0, 1) == '/' || path.length === 0) {
+        names.splice(0, 1);
+    }
+    if (path.substr(path.length - 1, 1) == '/') {
+        names.splice(names.length - 1, 1);
+    }
+
+    return names;
+}
+
+function queryKey(uri, query) {
+    var data = {};
+
+    query.replace(/(?:^|&)([^&=]*)=?([^&]*)/g, function ($0, $1, $2) {
+        if ($1) {
+            data[$1] = $2;
+        }
+    });
+
+    return data;
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -20970,312 +25883,7480 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/psl/data/rules.json":
+/*!******************************************!*\
+  !*** ./node_modules/psl/data/rules.json ***!
+  \******************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse("[\"ac\",\"com.ac\",\"edu.ac\",\"gov.ac\",\"net.ac\",\"mil.ac\",\"org.ac\",\"ad\",\"nom.ad\",\"ae\",\"co.ae\",\"net.ae\",\"org.ae\",\"sch.ae\",\"ac.ae\",\"gov.ae\",\"mil.ae\",\"aero\",\"accident-investigation.aero\",\"accident-prevention.aero\",\"aerobatic.aero\",\"aeroclub.aero\",\"aerodrome.aero\",\"agents.aero\",\"aircraft.aero\",\"airline.aero\",\"airport.aero\",\"air-surveillance.aero\",\"airtraffic.aero\",\"air-traffic-control.aero\",\"ambulance.aero\",\"amusement.aero\",\"association.aero\",\"author.aero\",\"ballooning.aero\",\"broker.aero\",\"caa.aero\",\"cargo.aero\",\"catering.aero\",\"certification.aero\",\"championship.aero\",\"charter.aero\",\"civilaviation.aero\",\"club.aero\",\"conference.aero\",\"consultant.aero\",\"consulting.aero\",\"control.aero\",\"council.aero\",\"crew.aero\",\"design.aero\",\"dgca.aero\",\"educator.aero\",\"emergency.aero\",\"engine.aero\",\"engineer.aero\",\"entertainment.aero\",\"equipment.aero\",\"exchange.aero\",\"express.aero\",\"federation.aero\",\"flight.aero\",\"freight.aero\",\"fuel.aero\",\"gliding.aero\",\"government.aero\",\"groundhandling.aero\",\"group.aero\",\"hanggliding.aero\",\"homebuilt.aero\",\"insurance.aero\",\"journal.aero\",\"journalist.aero\",\"leasing.aero\",\"logistics.aero\",\"magazine.aero\",\"maintenance.aero\",\"media.aero\",\"microlight.aero\",\"modelling.aero\",\"navigation.aero\",\"parachuting.aero\",\"paragliding.aero\",\"passenger-association.aero\",\"pilot.aero\",\"press.aero\",\"production.aero\",\"recreation.aero\",\"repbody.aero\",\"res.aero\",\"research.aero\",\"rotorcraft.aero\",\"safety.aero\",\"scientist.aero\",\"services.aero\",\"show.aero\",\"skydiving.aero\",\"software.aero\",\"student.aero\",\"trader.aero\",\"trading.aero\",\"trainer.aero\",\"union.aero\",\"workinggroup.aero\",\"works.aero\",\"af\",\"gov.af\",\"com.af\",\"org.af\",\"net.af\",\"edu.af\",\"ag\",\"com.ag\",\"org.ag\",\"net.ag\",\"co.ag\",\"nom.ag\",\"ai\",\"off.ai\",\"com.ai\",\"net.ai\",\"org.ai\",\"al\",\"com.al\",\"edu.al\",\"gov.al\",\"mil.al\",\"net.al\",\"org.al\",\"am\",\"co.am\",\"com.am\",\"commune.am\",\"net.am\",\"org.am\",\"ao\",\"ed.ao\",\"gv.ao\",\"og.ao\",\"co.ao\",\"pb.ao\",\"it.ao\",\"aq\",\"ar\",\"com.ar\",\"edu.ar\",\"gob.ar\",\"gov.ar\",\"int.ar\",\"mil.ar\",\"musica.ar\",\"net.ar\",\"org.ar\",\"tur.ar\",\"arpa\",\"e164.arpa\",\"in-addr.arpa\",\"ip6.arpa\",\"iris.arpa\",\"uri.arpa\",\"urn.arpa\",\"as\",\"gov.as\",\"asia\",\"at\",\"ac.at\",\"co.at\",\"gv.at\",\"or.at\",\"au\",\"com.au\",\"net.au\",\"org.au\",\"edu.au\",\"gov.au\",\"asn.au\",\"id.au\",\"info.au\",\"conf.au\",\"oz.au\",\"act.au\",\"nsw.au\",\"nt.au\",\"qld.au\",\"sa.au\",\"tas.au\",\"vic.au\",\"wa.au\",\"act.edu.au\",\"catholic.edu.au\",\"nsw.edu.au\",\"nt.edu.au\",\"qld.edu.au\",\"sa.edu.au\",\"tas.edu.au\",\"vic.edu.au\",\"wa.edu.au\",\"qld.gov.au\",\"sa.gov.au\",\"tas.gov.au\",\"vic.gov.au\",\"wa.gov.au\",\"education.tas.edu.au\",\"schools.nsw.edu.au\",\"aw\",\"com.aw\",\"ax\",\"az\",\"com.az\",\"net.az\",\"int.az\",\"gov.az\",\"org.az\",\"edu.az\",\"info.az\",\"pp.az\",\"mil.az\",\"name.az\",\"pro.az\",\"biz.az\",\"ba\",\"com.ba\",\"edu.ba\",\"gov.ba\",\"mil.ba\",\"net.ba\",\"org.ba\",\"bb\",\"biz.bb\",\"co.bb\",\"com.bb\",\"edu.bb\",\"gov.bb\",\"info.bb\",\"net.bb\",\"org.bb\",\"store.bb\",\"tv.bb\",\"*.bd\",\"be\",\"ac.be\",\"bf\",\"gov.bf\",\"bg\",\"a.bg\",\"b.bg\",\"c.bg\",\"d.bg\",\"e.bg\",\"f.bg\",\"g.bg\",\"h.bg\",\"i.bg\",\"j.bg\",\"k.bg\",\"l.bg\",\"m.bg\",\"n.bg\",\"o.bg\",\"p.bg\",\"q.bg\",\"r.bg\",\"s.bg\",\"t.bg\",\"u.bg\",\"v.bg\",\"w.bg\",\"x.bg\",\"y.bg\",\"z.bg\",\"0.bg\",\"1.bg\",\"2.bg\",\"3.bg\",\"4.bg\",\"5.bg\",\"6.bg\",\"7.bg\",\"8.bg\",\"9.bg\",\"bh\",\"com.bh\",\"edu.bh\",\"net.bh\",\"org.bh\",\"gov.bh\",\"bi\",\"co.bi\",\"com.bi\",\"edu.bi\",\"or.bi\",\"org.bi\",\"biz\",\"bj\",\"asso.bj\",\"barreau.bj\",\"gouv.bj\",\"bm\",\"com.bm\",\"edu.bm\",\"gov.bm\",\"net.bm\",\"org.bm\",\"bn\",\"com.bn\",\"edu.bn\",\"gov.bn\",\"net.bn\",\"org.bn\",\"bo\",\"com.bo\",\"edu.bo\",\"gob.bo\",\"int.bo\",\"org.bo\",\"net.bo\",\"mil.bo\",\"tv.bo\",\"web.bo\",\"academia.bo\",\"agro.bo\",\"arte.bo\",\"blog.bo\",\"bolivia.bo\",\"ciencia.bo\",\"cooperativa.bo\",\"democracia.bo\",\"deporte.bo\",\"ecologia.bo\",\"economia.bo\",\"empresa.bo\",\"indigena.bo\",\"industria.bo\",\"info.bo\",\"medicina.bo\",\"movimiento.bo\",\"musica.bo\",\"natural.bo\",\"nombre.bo\",\"noticias.bo\",\"patria.bo\",\"politica.bo\",\"profesional.bo\",\"plurinacional.bo\",\"pueblo.bo\",\"revista.bo\",\"salud.bo\",\"tecnologia.bo\",\"tksat.bo\",\"transporte.bo\",\"wiki.bo\",\"br\",\"9guacu.br\",\"abc.br\",\"adm.br\",\"adv.br\",\"agr.br\",\"aju.br\",\"am.br\",\"anani.br\",\"aparecida.br\",\"arq.br\",\"art.br\",\"ato.br\",\"b.br\",\"barueri.br\",\"belem.br\",\"bhz.br\",\"bio.br\",\"blog.br\",\"bmd.br\",\"boavista.br\",\"bsb.br\",\"campinagrande.br\",\"campinas.br\",\"caxias.br\",\"cim.br\",\"cng.br\",\"cnt.br\",\"com.br\",\"contagem.br\",\"coop.br\",\"cri.br\",\"cuiaba.br\",\"curitiba.br\",\"def.br\",\"ecn.br\",\"eco.br\",\"edu.br\",\"emp.br\",\"eng.br\",\"esp.br\",\"etc.br\",\"eti.br\",\"far.br\",\"feira.br\",\"flog.br\",\"floripa.br\",\"fm.br\",\"fnd.br\",\"fortal.br\",\"fot.br\",\"foz.br\",\"fst.br\",\"g12.br\",\"ggf.br\",\"goiania.br\",\"gov.br\",\"ac.gov.br\",\"al.gov.br\",\"am.gov.br\",\"ap.gov.br\",\"ba.gov.br\",\"ce.gov.br\",\"df.gov.br\",\"es.gov.br\",\"go.gov.br\",\"ma.gov.br\",\"mg.gov.br\",\"ms.gov.br\",\"mt.gov.br\",\"pa.gov.br\",\"pb.gov.br\",\"pe.gov.br\",\"pi.gov.br\",\"pr.gov.br\",\"rj.gov.br\",\"rn.gov.br\",\"ro.gov.br\",\"rr.gov.br\",\"rs.gov.br\",\"sc.gov.br\",\"se.gov.br\",\"sp.gov.br\",\"to.gov.br\",\"gru.br\",\"imb.br\",\"ind.br\",\"inf.br\",\"jab.br\",\"jampa.br\",\"jdf.br\",\"joinville.br\",\"jor.br\",\"jus.br\",\"leg.br\",\"lel.br\",\"londrina.br\",\"macapa.br\",\"maceio.br\",\"manaus.br\",\"maringa.br\",\"mat.br\",\"med.br\",\"mil.br\",\"morena.br\",\"mp.br\",\"mus.br\",\"natal.br\",\"net.br\",\"niteroi.br\",\"*.nom.br\",\"not.br\",\"ntr.br\",\"odo.br\",\"ong.br\",\"org.br\",\"osasco.br\",\"palmas.br\",\"poa.br\",\"ppg.br\",\"pro.br\",\"psc.br\",\"psi.br\",\"pvh.br\",\"qsl.br\",\"radio.br\",\"rec.br\",\"recife.br\",\"ribeirao.br\",\"rio.br\",\"riobranco.br\",\"riopreto.br\",\"salvador.br\",\"sampa.br\",\"santamaria.br\",\"santoandre.br\",\"saobernardo.br\",\"saogonca.br\",\"sjc.br\",\"slg.br\",\"slz.br\",\"sorocaba.br\",\"srv.br\",\"taxi.br\",\"tc.br\",\"teo.br\",\"the.br\",\"tmp.br\",\"trd.br\",\"tur.br\",\"tv.br\",\"udi.br\",\"vet.br\",\"vix.br\",\"vlog.br\",\"wiki.br\",\"zlg.br\",\"bs\",\"com.bs\",\"net.bs\",\"org.bs\",\"edu.bs\",\"gov.bs\",\"bt\",\"com.bt\",\"edu.bt\",\"gov.bt\",\"net.bt\",\"org.bt\",\"bv\",\"bw\",\"co.bw\",\"org.bw\",\"by\",\"gov.by\",\"mil.by\",\"com.by\",\"of.by\",\"bz\",\"com.bz\",\"net.bz\",\"org.bz\",\"edu.bz\",\"gov.bz\",\"ca\",\"ab.ca\",\"bc.ca\",\"mb.ca\",\"nb.ca\",\"nf.ca\",\"nl.ca\",\"ns.ca\",\"nt.ca\",\"nu.ca\",\"on.ca\",\"pe.ca\",\"qc.ca\",\"sk.ca\",\"yk.ca\",\"gc.ca\",\"cat\",\"cc\",\"cd\",\"gov.cd\",\"cf\",\"cg\",\"ch\",\"ci\",\"org.ci\",\"or.ci\",\"com.ci\",\"co.ci\",\"edu.ci\",\"ed.ci\",\"ac.ci\",\"net.ci\",\"go.ci\",\"asso.ci\",\"aéroport.ci\",\"int.ci\",\"presse.ci\",\"md.ci\",\"gouv.ci\",\"*.ck\",\"!www.ck\",\"cl\",\"aprendemas.cl\",\"co.cl\",\"gob.cl\",\"gov.cl\",\"mil.cl\",\"cm\",\"co.cm\",\"com.cm\",\"gov.cm\",\"net.cm\",\"cn\",\"ac.cn\",\"com.cn\",\"edu.cn\",\"gov.cn\",\"net.cn\",\"org.cn\",\"mil.cn\",\"公司.cn\",\"网络.cn\",\"網絡.cn\",\"ah.cn\",\"bj.cn\",\"cq.cn\",\"fj.cn\",\"gd.cn\",\"gs.cn\",\"gz.cn\",\"gx.cn\",\"ha.cn\",\"hb.cn\",\"he.cn\",\"hi.cn\",\"hl.cn\",\"hn.cn\",\"jl.cn\",\"js.cn\",\"jx.cn\",\"ln.cn\",\"nm.cn\",\"nx.cn\",\"qh.cn\",\"sc.cn\",\"sd.cn\",\"sh.cn\",\"sn.cn\",\"sx.cn\",\"tj.cn\",\"xj.cn\",\"xz.cn\",\"yn.cn\",\"zj.cn\",\"hk.cn\",\"mo.cn\",\"tw.cn\",\"co\",\"arts.co\",\"com.co\",\"edu.co\",\"firm.co\",\"gov.co\",\"info.co\",\"int.co\",\"mil.co\",\"net.co\",\"nom.co\",\"org.co\",\"rec.co\",\"web.co\",\"com\",\"coop\",\"cr\",\"ac.cr\",\"co.cr\",\"ed.cr\",\"fi.cr\",\"go.cr\",\"or.cr\",\"sa.cr\",\"cu\",\"com.cu\",\"edu.cu\",\"org.cu\",\"net.cu\",\"gov.cu\",\"inf.cu\",\"cv\",\"cw\",\"com.cw\",\"edu.cw\",\"net.cw\",\"org.cw\",\"cx\",\"gov.cx\",\"cy\",\"ac.cy\",\"biz.cy\",\"com.cy\",\"ekloges.cy\",\"gov.cy\",\"ltd.cy\",\"name.cy\",\"net.cy\",\"org.cy\",\"parliament.cy\",\"press.cy\",\"pro.cy\",\"tm.cy\",\"cz\",\"de\",\"dj\",\"dk\",\"dm\",\"com.dm\",\"net.dm\",\"org.dm\",\"edu.dm\",\"gov.dm\",\"do\",\"art.do\",\"com.do\",\"edu.do\",\"gob.do\",\"gov.do\",\"mil.do\",\"net.do\",\"org.do\",\"sld.do\",\"web.do\",\"dz\",\"com.dz\",\"org.dz\",\"net.dz\",\"gov.dz\",\"edu.dz\",\"asso.dz\",\"pol.dz\",\"art.dz\",\"ec\",\"com.ec\",\"info.ec\",\"net.ec\",\"fin.ec\",\"k12.ec\",\"med.ec\",\"pro.ec\",\"org.ec\",\"edu.ec\",\"gov.ec\",\"gob.ec\",\"mil.ec\",\"edu\",\"ee\",\"edu.ee\",\"gov.ee\",\"riik.ee\",\"lib.ee\",\"med.ee\",\"com.ee\",\"pri.ee\",\"aip.ee\",\"org.ee\",\"fie.ee\",\"eg\",\"com.eg\",\"edu.eg\",\"eun.eg\",\"gov.eg\",\"mil.eg\",\"name.eg\",\"net.eg\",\"org.eg\",\"sci.eg\",\"*.er\",\"es\",\"com.es\",\"nom.es\",\"org.es\",\"gob.es\",\"edu.es\",\"et\",\"com.et\",\"gov.et\",\"org.et\",\"edu.et\",\"biz.et\",\"name.et\",\"info.et\",\"net.et\",\"eu\",\"fi\",\"aland.fi\",\"fj\",\"ac.fj\",\"biz.fj\",\"com.fj\",\"gov.fj\",\"info.fj\",\"mil.fj\",\"name.fj\",\"net.fj\",\"org.fj\",\"pro.fj\",\"*.fk\",\"fm\",\"fo\",\"fr\",\"asso.fr\",\"com.fr\",\"gouv.fr\",\"nom.fr\",\"prd.fr\",\"tm.fr\",\"aeroport.fr\",\"avocat.fr\",\"avoues.fr\",\"cci.fr\",\"chambagri.fr\",\"chirurgiens-dentistes.fr\",\"experts-comptables.fr\",\"geometre-expert.fr\",\"greta.fr\",\"huissier-justice.fr\",\"medecin.fr\",\"notaires.fr\",\"pharmacien.fr\",\"port.fr\",\"veterinaire.fr\",\"ga\",\"gb\",\"gd\",\"ge\",\"com.ge\",\"edu.ge\",\"gov.ge\",\"org.ge\",\"mil.ge\",\"net.ge\",\"pvt.ge\",\"gf\",\"gg\",\"co.gg\",\"net.gg\",\"org.gg\",\"gh\",\"com.gh\",\"edu.gh\",\"gov.gh\",\"org.gh\",\"mil.gh\",\"gi\",\"com.gi\",\"ltd.gi\",\"gov.gi\",\"mod.gi\",\"edu.gi\",\"org.gi\",\"gl\",\"co.gl\",\"com.gl\",\"edu.gl\",\"net.gl\",\"org.gl\",\"gm\",\"gn\",\"ac.gn\",\"com.gn\",\"edu.gn\",\"gov.gn\",\"org.gn\",\"net.gn\",\"gov\",\"gp\",\"com.gp\",\"net.gp\",\"mobi.gp\",\"edu.gp\",\"org.gp\",\"asso.gp\",\"gq\",\"gr\",\"com.gr\",\"edu.gr\",\"net.gr\",\"org.gr\",\"gov.gr\",\"gs\",\"gt\",\"com.gt\",\"edu.gt\",\"gob.gt\",\"ind.gt\",\"mil.gt\",\"net.gt\",\"org.gt\",\"gu\",\"com.gu\",\"edu.gu\",\"gov.gu\",\"guam.gu\",\"info.gu\",\"net.gu\",\"org.gu\",\"web.gu\",\"gw\",\"gy\",\"co.gy\",\"com.gy\",\"edu.gy\",\"gov.gy\",\"net.gy\",\"org.gy\",\"hk\",\"com.hk\",\"edu.hk\",\"gov.hk\",\"idv.hk\",\"net.hk\",\"org.hk\",\"公司.hk\",\"教育.hk\",\"敎育.hk\",\"政府.hk\",\"個人.hk\",\"个人.hk\",\"箇人.hk\",\"網络.hk\",\"网络.hk\",\"组織.hk\",\"網絡.hk\",\"网絡.hk\",\"组织.hk\",\"組織.hk\",\"組织.hk\",\"hm\",\"hn\",\"com.hn\",\"edu.hn\",\"org.hn\",\"net.hn\",\"mil.hn\",\"gob.hn\",\"hr\",\"iz.hr\",\"from.hr\",\"name.hr\",\"com.hr\",\"ht\",\"com.ht\",\"shop.ht\",\"firm.ht\",\"info.ht\",\"adult.ht\",\"net.ht\",\"pro.ht\",\"org.ht\",\"med.ht\",\"art.ht\",\"coop.ht\",\"pol.ht\",\"asso.ht\",\"edu.ht\",\"rel.ht\",\"gouv.ht\",\"perso.ht\",\"hu\",\"co.hu\",\"info.hu\",\"org.hu\",\"priv.hu\",\"sport.hu\",\"tm.hu\",\"2000.hu\",\"agrar.hu\",\"bolt.hu\",\"casino.hu\",\"city.hu\",\"erotica.hu\",\"erotika.hu\",\"film.hu\",\"forum.hu\",\"games.hu\",\"hotel.hu\",\"ingatlan.hu\",\"jogasz.hu\",\"konyvelo.hu\",\"lakas.hu\",\"media.hu\",\"news.hu\",\"reklam.hu\",\"sex.hu\",\"shop.hu\",\"suli.hu\",\"szex.hu\",\"tozsde.hu\",\"utazas.hu\",\"video.hu\",\"id\",\"ac.id\",\"biz.id\",\"co.id\",\"desa.id\",\"go.id\",\"mil.id\",\"my.id\",\"net.id\",\"or.id\",\"ponpes.id\",\"sch.id\",\"web.id\",\"ie\",\"gov.ie\",\"il\",\"ac.il\",\"co.il\",\"gov.il\",\"idf.il\",\"k12.il\",\"muni.il\",\"net.il\",\"org.il\",\"im\",\"ac.im\",\"co.im\",\"com.im\",\"ltd.co.im\",\"net.im\",\"org.im\",\"plc.co.im\",\"tt.im\",\"tv.im\",\"in\",\"co.in\",\"firm.in\",\"net.in\",\"org.in\",\"gen.in\",\"ind.in\",\"nic.in\",\"ac.in\",\"edu.in\",\"res.in\",\"gov.in\",\"mil.in\",\"info\",\"int\",\"eu.int\",\"io\",\"com.io\",\"iq\",\"gov.iq\",\"edu.iq\",\"mil.iq\",\"com.iq\",\"org.iq\",\"net.iq\",\"ir\",\"ac.ir\",\"co.ir\",\"gov.ir\",\"id.ir\",\"net.ir\",\"org.ir\",\"sch.ir\",\"ایران.ir\",\"ايران.ir\",\"is\",\"net.is\",\"com.is\",\"edu.is\",\"gov.is\",\"org.is\",\"int.is\",\"it\",\"gov.it\",\"edu.it\",\"abr.it\",\"abruzzo.it\",\"aosta-valley.it\",\"aostavalley.it\",\"bas.it\",\"basilicata.it\",\"cal.it\",\"calabria.it\",\"cam.it\",\"campania.it\",\"emilia-romagna.it\",\"emiliaromagna.it\",\"emr.it\",\"friuli-v-giulia.it\",\"friuli-ve-giulia.it\",\"friuli-vegiulia.it\",\"friuli-venezia-giulia.it\",\"friuli-veneziagiulia.it\",\"friuli-vgiulia.it\",\"friuliv-giulia.it\",\"friulive-giulia.it\",\"friulivegiulia.it\",\"friulivenezia-giulia.it\",\"friuliveneziagiulia.it\",\"friulivgiulia.it\",\"fvg.it\",\"laz.it\",\"lazio.it\",\"lig.it\",\"liguria.it\",\"lom.it\",\"lombardia.it\",\"lombardy.it\",\"lucania.it\",\"mar.it\",\"marche.it\",\"mol.it\",\"molise.it\",\"piedmont.it\",\"piemonte.it\",\"pmn.it\",\"pug.it\",\"puglia.it\",\"sar.it\",\"sardegna.it\",\"sardinia.it\",\"sic.it\",\"sicilia.it\",\"sicily.it\",\"taa.it\",\"tos.it\",\"toscana.it\",\"trentin-sud-tirol.it\",\"trentin-süd-tirol.it\",\"trentin-sudtirol.it\",\"trentin-südtirol.it\",\"trentin-sued-tirol.it\",\"trentin-suedtirol.it\",\"trentino-a-adige.it\",\"trentino-aadige.it\",\"trentino-alto-adige.it\",\"trentino-altoadige.it\",\"trentino-s-tirol.it\",\"trentino-stirol.it\",\"trentino-sud-tirol.it\",\"trentino-süd-tirol.it\",\"trentino-sudtirol.it\",\"trentino-südtirol.it\",\"trentino-sued-tirol.it\",\"trentino-suedtirol.it\",\"trentino.it\",\"trentinoa-adige.it\",\"trentinoaadige.it\",\"trentinoalto-adige.it\",\"trentinoaltoadige.it\",\"trentinos-tirol.it\",\"trentinostirol.it\",\"trentinosud-tirol.it\",\"trentinosüd-tirol.it\",\"trentinosudtirol.it\",\"trentinosüdtirol.it\",\"trentinosued-tirol.it\",\"trentinosuedtirol.it\",\"trentinsud-tirol.it\",\"trentinsüd-tirol.it\",\"trentinsudtirol.it\",\"trentinsüdtirol.it\",\"trentinsued-tirol.it\",\"trentinsuedtirol.it\",\"tuscany.it\",\"umb.it\",\"umbria.it\",\"val-d-aosta.it\",\"val-daosta.it\",\"vald-aosta.it\",\"valdaosta.it\",\"valle-aosta.it\",\"valle-d-aosta.it\",\"valle-daosta.it\",\"valleaosta.it\",\"valled-aosta.it\",\"valledaosta.it\",\"vallee-aoste.it\",\"vallée-aoste.it\",\"vallee-d-aoste.it\",\"vallée-d-aoste.it\",\"valleeaoste.it\",\"valléeaoste.it\",\"valleedaoste.it\",\"valléedaoste.it\",\"vao.it\",\"vda.it\",\"ven.it\",\"veneto.it\",\"ag.it\",\"agrigento.it\",\"al.it\",\"alessandria.it\",\"alto-adige.it\",\"altoadige.it\",\"an.it\",\"ancona.it\",\"andria-barletta-trani.it\",\"andria-trani-barletta.it\",\"andriabarlettatrani.it\",\"andriatranibarletta.it\",\"ao.it\",\"aosta.it\",\"aoste.it\",\"ap.it\",\"aq.it\",\"aquila.it\",\"ar.it\",\"arezzo.it\",\"ascoli-piceno.it\",\"ascolipiceno.it\",\"asti.it\",\"at.it\",\"av.it\",\"avellino.it\",\"ba.it\",\"balsan-sudtirol.it\",\"balsan-südtirol.it\",\"balsan-suedtirol.it\",\"balsan.it\",\"bari.it\",\"barletta-trani-andria.it\",\"barlettatraniandria.it\",\"belluno.it\",\"benevento.it\",\"bergamo.it\",\"bg.it\",\"bi.it\",\"biella.it\",\"bl.it\",\"bn.it\",\"bo.it\",\"bologna.it\",\"bolzano-altoadige.it\",\"bolzano.it\",\"bozen-sudtirol.it\",\"bozen-südtirol.it\",\"bozen-suedtirol.it\",\"bozen.it\",\"br.it\",\"brescia.it\",\"brindisi.it\",\"bs.it\",\"bt.it\",\"bulsan-sudtirol.it\",\"bulsan-südtirol.it\",\"bulsan-suedtirol.it\",\"bulsan.it\",\"bz.it\",\"ca.it\",\"cagliari.it\",\"caltanissetta.it\",\"campidano-medio.it\",\"campidanomedio.it\",\"campobasso.it\",\"carbonia-iglesias.it\",\"carboniaiglesias.it\",\"carrara-massa.it\",\"carraramassa.it\",\"caserta.it\",\"catania.it\",\"catanzaro.it\",\"cb.it\",\"ce.it\",\"cesena-forli.it\",\"cesena-forlì.it\",\"cesenaforli.it\",\"cesenaforlì.it\",\"ch.it\",\"chieti.it\",\"ci.it\",\"cl.it\",\"cn.it\",\"co.it\",\"como.it\",\"cosenza.it\",\"cr.it\",\"cremona.it\",\"crotone.it\",\"cs.it\",\"ct.it\",\"cuneo.it\",\"cz.it\",\"dell-ogliastra.it\",\"dellogliastra.it\",\"en.it\",\"enna.it\",\"fc.it\",\"fe.it\",\"fermo.it\",\"ferrara.it\",\"fg.it\",\"fi.it\",\"firenze.it\",\"florence.it\",\"fm.it\",\"foggia.it\",\"forli-cesena.it\",\"forlì-cesena.it\",\"forlicesena.it\",\"forlìcesena.it\",\"fr.it\",\"frosinone.it\",\"ge.it\",\"genoa.it\",\"genova.it\",\"go.it\",\"gorizia.it\",\"gr.it\",\"grosseto.it\",\"iglesias-carbonia.it\",\"iglesiascarbonia.it\",\"im.it\",\"imperia.it\",\"is.it\",\"isernia.it\",\"kr.it\",\"la-spezia.it\",\"laquila.it\",\"laspezia.it\",\"latina.it\",\"lc.it\",\"le.it\",\"lecce.it\",\"lecco.it\",\"li.it\",\"livorno.it\",\"lo.it\",\"lodi.it\",\"lt.it\",\"lu.it\",\"lucca.it\",\"macerata.it\",\"mantova.it\",\"massa-carrara.it\",\"massacarrara.it\",\"matera.it\",\"mb.it\",\"mc.it\",\"me.it\",\"medio-campidano.it\",\"mediocampidano.it\",\"messina.it\",\"mi.it\",\"milan.it\",\"milano.it\",\"mn.it\",\"mo.it\",\"modena.it\",\"monza-brianza.it\",\"monza-e-della-brianza.it\",\"monza.it\",\"monzabrianza.it\",\"monzaebrianza.it\",\"monzaedellabrianza.it\",\"ms.it\",\"mt.it\",\"na.it\",\"naples.it\",\"napoli.it\",\"no.it\",\"novara.it\",\"nu.it\",\"nuoro.it\",\"og.it\",\"ogliastra.it\",\"olbia-tempio.it\",\"olbiatempio.it\",\"or.it\",\"oristano.it\",\"ot.it\",\"pa.it\",\"padova.it\",\"padua.it\",\"palermo.it\",\"parma.it\",\"pavia.it\",\"pc.it\",\"pd.it\",\"pe.it\",\"perugia.it\",\"pesaro-urbino.it\",\"pesarourbino.it\",\"pescara.it\",\"pg.it\",\"pi.it\",\"piacenza.it\",\"pisa.it\",\"pistoia.it\",\"pn.it\",\"po.it\",\"pordenone.it\",\"potenza.it\",\"pr.it\",\"prato.it\",\"pt.it\",\"pu.it\",\"pv.it\",\"pz.it\",\"ra.it\",\"ragusa.it\",\"ravenna.it\",\"rc.it\",\"re.it\",\"reggio-calabria.it\",\"reggio-emilia.it\",\"reggiocalabria.it\",\"reggioemilia.it\",\"rg.it\",\"ri.it\",\"rieti.it\",\"rimini.it\",\"rm.it\",\"rn.it\",\"ro.it\",\"roma.it\",\"rome.it\",\"rovigo.it\",\"sa.it\",\"salerno.it\",\"sassari.it\",\"savona.it\",\"si.it\",\"siena.it\",\"siracusa.it\",\"so.it\",\"sondrio.it\",\"sp.it\",\"sr.it\",\"ss.it\",\"suedtirol.it\",\"südtirol.it\",\"sv.it\",\"ta.it\",\"taranto.it\",\"te.it\",\"tempio-olbia.it\",\"tempioolbia.it\",\"teramo.it\",\"terni.it\",\"tn.it\",\"to.it\",\"torino.it\",\"tp.it\",\"tr.it\",\"trani-andria-barletta.it\",\"trani-barletta-andria.it\",\"traniandriabarletta.it\",\"tranibarlettaandria.it\",\"trapani.it\",\"trento.it\",\"treviso.it\",\"trieste.it\",\"ts.it\",\"turin.it\",\"tv.it\",\"ud.it\",\"udine.it\",\"urbino-pesaro.it\",\"urbinopesaro.it\",\"va.it\",\"varese.it\",\"vb.it\",\"vc.it\",\"ve.it\",\"venezia.it\",\"venice.it\",\"verbania.it\",\"vercelli.it\",\"verona.it\",\"vi.it\",\"vibo-valentia.it\",\"vibovalentia.it\",\"vicenza.it\",\"viterbo.it\",\"vr.it\",\"vs.it\",\"vt.it\",\"vv.it\",\"je\",\"co.je\",\"net.je\",\"org.je\",\"*.jm\",\"jo\",\"com.jo\",\"org.jo\",\"net.jo\",\"edu.jo\",\"sch.jo\",\"gov.jo\",\"mil.jo\",\"name.jo\",\"jobs\",\"jp\",\"ac.jp\",\"ad.jp\",\"co.jp\",\"ed.jp\",\"go.jp\",\"gr.jp\",\"lg.jp\",\"ne.jp\",\"or.jp\",\"aichi.jp\",\"akita.jp\",\"aomori.jp\",\"chiba.jp\",\"ehime.jp\",\"fukui.jp\",\"fukuoka.jp\",\"fukushima.jp\",\"gifu.jp\",\"gunma.jp\",\"hiroshima.jp\",\"hokkaido.jp\",\"hyogo.jp\",\"ibaraki.jp\",\"ishikawa.jp\",\"iwate.jp\",\"kagawa.jp\",\"kagoshima.jp\",\"kanagawa.jp\",\"kochi.jp\",\"kumamoto.jp\",\"kyoto.jp\",\"mie.jp\",\"miyagi.jp\",\"miyazaki.jp\",\"nagano.jp\",\"nagasaki.jp\",\"nara.jp\",\"niigata.jp\",\"oita.jp\",\"okayama.jp\",\"okinawa.jp\",\"osaka.jp\",\"saga.jp\",\"saitama.jp\",\"shiga.jp\",\"shimane.jp\",\"shizuoka.jp\",\"tochigi.jp\",\"tokushima.jp\",\"tokyo.jp\",\"tottori.jp\",\"toyama.jp\",\"wakayama.jp\",\"yamagata.jp\",\"yamaguchi.jp\",\"yamanashi.jp\",\"栃木.jp\",\"愛知.jp\",\"愛媛.jp\",\"兵庫.jp\",\"熊本.jp\",\"茨城.jp\",\"北海道.jp\",\"千葉.jp\",\"和歌山.jp\",\"長崎.jp\",\"長野.jp\",\"新潟.jp\",\"青森.jp\",\"静岡.jp\",\"東京.jp\",\"石川.jp\",\"埼玉.jp\",\"三重.jp\",\"京都.jp\",\"佐賀.jp\",\"大分.jp\",\"大阪.jp\",\"奈良.jp\",\"宮城.jp\",\"宮崎.jp\",\"富山.jp\",\"山口.jp\",\"山形.jp\",\"山梨.jp\",\"岩手.jp\",\"岐阜.jp\",\"岡山.jp\",\"島根.jp\",\"広島.jp\",\"徳島.jp\",\"沖縄.jp\",\"滋賀.jp\",\"神奈川.jp\",\"福井.jp\",\"福岡.jp\",\"福島.jp\",\"秋田.jp\",\"群馬.jp\",\"香川.jp\",\"高知.jp\",\"鳥取.jp\",\"鹿児島.jp\",\"*.kawasaki.jp\",\"*.kitakyushu.jp\",\"*.kobe.jp\",\"*.nagoya.jp\",\"*.sapporo.jp\",\"*.sendai.jp\",\"*.yokohama.jp\",\"!city.kawasaki.jp\",\"!city.kitakyushu.jp\",\"!city.kobe.jp\",\"!city.nagoya.jp\",\"!city.sapporo.jp\",\"!city.sendai.jp\",\"!city.yokohama.jp\",\"aisai.aichi.jp\",\"ama.aichi.jp\",\"anjo.aichi.jp\",\"asuke.aichi.jp\",\"chiryu.aichi.jp\",\"chita.aichi.jp\",\"fuso.aichi.jp\",\"gamagori.aichi.jp\",\"handa.aichi.jp\",\"hazu.aichi.jp\",\"hekinan.aichi.jp\",\"higashiura.aichi.jp\",\"ichinomiya.aichi.jp\",\"inazawa.aichi.jp\",\"inuyama.aichi.jp\",\"isshiki.aichi.jp\",\"iwakura.aichi.jp\",\"kanie.aichi.jp\",\"kariya.aichi.jp\",\"kasugai.aichi.jp\",\"kira.aichi.jp\",\"kiyosu.aichi.jp\",\"komaki.aichi.jp\",\"konan.aichi.jp\",\"kota.aichi.jp\",\"mihama.aichi.jp\",\"miyoshi.aichi.jp\",\"nishio.aichi.jp\",\"nisshin.aichi.jp\",\"obu.aichi.jp\",\"oguchi.aichi.jp\",\"oharu.aichi.jp\",\"okazaki.aichi.jp\",\"owariasahi.aichi.jp\",\"seto.aichi.jp\",\"shikatsu.aichi.jp\",\"shinshiro.aichi.jp\",\"shitara.aichi.jp\",\"tahara.aichi.jp\",\"takahama.aichi.jp\",\"tobishima.aichi.jp\",\"toei.aichi.jp\",\"togo.aichi.jp\",\"tokai.aichi.jp\",\"tokoname.aichi.jp\",\"toyoake.aichi.jp\",\"toyohashi.aichi.jp\",\"toyokawa.aichi.jp\",\"toyone.aichi.jp\",\"toyota.aichi.jp\",\"tsushima.aichi.jp\",\"yatomi.aichi.jp\",\"akita.akita.jp\",\"daisen.akita.jp\",\"fujisato.akita.jp\",\"gojome.akita.jp\",\"hachirogata.akita.jp\",\"happou.akita.jp\",\"higashinaruse.akita.jp\",\"honjo.akita.jp\",\"honjyo.akita.jp\",\"ikawa.akita.jp\",\"kamikoani.akita.jp\",\"kamioka.akita.jp\",\"katagami.akita.jp\",\"kazuno.akita.jp\",\"kitaakita.akita.jp\",\"kosaka.akita.jp\",\"kyowa.akita.jp\",\"misato.akita.jp\",\"mitane.akita.jp\",\"moriyoshi.akita.jp\",\"nikaho.akita.jp\",\"noshiro.akita.jp\",\"odate.akita.jp\",\"oga.akita.jp\",\"ogata.akita.jp\",\"semboku.akita.jp\",\"yokote.akita.jp\",\"yurihonjo.akita.jp\",\"aomori.aomori.jp\",\"gonohe.aomori.jp\",\"hachinohe.aomori.jp\",\"hashikami.aomori.jp\",\"hiranai.aomori.jp\",\"hirosaki.aomori.jp\",\"itayanagi.aomori.jp\",\"kuroishi.aomori.jp\",\"misawa.aomori.jp\",\"mutsu.aomori.jp\",\"nakadomari.aomori.jp\",\"noheji.aomori.jp\",\"oirase.aomori.jp\",\"owani.aomori.jp\",\"rokunohe.aomori.jp\",\"sannohe.aomori.jp\",\"shichinohe.aomori.jp\",\"shingo.aomori.jp\",\"takko.aomori.jp\",\"towada.aomori.jp\",\"tsugaru.aomori.jp\",\"tsuruta.aomori.jp\",\"abiko.chiba.jp\",\"asahi.chiba.jp\",\"chonan.chiba.jp\",\"chosei.chiba.jp\",\"choshi.chiba.jp\",\"chuo.chiba.jp\",\"funabashi.chiba.jp\",\"futtsu.chiba.jp\",\"hanamigawa.chiba.jp\",\"ichihara.chiba.jp\",\"ichikawa.chiba.jp\",\"ichinomiya.chiba.jp\",\"inzai.chiba.jp\",\"isumi.chiba.jp\",\"kamagaya.chiba.jp\",\"kamogawa.chiba.jp\",\"kashiwa.chiba.jp\",\"katori.chiba.jp\",\"katsuura.chiba.jp\",\"kimitsu.chiba.jp\",\"kisarazu.chiba.jp\",\"kozaki.chiba.jp\",\"kujukuri.chiba.jp\",\"kyonan.chiba.jp\",\"matsudo.chiba.jp\",\"midori.chiba.jp\",\"mihama.chiba.jp\",\"minamiboso.chiba.jp\",\"mobara.chiba.jp\",\"mutsuzawa.chiba.jp\",\"nagara.chiba.jp\",\"nagareyama.chiba.jp\",\"narashino.chiba.jp\",\"narita.chiba.jp\",\"noda.chiba.jp\",\"oamishirasato.chiba.jp\",\"omigawa.chiba.jp\",\"onjuku.chiba.jp\",\"otaki.chiba.jp\",\"sakae.chiba.jp\",\"sakura.chiba.jp\",\"shimofusa.chiba.jp\",\"shirako.chiba.jp\",\"shiroi.chiba.jp\",\"shisui.chiba.jp\",\"sodegaura.chiba.jp\",\"sosa.chiba.jp\",\"tako.chiba.jp\",\"tateyama.chiba.jp\",\"togane.chiba.jp\",\"tohnosho.chiba.jp\",\"tomisato.chiba.jp\",\"urayasu.chiba.jp\",\"yachimata.chiba.jp\",\"yachiyo.chiba.jp\",\"yokaichiba.chiba.jp\",\"yokoshibahikari.chiba.jp\",\"yotsukaido.chiba.jp\",\"ainan.ehime.jp\",\"honai.ehime.jp\",\"ikata.ehime.jp\",\"imabari.ehime.jp\",\"iyo.ehime.jp\",\"kamijima.ehime.jp\",\"kihoku.ehime.jp\",\"kumakogen.ehime.jp\",\"masaki.ehime.jp\",\"matsuno.ehime.jp\",\"matsuyama.ehime.jp\",\"namikata.ehime.jp\",\"niihama.ehime.jp\",\"ozu.ehime.jp\",\"saijo.ehime.jp\",\"seiyo.ehime.jp\",\"shikokuchuo.ehime.jp\",\"tobe.ehime.jp\",\"toon.ehime.jp\",\"uchiko.ehime.jp\",\"uwajima.ehime.jp\",\"yawatahama.ehime.jp\",\"echizen.fukui.jp\",\"eiheiji.fukui.jp\",\"fukui.fukui.jp\",\"ikeda.fukui.jp\",\"katsuyama.fukui.jp\",\"mihama.fukui.jp\",\"minamiechizen.fukui.jp\",\"obama.fukui.jp\",\"ohi.fukui.jp\",\"ono.fukui.jp\",\"sabae.fukui.jp\",\"sakai.fukui.jp\",\"takahama.fukui.jp\",\"tsuruga.fukui.jp\",\"wakasa.fukui.jp\",\"ashiya.fukuoka.jp\",\"buzen.fukuoka.jp\",\"chikugo.fukuoka.jp\",\"chikuho.fukuoka.jp\",\"chikujo.fukuoka.jp\",\"chikushino.fukuoka.jp\",\"chikuzen.fukuoka.jp\",\"chuo.fukuoka.jp\",\"dazaifu.fukuoka.jp\",\"fukuchi.fukuoka.jp\",\"hakata.fukuoka.jp\",\"higashi.fukuoka.jp\",\"hirokawa.fukuoka.jp\",\"hisayama.fukuoka.jp\",\"iizuka.fukuoka.jp\",\"inatsuki.fukuoka.jp\",\"kaho.fukuoka.jp\",\"kasuga.fukuoka.jp\",\"kasuya.fukuoka.jp\",\"kawara.fukuoka.jp\",\"keisen.fukuoka.jp\",\"koga.fukuoka.jp\",\"kurate.fukuoka.jp\",\"kurogi.fukuoka.jp\",\"kurume.fukuoka.jp\",\"minami.fukuoka.jp\",\"miyako.fukuoka.jp\",\"miyama.fukuoka.jp\",\"miyawaka.fukuoka.jp\",\"mizumaki.fukuoka.jp\",\"munakata.fukuoka.jp\",\"nakagawa.fukuoka.jp\",\"nakama.fukuoka.jp\",\"nishi.fukuoka.jp\",\"nogata.fukuoka.jp\",\"ogori.fukuoka.jp\",\"okagaki.fukuoka.jp\",\"okawa.fukuoka.jp\",\"oki.fukuoka.jp\",\"omuta.fukuoka.jp\",\"onga.fukuoka.jp\",\"onojo.fukuoka.jp\",\"oto.fukuoka.jp\",\"saigawa.fukuoka.jp\",\"sasaguri.fukuoka.jp\",\"shingu.fukuoka.jp\",\"shinyoshitomi.fukuoka.jp\",\"shonai.fukuoka.jp\",\"soeda.fukuoka.jp\",\"sue.fukuoka.jp\",\"tachiarai.fukuoka.jp\",\"tagawa.fukuoka.jp\",\"takata.fukuoka.jp\",\"toho.fukuoka.jp\",\"toyotsu.fukuoka.jp\",\"tsuiki.fukuoka.jp\",\"ukiha.fukuoka.jp\",\"umi.fukuoka.jp\",\"usui.fukuoka.jp\",\"yamada.fukuoka.jp\",\"yame.fukuoka.jp\",\"yanagawa.fukuoka.jp\",\"yukuhashi.fukuoka.jp\",\"aizubange.fukushima.jp\",\"aizumisato.fukushima.jp\",\"aizuwakamatsu.fukushima.jp\",\"asakawa.fukushima.jp\",\"bandai.fukushima.jp\",\"date.fukushima.jp\",\"fukushima.fukushima.jp\",\"furudono.fukushima.jp\",\"futaba.fukushima.jp\",\"hanawa.fukushima.jp\",\"higashi.fukushima.jp\",\"hirata.fukushima.jp\",\"hirono.fukushima.jp\",\"iitate.fukushima.jp\",\"inawashiro.fukushima.jp\",\"ishikawa.fukushima.jp\",\"iwaki.fukushima.jp\",\"izumizaki.fukushima.jp\",\"kagamiishi.fukushima.jp\",\"kaneyama.fukushima.jp\",\"kawamata.fukushima.jp\",\"kitakata.fukushima.jp\",\"kitashiobara.fukushima.jp\",\"koori.fukushima.jp\",\"koriyama.fukushima.jp\",\"kunimi.fukushima.jp\",\"miharu.fukushima.jp\",\"mishima.fukushima.jp\",\"namie.fukushima.jp\",\"nango.fukushima.jp\",\"nishiaizu.fukushima.jp\",\"nishigo.fukushima.jp\",\"okuma.fukushima.jp\",\"omotego.fukushima.jp\",\"ono.fukushima.jp\",\"otama.fukushima.jp\",\"samegawa.fukushima.jp\",\"shimogo.fukushima.jp\",\"shirakawa.fukushima.jp\",\"showa.fukushima.jp\",\"soma.fukushima.jp\",\"sukagawa.fukushima.jp\",\"taishin.fukushima.jp\",\"tamakawa.fukushima.jp\",\"tanagura.fukushima.jp\",\"tenei.fukushima.jp\",\"yabuki.fukushima.jp\",\"yamato.fukushima.jp\",\"yamatsuri.fukushima.jp\",\"yanaizu.fukushima.jp\",\"yugawa.fukushima.jp\",\"anpachi.gifu.jp\",\"ena.gifu.jp\",\"gifu.gifu.jp\",\"ginan.gifu.jp\",\"godo.gifu.jp\",\"gujo.gifu.jp\",\"hashima.gifu.jp\",\"hichiso.gifu.jp\",\"hida.gifu.jp\",\"higashishirakawa.gifu.jp\",\"ibigawa.gifu.jp\",\"ikeda.gifu.jp\",\"kakamigahara.gifu.jp\",\"kani.gifu.jp\",\"kasahara.gifu.jp\",\"kasamatsu.gifu.jp\",\"kawaue.gifu.jp\",\"kitagata.gifu.jp\",\"mino.gifu.jp\",\"minokamo.gifu.jp\",\"mitake.gifu.jp\",\"mizunami.gifu.jp\",\"motosu.gifu.jp\",\"nakatsugawa.gifu.jp\",\"ogaki.gifu.jp\",\"sakahogi.gifu.jp\",\"seki.gifu.jp\",\"sekigahara.gifu.jp\",\"shirakawa.gifu.jp\",\"tajimi.gifu.jp\",\"takayama.gifu.jp\",\"tarui.gifu.jp\",\"toki.gifu.jp\",\"tomika.gifu.jp\",\"wanouchi.gifu.jp\",\"yamagata.gifu.jp\",\"yaotsu.gifu.jp\",\"yoro.gifu.jp\",\"annaka.gunma.jp\",\"chiyoda.gunma.jp\",\"fujioka.gunma.jp\",\"higashiagatsuma.gunma.jp\",\"isesaki.gunma.jp\",\"itakura.gunma.jp\",\"kanna.gunma.jp\",\"kanra.gunma.jp\",\"katashina.gunma.jp\",\"kawaba.gunma.jp\",\"kiryu.gunma.jp\",\"kusatsu.gunma.jp\",\"maebashi.gunma.jp\",\"meiwa.gunma.jp\",\"midori.gunma.jp\",\"minakami.gunma.jp\",\"naganohara.gunma.jp\",\"nakanojo.gunma.jp\",\"nanmoku.gunma.jp\",\"numata.gunma.jp\",\"oizumi.gunma.jp\",\"ora.gunma.jp\",\"ota.gunma.jp\",\"shibukawa.gunma.jp\",\"shimonita.gunma.jp\",\"shinto.gunma.jp\",\"showa.gunma.jp\",\"takasaki.gunma.jp\",\"takayama.gunma.jp\",\"tamamura.gunma.jp\",\"tatebayashi.gunma.jp\",\"tomioka.gunma.jp\",\"tsukiyono.gunma.jp\",\"tsumagoi.gunma.jp\",\"ueno.gunma.jp\",\"yoshioka.gunma.jp\",\"asaminami.hiroshima.jp\",\"daiwa.hiroshima.jp\",\"etajima.hiroshima.jp\",\"fuchu.hiroshima.jp\",\"fukuyama.hiroshima.jp\",\"hatsukaichi.hiroshima.jp\",\"higashihiroshima.hiroshima.jp\",\"hongo.hiroshima.jp\",\"jinsekikogen.hiroshima.jp\",\"kaita.hiroshima.jp\",\"kui.hiroshima.jp\",\"kumano.hiroshima.jp\",\"kure.hiroshima.jp\",\"mihara.hiroshima.jp\",\"miyoshi.hiroshima.jp\",\"naka.hiroshima.jp\",\"onomichi.hiroshima.jp\",\"osakikamijima.hiroshima.jp\",\"otake.hiroshima.jp\",\"saka.hiroshima.jp\",\"sera.hiroshima.jp\",\"seranishi.hiroshima.jp\",\"shinichi.hiroshima.jp\",\"shobara.hiroshima.jp\",\"takehara.hiroshima.jp\",\"abashiri.hokkaido.jp\",\"abira.hokkaido.jp\",\"aibetsu.hokkaido.jp\",\"akabira.hokkaido.jp\",\"akkeshi.hokkaido.jp\",\"asahikawa.hokkaido.jp\",\"ashibetsu.hokkaido.jp\",\"ashoro.hokkaido.jp\",\"assabu.hokkaido.jp\",\"atsuma.hokkaido.jp\",\"bibai.hokkaido.jp\",\"biei.hokkaido.jp\",\"bifuka.hokkaido.jp\",\"bihoro.hokkaido.jp\",\"biratori.hokkaido.jp\",\"chippubetsu.hokkaido.jp\",\"chitose.hokkaido.jp\",\"date.hokkaido.jp\",\"ebetsu.hokkaido.jp\",\"embetsu.hokkaido.jp\",\"eniwa.hokkaido.jp\",\"erimo.hokkaido.jp\",\"esan.hokkaido.jp\",\"esashi.hokkaido.jp\",\"fukagawa.hokkaido.jp\",\"fukushima.hokkaido.jp\",\"furano.hokkaido.jp\",\"furubira.hokkaido.jp\",\"haboro.hokkaido.jp\",\"hakodate.hokkaido.jp\",\"hamatonbetsu.hokkaido.jp\",\"hidaka.hokkaido.jp\",\"higashikagura.hokkaido.jp\",\"higashikawa.hokkaido.jp\",\"hiroo.hokkaido.jp\",\"hokuryu.hokkaido.jp\",\"hokuto.hokkaido.jp\",\"honbetsu.hokkaido.jp\",\"horokanai.hokkaido.jp\",\"horonobe.hokkaido.jp\",\"ikeda.hokkaido.jp\",\"imakane.hokkaido.jp\",\"ishikari.hokkaido.jp\",\"iwamizawa.hokkaido.jp\",\"iwanai.hokkaido.jp\",\"kamifurano.hokkaido.jp\",\"kamikawa.hokkaido.jp\",\"kamishihoro.hokkaido.jp\",\"kamisunagawa.hokkaido.jp\",\"kamoenai.hokkaido.jp\",\"kayabe.hokkaido.jp\",\"kembuchi.hokkaido.jp\",\"kikonai.hokkaido.jp\",\"kimobetsu.hokkaido.jp\",\"kitahiroshima.hokkaido.jp\",\"kitami.hokkaido.jp\",\"kiyosato.hokkaido.jp\",\"koshimizu.hokkaido.jp\",\"kunneppu.hokkaido.jp\",\"kuriyama.hokkaido.jp\",\"kuromatsunai.hokkaido.jp\",\"kushiro.hokkaido.jp\",\"kutchan.hokkaido.jp\",\"kyowa.hokkaido.jp\",\"mashike.hokkaido.jp\",\"matsumae.hokkaido.jp\",\"mikasa.hokkaido.jp\",\"minamifurano.hokkaido.jp\",\"mombetsu.hokkaido.jp\",\"moseushi.hokkaido.jp\",\"mukawa.hokkaido.jp\",\"muroran.hokkaido.jp\",\"naie.hokkaido.jp\",\"nakagawa.hokkaido.jp\",\"nakasatsunai.hokkaido.jp\",\"nakatombetsu.hokkaido.jp\",\"nanae.hokkaido.jp\",\"nanporo.hokkaido.jp\",\"nayoro.hokkaido.jp\",\"nemuro.hokkaido.jp\",\"niikappu.hokkaido.jp\",\"niki.hokkaido.jp\",\"nishiokoppe.hokkaido.jp\",\"noboribetsu.hokkaido.jp\",\"numata.hokkaido.jp\",\"obihiro.hokkaido.jp\",\"obira.hokkaido.jp\",\"oketo.hokkaido.jp\",\"okoppe.hokkaido.jp\",\"otaru.hokkaido.jp\",\"otobe.hokkaido.jp\",\"otofuke.hokkaido.jp\",\"otoineppu.hokkaido.jp\",\"oumu.hokkaido.jp\",\"ozora.hokkaido.jp\",\"pippu.hokkaido.jp\",\"rankoshi.hokkaido.jp\",\"rebun.hokkaido.jp\",\"rikubetsu.hokkaido.jp\",\"rishiri.hokkaido.jp\",\"rishirifuji.hokkaido.jp\",\"saroma.hokkaido.jp\",\"sarufutsu.hokkaido.jp\",\"shakotan.hokkaido.jp\",\"shari.hokkaido.jp\",\"shibecha.hokkaido.jp\",\"shibetsu.hokkaido.jp\",\"shikabe.hokkaido.jp\",\"shikaoi.hokkaido.jp\",\"shimamaki.hokkaido.jp\",\"shimizu.hokkaido.jp\",\"shimokawa.hokkaido.jp\",\"shinshinotsu.hokkaido.jp\",\"shintoku.hokkaido.jp\",\"shiranuka.hokkaido.jp\",\"shiraoi.hokkaido.jp\",\"shiriuchi.hokkaido.jp\",\"sobetsu.hokkaido.jp\",\"sunagawa.hokkaido.jp\",\"taiki.hokkaido.jp\",\"takasu.hokkaido.jp\",\"takikawa.hokkaido.jp\",\"takinoue.hokkaido.jp\",\"teshikaga.hokkaido.jp\",\"tobetsu.hokkaido.jp\",\"tohma.hokkaido.jp\",\"tomakomai.hokkaido.jp\",\"tomari.hokkaido.jp\",\"toya.hokkaido.jp\",\"toyako.hokkaido.jp\",\"toyotomi.hokkaido.jp\",\"toyoura.hokkaido.jp\",\"tsubetsu.hokkaido.jp\",\"tsukigata.hokkaido.jp\",\"urakawa.hokkaido.jp\",\"urausu.hokkaido.jp\",\"uryu.hokkaido.jp\",\"utashinai.hokkaido.jp\",\"wakkanai.hokkaido.jp\",\"wassamu.hokkaido.jp\",\"yakumo.hokkaido.jp\",\"yoichi.hokkaido.jp\",\"aioi.hyogo.jp\",\"akashi.hyogo.jp\",\"ako.hyogo.jp\",\"amagasaki.hyogo.jp\",\"aogaki.hyogo.jp\",\"asago.hyogo.jp\",\"ashiya.hyogo.jp\",\"awaji.hyogo.jp\",\"fukusaki.hyogo.jp\",\"goshiki.hyogo.jp\",\"harima.hyogo.jp\",\"himeji.hyogo.jp\",\"ichikawa.hyogo.jp\",\"inagawa.hyogo.jp\",\"itami.hyogo.jp\",\"kakogawa.hyogo.jp\",\"kamigori.hyogo.jp\",\"kamikawa.hyogo.jp\",\"kasai.hyogo.jp\",\"kasuga.hyogo.jp\",\"kawanishi.hyogo.jp\",\"miki.hyogo.jp\",\"minamiawaji.hyogo.jp\",\"nishinomiya.hyogo.jp\",\"nishiwaki.hyogo.jp\",\"ono.hyogo.jp\",\"sanda.hyogo.jp\",\"sannan.hyogo.jp\",\"sasayama.hyogo.jp\",\"sayo.hyogo.jp\",\"shingu.hyogo.jp\",\"shinonsen.hyogo.jp\",\"shiso.hyogo.jp\",\"sumoto.hyogo.jp\",\"taishi.hyogo.jp\",\"taka.hyogo.jp\",\"takarazuka.hyogo.jp\",\"takasago.hyogo.jp\",\"takino.hyogo.jp\",\"tamba.hyogo.jp\",\"tatsuno.hyogo.jp\",\"toyooka.hyogo.jp\",\"yabu.hyogo.jp\",\"yashiro.hyogo.jp\",\"yoka.hyogo.jp\",\"yokawa.hyogo.jp\",\"ami.ibaraki.jp\",\"asahi.ibaraki.jp\",\"bando.ibaraki.jp\",\"chikusei.ibaraki.jp\",\"daigo.ibaraki.jp\",\"fujishiro.ibaraki.jp\",\"hitachi.ibaraki.jp\",\"hitachinaka.ibaraki.jp\",\"hitachiomiya.ibaraki.jp\",\"hitachiota.ibaraki.jp\",\"ibaraki.ibaraki.jp\",\"ina.ibaraki.jp\",\"inashiki.ibaraki.jp\",\"itako.ibaraki.jp\",\"iwama.ibaraki.jp\",\"joso.ibaraki.jp\",\"kamisu.ibaraki.jp\",\"kasama.ibaraki.jp\",\"kashima.ibaraki.jp\",\"kasumigaura.ibaraki.jp\",\"koga.ibaraki.jp\",\"miho.ibaraki.jp\",\"mito.ibaraki.jp\",\"moriya.ibaraki.jp\",\"naka.ibaraki.jp\",\"namegata.ibaraki.jp\",\"oarai.ibaraki.jp\",\"ogawa.ibaraki.jp\",\"omitama.ibaraki.jp\",\"ryugasaki.ibaraki.jp\",\"sakai.ibaraki.jp\",\"sakuragawa.ibaraki.jp\",\"shimodate.ibaraki.jp\",\"shimotsuma.ibaraki.jp\",\"shirosato.ibaraki.jp\",\"sowa.ibaraki.jp\",\"suifu.ibaraki.jp\",\"takahagi.ibaraki.jp\",\"tamatsukuri.ibaraki.jp\",\"tokai.ibaraki.jp\",\"tomobe.ibaraki.jp\",\"tone.ibaraki.jp\",\"toride.ibaraki.jp\",\"tsuchiura.ibaraki.jp\",\"tsukuba.ibaraki.jp\",\"uchihara.ibaraki.jp\",\"ushiku.ibaraki.jp\",\"yachiyo.ibaraki.jp\",\"yamagata.ibaraki.jp\",\"yawara.ibaraki.jp\",\"yuki.ibaraki.jp\",\"anamizu.ishikawa.jp\",\"hakui.ishikawa.jp\",\"hakusan.ishikawa.jp\",\"kaga.ishikawa.jp\",\"kahoku.ishikawa.jp\",\"kanazawa.ishikawa.jp\",\"kawakita.ishikawa.jp\",\"komatsu.ishikawa.jp\",\"nakanoto.ishikawa.jp\",\"nanao.ishikawa.jp\",\"nomi.ishikawa.jp\",\"nonoichi.ishikawa.jp\",\"noto.ishikawa.jp\",\"shika.ishikawa.jp\",\"suzu.ishikawa.jp\",\"tsubata.ishikawa.jp\",\"tsurugi.ishikawa.jp\",\"uchinada.ishikawa.jp\",\"wajima.ishikawa.jp\",\"fudai.iwate.jp\",\"fujisawa.iwate.jp\",\"hanamaki.iwate.jp\",\"hiraizumi.iwate.jp\",\"hirono.iwate.jp\",\"ichinohe.iwate.jp\",\"ichinoseki.iwate.jp\",\"iwaizumi.iwate.jp\",\"iwate.iwate.jp\",\"joboji.iwate.jp\",\"kamaishi.iwate.jp\",\"kanegasaki.iwate.jp\",\"karumai.iwate.jp\",\"kawai.iwate.jp\",\"kitakami.iwate.jp\",\"kuji.iwate.jp\",\"kunohe.iwate.jp\",\"kuzumaki.iwate.jp\",\"miyako.iwate.jp\",\"mizusawa.iwate.jp\",\"morioka.iwate.jp\",\"ninohe.iwate.jp\",\"noda.iwate.jp\",\"ofunato.iwate.jp\",\"oshu.iwate.jp\",\"otsuchi.iwate.jp\",\"rikuzentakata.iwate.jp\",\"shiwa.iwate.jp\",\"shizukuishi.iwate.jp\",\"sumita.iwate.jp\",\"tanohata.iwate.jp\",\"tono.iwate.jp\",\"yahaba.iwate.jp\",\"yamada.iwate.jp\",\"ayagawa.kagawa.jp\",\"higashikagawa.kagawa.jp\",\"kanonji.kagawa.jp\",\"kotohira.kagawa.jp\",\"manno.kagawa.jp\",\"marugame.kagawa.jp\",\"mitoyo.kagawa.jp\",\"naoshima.kagawa.jp\",\"sanuki.kagawa.jp\",\"tadotsu.kagawa.jp\",\"takamatsu.kagawa.jp\",\"tonosho.kagawa.jp\",\"uchinomi.kagawa.jp\",\"utazu.kagawa.jp\",\"zentsuji.kagawa.jp\",\"akune.kagoshima.jp\",\"amami.kagoshima.jp\",\"hioki.kagoshima.jp\",\"isa.kagoshima.jp\",\"isen.kagoshima.jp\",\"izumi.kagoshima.jp\",\"kagoshima.kagoshima.jp\",\"kanoya.kagoshima.jp\",\"kawanabe.kagoshima.jp\",\"kinko.kagoshima.jp\",\"kouyama.kagoshima.jp\",\"makurazaki.kagoshima.jp\",\"matsumoto.kagoshima.jp\",\"minamitane.kagoshima.jp\",\"nakatane.kagoshima.jp\",\"nishinoomote.kagoshima.jp\",\"satsumasendai.kagoshima.jp\",\"soo.kagoshima.jp\",\"tarumizu.kagoshima.jp\",\"yusui.kagoshima.jp\",\"aikawa.kanagawa.jp\",\"atsugi.kanagawa.jp\",\"ayase.kanagawa.jp\",\"chigasaki.kanagawa.jp\",\"ebina.kanagawa.jp\",\"fujisawa.kanagawa.jp\",\"hadano.kanagawa.jp\",\"hakone.kanagawa.jp\",\"hiratsuka.kanagawa.jp\",\"isehara.kanagawa.jp\",\"kaisei.kanagawa.jp\",\"kamakura.kanagawa.jp\",\"kiyokawa.kanagawa.jp\",\"matsuda.kanagawa.jp\",\"minamiashigara.kanagawa.jp\",\"miura.kanagawa.jp\",\"nakai.kanagawa.jp\",\"ninomiya.kanagawa.jp\",\"odawara.kanagawa.jp\",\"oi.kanagawa.jp\",\"oiso.kanagawa.jp\",\"sagamihara.kanagawa.jp\",\"samukawa.kanagawa.jp\",\"tsukui.kanagawa.jp\",\"yamakita.kanagawa.jp\",\"yamato.kanagawa.jp\",\"yokosuka.kanagawa.jp\",\"yugawara.kanagawa.jp\",\"zama.kanagawa.jp\",\"zushi.kanagawa.jp\",\"aki.kochi.jp\",\"geisei.kochi.jp\",\"hidaka.kochi.jp\",\"higashitsuno.kochi.jp\",\"ino.kochi.jp\",\"kagami.kochi.jp\",\"kami.kochi.jp\",\"kitagawa.kochi.jp\",\"kochi.kochi.jp\",\"mihara.kochi.jp\",\"motoyama.kochi.jp\",\"muroto.kochi.jp\",\"nahari.kochi.jp\",\"nakamura.kochi.jp\",\"nankoku.kochi.jp\",\"nishitosa.kochi.jp\",\"niyodogawa.kochi.jp\",\"ochi.kochi.jp\",\"okawa.kochi.jp\",\"otoyo.kochi.jp\",\"otsuki.kochi.jp\",\"sakawa.kochi.jp\",\"sukumo.kochi.jp\",\"susaki.kochi.jp\",\"tosa.kochi.jp\",\"tosashimizu.kochi.jp\",\"toyo.kochi.jp\",\"tsuno.kochi.jp\",\"umaji.kochi.jp\",\"yasuda.kochi.jp\",\"yusuhara.kochi.jp\",\"amakusa.kumamoto.jp\",\"arao.kumamoto.jp\",\"aso.kumamoto.jp\",\"choyo.kumamoto.jp\",\"gyokuto.kumamoto.jp\",\"kamiamakusa.kumamoto.jp\",\"kikuchi.kumamoto.jp\",\"kumamoto.kumamoto.jp\",\"mashiki.kumamoto.jp\",\"mifune.kumamoto.jp\",\"minamata.kumamoto.jp\",\"minamioguni.kumamoto.jp\",\"nagasu.kumamoto.jp\",\"nishihara.kumamoto.jp\",\"oguni.kumamoto.jp\",\"ozu.kumamoto.jp\",\"sumoto.kumamoto.jp\",\"takamori.kumamoto.jp\",\"uki.kumamoto.jp\",\"uto.kumamoto.jp\",\"yamaga.kumamoto.jp\",\"yamato.kumamoto.jp\",\"yatsushiro.kumamoto.jp\",\"ayabe.kyoto.jp\",\"fukuchiyama.kyoto.jp\",\"higashiyama.kyoto.jp\",\"ide.kyoto.jp\",\"ine.kyoto.jp\",\"joyo.kyoto.jp\",\"kameoka.kyoto.jp\",\"kamo.kyoto.jp\",\"kita.kyoto.jp\",\"kizu.kyoto.jp\",\"kumiyama.kyoto.jp\",\"kyotamba.kyoto.jp\",\"kyotanabe.kyoto.jp\",\"kyotango.kyoto.jp\",\"maizuru.kyoto.jp\",\"minami.kyoto.jp\",\"minamiyamashiro.kyoto.jp\",\"miyazu.kyoto.jp\",\"muko.kyoto.jp\",\"nagaokakyo.kyoto.jp\",\"nakagyo.kyoto.jp\",\"nantan.kyoto.jp\",\"oyamazaki.kyoto.jp\",\"sakyo.kyoto.jp\",\"seika.kyoto.jp\",\"tanabe.kyoto.jp\",\"uji.kyoto.jp\",\"ujitawara.kyoto.jp\",\"wazuka.kyoto.jp\",\"yamashina.kyoto.jp\",\"yawata.kyoto.jp\",\"asahi.mie.jp\",\"inabe.mie.jp\",\"ise.mie.jp\",\"kameyama.mie.jp\",\"kawagoe.mie.jp\",\"kiho.mie.jp\",\"kisosaki.mie.jp\",\"kiwa.mie.jp\",\"komono.mie.jp\",\"kumano.mie.jp\",\"kuwana.mie.jp\",\"matsusaka.mie.jp\",\"meiwa.mie.jp\",\"mihama.mie.jp\",\"minamiise.mie.jp\",\"misugi.mie.jp\",\"miyama.mie.jp\",\"nabari.mie.jp\",\"shima.mie.jp\",\"suzuka.mie.jp\",\"tado.mie.jp\",\"taiki.mie.jp\",\"taki.mie.jp\",\"tamaki.mie.jp\",\"toba.mie.jp\",\"tsu.mie.jp\",\"udono.mie.jp\",\"ureshino.mie.jp\",\"watarai.mie.jp\",\"yokkaichi.mie.jp\",\"furukawa.miyagi.jp\",\"higashimatsushima.miyagi.jp\",\"ishinomaki.miyagi.jp\",\"iwanuma.miyagi.jp\",\"kakuda.miyagi.jp\",\"kami.miyagi.jp\",\"kawasaki.miyagi.jp\",\"marumori.miyagi.jp\",\"matsushima.miyagi.jp\",\"minamisanriku.miyagi.jp\",\"misato.miyagi.jp\",\"murata.miyagi.jp\",\"natori.miyagi.jp\",\"ogawara.miyagi.jp\",\"ohira.miyagi.jp\",\"onagawa.miyagi.jp\",\"osaki.miyagi.jp\",\"rifu.miyagi.jp\",\"semine.miyagi.jp\",\"shibata.miyagi.jp\",\"shichikashuku.miyagi.jp\",\"shikama.miyagi.jp\",\"shiogama.miyagi.jp\",\"shiroishi.miyagi.jp\",\"tagajo.miyagi.jp\",\"taiwa.miyagi.jp\",\"tome.miyagi.jp\",\"tomiya.miyagi.jp\",\"wakuya.miyagi.jp\",\"watari.miyagi.jp\",\"yamamoto.miyagi.jp\",\"zao.miyagi.jp\",\"aya.miyazaki.jp\",\"ebino.miyazaki.jp\",\"gokase.miyazaki.jp\",\"hyuga.miyazaki.jp\",\"kadogawa.miyazaki.jp\",\"kawaminami.miyazaki.jp\",\"kijo.miyazaki.jp\",\"kitagawa.miyazaki.jp\",\"kitakata.miyazaki.jp\",\"kitaura.miyazaki.jp\",\"kobayashi.miyazaki.jp\",\"kunitomi.miyazaki.jp\",\"kushima.miyazaki.jp\",\"mimata.miyazaki.jp\",\"miyakonojo.miyazaki.jp\",\"miyazaki.miyazaki.jp\",\"morotsuka.miyazaki.jp\",\"nichinan.miyazaki.jp\",\"nishimera.miyazaki.jp\",\"nobeoka.miyazaki.jp\",\"saito.miyazaki.jp\",\"shiiba.miyazaki.jp\",\"shintomi.miyazaki.jp\",\"takaharu.miyazaki.jp\",\"takanabe.miyazaki.jp\",\"takazaki.miyazaki.jp\",\"tsuno.miyazaki.jp\",\"achi.nagano.jp\",\"agematsu.nagano.jp\",\"anan.nagano.jp\",\"aoki.nagano.jp\",\"asahi.nagano.jp\",\"azumino.nagano.jp\",\"chikuhoku.nagano.jp\",\"chikuma.nagano.jp\",\"chino.nagano.jp\",\"fujimi.nagano.jp\",\"hakuba.nagano.jp\",\"hara.nagano.jp\",\"hiraya.nagano.jp\",\"iida.nagano.jp\",\"iijima.nagano.jp\",\"iiyama.nagano.jp\",\"iizuna.nagano.jp\",\"ikeda.nagano.jp\",\"ikusaka.nagano.jp\",\"ina.nagano.jp\",\"karuizawa.nagano.jp\",\"kawakami.nagano.jp\",\"kiso.nagano.jp\",\"kisofukushima.nagano.jp\",\"kitaaiki.nagano.jp\",\"komagane.nagano.jp\",\"komoro.nagano.jp\",\"matsukawa.nagano.jp\",\"matsumoto.nagano.jp\",\"miasa.nagano.jp\",\"minamiaiki.nagano.jp\",\"minamimaki.nagano.jp\",\"minamiminowa.nagano.jp\",\"minowa.nagano.jp\",\"miyada.nagano.jp\",\"miyota.nagano.jp\",\"mochizuki.nagano.jp\",\"nagano.nagano.jp\",\"nagawa.nagano.jp\",\"nagiso.nagano.jp\",\"nakagawa.nagano.jp\",\"nakano.nagano.jp\",\"nozawaonsen.nagano.jp\",\"obuse.nagano.jp\",\"ogawa.nagano.jp\",\"okaya.nagano.jp\",\"omachi.nagano.jp\",\"omi.nagano.jp\",\"ookuwa.nagano.jp\",\"ooshika.nagano.jp\",\"otaki.nagano.jp\",\"otari.nagano.jp\",\"sakae.nagano.jp\",\"sakaki.nagano.jp\",\"saku.nagano.jp\",\"sakuho.nagano.jp\",\"shimosuwa.nagano.jp\",\"shinanomachi.nagano.jp\",\"shiojiri.nagano.jp\",\"suwa.nagano.jp\",\"suzaka.nagano.jp\",\"takagi.nagano.jp\",\"takamori.nagano.jp\",\"takayama.nagano.jp\",\"tateshina.nagano.jp\",\"tatsuno.nagano.jp\",\"togakushi.nagano.jp\",\"togura.nagano.jp\",\"tomi.nagano.jp\",\"ueda.nagano.jp\",\"wada.nagano.jp\",\"yamagata.nagano.jp\",\"yamanouchi.nagano.jp\",\"yasaka.nagano.jp\",\"yasuoka.nagano.jp\",\"chijiwa.nagasaki.jp\",\"futsu.nagasaki.jp\",\"goto.nagasaki.jp\",\"hasami.nagasaki.jp\",\"hirado.nagasaki.jp\",\"iki.nagasaki.jp\",\"isahaya.nagasaki.jp\",\"kawatana.nagasaki.jp\",\"kuchinotsu.nagasaki.jp\",\"matsuura.nagasaki.jp\",\"nagasaki.nagasaki.jp\",\"obama.nagasaki.jp\",\"omura.nagasaki.jp\",\"oseto.nagasaki.jp\",\"saikai.nagasaki.jp\",\"sasebo.nagasaki.jp\",\"seihi.nagasaki.jp\",\"shimabara.nagasaki.jp\",\"shinkamigoto.nagasaki.jp\",\"togitsu.nagasaki.jp\",\"tsushima.nagasaki.jp\",\"unzen.nagasaki.jp\",\"ando.nara.jp\",\"gose.nara.jp\",\"heguri.nara.jp\",\"higashiyoshino.nara.jp\",\"ikaruga.nara.jp\",\"ikoma.nara.jp\",\"kamikitayama.nara.jp\",\"kanmaki.nara.jp\",\"kashiba.nara.jp\",\"kashihara.nara.jp\",\"katsuragi.nara.jp\",\"kawai.nara.jp\",\"kawakami.nara.jp\",\"kawanishi.nara.jp\",\"koryo.nara.jp\",\"kurotaki.nara.jp\",\"mitsue.nara.jp\",\"miyake.nara.jp\",\"nara.nara.jp\",\"nosegawa.nara.jp\",\"oji.nara.jp\",\"ouda.nara.jp\",\"oyodo.nara.jp\",\"sakurai.nara.jp\",\"sango.nara.jp\",\"shimoichi.nara.jp\",\"shimokitayama.nara.jp\",\"shinjo.nara.jp\",\"soni.nara.jp\",\"takatori.nara.jp\",\"tawaramoto.nara.jp\",\"tenkawa.nara.jp\",\"tenri.nara.jp\",\"uda.nara.jp\",\"yamatokoriyama.nara.jp\",\"yamatotakada.nara.jp\",\"yamazoe.nara.jp\",\"yoshino.nara.jp\",\"aga.niigata.jp\",\"agano.niigata.jp\",\"gosen.niigata.jp\",\"itoigawa.niigata.jp\",\"izumozaki.niigata.jp\",\"joetsu.niigata.jp\",\"kamo.niigata.jp\",\"kariwa.niigata.jp\",\"kashiwazaki.niigata.jp\",\"minamiuonuma.niigata.jp\",\"mitsuke.niigata.jp\",\"muika.niigata.jp\",\"murakami.niigata.jp\",\"myoko.niigata.jp\",\"nagaoka.niigata.jp\",\"niigata.niigata.jp\",\"ojiya.niigata.jp\",\"omi.niigata.jp\",\"sado.niigata.jp\",\"sanjo.niigata.jp\",\"seiro.niigata.jp\",\"seirou.niigata.jp\",\"sekikawa.niigata.jp\",\"shibata.niigata.jp\",\"tagami.niigata.jp\",\"tainai.niigata.jp\",\"tochio.niigata.jp\",\"tokamachi.niigata.jp\",\"tsubame.niigata.jp\",\"tsunan.niigata.jp\",\"uonuma.niigata.jp\",\"yahiko.niigata.jp\",\"yoita.niigata.jp\",\"yuzawa.niigata.jp\",\"beppu.oita.jp\",\"bungoono.oita.jp\",\"bungotakada.oita.jp\",\"hasama.oita.jp\",\"hiji.oita.jp\",\"himeshima.oita.jp\",\"hita.oita.jp\",\"kamitsue.oita.jp\",\"kokonoe.oita.jp\",\"kuju.oita.jp\",\"kunisaki.oita.jp\",\"kusu.oita.jp\",\"oita.oita.jp\",\"saiki.oita.jp\",\"taketa.oita.jp\",\"tsukumi.oita.jp\",\"usa.oita.jp\",\"usuki.oita.jp\",\"yufu.oita.jp\",\"akaiwa.okayama.jp\",\"asakuchi.okayama.jp\",\"bizen.okayama.jp\",\"hayashima.okayama.jp\",\"ibara.okayama.jp\",\"kagamino.okayama.jp\",\"kasaoka.okayama.jp\",\"kibichuo.okayama.jp\",\"kumenan.okayama.jp\",\"kurashiki.okayama.jp\",\"maniwa.okayama.jp\",\"misaki.okayama.jp\",\"nagi.okayama.jp\",\"niimi.okayama.jp\",\"nishiawakura.okayama.jp\",\"okayama.okayama.jp\",\"satosho.okayama.jp\",\"setouchi.okayama.jp\",\"shinjo.okayama.jp\",\"shoo.okayama.jp\",\"soja.okayama.jp\",\"takahashi.okayama.jp\",\"tamano.okayama.jp\",\"tsuyama.okayama.jp\",\"wake.okayama.jp\",\"yakage.okayama.jp\",\"aguni.okinawa.jp\",\"ginowan.okinawa.jp\",\"ginoza.okinawa.jp\",\"gushikami.okinawa.jp\",\"haebaru.okinawa.jp\",\"higashi.okinawa.jp\",\"hirara.okinawa.jp\",\"iheya.okinawa.jp\",\"ishigaki.okinawa.jp\",\"ishikawa.okinawa.jp\",\"itoman.okinawa.jp\",\"izena.okinawa.jp\",\"kadena.okinawa.jp\",\"kin.okinawa.jp\",\"kitadaito.okinawa.jp\",\"kitanakagusuku.okinawa.jp\",\"kumejima.okinawa.jp\",\"kunigami.okinawa.jp\",\"minamidaito.okinawa.jp\",\"motobu.okinawa.jp\",\"nago.okinawa.jp\",\"naha.okinawa.jp\",\"nakagusuku.okinawa.jp\",\"nakijin.okinawa.jp\",\"nanjo.okinawa.jp\",\"nishihara.okinawa.jp\",\"ogimi.okinawa.jp\",\"okinawa.okinawa.jp\",\"onna.okinawa.jp\",\"shimoji.okinawa.jp\",\"taketomi.okinawa.jp\",\"tarama.okinawa.jp\",\"tokashiki.okinawa.jp\",\"tomigusuku.okinawa.jp\",\"tonaki.okinawa.jp\",\"urasoe.okinawa.jp\",\"uruma.okinawa.jp\",\"yaese.okinawa.jp\",\"yomitan.okinawa.jp\",\"yonabaru.okinawa.jp\",\"yonaguni.okinawa.jp\",\"zamami.okinawa.jp\",\"abeno.osaka.jp\",\"chihayaakasaka.osaka.jp\",\"chuo.osaka.jp\",\"daito.osaka.jp\",\"fujiidera.osaka.jp\",\"habikino.osaka.jp\",\"hannan.osaka.jp\",\"higashiosaka.osaka.jp\",\"higashisumiyoshi.osaka.jp\",\"higashiyodogawa.osaka.jp\",\"hirakata.osaka.jp\",\"ibaraki.osaka.jp\",\"ikeda.osaka.jp\",\"izumi.osaka.jp\",\"izumiotsu.osaka.jp\",\"izumisano.osaka.jp\",\"kadoma.osaka.jp\",\"kaizuka.osaka.jp\",\"kanan.osaka.jp\",\"kashiwara.osaka.jp\",\"katano.osaka.jp\",\"kawachinagano.osaka.jp\",\"kishiwada.osaka.jp\",\"kita.osaka.jp\",\"kumatori.osaka.jp\",\"matsubara.osaka.jp\",\"minato.osaka.jp\",\"minoh.osaka.jp\",\"misaki.osaka.jp\",\"moriguchi.osaka.jp\",\"neyagawa.osaka.jp\",\"nishi.osaka.jp\",\"nose.osaka.jp\",\"osakasayama.osaka.jp\",\"sakai.osaka.jp\",\"sayama.osaka.jp\",\"sennan.osaka.jp\",\"settsu.osaka.jp\",\"shijonawate.osaka.jp\",\"shimamoto.osaka.jp\",\"suita.osaka.jp\",\"tadaoka.osaka.jp\",\"taishi.osaka.jp\",\"tajiri.osaka.jp\",\"takaishi.osaka.jp\",\"takatsuki.osaka.jp\",\"tondabayashi.osaka.jp\",\"toyonaka.osaka.jp\",\"toyono.osaka.jp\",\"yao.osaka.jp\",\"ariake.saga.jp\",\"arita.saga.jp\",\"fukudomi.saga.jp\",\"genkai.saga.jp\",\"hamatama.saga.jp\",\"hizen.saga.jp\",\"imari.saga.jp\",\"kamimine.saga.jp\",\"kanzaki.saga.jp\",\"karatsu.saga.jp\",\"kashima.saga.jp\",\"kitagata.saga.jp\",\"kitahata.saga.jp\",\"kiyama.saga.jp\",\"kouhoku.saga.jp\",\"kyuragi.saga.jp\",\"nishiarita.saga.jp\",\"ogi.saga.jp\",\"omachi.saga.jp\",\"ouchi.saga.jp\",\"saga.saga.jp\",\"shiroishi.saga.jp\",\"taku.saga.jp\",\"tara.saga.jp\",\"tosu.saga.jp\",\"yoshinogari.saga.jp\",\"arakawa.saitama.jp\",\"asaka.saitama.jp\",\"chichibu.saitama.jp\",\"fujimi.saitama.jp\",\"fujimino.saitama.jp\",\"fukaya.saitama.jp\",\"hanno.saitama.jp\",\"hanyu.saitama.jp\",\"hasuda.saitama.jp\",\"hatogaya.saitama.jp\",\"hatoyama.saitama.jp\",\"hidaka.saitama.jp\",\"higashichichibu.saitama.jp\",\"higashimatsuyama.saitama.jp\",\"honjo.saitama.jp\",\"ina.saitama.jp\",\"iruma.saitama.jp\",\"iwatsuki.saitama.jp\",\"kamiizumi.saitama.jp\",\"kamikawa.saitama.jp\",\"kamisato.saitama.jp\",\"kasukabe.saitama.jp\",\"kawagoe.saitama.jp\",\"kawaguchi.saitama.jp\",\"kawajima.saitama.jp\",\"kazo.saitama.jp\",\"kitamoto.saitama.jp\",\"koshigaya.saitama.jp\",\"kounosu.saitama.jp\",\"kuki.saitama.jp\",\"kumagaya.saitama.jp\",\"matsubushi.saitama.jp\",\"minano.saitama.jp\",\"misato.saitama.jp\",\"miyashiro.saitama.jp\",\"miyoshi.saitama.jp\",\"moroyama.saitama.jp\",\"nagatoro.saitama.jp\",\"namegawa.saitama.jp\",\"niiza.saitama.jp\",\"ogano.saitama.jp\",\"ogawa.saitama.jp\",\"ogose.saitama.jp\",\"okegawa.saitama.jp\",\"omiya.saitama.jp\",\"otaki.saitama.jp\",\"ranzan.saitama.jp\",\"ryokami.saitama.jp\",\"saitama.saitama.jp\",\"sakado.saitama.jp\",\"satte.saitama.jp\",\"sayama.saitama.jp\",\"shiki.saitama.jp\",\"shiraoka.saitama.jp\",\"soka.saitama.jp\",\"sugito.saitama.jp\",\"toda.saitama.jp\",\"tokigawa.saitama.jp\",\"tokorozawa.saitama.jp\",\"tsurugashima.saitama.jp\",\"urawa.saitama.jp\",\"warabi.saitama.jp\",\"yashio.saitama.jp\",\"yokoze.saitama.jp\",\"yono.saitama.jp\",\"yorii.saitama.jp\",\"yoshida.saitama.jp\",\"yoshikawa.saitama.jp\",\"yoshimi.saitama.jp\",\"aisho.shiga.jp\",\"gamo.shiga.jp\",\"higashiomi.shiga.jp\",\"hikone.shiga.jp\",\"koka.shiga.jp\",\"konan.shiga.jp\",\"kosei.shiga.jp\",\"koto.shiga.jp\",\"kusatsu.shiga.jp\",\"maibara.shiga.jp\",\"moriyama.shiga.jp\",\"nagahama.shiga.jp\",\"nishiazai.shiga.jp\",\"notogawa.shiga.jp\",\"omihachiman.shiga.jp\",\"otsu.shiga.jp\",\"ritto.shiga.jp\",\"ryuoh.shiga.jp\",\"takashima.shiga.jp\",\"takatsuki.shiga.jp\",\"torahime.shiga.jp\",\"toyosato.shiga.jp\",\"yasu.shiga.jp\",\"akagi.shimane.jp\",\"ama.shimane.jp\",\"gotsu.shimane.jp\",\"hamada.shimane.jp\",\"higashiizumo.shimane.jp\",\"hikawa.shimane.jp\",\"hikimi.shimane.jp\",\"izumo.shimane.jp\",\"kakinoki.shimane.jp\",\"masuda.shimane.jp\",\"matsue.shimane.jp\",\"misato.shimane.jp\",\"nishinoshima.shimane.jp\",\"ohda.shimane.jp\",\"okinoshima.shimane.jp\",\"okuizumo.shimane.jp\",\"shimane.shimane.jp\",\"tamayu.shimane.jp\",\"tsuwano.shimane.jp\",\"unnan.shimane.jp\",\"yakumo.shimane.jp\",\"yasugi.shimane.jp\",\"yatsuka.shimane.jp\",\"arai.shizuoka.jp\",\"atami.shizuoka.jp\",\"fuji.shizuoka.jp\",\"fujieda.shizuoka.jp\",\"fujikawa.shizuoka.jp\",\"fujinomiya.shizuoka.jp\",\"fukuroi.shizuoka.jp\",\"gotemba.shizuoka.jp\",\"haibara.shizuoka.jp\",\"hamamatsu.shizuoka.jp\",\"higashiizu.shizuoka.jp\",\"ito.shizuoka.jp\",\"iwata.shizuoka.jp\",\"izu.shizuoka.jp\",\"izunokuni.shizuoka.jp\",\"kakegawa.shizuoka.jp\",\"kannami.shizuoka.jp\",\"kawanehon.shizuoka.jp\",\"kawazu.shizuoka.jp\",\"kikugawa.shizuoka.jp\",\"kosai.shizuoka.jp\",\"makinohara.shizuoka.jp\",\"matsuzaki.shizuoka.jp\",\"minamiizu.shizuoka.jp\",\"mishima.shizuoka.jp\",\"morimachi.shizuoka.jp\",\"nishiizu.shizuoka.jp\",\"numazu.shizuoka.jp\",\"omaezaki.shizuoka.jp\",\"shimada.shizuoka.jp\",\"shimizu.shizuoka.jp\",\"shimoda.shizuoka.jp\",\"shizuoka.shizuoka.jp\",\"susono.shizuoka.jp\",\"yaizu.shizuoka.jp\",\"yoshida.shizuoka.jp\",\"ashikaga.tochigi.jp\",\"bato.tochigi.jp\",\"haga.tochigi.jp\",\"ichikai.tochigi.jp\",\"iwafune.tochigi.jp\",\"kaminokawa.tochigi.jp\",\"kanuma.tochigi.jp\",\"karasuyama.tochigi.jp\",\"kuroiso.tochigi.jp\",\"mashiko.tochigi.jp\",\"mibu.tochigi.jp\",\"moka.tochigi.jp\",\"motegi.tochigi.jp\",\"nasu.tochigi.jp\",\"nasushiobara.tochigi.jp\",\"nikko.tochigi.jp\",\"nishikata.tochigi.jp\",\"nogi.tochigi.jp\",\"ohira.tochigi.jp\",\"ohtawara.tochigi.jp\",\"oyama.tochigi.jp\",\"sakura.tochigi.jp\",\"sano.tochigi.jp\",\"shimotsuke.tochigi.jp\",\"shioya.tochigi.jp\",\"takanezawa.tochigi.jp\",\"tochigi.tochigi.jp\",\"tsuga.tochigi.jp\",\"ujiie.tochigi.jp\",\"utsunomiya.tochigi.jp\",\"yaita.tochigi.jp\",\"aizumi.tokushima.jp\",\"anan.tokushima.jp\",\"ichiba.tokushima.jp\",\"itano.tokushima.jp\",\"kainan.tokushima.jp\",\"komatsushima.tokushima.jp\",\"matsushige.tokushima.jp\",\"mima.tokushima.jp\",\"minami.tokushima.jp\",\"miyoshi.tokushima.jp\",\"mugi.tokushima.jp\",\"nakagawa.tokushima.jp\",\"naruto.tokushima.jp\",\"sanagochi.tokushima.jp\",\"shishikui.tokushima.jp\",\"tokushima.tokushima.jp\",\"wajiki.tokushima.jp\",\"adachi.tokyo.jp\",\"akiruno.tokyo.jp\",\"akishima.tokyo.jp\",\"aogashima.tokyo.jp\",\"arakawa.tokyo.jp\",\"bunkyo.tokyo.jp\",\"chiyoda.tokyo.jp\",\"chofu.tokyo.jp\",\"chuo.tokyo.jp\",\"edogawa.tokyo.jp\",\"fuchu.tokyo.jp\",\"fussa.tokyo.jp\",\"hachijo.tokyo.jp\",\"hachioji.tokyo.jp\",\"hamura.tokyo.jp\",\"higashikurume.tokyo.jp\",\"higashimurayama.tokyo.jp\",\"higashiyamato.tokyo.jp\",\"hino.tokyo.jp\",\"hinode.tokyo.jp\",\"hinohara.tokyo.jp\",\"inagi.tokyo.jp\",\"itabashi.tokyo.jp\",\"katsushika.tokyo.jp\",\"kita.tokyo.jp\",\"kiyose.tokyo.jp\",\"kodaira.tokyo.jp\",\"koganei.tokyo.jp\",\"kokubunji.tokyo.jp\",\"komae.tokyo.jp\",\"koto.tokyo.jp\",\"kouzushima.tokyo.jp\",\"kunitachi.tokyo.jp\",\"machida.tokyo.jp\",\"meguro.tokyo.jp\",\"minato.tokyo.jp\",\"mitaka.tokyo.jp\",\"mizuho.tokyo.jp\",\"musashimurayama.tokyo.jp\",\"musashino.tokyo.jp\",\"nakano.tokyo.jp\",\"nerima.tokyo.jp\",\"ogasawara.tokyo.jp\",\"okutama.tokyo.jp\",\"ome.tokyo.jp\",\"oshima.tokyo.jp\",\"ota.tokyo.jp\",\"setagaya.tokyo.jp\",\"shibuya.tokyo.jp\",\"shinagawa.tokyo.jp\",\"shinjuku.tokyo.jp\",\"suginami.tokyo.jp\",\"sumida.tokyo.jp\",\"tachikawa.tokyo.jp\",\"taito.tokyo.jp\",\"tama.tokyo.jp\",\"toshima.tokyo.jp\",\"chizu.tottori.jp\",\"hino.tottori.jp\",\"kawahara.tottori.jp\",\"koge.tottori.jp\",\"kotoura.tottori.jp\",\"misasa.tottori.jp\",\"nanbu.tottori.jp\",\"nichinan.tottori.jp\",\"sakaiminato.tottori.jp\",\"tottori.tottori.jp\",\"wakasa.tottori.jp\",\"yazu.tottori.jp\",\"yonago.tottori.jp\",\"asahi.toyama.jp\",\"fuchu.toyama.jp\",\"fukumitsu.toyama.jp\",\"funahashi.toyama.jp\",\"himi.toyama.jp\",\"imizu.toyama.jp\",\"inami.toyama.jp\",\"johana.toyama.jp\",\"kamiichi.toyama.jp\",\"kurobe.toyama.jp\",\"nakaniikawa.toyama.jp\",\"namerikawa.toyama.jp\",\"nanto.toyama.jp\",\"nyuzen.toyama.jp\",\"oyabe.toyama.jp\",\"taira.toyama.jp\",\"takaoka.toyama.jp\",\"tateyama.toyama.jp\",\"toga.toyama.jp\",\"tonami.toyama.jp\",\"toyama.toyama.jp\",\"unazuki.toyama.jp\",\"uozu.toyama.jp\",\"yamada.toyama.jp\",\"arida.wakayama.jp\",\"aridagawa.wakayama.jp\",\"gobo.wakayama.jp\",\"hashimoto.wakayama.jp\",\"hidaka.wakayama.jp\",\"hirogawa.wakayama.jp\",\"inami.wakayama.jp\",\"iwade.wakayama.jp\",\"kainan.wakayama.jp\",\"kamitonda.wakayama.jp\",\"katsuragi.wakayama.jp\",\"kimino.wakayama.jp\",\"kinokawa.wakayama.jp\",\"kitayama.wakayama.jp\",\"koya.wakayama.jp\",\"koza.wakayama.jp\",\"kozagawa.wakayama.jp\",\"kudoyama.wakayama.jp\",\"kushimoto.wakayama.jp\",\"mihama.wakayama.jp\",\"misato.wakayama.jp\",\"nachikatsuura.wakayama.jp\",\"shingu.wakayama.jp\",\"shirahama.wakayama.jp\",\"taiji.wakayama.jp\",\"tanabe.wakayama.jp\",\"wakayama.wakayama.jp\",\"yuasa.wakayama.jp\",\"yura.wakayama.jp\",\"asahi.yamagata.jp\",\"funagata.yamagata.jp\",\"higashine.yamagata.jp\",\"iide.yamagata.jp\",\"kahoku.yamagata.jp\",\"kaminoyama.yamagata.jp\",\"kaneyama.yamagata.jp\",\"kawanishi.yamagata.jp\",\"mamurogawa.yamagata.jp\",\"mikawa.yamagata.jp\",\"murayama.yamagata.jp\",\"nagai.yamagata.jp\",\"nakayama.yamagata.jp\",\"nanyo.yamagata.jp\",\"nishikawa.yamagata.jp\",\"obanazawa.yamagata.jp\",\"oe.yamagata.jp\",\"oguni.yamagata.jp\",\"ohkura.yamagata.jp\",\"oishida.yamagata.jp\",\"sagae.yamagata.jp\",\"sakata.yamagata.jp\",\"sakegawa.yamagata.jp\",\"shinjo.yamagata.jp\",\"shirataka.yamagata.jp\",\"shonai.yamagata.jp\",\"takahata.yamagata.jp\",\"tendo.yamagata.jp\",\"tozawa.yamagata.jp\",\"tsuruoka.yamagata.jp\",\"yamagata.yamagata.jp\",\"yamanobe.yamagata.jp\",\"yonezawa.yamagata.jp\",\"yuza.yamagata.jp\",\"abu.yamaguchi.jp\",\"hagi.yamaguchi.jp\",\"hikari.yamaguchi.jp\",\"hofu.yamaguchi.jp\",\"iwakuni.yamaguchi.jp\",\"kudamatsu.yamaguchi.jp\",\"mitou.yamaguchi.jp\",\"nagato.yamaguchi.jp\",\"oshima.yamaguchi.jp\",\"shimonoseki.yamaguchi.jp\",\"shunan.yamaguchi.jp\",\"tabuse.yamaguchi.jp\",\"tokuyama.yamaguchi.jp\",\"toyota.yamaguchi.jp\",\"ube.yamaguchi.jp\",\"yuu.yamaguchi.jp\",\"chuo.yamanashi.jp\",\"doshi.yamanashi.jp\",\"fuefuki.yamanashi.jp\",\"fujikawa.yamanashi.jp\",\"fujikawaguchiko.yamanashi.jp\",\"fujiyoshida.yamanashi.jp\",\"hayakawa.yamanashi.jp\",\"hokuto.yamanashi.jp\",\"ichikawamisato.yamanashi.jp\",\"kai.yamanashi.jp\",\"kofu.yamanashi.jp\",\"koshu.yamanashi.jp\",\"kosuge.yamanashi.jp\",\"minami-alps.yamanashi.jp\",\"minobu.yamanashi.jp\",\"nakamichi.yamanashi.jp\",\"nanbu.yamanashi.jp\",\"narusawa.yamanashi.jp\",\"nirasaki.yamanashi.jp\",\"nishikatsura.yamanashi.jp\",\"oshino.yamanashi.jp\",\"otsuki.yamanashi.jp\",\"showa.yamanashi.jp\",\"tabayama.yamanashi.jp\",\"tsuru.yamanashi.jp\",\"uenohara.yamanashi.jp\",\"yamanakako.yamanashi.jp\",\"yamanashi.yamanashi.jp\",\"ke\",\"ac.ke\",\"co.ke\",\"go.ke\",\"info.ke\",\"me.ke\",\"mobi.ke\",\"ne.ke\",\"or.ke\",\"sc.ke\",\"kg\",\"org.kg\",\"net.kg\",\"com.kg\",\"edu.kg\",\"gov.kg\",\"mil.kg\",\"*.kh\",\"ki\",\"edu.ki\",\"biz.ki\",\"net.ki\",\"org.ki\",\"gov.ki\",\"info.ki\",\"com.ki\",\"km\",\"org.km\",\"nom.km\",\"gov.km\",\"prd.km\",\"tm.km\",\"edu.km\",\"mil.km\",\"ass.km\",\"com.km\",\"coop.km\",\"asso.km\",\"presse.km\",\"medecin.km\",\"notaires.km\",\"pharmaciens.km\",\"veterinaire.km\",\"gouv.km\",\"kn\",\"net.kn\",\"org.kn\",\"edu.kn\",\"gov.kn\",\"kp\",\"com.kp\",\"edu.kp\",\"gov.kp\",\"org.kp\",\"rep.kp\",\"tra.kp\",\"kr\",\"ac.kr\",\"co.kr\",\"es.kr\",\"go.kr\",\"hs.kr\",\"kg.kr\",\"mil.kr\",\"ms.kr\",\"ne.kr\",\"or.kr\",\"pe.kr\",\"re.kr\",\"sc.kr\",\"busan.kr\",\"chungbuk.kr\",\"chungnam.kr\",\"daegu.kr\",\"daejeon.kr\",\"gangwon.kr\",\"gwangju.kr\",\"gyeongbuk.kr\",\"gyeonggi.kr\",\"gyeongnam.kr\",\"incheon.kr\",\"jeju.kr\",\"jeonbuk.kr\",\"jeonnam.kr\",\"seoul.kr\",\"ulsan.kr\",\"kw\",\"com.kw\",\"edu.kw\",\"emb.kw\",\"gov.kw\",\"ind.kw\",\"net.kw\",\"org.kw\",\"ky\",\"edu.ky\",\"gov.ky\",\"com.ky\",\"org.ky\",\"net.ky\",\"kz\",\"org.kz\",\"edu.kz\",\"net.kz\",\"gov.kz\",\"mil.kz\",\"com.kz\",\"la\",\"int.la\",\"net.la\",\"info.la\",\"edu.la\",\"gov.la\",\"per.la\",\"com.la\",\"org.la\",\"lb\",\"com.lb\",\"edu.lb\",\"gov.lb\",\"net.lb\",\"org.lb\",\"lc\",\"com.lc\",\"net.lc\",\"co.lc\",\"org.lc\",\"edu.lc\",\"gov.lc\",\"li\",\"lk\",\"gov.lk\",\"sch.lk\",\"net.lk\",\"int.lk\",\"com.lk\",\"org.lk\",\"edu.lk\",\"ngo.lk\",\"soc.lk\",\"web.lk\",\"ltd.lk\",\"assn.lk\",\"grp.lk\",\"hotel.lk\",\"ac.lk\",\"lr\",\"com.lr\",\"edu.lr\",\"gov.lr\",\"org.lr\",\"net.lr\",\"ls\",\"ac.ls\",\"biz.ls\",\"co.ls\",\"edu.ls\",\"gov.ls\",\"info.ls\",\"net.ls\",\"org.ls\",\"sc.ls\",\"lt\",\"gov.lt\",\"lu\",\"lv\",\"com.lv\",\"edu.lv\",\"gov.lv\",\"org.lv\",\"mil.lv\",\"id.lv\",\"net.lv\",\"asn.lv\",\"conf.lv\",\"ly\",\"com.ly\",\"net.ly\",\"gov.ly\",\"plc.ly\",\"edu.ly\",\"sch.ly\",\"med.ly\",\"org.ly\",\"id.ly\",\"ma\",\"co.ma\",\"net.ma\",\"gov.ma\",\"org.ma\",\"ac.ma\",\"press.ma\",\"mc\",\"tm.mc\",\"asso.mc\",\"md\",\"me\",\"co.me\",\"net.me\",\"org.me\",\"edu.me\",\"ac.me\",\"gov.me\",\"its.me\",\"priv.me\",\"mg\",\"org.mg\",\"nom.mg\",\"gov.mg\",\"prd.mg\",\"tm.mg\",\"edu.mg\",\"mil.mg\",\"com.mg\",\"co.mg\",\"mh\",\"mil\",\"mk\",\"com.mk\",\"org.mk\",\"net.mk\",\"edu.mk\",\"gov.mk\",\"inf.mk\",\"name.mk\",\"ml\",\"com.ml\",\"edu.ml\",\"gouv.ml\",\"gov.ml\",\"net.ml\",\"org.ml\",\"presse.ml\",\"*.mm\",\"mn\",\"gov.mn\",\"edu.mn\",\"org.mn\",\"mo\",\"com.mo\",\"net.mo\",\"org.mo\",\"edu.mo\",\"gov.mo\",\"mobi\",\"mp\",\"mq\",\"mr\",\"gov.mr\",\"ms\",\"com.ms\",\"edu.ms\",\"gov.ms\",\"net.ms\",\"org.ms\",\"mt\",\"com.mt\",\"edu.mt\",\"net.mt\",\"org.mt\",\"mu\",\"com.mu\",\"net.mu\",\"org.mu\",\"gov.mu\",\"ac.mu\",\"co.mu\",\"or.mu\",\"museum\",\"academy.museum\",\"agriculture.museum\",\"air.museum\",\"airguard.museum\",\"alabama.museum\",\"alaska.museum\",\"amber.museum\",\"ambulance.museum\",\"american.museum\",\"americana.museum\",\"americanantiques.museum\",\"americanart.museum\",\"amsterdam.museum\",\"and.museum\",\"annefrank.museum\",\"anthro.museum\",\"anthropology.museum\",\"antiques.museum\",\"aquarium.museum\",\"arboretum.museum\",\"archaeological.museum\",\"archaeology.museum\",\"architecture.museum\",\"art.museum\",\"artanddesign.museum\",\"artcenter.museum\",\"artdeco.museum\",\"arteducation.museum\",\"artgallery.museum\",\"arts.museum\",\"artsandcrafts.museum\",\"asmatart.museum\",\"assassination.museum\",\"assisi.museum\",\"association.museum\",\"astronomy.museum\",\"atlanta.museum\",\"austin.museum\",\"australia.museum\",\"automotive.museum\",\"aviation.museum\",\"axis.museum\",\"badajoz.museum\",\"baghdad.museum\",\"bahn.museum\",\"bale.museum\",\"baltimore.museum\",\"barcelona.museum\",\"baseball.museum\",\"basel.museum\",\"baths.museum\",\"bauern.museum\",\"beauxarts.museum\",\"beeldengeluid.museum\",\"bellevue.museum\",\"bergbau.museum\",\"berkeley.museum\",\"berlin.museum\",\"bern.museum\",\"bible.museum\",\"bilbao.museum\",\"bill.museum\",\"birdart.museum\",\"birthplace.museum\",\"bonn.museum\",\"boston.museum\",\"botanical.museum\",\"botanicalgarden.museum\",\"botanicgarden.museum\",\"botany.museum\",\"brandywinevalley.museum\",\"brasil.museum\",\"bristol.museum\",\"british.museum\",\"britishcolumbia.museum\",\"broadcast.museum\",\"brunel.museum\",\"brussel.museum\",\"brussels.museum\",\"bruxelles.museum\",\"building.museum\",\"burghof.museum\",\"bus.museum\",\"bushey.museum\",\"cadaques.museum\",\"california.museum\",\"cambridge.museum\",\"can.museum\",\"canada.museum\",\"capebreton.museum\",\"carrier.museum\",\"cartoonart.museum\",\"casadelamoneda.museum\",\"castle.museum\",\"castres.museum\",\"celtic.museum\",\"center.museum\",\"chattanooga.museum\",\"cheltenham.museum\",\"chesapeakebay.museum\",\"chicago.museum\",\"children.museum\",\"childrens.museum\",\"childrensgarden.museum\",\"chiropractic.museum\",\"chocolate.museum\",\"christiansburg.museum\",\"cincinnati.museum\",\"cinema.museum\",\"circus.museum\",\"civilisation.museum\",\"civilization.museum\",\"civilwar.museum\",\"clinton.museum\",\"clock.museum\",\"coal.museum\",\"coastaldefence.museum\",\"cody.museum\",\"coldwar.museum\",\"collection.museum\",\"colonialwilliamsburg.museum\",\"coloradoplateau.museum\",\"columbia.museum\",\"columbus.museum\",\"communication.museum\",\"communications.museum\",\"community.museum\",\"computer.museum\",\"computerhistory.museum\",\"comunicações.museum\",\"contemporary.museum\",\"contemporaryart.museum\",\"convent.museum\",\"copenhagen.museum\",\"corporation.museum\",\"correios-e-telecomunicações.museum\",\"corvette.museum\",\"costume.museum\",\"countryestate.museum\",\"county.museum\",\"crafts.museum\",\"cranbrook.museum\",\"creation.museum\",\"cultural.museum\",\"culturalcenter.museum\",\"culture.museum\",\"cyber.museum\",\"cymru.museum\",\"dali.museum\",\"dallas.museum\",\"database.museum\",\"ddr.museum\",\"decorativearts.museum\",\"delaware.museum\",\"delmenhorst.museum\",\"denmark.museum\",\"depot.museum\",\"design.museum\",\"detroit.museum\",\"dinosaur.museum\",\"discovery.museum\",\"dolls.museum\",\"donostia.museum\",\"durham.museum\",\"eastafrica.museum\",\"eastcoast.museum\",\"education.museum\",\"educational.museum\",\"egyptian.museum\",\"eisenbahn.museum\",\"elburg.museum\",\"elvendrell.museum\",\"embroidery.museum\",\"encyclopedic.museum\",\"england.museum\",\"entomology.museum\",\"environment.museum\",\"environmentalconservation.museum\",\"epilepsy.museum\",\"essex.museum\",\"estate.museum\",\"ethnology.museum\",\"exeter.museum\",\"exhibition.museum\",\"family.museum\",\"farm.museum\",\"farmequipment.museum\",\"farmers.museum\",\"farmstead.museum\",\"field.museum\",\"figueres.museum\",\"filatelia.museum\",\"film.museum\",\"fineart.museum\",\"finearts.museum\",\"finland.museum\",\"flanders.museum\",\"florida.museum\",\"force.museum\",\"fortmissoula.museum\",\"fortworth.museum\",\"foundation.museum\",\"francaise.museum\",\"frankfurt.museum\",\"franziskaner.museum\",\"freemasonry.museum\",\"freiburg.museum\",\"fribourg.museum\",\"frog.museum\",\"fundacio.museum\",\"furniture.museum\",\"gallery.museum\",\"garden.museum\",\"gateway.museum\",\"geelvinck.museum\",\"gemological.museum\",\"geology.museum\",\"georgia.museum\",\"giessen.museum\",\"glas.museum\",\"glass.museum\",\"gorge.museum\",\"grandrapids.museum\",\"graz.museum\",\"guernsey.museum\",\"halloffame.museum\",\"hamburg.museum\",\"handson.museum\",\"harvestcelebration.museum\",\"hawaii.museum\",\"health.museum\",\"heimatunduhren.museum\",\"hellas.museum\",\"helsinki.museum\",\"hembygdsforbund.museum\",\"heritage.museum\",\"histoire.museum\",\"historical.museum\",\"historicalsociety.museum\",\"historichouses.museum\",\"historisch.museum\",\"historisches.museum\",\"history.museum\",\"historyofscience.museum\",\"horology.museum\",\"house.museum\",\"humanities.museum\",\"illustration.museum\",\"imageandsound.museum\",\"indian.museum\",\"indiana.museum\",\"indianapolis.museum\",\"indianmarket.museum\",\"intelligence.museum\",\"interactive.museum\",\"iraq.museum\",\"iron.museum\",\"isleofman.museum\",\"jamison.museum\",\"jefferson.museum\",\"jerusalem.museum\",\"jewelry.museum\",\"jewish.museum\",\"jewishart.museum\",\"jfk.museum\",\"journalism.museum\",\"judaica.museum\",\"judygarland.museum\",\"juedisches.museum\",\"juif.museum\",\"karate.museum\",\"karikatur.museum\",\"kids.museum\",\"koebenhavn.museum\",\"koeln.museum\",\"kunst.museum\",\"kunstsammlung.museum\",\"kunstunddesign.museum\",\"labor.museum\",\"labour.museum\",\"lajolla.museum\",\"lancashire.museum\",\"landes.museum\",\"lans.museum\",\"läns.museum\",\"larsson.museum\",\"lewismiller.museum\",\"lincoln.museum\",\"linz.museum\",\"living.museum\",\"livinghistory.museum\",\"localhistory.museum\",\"london.museum\",\"losangeles.museum\",\"louvre.museum\",\"loyalist.museum\",\"lucerne.museum\",\"luxembourg.museum\",\"luzern.museum\",\"mad.museum\",\"madrid.museum\",\"mallorca.museum\",\"manchester.museum\",\"mansion.museum\",\"mansions.museum\",\"manx.museum\",\"marburg.museum\",\"maritime.museum\",\"maritimo.museum\",\"maryland.museum\",\"marylhurst.museum\",\"media.museum\",\"medical.museum\",\"medizinhistorisches.museum\",\"meeres.museum\",\"memorial.museum\",\"mesaverde.museum\",\"michigan.museum\",\"midatlantic.museum\",\"military.museum\",\"mill.museum\",\"miners.museum\",\"mining.museum\",\"minnesota.museum\",\"missile.museum\",\"missoula.museum\",\"modern.museum\",\"moma.museum\",\"money.museum\",\"monmouth.museum\",\"monticello.museum\",\"montreal.museum\",\"moscow.museum\",\"motorcycle.museum\",\"muenchen.museum\",\"muenster.museum\",\"mulhouse.museum\",\"muncie.museum\",\"museet.museum\",\"museumcenter.museum\",\"museumvereniging.museum\",\"music.museum\",\"national.museum\",\"nationalfirearms.museum\",\"nationalheritage.museum\",\"nativeamerican.museum\",\"naturalhistory.museum\",\"naturalhistorymuseum.museum\",\"naturalsciences.museum\",\"nature.museum\",\"naturhistorisches.museum\",\"natuurwetenschappen.museum\",\"naumburg.museum\",\"naval.museum\",\"nebraska.museum\",\"neues.museum\",\"newhampshire.museum\",\"newjersey.museum\",\"newmexico.museum\",\"newport.museum\",\"newspaper.museum\",\"newyork.museum\",\"niepce.museum\",\"norfolk.museum\",\"north.museum\",\"nrw.museum\",\"nyc.museum\",\"nyny.museum\",\"oceanographic.museum\",\"oceanographique.museum\",\"omaha.museum\",\"online.museum\",\"ontario.museum\",\"openair.museum\",\"oregon.museum\",\"oregontrail.museum\",\"otago.museum\",\"oxford.museum\",\"pacific.museum\",\"paderborn.museum\",\"palace.museum\",\"paleo.museum\",\"palmsprings.museum\",\"panama.museum\",\"paris.museum\",\"pasadena.museum\",\"pharmacy.museum\",\"philadelphia.museum\",\"philadelphiaarea.museum\",\"philately.museum\",\"phoenix.museum\",\"photography.museum\",\"pilots.museum\",\"pittsburgh.museum\",\"planetarium.museum\",\"plantation.museum\",\"plants.museum\",\"plaza.museum\",\"portal.museum\",\"portland.museum\",\"portlligat.museum\",\"posts-and-telecommunications.museum\",\"preservation.museum\",\"presidio.museum\",\"press.museum\",\"project.museum\",\"public.museum\",\"pubol.museum\",\"quebec.museum\",\"railroad.museum\",\"railway.museum\",\"research.museum\",\"resistance.museum\",\"riodejaneiro.museum\",\"rochester.museum\",\"rockart.museum\",\"roma.museum\",\"russia.museum\",\"saintlouis.museum\",\"salem.museum\",\"salvadordali.museum\",\"salzburg.museum\",\"sandiego.museum\",\"sanfrancisco.museum\",\"santabarbara.museum\",\"santacruz.museum\",\"santafe.museum\",\"saskatchewan.museum\",\"satx.museum\",\"savannahga.museum\",\"schlesisches.museum\",\"schoenbrunn.museum\",\"schokoladen.museum\",\"school.museum\",\"schweiz.museum\",\"science.museum\",\"scienceandhistory.museum\",\"scienceandindustry.museum\",\"sciencecenter.museum\",\"sciencecenters.museum\",\"science-fiction.museum\",\"sciencehistory.museum\",\"sciences.museum\",\"sciencesnaturelles.museum\",\"scotland.museum\",\"seaport.museum\",\"settlement.museum\",\"settlers.museum\",\"shell.museum\",\"sherbrooke.museum\",\"sibenik.museum\",\"silk.museum\",\"ski.museum\",\"skole.museum\",\"society.museum\",\"sologne.museum\",\"soundandvision.museum\",\"southcarolina.museum\",\"southwest.museum\",\"space.museum\",\"spy.museum\",\"square.museum\",\"stadt.museum\",\"stalbans.museum\",\"starnberg.museum\",\"state.museum\",\"stateofdelaware.museum\",\"station.museum\",\"steam.museum\",\"steiermark.museum\",\"stjohn.museum\",\"stockholm.museum\",\"stpetersburg.museum\",\"stuttgart.museum\",\"suisse.museum\",\"surgeonshall.museum\",\"surrey.museum\",\"svizzera.museum\",\"sweden.museum\",\"sydney.museum\",\"tank.museum\",\"tcm.museum\",\"technology.museum\",\"telekommunikation.museum\",\"television.museum\",\"texas.museum\",\"textile.museum\",\"theater.museum\",\"time.museum\",\"timekeeping.museum\",\"topology.museum\",\"torino.museum\",\"touch.museum\",\"town.museum\",\"transport.museum\",\"tree.museum\",\"trolley.museum\",\"trust.museum\",\"trustee.museum\",\"uhren.museum\",\"ulm.museum\",\"undersea.museum\",\"university.museum\",\"usa.museum\",\"usantiques.museum\",\"usarts.museum\",\"uscountryestate.museum\",\"usculture.museum\",\"usdecorativearts.museum\",\"usgarden.museum\",\"ushistory.museum\",\"ushuaia.museum\",\"uslivinghistory.museum\",\"utah.museum\",\"uvic.museum\",\"valley.museum\",\"vantaa.museum\",\"versailles.museum\",\"viking.museum\",\"village.museum\",\"virginia.museum\",\"virtual.museum\",\"virtuel.museum\",\"vlaanderen.museum\",\"volkenkunde.museum\",\"wales.museum\",\"wallonie.museum\",\"war.museum\",\"washingtondc.museum\",\"watchandclock.museum\",\"watch-and-clock.museum\",\"western.museum\",\"westfalen.museum\",\"whaling.museum\",\"wildlife.museum\",\"williamsburg.museum\",\"windmill.museum\",\"workshop.museum\",\"york.museum\",\"yorkshire.museum\",\"yosemite.museum\",\"youth.museum\",\"zoological.museum\",\"zoology.museum\",\"ירושלים.museum\",\"иком.museum\",\"mv\",\"aero.mv\",\"biz.mv\",\"com.mv\",\"coop.mv\",\"edu.mv\",\"gov.mv\",\"info.mv\",\"int.mv\",\"mil.mv\",\"museum.mv\",\"name.mv\",\"net.mv\",\"org.mv\",\"pro.mv\",\"mw\",\"ac.mw\",\"biz.mw\",\"co.mw\",\"com.mw\",\"coop.mw\",\"edu.mw\",\"gov.mw\",\"int.mw\",\"museum.mw\",\"net.mw\",\"org.mw\",\"mx\",\"com.mx\",\"org.mx\",\"gob.mx\",\"edu.mx\",\"net.mx\",\"my\",\"com.my\",\"net.my\",\"org.my\",\"gov.my\",\"edu.my\",\"mil.my\",\"name.my\",\"mz\",\"ac.mz\",\"adv.mz\",\"co.mz\",\"edu.mz\",\"gov.mz\",\"mil.mz\",\"net.mz\",\"org.mz\",\"na\",\"info.na\",\"pro.na\",\"name.na\",\"school.na\",\"or.na\",\"dr.na\",\"us.na\",\"mx.na\",\"ca.na\",\"in.na\",\"cc.na\",\"tv.na\",\"ws.na\",\"mobi.na\",\"co.na\",\"com.na\",\"org.na\",\"name\",\"nc\",\"asso.nc\",\"nom.nc\",\"ne\",\"net\",\"nf\",\"com.nf\",\"net.nf\",\"per.nf\",\"rec.nf\",\"web.nf\",\"arts.nf\",\"firm.nf\",\"info.nf\",\"other.nf\",\"store.nf\",\"ng\",\"com.ng\",\"edu.ng\",\"gov.ng\",\"i.ng\",\"mil.ng\",\"mobi.ng\",\"name.ng\",\"net.ng\",\"org.ng\",\"sch.ng\",\"ni\",\"ac.ni\",\"biz.ni\",\"co.ni\",\"com.ni\",\"edu.ni\",\"gob.ni\",\"in.ni\",\"info.ni\",\"int.ni\",\"mil.ni\",\"net.ni\",\"nom.ni\",\"org.ni\",\"web.ni\",\"nl\",\"no\",\"fhs.no\",\"vgs.no\",\"fylkesbibl.no\",\"folkebibl.no\",\"museum.no\",\"idrett.no\",\"priv.no\",\"mil.no\",\"stat.no\",\"dep.no\",\"kommune.no\",\"herad.no\",\"aa.no\",\"ah.no\",\"bu.no\",\"fm.no\",\"hl.no\",\"hm.no\",\"jan-mayen.no\",\"mr.no\",\"nl.no\",\"nt.no\",\"of.no\",\"ol.no\",\"oslo.no\",\"rl.no\",\"sf.no\",\"st.no\",\"svalbard.no\",\"tm.no\",\"tr.no\",\"va.no\",\"vf.no\",\"gs.aa.no\",\"gs.ah.no\",\"gs.bu.no\",\"gs.fm.no\",\"gs.hl.no\",\"gs.hm.no\",\"gs.jan-mayen.no\",\"gs.mr.no\",\"gs.nl.no\",\"gs.nt.no\",\"gs.of.no\",\"gs.ol.no\",\"gs.oslo.no\",\"gs.rl.no\",\"gs.sf.no\",\"gs.st.no\",\"gs.svalbard.no\",\"gs.tm.no\",\"gs.tr.no\",\"gs.va.no\",\"gs.vf.no\",\"akrehamn.no\",\"åkrehamn.no\",\"algard.no\",\"ålgård.no\",\"arna.no\",\"brumunddal.no\",\"bryne.no\",\"bronnoysund.no\",\"brønnøysund.no\",\"drobak.no\",\"drøbak.no\",\"egersund.no\",\"fetsund.no\",\"floro.no\",\"florø.no\",\"fredrikstad.no\",\"hokksund.no\",\"honefoss.no\",\"hønefoss.no\",\"jessheim.no\",\"jorpeland.no\",\"jørpeland.no\",\"kirkenes.no\",\"kopervik.no\",\"krokstadelva.no\",\"langevag.no\",\"langevåg.no\",\"leirvik.no\",\"mjondalen.no\",\"mjøndalen.no\",\"mo-i-rana.no\",\"mosjoen.no\",\"mosjøen.no\",\"nesoddtangen.no\",\"orkanger.no\",\"osoyro.no\",\"osøyro.no\",\"raholt.no\",\"råholt.no\",\"sandnessjoen.no\",\"sandnessjøen.no\",\"skedsmokorset.no\",\"slattum.no\",\"spjelkavik.no\",\"stathelle.no\",\"stavern.no\",\"stjordalshalsen.no\",\"stjørdalshalsen.no\",\"tananger.no\",\"tranby.no\",\"vossevangen.no\",\"afjord.no\",\"åfjord.no\",\"agdenes.no\",\"al.no\",\"ål.no\",\"alesund.no\",\"ålesund.no\",\"alstahaug.no\",\"alta.no\",\"áltá.no\",\"alaheadju.no\",\"álaheadju.no\",\"alvdal.no\",\"amli.no\",\"åmli.no\",\"amot.no\",\"åmot.no\",\"andebu.no\",\"andoy.no\",\"andøy.no\",\"andasuolo.no\",\"ardal.no\",\"årdal.no\",\"aremark.no\",\"arendal.no\",\"ås.no\",\"aseral.no\",\"åseral.no\",\"asker.no\",\"askim.no\",\"askvoll.no\",\"askoy.no\",\"askøy.no\",\"asnes.no\",\"åsnes.no\",\"audnedaln.no\",\"aukra.no\",\"aure.no\",\"aurland.no\",\"aurskog-holand.no\",\"aurskog-høland.no\",\"austevoll.no\",\"austrheim.no\",\"averoy.no\",\"averøy.no\",\"balestrand.no\",\"ballangen.no\",\"balat.no\",\"bálát.no\",\"balsfjord.no\",\"bahccavuotna.no\",\"báhccavuotna.no\",\"bamble.no\",\"bardu.no\",\"beardu.no\",\"beiarn.no\",\"bajddar.no\",\"bájddar.no\",\"baidar.no\",\"báidár.no\",\"berg.no\",\"bergen.no\",\"berlevag.no\",\"berlevåg.no\",\"bearalvahki.no\",\"bearalváhki.no\",\"bindal.no\",\"birkenes.no\",\"bjarkoy.no\",\"bjarkøy.no\",\"bjerkreim.no\",\"bjugn.no\",\"bodo.no\",\"bodø.no\",\"badaddja.no\",\"bådåddjå.no\",\"budejju.no\",\"bokn.no\",\"bremanger.no\",\"bronnoy.no\",\"brønnøy.no\",\"bygland.no\",\"bykle.no\",\"barum.no\",\"bærum.no\",\"bo.telemark.no\",\"bø.telemark.no\",\"bo.nordland.no\",\"bø.nordland.no\",\"bievat.no\",\"bievát.no\",\"bomlo.no\",\"bømlo.no\",\"batsfjord.no\",\"båtsfjord.no\",\"bahcavuotna.no\",\"báhcavuotna.no\",\"dovre.no\",\"drammen.no\",\"drangedal.no\",\"dyroy.no\",\"dyrøy.no\",\"donna.no\",\"dønna.no\",\"eid.no\",\"eidfjord.no\",\"eidsberg.no\",\"eidskog.no\",\"eidsvoll.no\",\"eigersund.no\",\"elverum.no\",\"enebakk.no\",\"engerdal.no\",\"etne.no\",\"etnedal.no\",\"evenes.no\",\"evenassi.no\",\"evenášši.no\",\"evje-og-hornnes.no\",\"farsund.no\",\"fauske.no\",\"fuossko.no\",\"fuoisku.no\",\"fedje.no\",\"fet.no\",\"finnoy.no\",\"finnøy.no\",\"fitjar.no\",\"fjaler.no\",\"fjell.no\",\"flakstad.no\",\"flatanger.no\",\"flekkefjord.no\",\"flesberg.no\",\"flora.no\",\"fla.no\",\"flå.no\",\"folldal.no\",\"forsand.no\",\"fosnes.no\",\"frei.no\",\"frogn.no\",\"froland.no\",\"frosta.no\",\"frana.no\",\"fræna.no\",\"froya.no\",\"frøya.no\",\"fusa.no\",\"fyresdal.no\",\"forde.no\",\"førde.no\",\"gamvik.no\",\"gangaviika.no\",\"gáŋgaviika.no\",\"gaular.no\",\"gausdal.no\",\"gildeskal.no\",\"gildeskål.no\",\"giske.no\",\"gjemnes.no\",\"gjerdrum.no\",\"gjerstad.no\",\"gjesdal.no\",\"gjovik.no\",\"gjøvik.no\",\"gloppen.no\",\"gol.no\",\"gran.no\",\"grane.no\",\"granvin.no\",\"gratangen.no\",\"grimstad.no\",\"grong.no\",\"kraanghke.no\",\"kråanghke.no\",\"grue.no\",\"gulen.no\",\"hadsel.no\",\"halden.no\",\"halsa.no\",\"hamar.no\",\"hamaroy.no\",\"habmer.no\",\"hábmer.no\",\"hapmir.no\",\"hápmir.no\",\"hammerfest.no\",\"hammarfeasta.no\",\"hámmárfeasta.no\",\"haram.no\",\"hareid.no\",\"harstad.no\",\"hasvik.no\",\"aknoluokta.no\",\"ákŋoluokta.no\",\"hattfjelldal.no\",\"aarborte.no\",\"haugesund.no\",\"hemne.no\",\"hemnes.no\",\"hemsedal.no\",\"heroy.more-og-romsdal.no\",\"herøy.møre-og-romsdal.no\",\"heroy.nordland.no\",\"herøy.nordland.no\",\"hitra.no\",\"hjartdal.no\",\"hjelmeland.no\",\"hobol.no\",\"hobøl.no\",\"hof.no\",\"hol.no\",\"hole.no\",\"holmestrand.no\",\"holtalen.no\",\"holtålen.no\",\"hornindal.no\",\"horten.no\",\"hurdal.no\",\"hurum.no\",\"hvaler.no\",\"hyllestad.no\",\"hagebostad.no\",\"hægebostad.no\",\"hoyanger.no\",\"høyanger.no\",\"hoylandet.no\",\"høylandet.no\",\"ha.no\",\"hå.no\",\"ibestad.no\",\"inderoy.no\",\"inderøy.no\",\"iveland.no\",\"jevnaker.no\",\"jondal.no\",\"jolster.no\",\"jølster.no\",\"karasjok.no\",\"karasjohka.no\",\"kárášjohka.no\",\"karlsoy.no\",\"galsa.no\",\"gálsá.no\",\"karmoy.no\",\"karmøy.no\",\"kautokeino.no\",\"guovdageaidnu.no\",\"klepp.no\",\"klabu.no\",\"klæbu.no\",\"kongsberg.no\",\"kongsvinger.no\",\"kragero.no\",\"kragerø.no\",\"kristiansand.no\",\"kristiansund.no\",\"krodsherad.no\",\"krødsherad.no\",\"kvalsund.no\",\"rahkkeravju.no\",\"ráhkkerávju.no\",\"kvam.no\",\"kvinesdal.no\",\"kvinnherad.no\",\"kviteseid.no\",\"kvitsoy.no\",\"kvitsøy.no\",\"kvafjord.no\",\"kvæfjord.no\",\"giehtavuoatna.no\",\"kvanangen.no\",\"kvænangen.no\",\"navuotna.no\",\"návuotna.no\",\"kafjord.no\",\"kåfjord.no\",\"gaivuotna.no\",\"gáivuotna.no\",\"larvik.no\",\"lavangen.no\",\"lavagis.no\",\"loabat.no\",\"loabát.no\",\"lebesby.no\",\"davvesiida.no\",\"leikanger.no\",\"leirfjord.no\",\"leka.no\",\"leksvik.no\",\"lenvik.no\",\"leangaviika.no\",\"leaŋgaviika.no\",\"lesja.no\",\"levanger.no\",\"lier.no\",\"lierne.no\",\"lillehammer.no\",\"lillesand.no\",\"lindesnes.no\",\"lindas.no\",\"lindås.no\",\"lom.no\",\"loppa.no\",\"lahppi.no\",\"láhppi.no\",\"lund.no\",\"lunner.no\",\"luroy.no\",\"lurøy.no\",\"luster.no\",\"lyngdal.no\",\"lyngen.no\",\"ivgu.no\",\"lardal.no\",\"lerdal.no\",\"lærdal.no\",\"lodingen.no\",\"lødingen.no\",\"lorenskog.no\",\"lørenskog.no\",\"loten.no\",\"løten.no\",\"malvik.no\",\"masoy.no\",\"måsøy.no\",\"muosat.no\",\"muosát.no\",\"mandal.no\",\"marker.no\",\"marnardal.no\",\"masfjorden.no\",\"meland.no\",\"meldal.no\",\"melhus.no\",\"meloy.no\",\"meløy.no\",\"meraker.no\",\"meråker.no\",\"moareke.no\",\"moåreke.no\",\"midsund.no\",\"midtre-gauldal.no\",\"modalen.no\",\"modum.no\",\"molde.no\",\"moskenes.no\",\"moss.no\",\"mosvik.no\",\"malselv.no\",\"målselv.no\",\"malatvuopmi.no\",\"málatvuopmi.no\",\"namdalseid.no\",\"aejrie.no\",\"namsos.no\",\"namsskogan.no\",\"naamesjevuemie.no\",\"nååmesjevuemie.no\",\"laakesvuemie.no\",\"nannestad.no\",\"narvik.no\",\"narviika.no\",\"naustdal.no\",\"nedre-eiker.no\",\"nes.akershus.no\",\"nes.buskerud.no\",\"nesna.no\",\"nesodden.no\",\"nesseby.no\",\"unjarga.no\",\"unjárga.no\",\"nesset.no\",\"nissedal.no\",\"nittedal.no\",\"nord-aurdal.no\",\"nord-fron.no\",\"nord-odal.no\",\"norddal.no\",\"nordkapp.no\",\"davvenjarga.no\",\"davvenjárga.no\",\"nordre-land.no\",\"nordreisa.no\",\"raisa.no\",\"ráisa.no\",\"nore-og-uvdal.no\",\"notodden.no\",\"naroy.no\",\"nærøy.no\",\"notteroy.no\",\"nøtterøy.no\",\"odda.no\",\"oksnes.no\",\"øksnes.no\",\"oppdal.no\",\"oppegard.no\",\"oppegård.no\",\"orkdal.no\",\"orland.no\",\"ørland.no\",\"orskog.no\",\"ørskog.no\",\"orsta.no\",\"ørsta.no\",\"os.hedmark.no\",\"os.hordaland.no\",\"osen.no\",\"osteroy.no\",\"osterøy.no\",\"ostre-toten.no\",\"østre-toten.no\",\"overhalla.no\",\"ovre-eiker.no\",\"øvre-eiker.no\",\"oyer.no\",\"øyer.no\",\"oygarden.no\",\"øygarden.no\",\"oystre-slidre.no\",\"øystre-slidre.no\",\"porsanger.no\",\"porsangu.no\",\"porsáŋgu.no\",\"porsgrunn.no\",\"radoy.no\",\"radøy.no\",\"rakkestad.no\",\"rana.no\",\"ruovat.no\",\"randaberg.no\",\"rauma.no\",\"rendalen.no\",\"rennebu.no\",\"rennesoy.no\",\"rennesøy.no\",\"rindal.no\",\"ringebu.no\",\"ringerike.no\",\"ringsaker.no\",\"rissa.no\",\"risor.no\",\"risør.no\",\"roan.no\",\"rollag.no\",\"rygge.no\",\"ralingen.no\",\"rælingen.no\",\"rodoy.no\",\"rødøy.no\",\"romskog.no\",\"rømskog.no\",\"roros.no\",\"røros.no\",\"rost.no\",\"røst.no\",\"royken.no\",\"røyken.no\",\"royrvik.no\",\"røyrvik.no\",\"rade.no\",\"råde.no\",\"salangen.no\",\"siellak.no\",\"saltdal.no\",\"salat.no\",\"sálát.no\",\"sálat.no\",\"samnanger.no\",\"sande.more-og-romsdal.no\",\"sande.møre-og-romsdal.no\",\"sande.vestfold.no\",\"sandefjord.no\",\"sandnes.no\",\"sandoy.no\",\"sandøy.no\",\"sarpsborg.no\",\"sauda.no\",\"sauherad.no\",\"sel.no\",\"selbu.no\",\"selje.no\",\"seljord.no\",\"sigdal.no\",\"siljan.no\",\"sirdal.no\",\"skaun.no\",\"skedsmo.no\",\"ski.no\",\"skien.no\",\"skiptvet.no\",\"skjervoy.no\",\"skjervøy.no\",\"skierva.no\",\"skiervá.no\",\"skjak.no\",\"skjåk.no\",\"skodje.no\",\"skanland.no\",\"skånland.no\",\"skanit.no\",\"skánit.no\",\"smola.no\",\"smøla.no\",\"snillfjord.no\",\"snasa.no\",\"snåsa.no\",\"snoasa.no\",\"snaase.no\",\"snåase.no\",\"sogndal.no\",\"sokndal.no\",\"sola.no\",\"solund.no\",\"songdalen.no\",\"sortland.no\",\"spydeberg.no\",\"stange.no\",\"stavanger.no\",\"steigen.no\",\"steinkjer.no\",\"stjordal.no\",\"stjørdal.no\",\"stokke.no\",\"stor-elvdal.no\",\"stord.no\",\"stordal.no\",\"storfjord.no\",\"omasvuotna.no\",\"strand.no\",\"stranda.no\",\"stryn.no\",\"sula.no\",\"suldal.no\",\"sund.no\",\"sunndal.no\",\"surnadal.no\",\"sveio.no\",\"svelvik.no\",\"sykkylven.no\",\"sogne.no\",\"søgne.no\",\"somna.no\",\"sømna.no\",\"sondre-land.no\",\"søndre-land.no\",\"sor-aurdal.no\",\"sør-aurdal.no\",\"sor-fron.no\",\"sør-fron.no\",\"sor-odal.no\",\"sør-odal.no\",\"sor-varanger.no\",\"sør-varanger.no\",\"matta-varjjat.no\",\"mátta-várjjat.no\",\"sorfold.no\",\"sørfold.no\",\"sorreisa.no\",\"sørreisa.no\",\"sorum.no\",\"sørum.no\",\"tana.no\",\"deatnu.no\",\"time.no\",\"tingvoll.no\",\"tinn.no\",\"tjeldsund.no\",\"dielddanuorri.no\",\"tjome.no\",\"tjøme.no\",\"tokke.no\",\"tolga.no\",\"torsken.no\",\"tranoy.no\",\"tranøy.no\",\"tromso.no\",\"tromsø.no\",\"tromsa.no\",\"romsa.no\",\"trondheim.no\",\"troandin.no\",\"trysil.no\",\"trana.no\",\"træna.no\",\"trogstad.no\",\"trøgstad.no\",\"tvedestrand.no\",\"tydal.no\",\"tynset.no\",\"tysfjord.no\",\"divtasvuodna.no\",\"divttasvuotna.no\",\"tysnes.no\",\"tysvar.no\",\"tysvær.no\",\"tonsberg.no\",\"tønsberg.no\",\"ullensaker.no\",\"ullensvang.no\",\"ulvik.no\",\"utsira.no\",\"vadso.no\",\"vadsø.no\",\"cahcesuolo.no\",\"čáhcesuolo.no\",\"vaksdal.no\",\"valle.no\",\"vang.no\",\"vanylven.no\",\"vardo.no\",\"vardø.no\",\"varggat.no\",\"várggát.no\",\"vefsn.no\",\"vaapste.no\",\"vega.no\",\"vegarshei.no\",\"vegårshei.no\",\"vennesla.no\",\"verdal.no\",\"verran.no\",\"vestby.no\",\"vestnes.no\",\"vestre-slidre.no\",\"vestre-toten.no\",\"vestvagoy.no\",\"vestvågøy.no\",\"vevelstad.no\",\"vik.no\",\"vikna.no\",\"vindafjord.no\",\"volda.no\",\"voss.no\",\"varoy.no\",\"værøy.no\",\"vagan.no\",\"vågan.no\",\"voagat.no\",\"vagsoy.no\",\"vågsøy.no\",\"vaga.no\",\"vågå.no\",\"valer.ostfold.no\",\"våler.østfold.no\",\"valer.hedmark.no\",\"våler.hedmark.no\",\"*.np\",\"nr\",\"biz.nr\",\"info.nr\",\"gov.nr\",\"edu.nr\",\"org.nr\",\"net.nr\",\"com.nr\",\"nu\",\"nz\",\"ac.nz\",\"co.nz\",\"cri.nz\",\"geek.nz\",\"gen.nz\",\"govt.nz\",\"health.nz\",\"iwi.nz\",\"kiwi.nz\",\"maori.nz\",\"mil.nz\",\"māori.nz\",\"net.nz\",\"org.nz\",\"parliament.nz\",\"school.nz\",\"om\",\"co.om\",\"com.om\",\"edu.om\",\"gov.om\",\"med.om\",\"museum.om\",\"net.om\",\"org.om\",\"pro.om\",\"onion\",\"org\",\"pa\",\"ac.pa\",\"gob.pa\",\"com.pa\",\"org.pa\",\"sld.pa\",\"edu.pa\",\"net.pa\",\"ing.pa\",\"abo.pa\",\"med.pa\",\"nom.pa\",\"pe\",\"edu.pe\",\"gob.pe\",\"nom.pe\",\"mil.pe\",\"org.pe\",\"com.pe\",\"net.pe\",\"pf\",\"com.pf\",\"org.pf\",\"edu.pf\",\"*.pg\",\"ph\",\"com.ph\",\"net.ph\",\"org.ph\",\"gov.ph\",\"edu.ph\",\"ngo.ph\",\"mil.ph\",\"i.ph\",\"pk\",\"com.pk\",\"net.pk\",\"edu.pk\",\"org.pk\",\"fam.pk\",\"biz.pk\",\"web.pk\",\"gov.pk\",\"gob.pk\",\"gok.pk\",\"gon.pk\",\"gop.pk\",\"gos.pk\",\"info.pk\",\"pl\",\"com.pl\",\"net.pl\",\"org.pl\",\"aid.pl\",\"agro.pl\",\"atm.pl\",\"auto.pl\",\"biz.pl\",\"edu.pl\",\"gmina.pl\",\"gsm.pl\",\"info.pl\",\"mail.pl\",\"miasta.pl\",\"media.pl\",\"mil.pl\",\"nieruchomosci.pl\",\"nom.pl\",\"pc.pl\",\"powiat.pl\",\"priv.pl\",\"realestate.pl\",\"rel.pl\",\"sex.pl\",\"shop.pl\",\"sklep.pl\",\"sos.pl\",\"szkola.pl\",\"targi.pl\",\"tm.pl\",\"tourism.pl\",\"travel.pl\",\"turystyka.pl\",\"gov.pl\",\"ap.gov.pl\",\"ic.gov.pl\",\"is.gov.pl\",\"us.gov.pl\",\"kmpsp.gov.pl\",\"kppsp.gov.pl\",\"kwpsp.gov.pl\",\"psp.gov.pl\",\"wskr.gov.pl\",\"kwp.gov.pl\",\"mw.gov.pl\",\"ug.gov.pl\",\"um.gov.pl\",\"umig.gov.pl\",\"ugim.gov.pl\",\"upow.gov.pl\",\"uw.gov.pl\",\"starostwo.gov.pl\",\"pa.gov.pl\",\"po.gov.pl\",\"psse.gov.pl\",\"pup.gov.pl\",\"rzgw.gov.pl\",\"sa.gov.pl\",\"so.gov.pl\",\"sr.gov.pl\",\"wsa.gov.pl\",\"sko.gov.pl\",\"uzs.gov.pl\",\"wiih.gov.pl\",\"winb.gov.pl\",\"pinb.gov.pl\",\"wios.gov.pl\",\"witd.gov.pl\",\"wzmiuw.gov.pl\",\"piw.gov.pl\",\"wiw.gov.pl\",\"griw.gov.pl\",\"wif.gov.pl\",\"oum.gov.pl\",\"sdn.gov.pl\",\"zp.gov.pl\",\"uppo.gov.pl\",\"mup.gov.pl\",\"wuoz.gov.pl\",\"konsulat.gov.pl\",\"oirm.gov.pl\",\"augustow.pl\",\"babia-gora.pl\",\"bedzin.pl\",\"beskidy.pl\",\"bialowieza.pl\",\"bialystok.pl\",\"bielawa.pl\",\"bieszczady.pl\",\"boleslawiec.pl\",\"bydgoszcz.pl\",\"bytom.pl\",\"cieszyn.pl\",\"czeladz.pl\",\"czest.pl\",\"dlugoleka.pl\",\"elblag.pl\",\"elk.pl\",\"glogow.pl\",\"gniezno.pl\",\"gorlice.pl\",\"grajewo.pl\",\"ilawa.pl\",\"jaworzno.pl\",\"jelenia-gora.pl\",\"jgora.pl\",\"kalisz.pl\",\"kazimierz-dolny.pl\",\"karpacz.pl\",\"kartuzy.pl\",\"kaszuby.pl\",\"katowice.pl\",\"kepno.pl\",\"ketrzyn.pl\",\"klodzko.pl\",\"kobierzyce.pl\",\"kolobrzeg.pl\",\"konin.pl\",\"konskowola.pl\",\"kutno.pl\",\"lapy.pl\",\"lebork.pl\",\"legnica.pl\",\"lezajsk.pl\",\"limanowa.pl\",\"lomza.pl\",\"lowicz.pl\",\"lubin.pl\",\"lukow.pl\",\"malbork.pl\",\"malopolska.pl\",\"mazowsze.pl\",\"mazury.pl\",\"mielec.pl\",\"mielno.pl\",\"mragowo.pl\",\"naklo.pl\",\"nowaruda.pl\",\"nysa.pl\",\"olawa.pl\",\"olecko.pl\",\"olkusz.pl\",\"olsztyn.pl\",\"opoczno.pl\",\"opole.pl\",\"ostroda.pl\",\"ostroleka.pl\",\"ostrowiec.pl\",\"ostrowwlkp.pl\",\"pila.pl\",\"pisz.pl\",\"podhale.pl\",\"podlasie.pl\",\"polkowice.pl\",\"pomorze.pl\",\"pomorskie.pl\",\"prochowice.pl\",\"pruszkow.pl\",\"przeworsk.pl\",\"pulawy.pl\",\"radom.pl\",\"rawa-maz.pl\",\"rybnik.pl\",\"rzeszow.pl\",\"sanok.pl\",\"sejny.pl\",\"slask.pl\",\"slupsk.pl\",\"sosnowiec.pl\",\"stalowa-wola.pl\",\"skoczow.pl\",\"starachowice.pl\",\"stargard.pl\",\"suwalki.pl\",\"swidnica.pl\",\"swiebodzin.pl\",\"swinoujscie.pl\",\"szczecin.pl\",\"szczytno.pl\",\"tarnobrzeg.pl\",\"tgory.pl\",\"turek.pl\",\"tychy.pl\",\"ustka.pl\",\"walbrzych.pl\",\"warmia.pl\",\"warszawa.pl\",\"waw.pl\",\"wegrow.pl\",\"wielun.pl\",\"wlocl.pl\",\"wloclawek.pl\",\"wodzislaw.pl\",\"wolomin.pl\",\"wroclaw.pl\",\"zachpomor.pl\",\"zagan.pl\",\"zarow.pl\",\"zgora.pl\",\"zgorzelec.pl\",\"pm\",\"pn\",\"gov.pn\",\"co.pn\",\"org.pn\",\"edu.pn\",\"net.pn\",\"post\",\"pr\",\"com.pr\",\"net.pr\",\"org.pr\",\"gov.pr\",\"edu.pr\",\"isla.pr\",\"pro.pr\",\"biz.pr\",\"info.pr\",\"name.pr\",\"est.pr\",\"prof.pr\",\"ac.pr\",\"pro\",\"aaa.pro\",\"aca.pro\",\"acct.pro\",\"avocat.pro\",\"bar.pro\",\"cpa.pro\",\"eng.pro\",\"jur.pro\",\"law.pro\",\"med.pro\",\"recht.pro\",\"ps\",\"edu.ps\",\"gov.ps\",\"sec.ps\",\"plo.ps\",\"com.ps\",\"org.ps\",\"net.ps\",\"pt\",\"net.pt\",\"gov.pt\",\"org.pt\",\"edu.pt\",\"int.pt\",\"publ.pt\",\"com.pt\",\"nome.pt\",\"pw\",\"co.pw\",\"ne.pw\",\"or.pw\",\"ed.pw\",\"go.pw\",\"belau.pw\",\"py\",\"com.py\",\"coop.py\",\"edu.py\",\"gov.py\",\"mil.py\",\"net.py\",\"org.py\",\"qa\",\"com.qa\",\"edu.qa\",\"gov.qa\",\"mil.qa\",\"name.qa\",\"net.qa\",\"org.qa\",\"sch.qa\",\"re\",\"asso.re\",\"com.re\",\"nom.re\",\"ro\",\"arts.ro\",\"com.ro\",\"firm.ro\",\"info.ro\",\"nom.ro\",\"nt.ro\",\"org.ro\",\"rec.ro\",\"store.ro\",\"tm.ro\",\"www.ro\",\"rs\",\"ac.rs\",\"co.rs\",\"edu.rs\",\"gov.rs\",\"in.rs\",\"org.rs\",\"ru\",\"rw\",\"ac.rw\",\"co.rw\",\"coop.rw\",\"gov.rw\",\"mil.rw\",\"net.rw\",\"org.rw\",\"sa\",\"com.sa\",\"net.sa\",\"org.sa\",\"gov.sa\",\"med.sa\",\"pub.sa\",\"edu.sa\",\"sch.sa\",\"sb\",\"com.sb\",\"edu.sb\",\"gov.sb\",\"net.sb\",\"org.sb\",\"sc\",\"com.sc\",\"gov.sc\",\"net.sc\",\"org.sc\",\"edu.sc\",\"sd\",\"com.sd\",\"net.sd\",\"org.sd\",\"edu.sd\",\"med.sd\",\"tv.sd\",\"gov.sd\",\"info.sd\",\"se\",\"a.se\",\"ac.se\",\"b.se\",\"bd.se\",\"brand.se\",\"c.se\",\"d.se\",\"e.se\",\"f.se\",\"fh.se\",\"fhsk.se\",\"fhv.se\",\"g.se\",\"h.se\",\"i.se\",\"k.se\",\"komforb.se\",\"kommunalforbund.se\",\"komvux.se\",\"l.se\",\"lanbib.se\",\"m.se\",\"n.se\",\"naturbruksgymn.se\",\"o.se\",\"org.se\",\"p.se\",\"parti.se\",\"pp.se\",\"press.se\",\"r.se\",\"s.se\",\"t.se\",\"tm.se\",\"u.se\",\"w.se\",\"x.se\",\"y.se\",\"z.se\",\"sg\",\"com.sg\",\"net.sg\",\"org.sg\",\"gov.sg\",\"edu.sg\",\"per.sg\",\"sh\",\"com.sh\",\"net.sh\",\"gov.sh\",\"org.sh\",\"mil.sh\",\"si\",\"sj\",\"sk\",\"sl\",\"com.sl\",\"net.sl\",\"edu.sl\",\"gov.sl\",\"org.sl\",\"sm\",\"sn\",\"art.sn\",\"com.sn\",\"edu.sn\",\"gouv.sn\",\"org.sn\",\"perso.sn\",\"univ.sn\",\"so\",\"com.so\",\"edu.so\",\"gov.so\",\"me.so\",\"net.so\",\"org.so\",\"sr\",\"ss\",\"biz.ss\",\"com.ss\",\"edu.ss\",\"gov.ss\",\"net.ss\",\"org.ss\",\"st\",\"co.st\",\"com.st\",\"consulado.st\",\"edu.st\",\"embaixada.st\",\"gov.st\",\"mil.st\",\"net.st\",\"org.st\",\"principe.st\",\"saotome.st\",\"store.st\",\"su\",\"sv\",\"com.sv\",\"edu.sv\",\"gob.sv\",\"org.sv\",\"red.sv\",\"sx\",\"gov.sx\",\"sy\",\"edu.sy\",\"gov.sy\",\"net.sy\",\"mil.sy\",\"com.sy\",\"org.sy\",\"sz\",\"co.sz\",\"ac.sz\",\"org.sz\",\"tc\",\"td\",\"tel\",\"tf\",\"tg\",\"th\",\"ac.th\",\"co.th\",\"go.th\",\"in.th\",\"mi.th\",\"net.th\",\"or.th\",\"tj\",\"ac.tj\",\"biz.tj\",\"co.tj\",\"com.tj\",\"edu.tj\",\"go.tj\",\"gov.tj\",\"int.tj\",\"mil.tj\",\"name.tj\",\"net.tj\",\"nic.tj\",\"org.tj\",\"test.tj\",\"web.tj\",\"tk\",\"tl\",\"gov.tl\",\"tm\",\"com.tm\",\"co.tm\",\"org.tm\",\"net.tm\",\"nom.tm\",\"gov.tm\",\"mil.tm\",\"edu.tm\",\"tn\",\"com.tn\",\"ens.tn\",\"fin.tn\",\"gov.tn\",\"ind.tn\",\"intl.tn\",\"nat.tn\",\"net.tn\",\"org.tn\",\"info.tn\",\"perso.tn\",\"tourism.tn\",\"edunet.tn\",\"rnrt.tn\",\"rns.tn\",\"rnu.tn\",\"mincom.tn\",\"agrinet.tn\",\"defense.tn\",\"turen.tn\",\"to\",\"com.to\",\"gov.to\",\"net.to\",\"org.to\",\"edu.to\",\"mil.to\",\"tr\",\"av.tr\",\"bbs.tr\",\"bel.tr\",\"biz.tr\",\"com.tr\",\"dr.tr\",\"edu.tr\",\"gen.tr\",\"gov.tr\",\"info.tr\",\"mil.tr\",\"k12.tr\",\"kep.tr\",\"name.tr\",\"net.tr\",\"org.tr\",\"pol.tr\",\"tel.tr\",\"tsk.tr\",\"tv.tr\",\"web.tr\",\"nc.tr\",\"gov.nc.tr\",\"tt\",\"co.tt\",\"com.tt\",\"org.tt\",\"net.tt\",\"biz.tt\",\"info.tt\",\"pro.tt\",\"int.tt\",\"coop.tt\",\"jobs.tt\",\"mobi.tt\",\"travel.tt\",\"museum.tt\",\"aero.tt\",\"name.tt\",\"gov.tt\",\"edu.tt\",\"tv\",\"tw\",\"edu.tw\",\"gov.tw\",\"mil.tw\",\"com.tw\",\"net.tw\",\"org.tw\",\"idv.tw\",\"game.tw\",\"ebiz.tw\",\"club.tw\",\"網路.tw\",\"組織.tw\",\"商業.tw\",\"tz\",\"ac.tz\",\"co.tz\",\"go.tz\",\"hotel.tz\",\"info.tz\",\"me.tz\",\"mil.tz\",\"mobi.tz\",\"ne.tz\",\"or.tz\",\"sc.tz\",\"tv.tz\",\"ua\",\"com.ua\",\"edu.ua\",\"gov.ua\",\"in.ua\",\"net.ua\",\"org.ua\",\"cherkassy.ua\",\"cherkasy.ua\",\"chernigov.ua\",\"chernihiv.ua\",\"chernivtsi.ua\",\"chernovtsy.ua\",\"ck.ua\",\"cn.ua\",\"cr.ua\",\"crimea.ua\",\"cv.ua\",\"dn.ua\",\"dnepropetrovsk.ua\",\"dnipropetrovsk.ua\",\"dominic.ua\",\"donetsk.ua\",\"dp.ua\",\"if.ua\",\"ivano-frankivsk.ua\",\"kh.ua\",\"kharkiv.ua\",\"kharkov.ua\",\"kherson.ua\",\"khmelnitskiy.ua\",\"khmelnytskyi.ua\",\"kiev.ua\",\"kirovograd.ua\",\"km.ua\",\"kr.ua\",\"krym.ua\",\"ks.ua\",\"kv.ua\",\"kyiv.ua\",\"lg.ua\",\"lt.ua\",\"lugansk.ua\",\"lutsk.ua\",\"lv.ua\",\"lviv.ua\",\"mk.ua\",\"mykolaiv.ua\",\"nikolaev.ua\",\"od.ua\",\"odesa.ua\",\"odessa.ua\",\"pl.ua\",\"poltava.ua\",\"rivne.ua\",\"rovno.ua\",\"rv.ua\",\"sb.ua\",\"sebastopol.ua\",\"sevastopol.ua\",\"sm.ua\",\"sumy.ua\",\"te.ua\",\"ternopil.ua\",\"uz.ua\",\"uzhgorod.ua\",\"vinnica.ua\",\"vinnytsia.ua\",\"vn.ua\",\"volyn.ua\",\"yalta.ua\",\"zaporizhzhe.ua\",\"zaporizhzhia.ua\",\"zhitomir.ua\",\"zhytomyr.ua\",\"zp.ua\",\"zt.ua\",\"ug\",\"co.ug\",\"or.ug\",\"ac.ug\",\"sc.ug\",\"go.ug\",\"ne.ug\",\"com.ug\",\"org.ug\",\"uk\",\"ac.uk\",\"co.uk\",\"gov.uk\",\"ltd.uk\",\"me.uk\",\"net.uk\",\"nhs.uk\",\"org.uk\",\"plc.uk\",\"police.uk\",\"*.sch.uk\",\"us\",\"dni.us\",\"fed.us\",\"isa.us\",\"kids.us\",\"nsn.us\",\"ak.us\",\"al.us\",\"ar.us\",\"as.us\",\"az.us\",\"ca.us\",\"co.us\",\"ct.us\",\"dc.us\",\"de.us\",\"fl.us\",\"ga.us\",\"gu.us\",\"hi.us\",\"ia.us\",\"id.us\",\"il.us\",\"in.us\",\"ks.us\",\"ky.us\",\"la.us\",\"ma.us\",\"md.us\",\"me.us\",\"mi.us\",\"mn.us\",\"mo.us\",\"ms.us\",\"mt.us\",\"nc.us\",\"nd.us\",\"ne.us\",\"nh.us\",\"nj.us\",\"nm.us\",\"nv.us\",\"ny.us\",\"oh.us\",\"ok.us\",\"or.us\",\"pa.us\",\"pr.us\",\"ri.us\",\"sc.us\",\"sd.us\",\"tn.us\",\"tx.us\",\"ut.us\",\"vi.us\",\"vt.us\",\"va.us\",\"wa.us\",\"wi.us\",\"wv.us\",\"wy.us\",\"k12.ak.us\",\"k12.al.us\",\"k12.ar.us\",\"k12.as.us\",\"k12.az.us\",\"k12.ca.us\",\"k12.co.us\",\"k12.ct.us\",\"k12.dc.us\",\"k12.de.us\",\"k12.fl.us\",\"k12.ga.us\",\"k12.gu.us\",\"k12.ia.us\",\"k12.id.us\",\"k12.il.us\",\"k12.in.us\",\"k12.ks.us\",\"k12.ky.us\",\"k12.la.us\",\"k12.ma.us\",\"k12.md.us\",\"k12.me.us\",\"k12.mi.us\",\"k12.mn.us\",\"k12.mo.us\",\"k12.ms.us\",\"k12.mt.us\",\"k12.nc.us\",\"k12.ne.us\",\"k12.nh.us\",\"k12.nj.us\",\"k12.nm.us\",\"k12.nv.us\",\"k12.ny.us\",\"k12.oh.us\",\"k12.ok.us\",\"k12.or.us\",\"k12.pa.us\",\"k12.pr.us\",\"k12.ri.us\",\"k12.sc.us\",\"k12.tn.us\",\"k12.tx.us\",\"k12.ut.us\",\"k12.vi.us\",\"k12.vt.us\",\"k12.va.us\",\"k12.wa.us\",\"k12.wi.us\",\"k12.wy.us\",\"cc.ak.us\",\"cc.al.us\",\"cc.ar.us\",\"cc.as.us\",\"cc.az.us\",\"cc.ca.us\",\"cc.co.us\",\"cc.ct.us\",\"cc.dc.us\",\"cc.de.us\",\"cc.fl.us\",\"cc.ga.us\",\"cc.gu.us\",\"cc.hi.us\",\"cc.ia.us\",\"cc.id.us\",\"cc.il.us\",\"cc.in.us\",\"cc.ks.us\",\"cc.ky.us\",\"cc.la.us\",\"cc.ma.us\",\"cc.md.us\",\"cc.me.us\",\"cc.mi.us\",\"cc.mn.us\",\"cc.mo.us\",\"cc.ms.us\",\"cc.mt.us\",\"cc.nc.us\",\"cc.nd.us\",\"cc.ne.us\",\"cc.nh.us\",\"cc.nj.us\",\"cc.nm.us\",\"cc.nv.us\",\"cc.ny.us\",\"cc.oh.us\",\"cc.ok.us\",\"cc.or.us\",\"cc.pa.us\",\"cc.pr.us\",\"cc.ri.us\",\"cc.sc.us\",\"cc.sd.us\",\"cc.tn.us\",\"cc.tx.us\",\"cc.ut.us\",\"cc.vi.us\",\"cc.vt.us\",\"cc.va.us\",\"cc.wa.us\",\"cc.wi.us\",\"cc.wv.us\",\"cc.wy.us\",\"lib.ak.us\",\"lib.al.us\",\"lib.ar.us\",\"lib.as.us\",\"lib.az.us\",\"lib.ca.us\",\"lib.co.us\",\"lib.ct.us\",\"lib.dc.us\",\"lib.fl.us\",\"lib.ga.us\",\"lib.gu.us\",\"lib.hi.us\",\"lib.ia.us\",\"lib.id.us\",\"lib.il.us\",\"lib.in.us\",\"lib.ks.us\",\"lib.ky.us\",\"lib.la.us\",\"lib.ma.us\",\"lib.md.us\",\"lib.me.us\",\"lib.mi.us\",\"lib.mn.us\",\"lib.mo.us\",\"lib.ms.us\",\"lib.mt.us\",\"lib.nc.us\",\"lib.nd.us\",\"lib.ne.us\",\"lib.nh.us\",\"lib.nj.us\",\"lib.nm.us\",\"lib.nv.us\",\"lib.ny.us\",\"lib.oh.us\",\"lib.ok.us\",\"lib.or.us\",\"lib.pa.us\",\"lib.pr.us\",\"lib.ri.us\",\"lib.sc.us\",\"lib.sd.us\",\"lib.tn.us\",\"lib.tx.us\",\"lib.ut.us\",\"lib.vi.us\",\"lib.vt.us\",\"lib.va.us\",\"lib.wa.us\",\"lib.wi.us\",\"lib.wy.us\",\"pvt.k12.ma.us\",\"chtr.k12.ma.us\",\"paroch.k12.ma.us\",\"ann-arbor.mi.us\",\"cog.mi.us\",\"dst.mi.us\",\"eaton.mi.us\",\"gen.mi.us\",\"mus.mi.us\",\"tec.mi.us\",\"washtenaw.mi.us\",\"uy\",\"com.uy\",\"edu.uy\",\"gub.uy\",\"mil.uy\",\"net.uy\",\"org.uy\",\"uz\",\"co.uz\",\"com.uz\",\"net.uz\",\"org.uz\",\"va\",\"vc\",\"com.vc\",\"net.vc\",\"org.vc\",\"gov.vc\",\"mil.vc\",\"edu.vc\",\"ve\",\"arts.ve\",\"co.ve\",\"com.ve\",\"e12.ve\",\"edu.ve\",\"firm.ve\",\"gob.ve\",\"gov.ve\",\"info.ve\",\"int.ve\",\"mil.ve\",\"net.ve\",\"org.ve\",\"rec.ve\",\"store.ve\",\"tec.ve\",\"web.ve\",\"vg\",\"vi\",\"co.vi\",\"com.vi\",\"k12.vi\",\"net.vi\",\"org.vi\",\"vn\",\"com.vn\",\"net.vn\",\"org.vn\",\"edu.vn\",\"gov.vn\",\"int.vn\",\"ac.vn\",\"biz.vn\",\"info.vn\",\"name.vn\",\"pro.vn\",\"health.vn\",\"vu\",\"com.vu\",\"edu.vu\",\"net.vu\",\"org.vu\",\"wf\",\"ws\",\"com.ws\",\"net.ws\",\"org.ws\",\"gov.ws\",\"edu.ws\",\"yt\",\"امارات\",\"հայ\",\"বাংলা\",\"бг\",\"бел\",\"中国\",\"中國\",\"الجزائر\",\"مصر\",\"ею\",\"ευ\",\"موريتانيا\",\"გე\",\"ελ\",\"香港\",\"公司.香港\",\"教育.香港\",\"政府.香港\",\"個人.香港\",\"網絡.香港\",\"組織.香港\",\"ಭಾರತ\",\"ଭାରତ\",\"ভাৰত\",\"भारतम्\",\"भारोत\",\"ڀارت\",\"ഭാരതം\",\"भारत\",\"بارت\",\"بھارت\",\"భారత్\",\"ભારત\",\"ਭਾਰਤ\",\"ভারত\",\"இந்தியா\",\"ایران\",\"ايران\",\"عراق\",\"الاردن\",\"한국\",\"қаз\",\"ලංකා\",\"இலங்கை\",\"المغرب\",\"мкд\",\"мон\",\"澳門\",\"澳门\",\"مليسيا\",\"عمان\",\"پاکستان\",\"پاكستان\",\"فلسطين\",\"срб\",\"пр.срб\",\"орг.срб\",\"обр.срб\",\"од.срб\",\"упр.срб\",\"ак.срб\",\"рф\",\"قطر\",\"السعودية\",\"السعودیة\",\"السعودیۃ\",\"السعوديه\",\"سودان\",\"新加坡\",\"சிங்கப்பூர்\",\"سورية\",\"سوريا\",\"ไทย\",\"ศึกษา.ไทย\",\"ธุรกิจ.ไทย\",\"รัฐบาล.ไทย\",\"ทหาร.ไทย\",\"เน็ต.ไทย\",\"องค์กร.ไทย\",\"تونس\",\"台灣\",\"台湾\",\"臺灣\",\"укр\",\"اليمن\",\"xxx\",\"*.ye\",\"ac.za\",\"agric.za\",\"alt.za\",\"co.za\",\"edu.za\",\"gov.za\",\"grondar.za\",\"law.za\",\"mil.za\",\"net.za\",\"ngo.za\",\"nic.za\",\"nis.za\",\"nom.za\",\"org.za\",\"school.za\",\"tm.za\",\"web.za\",\"zm\",\"ac.zm\",\"biz.zm\",\"co.zm\",\"com.zm\",\"edu.zm\",\"gov.zm\",\"info.zm\",\"mil.zm\",\"net.zm\",\"org.zm\",\"sch.zm\",\"zw\",\"ac.zw\",\"co.zw\",\"gov.zw\",\"mil.zw\",\"org.zw\",\"aaa\",\"aarp\",\"abarth\",\"abb\",\"abbott\",\"abbvie\",\"abc\",\"able\",\"abogado\",\"abudhabi\",\"academy\",\"accenture\",\"accountant\",\"accountants\",\"aco\",\"actor\",\"adac\",\"ads\",\"adult\",\"aeg\",\"aetna\",\"afamilycompany\",\"afl\",\"africa\",\"agakhan\",\"agency\",\"aig\",\"aigo\",\"airbus\",\"airforce\",\"airtel\",\"akdn\",\"alfaromeo\",\"alibaba\",\"alipay\",\"allfinanz\",\"allstate\",\"ally\",\"alsace\",\"alstom\",\"amazon\",\"americanexpress\",\"americanfamily\",\"amex\",\"amfam\",\"amica\",\"amsterdam\",\"analytics\",\"android\",\"anquan\",\"anz\",\"aol\",\"apartments\",\"app\",\"apple\",\"aquarelle\",\"arab\",\"aramco\",\"archi\",\"army\",\"art\",\"arte\",\"asda\",\"associates\",\"athleta\",\"attorney\",\"auction\",\"audi\",\"audible\",\"audio\",\"auspost\",\"author\",\"auto\",\"autos\",\"avianca\",\"aws\",\"axa\",\"azure\",\"baby\",\"baidu\",\"banamex\",\"bananarepublic\",\"band\",\"bank\",\"bar\",\"barcelona\",\"barclaycard\",\"barclays\",\"barefoot\",\"bargains\",\"baseball\",\"basketball\",\"bauhaus\",\"bayern\",\"bbc\",\"bbt\",\"bbva\",\"bcg\",\"bcn\",\"beats\",\"beauty\",\"beer\",\"bentley\",\"berlin\",\"best\",\"bestbuy\",\"bet\",\"bharti\",\"bible\",\"bid\",\"bike\",\"bing\",\"bingo\",\"bio\",\"black\",\"blackfriday\",\"blockbuster\",\"blog\",\"bloomberg\",\"blue\",\"bms\",\"bmw\",\"bnpparibas\",\"boats\",\"boehringer\",\"bofa\",\"bom\",\"bond\",\"boo\",\"book\",\"booking\",\"bosch\",\"bostik\",\"boston\",\"bot\",\"boutique\",\"box\",\"bradesco\",\"bridgestone\",\"broadway\",\"broker\",\"brother\",\"brussels\",\"budapest\",\"bugatti\",\"build\",\"builders\",\"business\",\"buy\",\"buzz\",\"bzh\",\"cab\",\"cafe\",\"cal\",\"call\",\"calvinklein\",\"cam\",\"camera\",\"camp\",\"cancerresearch\",\"canon\",\"capetown\",\"capital\",\"capitalone\",\"car\",\"caravan\",\"cards\",\"care\",\"career\",\"careers\",\"cars\",\"casa\",\"case\",\"caseih\",\"cash\",\"casino\",\"catering\",\"catholic\",\"cba\",\"cbn\",\"cbre\",\"cbs\",\"ceb\",\"center\",\"ceo\",\"cern\",\"cfa\",\"cfd\",\"chanel\",\"channel\",\"charity\",\"chase\",\"chat\",\"cheap\",\"chintai\",\"christmas\",\"chrome\",\"church\",\"cipriani\",\"circle\",\"cisco\",\"citadel\",\"citi\",\"citic\",\"city\",\"cityeats\",\"claims\",\"cleaning\",\"click\",\"clinic\",\"clinique\",\"clothing\",\"cloud\",\"club\",\"clubmed\",\"coach\",\"codes\",\"coffee\",\"college\",\"cologne\",\"comcast\",\"commbank\",\"community\",\"company\",\"compare\",\"computer\",\"comsec\",\"condos\",\"construction\",\"consulting\",\"contact\",\"contractors\",\"cooking\",\"cookingchannel\",\"cool\",\"corsica\",\"country\",\"coupon\",\"coupons\",\"courses\",\"cpa\",\"credit\",\"creditcard\",\"creditunion\",\"cricket\",\"crown\",\"crs\",\"cruise\",\"cruises\",\"csc\",\"cuisinella\",\"cymru\",\"cyou\",\"dabur\",\"dad\",\"dance\",\"data\",\"date\",\"dating\",\"datsun\",\"day\",\"dclk\",\"dds\",\"deal\",\"dealer\",\"deals\",\"degree\",\"delivery\",\"dell\",\"deloitte\",\"delta\",\"democrat\",\"dental\",\"dentist\",\"desi\",\"design\",\"dev\",\"dhl\",\"diamonds\",\"diet\",\"digital\",\"direct\",\"directory\",\"discount\",\"discover\",\"dish\",\"diy\",\"dnp\",\"docs\",\"doctor\",\"dog\",\"domains\",\"dot\",\"download\",\"drive\",\"dtv\",\"dubai\",\"duck\",\"dunlop\",\"dupont\",\"durban\",\"dvag\",\"dvr\",\"earth\",\"eat\",\"eco\",\"edeka\",\"education\",\"email\",\"emerck\",\"energy\",\"engineer\",\"engineering\",\"enterprises\",\"epson\",\"equipment\",\"ericsson\",\"erni\",\"esq\",\"estate\",\"esurance\",\"etisalat\",\"eurovision\",\"eus\",\"events\",\"exchange\",\"expert\",\"exposed\",\"express\",\"extraspace\",\"fage\",\"fail\",\"fairwinds\",\"faith\",\"family\",\"fan\",\"fans\",\"farm\",\"farmers\",\"fashion\",\"fast\",\"fedex\",\"feedback\",\"ferrari\",\"ferrero\",\"fiat\",\"fidelity\",\"fido\",\"film\",\"final\",\"finance\",\"financial\",\"fire\",\"firestone\",\"firmdale\",\"fish\",\"fishing\",\"fit\",\"fitness\",\"flickr\",\"flights\",\"flir\",\"florist\",\"flowers\",\"fly\",\"foo\",\"food\",\"foodnetwork\",\"football\",\"ford\",\"forex\",\"forsale\",\"forum\",\"foundation\",\"fox\",\"free\",\"fresenius\",\"frl\",\"frogans\",\"frontdoor\",\"frontier\",\"ftr\",\"fujitsu\",\"fujixerox\",\"fun\",\"fund\",\"furniture\",\"futbol\",\"fyi\",\"gal\",\"gallery\",\"gallo\",\"gallup\",\"game\",\"games\",\"gap\",\"garden\",\"gay\",\"gbiz\",\"gdn\",\"gea\",\"gent\",\"genting\",\"george\",\"ggee\",\"gift\",\"gifts\",\"gives\",\"giving\",\"glade\",\"glass\",\"gle\",\"global\",\"globo\",\"gmail\",\"gmbh\",\"gmo\",\"gmx\",\"godaddy\",\"gold\",\"goldpoint\",\"golf\",\"goo\",\"goodyear\",\"goog\",\"google\",\"gop\",\"got\",\"grainger\",\"graphics\",\"gratis\",\"green\",\"gripe\",\"grocery\",\"group\",\"guardian\",\"gucci\",\"guge\",\"guide\",\"guitars\",\"guru\",\"hair\",\"hamburg\",\"hangout\",\"haus\",\"hbo\",\"hdfc\",\"hdfcbank\",\"health\",\"healthcare\",\"help\",\"helsinki\",\"here\",\"hermes\",\"hgtv\",\"hiphop\",\"hisamitsu\",\"hitachi\",\"hiv\",\"hkt\",\"hockey\",\"holdings\",\"holiday\",\"homedepot\",\"homegoods\",\"homes\",\"homesense\",\"honda\",\"horse\",\"hospital\",\"host\",\"hosting\",\"hot\",\"hoteles\",\"hotels\",\"hotmail\",\"house\",\"how\",\"hsbc\",\"hughes\",\"hyatt\",\"hyundai\",\"ibm\",\"icbc\",\"ice\",\"icu\",\"ieee\",\"ifm\",\"ikano\",\"imamat\",\"imdb\",\"immo\",\"immobilien\",\"inc\",\"industries\",\"infiniti\",\"ing\",\"ink\",\"institute\",\"insurance\",\"insure\",\"intel\",\"international\",\"intuit\",\"investments\",\"ipiranga\",\"irish\",\"ismaili\",\"ist\",\"istanbul\",\"itau\",\"itv\",\"iveco\",\"jaguar\",\"java\",\"jcb\",\"jcp\",\"jeep\",\"jetzt\",\"jewelry\",\"jio\",\"jll\",\"jmp\",\"jnj\",\"joburg\",\"jot\",\"joy\",\"jpmorgan\",\"jprs\",\"juegos\",\"juniper\",\"kaufen\",\"kddi\",\"kerryhotels\",\"kerrylogistics\",\"kerryproperties\",\"kfh\",\"kia\",\"kim\",\"kinder\",\"kindle\",\"kitchen\",\"kiwi\",\"koeln\",\"komatsu\",\"kosher\",\"kpmg\",\"kpn\",\"krd\",\"kred\",\"kuokgroup\",\"kyoto\",\"lacaixa\",\"lamborghini\",\"lamer\",\"lancaster\",\"lancia\",\"land\",\"landrover\",\"lanxess\",\"lasalle\",\"lat\",\"latino\",\"latrobe\",\"law\",\"lawyer\",\"lds\",\"lease\",\"leclerc\",\"lefrak\",\"legal\",\"lego\",\"lexus\",\"lgbt\",\"lidl\",\"life\",\"lifeinsurance\",\"lifestyle\",\"lighting\",\"like\",\"lilly\",\"limited\",\"limo\",\"lincoln\",\"linde\",\"link\",\"lipsy\",\"live\",\"living\",\"lixil\",\"llc\",\"llp\",\"loan\",\"loans\",\"locker\",\"locus\",\"loft\",\"lol\",\"london\",\"lotte\",\"lotto\",\"love\",\"lpl\",\"lplfinancial\",\"ltd\",\"ltda\",\"lundbeck\",\"lupin\",\"luxe\",\"luxury\",\"macys\",\"madrid\",\"maif\",\"maison\",\"makeup\",\"man\",\"management\",\"mango\",\"map\",\"market\",\"marketing\",\"markets\",\"marriott\",\"marshalls\",\"maserati\",\"mattel\",\"mba\",\"mckinsey\",\"med\",\"media\",\"meet\",\"melbourne\",\"meme\",\"memorial\",\"men\",\"menu\",\"merckmsd\",\"metlife\",\"miami\",\"microsoft\",\"mini\",\"mint\",\"mit\",\"mitsubishi\",\"mlb\",\"mls\",\"mma\",\"mobile\",\"moda\",\"moe\",\"moi\",\"mom\",\"monash\",\"money\",\"monster\",\"mormon\",\"mortgage\",\"moscow\",\"moto\",\"motorcycles\",\"mov\",\"movie\",\"msd\",\"mtn\",\"mtr\",\"mutual\",\"nab\",\"nadex\",\"nagoya\",\"nationwide\",\"natura\",\"navy\",\"nba\",\"nec\",\"netbank\",\"netflix\",\"network\",\"neustar\",\"new\",\"newholland\",\"news\",\"next\",\"nextdirect\",\"nexus\",\"nfl\",\"ngo\",\"nhk\",\"nico\",\"nike\",\"nikon\",\"ninja\",\"nissan\",\"nissay\",\"nokia\",\"northwesternmutual\",\"norton\",\"now\",\"nowruz\",\"nowtv\",\"nra\",\"nrw\",\"ntt\",\"nyc\",\"obi\",\"observer\",\"off\",\"office\",\"okinawa\",\"olayan\",\"olayangroup\",\"oldnavy\",\"ollo\",\"omega\",\"one\",\"ong\",\"onl\",\"online\",\"onyourside\",\"ooo\",\"open\",\"oracle\",\"orange\",\"organic\",\"origins\",\"osaka\",\"otsuka\",\"ott\",\"ovh\",\"page\",\"panasonic\",\"paris\",\"pars\",\"partners\",\"parts\",\"party\",\"passagens\",\"pay\",\"pccw\",\"pet\",\"pfizer\",\"pharmacy\",\"phd\",\"philips\",\"phone\",\"photo\",\"photography\",\"photos\",\"physio\",\"pics\",\"pictet\",\"pictures\",\"pid\",\"pin\",\"ping\",\"pink\",\"pioneer\",\"pizza\",\"place\",\"play\",\"playstation\",\"plumbing\",\"plus\",\"pnc\",\"pohl\",\"poker\",\"politie\",\"porn\",\"pramerica\",\"praxi\",\"press\",\"prime\",\"prod\",\"productions\",\"prof\",\"progressive\",\"promo\",\"properties\",\"property\",\"protection\",\"pru\",\"prudential\",\"pub\",\"pwc\",\"qpon\",\"quebec\",\"quest\",\"qvc\",\"racing\",\"radio\",\"raid\",\"read\",\"realestate\",\"realtor\",\"realty\",\"recipes\",\"red\",\"redstone\",\"redumbrella\",\"rehab\",\"reise\",\"reisen\",\"reit\",\"reliance\",\"ren\",\"rent\",\"rentals\",\"repair\",\"report\",\"republican\",\"rest\",\"restaurant\",\"review\",\"reviews\",\"rexroth\",\"rich\",\"richardli\",\"ricoh\",\"rightathome\",\"ril\",\"rio\",\"rip\",\"rmit\",\"rocher\",\"rocks\",\"rodeo\",\"rogers\",\"room\",\"rsvp\",\"rugby\",\"ruhr\",\"run\",\"rwe\",\"ryukyu\",\"saarland\",\"safe\",\"safety\",\"sakura\",\"sale\",\"salon\",\"samsclub\",\"samsung\",\"sandvik\",\"sandvikcoromant\",\"sanofi\",\"sap\",\"sarl\",\"sas\",\"save\",\"saxo\",\"sbi\",\"sbs\",\"sca\",\"scb\",\"schaeffler\",\"schmidt\",\"scholarships\",\"school\",\"schule\",\"schwarz\",\"science\",\"scjohnson\",\"scor\",\"scot\",\"search\",\"seat\",\"secure\",\"security\",\"seek\",\"select\",\"sener\",\"services\",\"ses\",\"seven\",\"sew\",\"sex\",\"sexy\",\"sfr\",\"shangrila\",\"sharp\",\"shaw\",\"shell\",\"shia\",\"shiksha\",\"shoes\",\"shop\",\"shopping\",\"shouji\",\"show\",\"showtime\",\"shriram\",\"silk\",\"sina\",\"singles\",\"site\",\"ski\",\"skin\",\"sky\",\"skype\",\"sling\",\"smart\",\"smile\",\"sncf\",\"soccer\",\"social\",\"softbank\",\"software\",\"sohu\",\"solar\",\"solutions\",\"song\",\"sony\",\"soy\",\"spa\",\"space\",\"sport\",\"spot\",\"spreadbetting\",\"srl\",\"stada\",\"staples\",\"star\",\"statebank\",\"statefarm\",\"stc\",\"stcgroup\",\"stockholm\",\"storage\",\"store\",\"stream\",\"studio\",\"study\",\"style\",\"sucks\",\"supplies\",\"supply\",\"support\",\"surf\",\"surgery\",\"suzuki\",\"swatch\",\"swiftcover\",\"swiss\",\"sydney\",\"symantec\",\"systems\",\"tab\",\"taipei\",\"talk\",\"taobao\",\"target\",\"tatamotors\",\"tatar\",\"tattoo\",\"tax\",\"taxi\",\"tci\",\"tdk\",\"team\",\"tech\",\"technology\",\"temasek\",\"tennis\",\"teva\",\"thd\",\"theater\",\"theatre\",\"tiaa\",\"tickets\",\"tienda\",\"tiffany\",\"tips\",\"tires\",\"tirol\",\"tjmaxx\",\"tjx\",\"tkmaxx\",\"tmall\",\"today\",\"tokyo\",\"tools\",\"top\",\"toray\",\"toshiba\",\"total\",\"tours\",\"town\",\"toyota\",\"toys\",\"trade\",\"trading\",\"training\",\"travel\",\"travelchannel\",\"travelers\",\"travelersinsurance\",\"trust\",\"trv\",\"tube\",\"tui\",\"tunes\",\"tushu\",\"tvs\",\"ubank\",\"ubs\",\"unicom\",\"university\",\"uno\",\"uol\",\"ups\",\"vacations\",\"vana\",\"vanguard\",\"vegas\",\"ventures\",\"verisign\",\"versicherung\",\"vet\",\"viajes\",\"video\",\"vig\",\"viking\",\"villas\",\"vin\",\"vip\",\"virgin\",\"visa\",\"vision\",\"viva\",\"vivo\",\"vlaanderen\",\"vodka\",\"volkswagen\",\"volvo\",\"vote\",\"voting\",\"voto\",\"voyage\",\"vuelos\",\"wales\",\"walmart\",\"walter\",\"wang\",\"wanggou\",\"watch\",\"watches\",\"weather\",\"weatherchannel\",\"webcam\",\"weber\",\"website\",\"wed\",\"wedding\",\"weibo\",\"weir\",\"whoswho\",\"wien\",\"wiki\",\"williamhill\",\"win\",\"windows\",\"wine\",\"winners\",\"wme\",\"wolterskluwer\",\"woodside\",\"work\",\"works\",\"world\",\"wow\",\"wtc\",\"wtf\",\"xbox\",\"xerox\",\"xfinity\",\"xihuan\",\"xin\",\"कॉम\",\"セール\",\"佛山\",\"慈善\",\"集团\",\"在线\",\"大众汽车\",\"点看\",\"คอม\",\"八卦\",\"موقع\",\"公益\",\"公司\",\"香格里拉\",\"网站\",\"移动\",\"我爱你\",\"москва\",\"католик\",\"онлайн\",\"сайт\",\"联通\",\"קום\",\"时尚\",\"微博\",\"淡马锡\",\"ファッション\",\"орг\",\"नेट\",\"ストア\",\"アマゾン\",\"삼성\",\"商标\",\"商店\",\"商城\",\"дети\",\"ポイント\",\"新闻\",\"工行\",\"家電\",\"كوم\",\"中文网\",\"中信\",\"娱乐\",\"谷歌\",\"電訊盈科\",\"购物\",\"クラウド\",\"通販\",\"网店\",\"संगठन\",\"餐厅\",\"网络\",\"ком\",\"亚马逊\",\"诺基亚\",\"食品\",\"飞利浦\",\"手表\",\"手机\",\"ارامكو\",\"العليان\",\"اتصالات\",\"بازار\",\"ابوظبي\",\"كاثوليك\",\"همراه\",\"닷컴\",\"政府\",\"شبكة\",\"بيتك\",\"عرب\",\"机构\",\"组织机构\",\"健康\",\"招聘\",\"рус\",\"珠宝\",\"大拿\",\"みんな\",\"グーグル\",\"世界\",\"書籍\",\"网址\",\"닷넷\",\"コム\",\"天主教\",\"游戏\",\"vermögensberater\",\"vermögensberatung\",\"企业\",\"信息\",\"嘉里大酒店\",\"嘉里\",\"广东\",\"政务\",\"xyz\",\"yachts\",\"yahoo\",\"yamaxun\",\"yandex\",\"yodobashi\",\"yoga\",\"yokohama\",\"you\",\"youtube\",\"yun\",\"zappos\",\"zara\",\"zero\",\"zip\",\"zone\",\"zuerich\",\"cc.ua\",\"inf.ua\",\"ltd.ua\",\"adobeaemcloud.com\",\"adobeaemcloud.net\",\"*.dev.adobeaemcloud.com\",\"beep.pl\",\"barsy.ca\",\"*.compute.estate\",\"*.alces.network\",\"altervista.org\",\"alwaysdata.net\",\"cloudfront.net\",\"*.compute.amazonaws.com\",\"*.compute-1.amazonaws.com\",\"*.compute.amazonaws.com.cn\",\"us-east-1.amazonaws.com\",\"cn-north-1.eb.amazonaws.com.cn\",\"cn-northwest-1.eb.amazonaws.com.cn\",\"elasticbeanstalk.com\",\"ap-northeast-1.elasticbeanstalk.com\",\"ap-northeast-2.elasticbeanstalk.com\",\"ap-northeast-3.elasticbeanstalk.com\",\"ap-south-1.elasticbeanstalk.com\",\"ap-southeast-1.elasticbeanstalk.com\",\"ap-southeast-2.elasticbeanstalk.com\",\"ca-central-1.elasticbeanstalk.com\",\"eu-central-1.elasticbeanstalk.com\",\"eu-west-1.elasticbeanstalk.com\",\"eu-west-2.elasticbeanstalk.com\",\"eu-west-3.elasticbeanstalk.com\",\"sa-east-1.elasticbeanstalk.com\",\"us-east-1.elasticbeanstalk.com\",\"us-east-2.elasticbeanstalk.com\",\"us-gov-west-1.elasticbeanstalk.com\",\"us-west-1.elasticbeanstalk.com\",\"us-west-2.elasticbeanstalk.com\",\"*.elb.amazonaws.com\",\"*.elb.amazonaws.com.cn\",\"s3.amazonaws.com\",\"s3-ap-northeast-1.amazonaws.com\",\"s3-ap-northeast-2.amazonaws.com\",\"s3-ap-south-1.amazonaws.com\",\"s3-ap-southeast-1.amazonaws.com\",\"s3-ap-southeast-2.amazonaws.com\",\"s3-ca-central-1.amazonaws.com\",\"s3-eu-central-1.amazonaws.com\",\"s3-eu-west-1.amazonaws.com\",\"s3-eu-west-2.amazonaws.com\",\"s3-eu-west-3.amazonaws.com\",\"s3-external-1.amazonaws.com\",\"s3-fips-us-gov-west-1.amazonaws.com\",\"s3-sa-east-1.amazonaws.com\",\"s3-us-gov-west-1.amazonaws.com\",\"s3-us-east-2.amazonaws.com\",\"s3-us-west-1.amazonaws.com\",\"s3-us-west-2.amazonaws.com\",\"s3.ap-northeast-2.amazonaws.com\",\"s3.ap-south-1.amazonaws.com\",\"s3.cn-north-1.amazonaws.com.cn\",\"s3.ca-central-1.amazonaws.com\",\"s3.eu-central-1.amazonaws.com\",\"s3.eu-west-2.amazonaws.com\",\"s3.eu-west-3.amazonaws.com\",\"s3.us-east-2.amazonaws.com\",\"s3.dualstack.ap-northeast-1.amazonaws.com\",\"s3.dualstack.ap-northeast-2.amazonaws.com\",\"s3.dualstack.ap-south-1.amazonaws.com\",\"s3.dualstack.ap-southeast-1.amazonaws.com\",\"s3.dualstack.ap-southeast-2.amazonaws.com\",\"s3.dualstack.ca-central-1.amazonaws.com\",\"s3.dualstack.eu-central-1.amazonaws.com\",\"s3.dualstack.eu-west-1.amazonaws.com\",\"s3.dualstack.eu-west-2.amazonaws.com\",\"s3.dualstack.eu-west-3.amazonaws.com\",\"s3.dualstack.sa-east-1.amazonaws.com\",\"s3.dualstack.us-east-1.amazonaws.com\",\"s3.dualstack.us-east-2.amazonaws.com\",\"s3-website-us-east-1.amazonaws.com\",\"s3-website-us-west-1.amazonaws.com\",\"s3-website-us-west-2.amazonaws.com\",\"s3-website-ap-northeast-1.amazonaws.com\",\"s3-website-ap-southeast-1.amazonaws.com\",\"s3-website-ap-southeast-2.amazonaws.com\",\"s3-website-eu-west-1.amazonaws.com\",\"s3-website-sa-east-1.amazonaws.com\",\"s3-website.ap-northeast-2.amazonaws.com\",\"s3-website.ap-south-1.amazonaws.com\",\"s3-website.ca-central-1.amazonaws.com\",\"s3-website.eu-central-1.amazonaws.com\",\"s3-website.eu-west-2.amazonaws.com\",\"s3-website.eu-west-3.amazonaws.com\",\"s3-website.us-east-2.amazonaws.com\",\"amsw.nl\",\"t3l3p0rt.net\",\"tele.amune.org\",\"apigee.io\",\"on-aptible.com\",\"user.aseinet.ne.jp\",\"gv.vc\",\"d.gv.vc\",\"user.party.eus\",\"pimienta.org\",\"poivron.org\",\"potager.org\",\"sweetpepper.org\",\"myasustor.com\",\"myfritz.net\",\"*.awdev.ca\",\"*.advisor.ws\",\"b-data.io\",\"backplaneapp.io\",\"balena-devices.com\",\"app.banzaicloud.io\",\"betainabox.com\",\"bnr.la\",\"blackbaudcdn.net\",\"boomla.net\",\"boxfuse.io\",\"square7.ch\",\"bplaced.com\",\"bplaced.de\",\"square7.de\",\"bplaced.net\",\"square7.net\",\"browsersafetymark.io\",\"uk0.bigv.io\",\"dh.bytemark.co.uk\",\"vm.bytemark.co.uk\",\"mycd.eu\",\"carrd.co\",\"crd.co\",\"uwu.ai\",\"ae.org\",\"ar.com\",\"br.com\",\"cn.com\",\"com.de\",\"com.se\",\"de.com\",\"eu.com\",\"gb.com\",\"gb.net\",\"hu.com\",\"hu.net\",\"jp.net\",\"jpn.com\",\"kr.com\",\"mex.com\",\"no.com\",\"qc.com\",\"ru.com\",\"sa.com\",\"se.net\",\"uk.com\",\"uk.net\",\"us.com\",\"uy.com\",\"za.bz\",\"za.com\",\"africa.com\",\"gr.com\",\"in.net\",\"us.org\",\"co.com\",\"c.la\",\"certmgr.org\",\"xenapponazure.com\",\"discourse.group\",\"discourse.team\",\"virtueeldomein.nl\",\"cleverapps.io\",\"*.lcl.dev\",\"*.stg.dev\",\"c66.me\",\"cloud66.ws\",\"cloud66.zone\",\"jdevcloud.com\",\"wpdevcloud.com\",\"cloudaccess.host\",\"freesite.host\",\"cloudaccess.net\",\"cloudcontrolled.com\",\"cloudcontrolapp.com\",\"cloudera.site\",\"trycloudflare.com\",\"workers.dev\",\"wnext.app\",\"co.ca\",\"*.otap.co\",\"co.cz\",\"c.cdn77.org\",\"cdn77-ssl.net\",\"r.cdn77.net\",\"rsc.cdn77.org\",\"ssl.origin.cdn77-secure.org\",\"cloudns.asia\",\"cloudns.biz\",\"cloudns.club\",\"cloudns.cc\",\"cloudns.eu\",\"cloudns.in\",\"cloudns.info\",\"cloudns.org\",\"cloudns.pro\",\"cloudns.pw\",\"cloudns.us\",\"cloudeity.net\",\"cnpy.gdn\",\"co.nl\",\"co.no\",\"webhosting.be\",\"hosting-cluster.nl\",\"ac.ru\",\"edu.ru\",\"gov.ru\",\"int.ru\",\"mil.ru\",\"test.ru\",\"dyn.cosidns.de\",\"dynamisches-dns.de\",\"dnsupdater.de\",\"internet-dns.de\",\"l-o-g-i-n.de\",\"dynamic-dns.info\",\"feste-ip.net\",\"knx-server.net\",\"static-access.net\",\"realm.cz\",\"*.cryptonomic.net\",\"cupcake.is\",\"*.customer-oci.com\",\"*.oci.customer-oci.com\",\"*.ocp.customer-oci.com\",\"*.ocs.customer-oci.com\",\"cyon.link\",\"cyon.site\",\"daplie.me\",\"localhost.daplie.me\",\"dattolocal.com\",\"dattorelay.com\",\"dattoweb.com\",\"mydatto.com\",\"dattolocal.net\",\"mydatto.net\",\"biz.dk\",\"co.dk\",\"firm.dk\",\"reg.dk\",\"store.dk\",\"*.dapps.earth\",\"*.bzz.dapps.earth\",\"builtwithdark.com\",\"edgestack.me\",\"debian.net\",\"dedyn.io\",\"dnshome.de\",\"online.th\",\"shop.th\",\"drayddns.com\",\"dreamhosters.com\",\"mydrobo.com\",\"drud.io\",\"drud.us\",\"duckdns.org\",\"dy.fi\",\"tunk.org\",\"dyndns-at-home.com\",\"dyndns-at-work.com\",\"dyndns-blog.com\",\"dyndns-free.com\",\"dyndns-home.com\",\"dyndns-ip.com\",\"dyndns-mail.com\",\"dyndns-office.com\",\"dyndns-pics.com\",\"dyndns-remote.com\",\"dyndns-server.com\",\"dyndns-web.com\",\"dyndns-wiki.com\",\"dyndns-work.com\",\"dyndns.biz\",\"dyndns.info\",\"dyndns.org\",\"dyndns.tv\",\"at-band-camp.net\",\"ath.cx\",\"barrel-of-knowledge.info\",\"barrell-of-knowledge.info\",\"better-than.tv\",\"blogdns.com\",\"blogdns.net\",\"blogdns.org\",\"blogsite.org\",\"boldlygoingnowhere.org\",\"broke-it.net\",\"buyshouses.net\",\"cechire.com\",\"dnsalias.com\",\"dnsalias.net\",\"dnsalias.org\",\"dnsdojo.com\",\"dnsdojo.net\",\"dnsdojo.org\",\"does-it.net\",\"doesntexist.com\",\"doesntexist.org\",\"dontexist.com\",\"dontexist.net\",\"dontexist.org\",\"doomdns.com\",\"doomdns.org\",\"dvrdns.org\",\"dyn-o-saur.com\",\"dynalias.com\",\"dynalias.net\",\"dynalias.org\",\"dynathome.net\",\"dyndns.ws\",\"endofinternet.net\",\"endofinternet.org\",\"endoftheinternet.org\",\"est-a-la-maison.com\",\"est-a-la-masion.com\",\"est-le-patron.com\",\"est-mon-blogueur.com\",\"for-better.biz\",\"for-more.biz\",\"for-our.info\",\"for-some.biz\",\"for-the.biz\",\"forgot.her.name\",\"forgot.his.name\",\"from-ak.com\",\"from-al.com\",\"from-ar.com\",\"from-az.net\",\"from-ca.com\",\"from-co.net\",\"from-ct.com\",\"from-dc.com\",\"from-de.com\",\"from-fl.com\",\"from-ga.com\",\"from-hi.com\",\"from-ia.com\",\"from-id.com\",\"from-il.com\",\"from-in.com\",\"from-ks.com\",\"from-ky.com\",\"from-la.net\",\"from-ma.com\",\"from-md.com\",\"from-me.org\",\"from-mi.com\",\"from-mn.com\",\"from-mo.com\",\"from-ms.com\",\"from-mt.com\",\"from-nc.com\",\"from-nd.com\",\"from-ne.com\",\"from-nh.com\",\"from-nj.com\",\"from-nm.com\",\"from-nv.com\",\"from-ny.net\",\"from-oh.com\",\"from-ok.com\",\"from-or.com\",\"from-pa.com\",\"from-pr.com\",\"from-ri.com\",\"from-sc.com\",\"from-sd.com\",\"from-tn.com\",\"from-tx.com\",\"from-ut.com\",\"from-va.com\",\"from-vt.com\",\"from-wa.com\",\"from-wi.com\",\"from-wv.com\",\"from-wy.com\",\"ftpaccess.cc\",\"fuettertdasnetz.de\",\"game-host.org\",\"game-server.cc\",\"getmyip.com\",\"gets-it.net\",\"go.dyndns.org\",\"gotdns.com\",\"gotdns.org\",\"groks-the.info\",\"groks-this.info\",\"ham-radio-op.net\",\"here-for-more.info\",\"hobby-site.com\",\"hobby-site.org\",\"home.dyndns.org\",\"homedns.org\",\"homeftp.net\",\"homeftp.org\",\"homeip.net\",\"homelinux.com\",\"homelinux.net\",\"homelinux.org\",\"homeunix.com\",\"homeunix.net\",\"homeunix.org\",\"iamallama.com\",\"in-the-band.net\",\"is-a-anarchist.com\",\"is-a-blogger.com\",\"is-a-bookkeeper.com\",\"is-a-bruinsfan.org\",\"is-a-bulls-fan.com\",\"is-a-candidate.org\",\"is-a-caterer.com\",\"is-a-celticsfan.org\",\"is-a-chef.com\",\"is-a-chef.net\",\"is-a-chef.org\",\"is-a-conservative.com\",\"is-a-cpa.com\",\"is-a-cubicle-slave.com\",\"is-a-democrat.com\",\"is-a-designer.com\",\"is-a-doctor.com\",\"is-a-financialadvisor.com\",\"is-a-geek.com\",\"is-a-geek.net\",\"is-a-geek.org\",\"is-a-green.com\",\"is-a-guru.com\",\"is-a-hard-worker.com\",\"is-a-hunter.com\",\"is-a-knight.org\",\"is-a-landscaper.com\",\"is-a-lawyer.com\",\"is-a-liberal.com\",\"is-a-libertarian.com\",\"is-a-linux-user.org\",\"is-a-llama.com\",\"is-a-musician.com\",\"is-a-nascarfan.com\",\"is-a-nurse.com\",\"is-a-painter.com\",\"is-a-patsfan.org\",\"is-a-personaltrainer.com\",\"is-a-photographer.com\",\"is-a-player.com\",\"is-a-republican.com\",\"is-a-rockstar.com\",\"is-a-socialist.com\",\"is-a-soxfan.org\",\"is-a-student.com\",\"is-a-teacher.com\",\"is-a-techie.com\",\"is-a-therapist.com\",\"is-an-accountant.com\",\"is-an-actor.com\",\"is-an-actress.com\",\"is-an-anarchist.com\",\"is-an-artist.com\",\"is-an-engineer.com\",\"is-an-entertainer.com\",\"is-by.us\",\"is-certified.com\",\"is-found.org\",\"is-gone.com\",\"is-into-anime.com\",\"is-into-cars.com\",\"is-into-cartoons.com\",\"is-into-games.com\",\"is-leet.com\",\"is-lost.org\",\"is-not-certified.com\",\"is-saved.org\",\"is-slick.com\",\"is-uberleet.com\",\"is-very-bad.org\",\"is-very-evil.org\",\"is-very-good.org\",\"is-very-nice.org\",\"is-very-sweet.org\",\"is-with-theband.com\",\"isa-geek.com\",\"isa-geek.net\",\"isa-geek.org\",\"isa-hockeynut.com\",\"issmarterthanyou.com\",\"isteingeek.de\",\"istmein.de\",\"kicks-ass.net\",\"kicks-ass.org\",\"knowsitall.info\",\"land-4-sale.us\",\"lebtimnetz.de\",\"leitungsen.de\",\"likes-pie.com\",\"likescandy.com\",\"merseine.nu\",\"mine.nu\",\"misconfused.org\",\"mypets.ws\",\"myphotos.cc\",\"neat-url.com\",\"office-on-the.net\",\"on-the-web.tv\",\"podzone.net\",\"podzone.org\",\"readmyblog.org\",\"saves-the-whales.com\",\"scrapper-site.net\",\"scrapping.cc\",\"selfip.biz\",\"selfip.com\",\"selfip.info\",\"selfip.net\",\"selfip.org\",\"sells-for-less.com\",\"sells-for-u.com\",\"sells-it.net\",\"sellsyourhome.org\",\"servebbs.com\",\"servebbs.net\",\"servebbs.org\",\"serveftp.net\",\"serveftp.org\",\"servegame.org\",\"shacknet.nu\",\"simple-url.com\",\"space-to-rent.com\",\"stuff-4-sale.org\",\"stuff-4-sale.us\",\"teaches-yoga.com\",\"thruhere.net\",\"traeumtgerade.de\",\"webhop.biz\",\"webhop.info\",\"webhop.net\",\"webhop.org\",\"worse-than.tv\",\"writesthisblog.com\",\"ddnss.de\",\"dyn.ddnss.de\",\"dyndns.ddnss.de\",\"dyndns1.de\",\"dyn-ip24.de\",\"home-webserver.de\",\"dyn.home-webserver.de\",\"myhome-server.de\",\"ddnss.org\",\"definima.net\",\"definima.io\",\"bci.dnstrace.pro\",\"ddnsfree.com\",\"ddnsgeek.com\",\"giize.com\",\"gleeze.com\",\"kozow.com\",\"loseyourip.com\",\"ooguy.com\",\"theworkpc.com\",\"casacam.net\",\"dynu.net\",\"accesscam.org\",\"camdvr.org\",\"freeddns.org\",\"mywire.org\",\"webredirect.org\",\"myddns.rocks\",\"blogsite.xyz\",\"dynv6.net\",\"e4.cz\",\"en-root.fr\",\"mytuleap.com\",\"onred.one\",\"staging.onred.one\",\"enonic.io\",\"customer.enonic.io\",\"eu.org\",\"al.eu.org\",\"asso.eu.org\",\"at.eu.org\",\"au.eu.org\",\"be.eu.org\",\"bg.eu.org\",\"ca.eu.org\",\"cd.eu.org\",\"ch.eu.org\",\"cn.eu.org\",\"cy.eu.org\",\"cz.eu.org\",\"de.eu.org\",\"dk.eu.org\",\"edu.eu.org\",\"ee.eu.org\",\"es.eu.org\",\"fi.eu.org\",\"fr.eu.org\",\"gr.eu.org\",\"hr.eu.org\",\"hu.eu.org\",\"ie.eu.org\",\"il.eu.org\",\"in.eu.org\",\"int.eu.org\",\"is.eu.org\",\"it.eu.org\",\"jp.eu.org\",\"kr.eu.org\",\"lt.eu.org\",\"lu.eu.org\",\"lv.eu.org\",\"mc.eu.org\",\"me.eu.org\",\"mk.eu.org\",\"mt.eu.org\",\"my.eu.org\",\"net.eu.org\",\"ng.eu.org\",\"nl.eu.org\",\"no.eu.org\",\"nz.eu.org\",\"paris.eu.org\",\"pl.eu.org\",\"pt.eu.org\",\"q-a.eu.org\",\"ro.eu.org\",\"ru.eu.org\",\"se.eu.org\",\"si.eu.org\",\"sk.eu.org\",\"tr.eu.org\",\"uk.eu.org\",\"us.eu.org\",\"eu-1.evennode.com\",\"eu-2.evennode.com\",\"eu-3.evennode.com\",\"eu-4.evennode.com\",\"us-1.evennode.com\",\"us-2.evennode.com\",\"us-3.evennode.com\",\"us-4.evennode.com\",\"twmail.cc\",\"twmail.net\",\"twmail.org\",\"mymailer.com.tw\",\"url.tw\",\"apps.fbsbx.com\",\"ru.net\",\"adygeya.ru\",\"bashkiria.ru\",\"bir.ru\",\"cbg.ru\",\"com.ru\",\"dagestan.ru\",\"grozny.ru\",\"kalmykia.ru\",\"kustanai.ru\",\"marine.ru\",\"mordovia.ru\",\"msk.ru\",\"mytis.ru\",\"nalchik.ru\",\"nov.ru\",\"pyatigorsk.ru\",\"spb.ru\",\"vladikavkaz.ru\",\"vladimir.ru\",\"abkhazia.su\",\"adygeya.su\",\"aktyubinsk.su\",\"arkhangelsk.su\",\"armenia.su\",\"ashgabad.su\",\"azerbaijan.su\",\"balashov.su\",\"bashkiria.su\",\"bryansk.su\",\"bukhara.su\",\"chimkent.su\",\"dagestan.su\",\"east-kazakhstan.su\",\"exnet.su\",\"georgia.su\",\"grozny.su\",\"ivanovo.su\",\"jambyl.su\",\"kalmykia.su\",\"kaluga.su\",\"karacol.su\",\"karaganda.su\",\"karelia.su\",\"khakassia.su\",\"krasnodar.su\",\"kurgan.su\",\"kustanai.su\",\"lenug.su\",\"mangyshlak.su\",\"mordovia.su\",\"msk.su\",\"murmansk.su\",\"nalchik.su\",\"navoi.su\",\"north-kazakhstan.su\",\"nov.su\",\"obninsk.su\",\"penza.su\",\"pokrovsk.su\",\"sochi.su\",\"spb.su\",\"tashkent.su\",\"termez.su\",\"togliatti.su\",\"troitsk.su\",\"tselinograd.su\",\"tula.su\",\"tuva.su\",\"vladikavkaz.su\",\"vladimir.su\",\"vologda.su\",\"channelsdvr.net\",\"u.channelsdvr.net\",\"fastly-terrarium.com\",\"fastlylb.net\",\"map.fastlylb.net\",\"freetls.fastly.net\",\"map.fastly.net\",\"a.prod.fastly.net\",\"global.prod.fastly.net\",\"a.ssl.fastly.net\",\"b.ssl.fastly.net\",\"global.ssl.fastly.net\",\"fastpanel.direct\",\"fastvps-server.com\",\"fhapp.xyz\",\"fedorainfracloud.org\",\"fedorapeople.org\",\"cloud.fedoraproject.org\",\"app.os.fedoraproject.org\",\"app.os.stg.fedoraproject.org\",\"mydobiss.com\",\"filegear.me\",\"filegear-au.me\",\"filegear-de.me\",\"filegear-gb.me\",\"filegear-ie.me\",\"filegear-jp.me\",\"filegear-sg.me\",\"firebaseapp.com\",\"flynnhub.com\",\"flynnhosting.net\",\"0e.vc\",\"freebox-os.com\",\"freeboxos.com\",\"fbx-os.fr\",\"fbxos.fr\",\"freebox-os.fr\",\"freeboxos.fr\",\"freedesktop.org\",\"*.futurecms.at\",\"*.ex.futurecms.at\",\"*.in.futurecms.at\",\"futurehosting.at\",\"futuremailing.at\",\"*.ex.ortsinfo.at\",\"*.kunden.ortsinfo.at\",\"*.statics.cloud\",\"service.gov.uk\",\"gehirn.ne.jp\",\"usercontent.jp\",\"gentapps.com\",\"lab.ms\",\"github.io\",\"githubusercontent.com\",\"gitlab.io\",\"glitch.me\",\"lolipop.io\",\"cloudapps.digital\",\"london.cloudapps.digital\",\"homeoffice.gov.uk\",\"ro.im\",\"shop.ro\",\"goip.de\",\"run.app\",\"a.run.app\",\"web.app\",\"*.0emm.com\",\"appspot.com\",\"*.r.appspot.com\",\"blogspot.ae\",\"blogspot.al\",\"blogspot.am\",\"blogspot.ba\",\"blogspot.be\",\"blogspot.bg\",\"blogspot.bj\",\"blogspot.ca\",\"blogspot.cf\",\"blogspot.ch\",\"blogspot.cl\",\"blogspot.co.at\",\"blogspot.co.id\",\"blogspot.co.il\",\"blogspot.co.ke\",\"blogspot.co.nz\",\"blogspot.co.uk\",\"blogspot.co.za\",\"blogspot.com\",\"blogspot.com.ar\",\"blogspot.com.au\",\"blogspot.com.br\",\"blogspot.com.by\",\"blogspot.com.co\",\"blogspot.com.cy\",\"blogspot.com.ee\",\"blogspot.com.eg\",\"blogspot.com.es\",\"blogspot.com.mt\",\"blogspot.com.ng\",\"blogspot.com.tr\",\"blogspot.com.uy\",\"blogspot.cv\",\"blogspot.cz\",\"blogspot.de\",\"blogspot.dk\",\"blogspot.fi\",\"blogspot.fr\",\"blogspot.gr\",\"blogspot.hk\",\"blogspot.hr\",\"blogspot.hu\",\"blogspot.ie\",\"blogspot.in\",\"blogspot.is\",\"blogspot.it\",\"blogspot.jp\",\"blogspot.kr\",\"blogspot.li\",\"blogspot.lt\",\"blogspot.lu\",\"blogspot.md\",\"blogspot.mk\",\"blogspot.mr\",\"blogspot.mx\",\"blogspot.my\",\"blogspot.nl\",\"blogspot.no\",\"blogspot.pe\",\"blogspot.pt\",\"blogspot.qa\",\"blogspot.re\",\"blogspot.ro\",\"blogspot.rs\",\"blogspot.ru\",\"blogspot.se\",\"blogspot.sg\",\"blogspot.si\",\"blogspot.sk\",\"blogspot.sn\",\"blogspot.td\",\"blogspot.tw\",\"blogspot.ug\",\"blogspot.vn\",\"cloudfunctions.net\",\"cloud.goog\",\"codespot.com\",\"googleapis.com\",\"googlecode.com\",\"pagespeedmobilizer.com\",\"publishproxy.com\",\"withgoogle.com\",\"withyoutube.com\",\"awsmppl.com\",\"fin.ci\",\"free.hr\",\"caa.li\",\"ua.rs\",\"conf.se\",\"hs.zone\",\"hs.run\",\"hashbang.sh\",\"hasura.app\",\"hasura-app.io\",\"hepforge.org\",\"herokuapp.com\",\"herokussl.com\",\"myravendb.com\",\"ravendb.community\",\"ravendb.me\",\"development.run\",\"ravendb.run\",\"bpl.biz\",\"orx.biz\",\"ng.city\",\"biz.gl\",\"ng.ink\",\"col.ng\",\"firm.ng\",\"gen.ng\",\"ltd.ng\",\"ngo.ng\",\"ng.school\",\"sch.so\",\"häkkinen.fi\",\"*.moonscale.io\",\"moonscale.net\",\"iki.fi\",\"dyn-berlin.de\",\"in-berlin.de\",\"in-brb.de\",\"in-butter.de\",\"in-dsl.de\",\"in-dsl.net\",\"in-dsl.org\",\"in-vpn.de\",\"in-vpn.net\",\"in-vpn.org\",\"biz.at\",\"info.at\",\"info.cx\",\"ac.leg.br\",\"al.leg.br\",\"am.leg.br\",\"ap.leg.br\",\"ba.leg.br\",\"ce.leg.br\",\"df.leg.br\",\"es.leg.br\",\"go.leg.br\",\"ma.leg.br\",\"mg.leg.br\",\"ms.leg.br\",\"mt.leg.br\",\"pa.leg.br\",\"pb.leg.br\",\"pe.leg.br\",\"pi.leg.br\",\"pr.leg.br\",\"rj.leg.br\",\"rn.leg.br\",\"ro.leg.br\",\"rr.leg.br\",\"rs.leg.br\",\"sc.leg.br\",\"se.leg.br\",\"sp.leg.br\",\"to.leg.br\",\"pixolino.com\",\"ipifony.net\",\"mein-iserv.de\",\"test-iserv.de\",\"iserv.dev\",\"iobb.net\",\"myjino.ru\",\"*.hosting.myjino.ru\",\"*.landing.myjino.ru\",\"*.spectrum.myjino.ru\",\"*.vps.myjino.ru\",\"*.triton.zone\",\"*.cns.joyent.com\",\"js.org\",\"kaas.gg\",\"khplay.nl\",\"keymachine.de\",\"kinghost.net\",\"uni5.net\",\"knightpoint.systems\",\"oya.to\",\"co.krd\",\"edu.krd\",\"git-repos.de\",\"lcube-server.de\",\"svn-repos.de\",\"leadpages.co\",\"lpages.co\",\"lpusercontent.com\",\"lelux.site\",\"co.business\",\"co.education\",\"co.events\",\"co.financial\",\"co.network\",\"co.place\",\"co.technology\",\"app.lmpm.com\",\"linkitools.space\",\"linkyard.cloud\",\"linkyard-cloud.ch\",\"members.linode.com\",\"nodebalancer.linode.com\",\"we.bs\",\"loginline.app\",\"loginline.dev\",\"loginline.io\",\"loginline.services\",\"loginline.site\",\"krasnik.pl\",\"leczna.pl\",\"lubartow.pl\",\"lublin.pl\",\"poniatowa.pl\",\"swidnik.pl\",\"uklugs.org\",\"glug.org.uk\",\"lug.org.uk\",\"lugs.org.uk\",\"barsy.bg\",\"barsy.co.uk\",\"barsyonline.co.uk\",\"barsycenter.com\",\"barsyonline.com\",\"barsy.club\",\"barsy.de\",\"barsy.eu\",\"barsy.in\",\"barsy.info\",\"barsy.io\",\"barsy.me\",\"barsy.menu\",\"barsy.mobi\",\"barsy.net\",\"barsy.online\",\"barsy.org\",\"barsy.pro\",\"barsy.pub\",\"barsy.shop\",\"barsy.site\",\"barsy.support\",\"barsy.uk\",\"*.magentosite.cloud\",\"mayfirst.info\",\"mayfirst.org\",\"hb.cldmail.ru\",\"miniserver.com\",\"memset.net\",\"cloud.metacentrum.cz\",\"custom.metacentrum.cz\",\"flt.cloud.muni.cz\",\"usr.cloud.muni.cz\",\"meteorapp.com\",\"eu.meteorapp.com\",\"co.pl\",\"azurecontainer.io\",\"azurewebsites.net\",\"azure-mobile.net\",\"cloudapp.net\",\"mozilla-iot.org\",\"bmoattachments.org\",\"net.ru\",\"org.ru\",\"pp.ru\",\"ui.nabu.casa\",\"pony.club\",\"of.fashion\",\"on.fashion\",\"of.football\",\"in.london\",\"of.london\",\"for.men\",\"and.mom\",\"for.mom\",\"for.one\",\"for.sale\",\"of.work\",\"to.work\",\"nctu.me\",\"bitballoon.com\",\"netlify.com\",\"4u.com\",\"ngrok.io\",\"nh-serv.co.uk\",\"nfshost.com\",\"dnsking.ch\",\"mypi.co\",\"n4t.co\",\"001www.com\",\"ddnslive.com\",\"myiphost.com\",\"forumz.info\",\"16-b.it\",\"32-b.it\",\"64-b.it\",\"soundcast.me\",\"tcp4.me\",\"dnsup.net\",\"hicam.net\",\"now-dns.net\",\"ownip.net\",\"vpndns.net\",\"dynserv.org\",\"now-dns.org\",\"x443.pw\",\"now-dns.top\",\"ntdll.top\",\"freeddns.us\",\"crafting.xyz\",\"zapto.xyz\",\"nsupdate.info\",\"nerdpol.ovh\",\"blogsyte.com\",\"brasilia.me\",\"cable-modem.org\",\"ciscofreak.com\",\"collegefan.org\",\"couchpotatofries.org\",\"damnserver.com\",\"ddns.me\",\"ditchyourip.com\",\"dnsfor.me\",\"dnsiskinky.com\",\"dvrcam.info\",\"dynns.com\",\"eating-organic.net\",\"fantasyleague.cc\",\"geekgalaxy.com\",\"golffan.us\",\"health-carereform.com\",\"homesecuritymac.com\",\"homesecuritypc.com\",\"hopto.me\",\"ilovecollege.info\",\"loginto.me\",\"mlbfan.org\",\"mmafan.biz\",\"myactivedirectory.com\",\"mydissent.net\",\"myeffect.net\",\"mymediapc.net\",\"mypsx.net\",\"mysecuritycamera.com\",\"mysecuritycamera.net\",\"mysecuritycamera.org\",\"net-freaks.com\",\"nflfan.org\",\"nhlfan.net\",\"no-ip.ca\",\"no-ip.co.uk\",\"no-ip.net\",\"noip.us\",\"onthewifi.com\",\"pgafan.net\",\"point2this.com\",\"pointto.us\",\"privatizehealthinsurance.net\",\"quicksytes.com\",\"read-books.org\",\"securitytactics.com\",\"serveexchange.com\",\"servehumour.com\",\"servep2p.com\",\"servesarcasm.com\",\"stufftoread.com\",\"ufcfan.org\",\"unusualperson.com\",\"workisboring.com\",\"3utilities.com\",\"bounceme.net\",\"ddns.net\",\"ddnsking.com\",\"gotdns.ch\",\"hopto.org\",\"myftp.biz\",\"myftp.org\",\"myvnc.com\",\"no-ip.biz\",\"no-ip.info\",\"no-ip.org\",\"noip.me\",\"redirectme.net\",\"servebeer.com\",\"serveblog.net\",\"servecounterstrike.com\",\"serveftp.com\",\"servegame.com\",\"servehalflife.com\",\"servehttp.com\",\"serveirc.com\",\"serveminecraft.net\",\"servemp3.com\",\"servepics.com\",\"servequake.com\",\"sytes.net\",\"webhop.me\",\"zapto.org\",\"stage.nodeart.io\",\"nodum.co\",\"nodum.io\",\"pcloud.host\",\"nyc.mn\",\"nom.ae\",\"nom.af\",\"nom.ai\",\"nom.al\",\"nym.by\",\"nom.bz\",\"nym.bz\",\"nom.cl\",\"nym.ec\",\"nom.gd\",\"nom.ge\",\"nom.gl\",\"nym.gr\",\"nom.gt\",\"nym.gy\",\"nym.hk\",\"nom.hn\",\"nym.ie\",\"nom.im\",\"nom.ke\",\"nym.kz\",\"nym.la\",\"nym.lc\",\"nom.li\",\"nym.li\",\"nym.lt\",\"nym.lu\",\"nom.lv\",\"nym.me\",\"nom.mk\",\"nym.mn\",\"nym.mx\",\"nom.nu\",\"nym.nz\",\"nym.pe\",\"nym.pt\",\"nom.pw\",\"nom.qa\",\"nym.ro\",\"nom.rs\",\"nom.si\",\"nym.sk\",\"nom.st\",\"nym.su\",\"nym.sx\",\"nom.tj\",\"nym.tw\",\"nom.ug\",\"nom.uy\",\"nom.vc\",\"nom.vg\",\"static.observableusercontent.com\",\"cya.gg\",\"cloudycluster.net\",\"nid.io\",\"opencraft.hosting\",\"operaunite.com\",\"skygearapp.com\",\"outsystemscloud.com\",\"ownprovider.com\",\"own.pm\",\"ox.rs\",\"oy.lc\",\"pgfog.com\",\"pagefrontapp.com\",\"art.pl\",\"gliwice.pl\",\"krakow.pl\",\"poznan.pl\",\"wroc.pl\",\"zakopane.pl\",\"pantheonsite.io\",\"gotpantheon.com\",\"mypep.link\",\"perspecta.cloud\",\"on-web.fr\",\"*.platform.sh\",\"*.platformsh.site\",\"dyn53.io\",\"co.bn\",\"xen.prgmr.com\",\"priv.at\",\"prvcy.page\",\"*.dweb.link\",\"protonet.io\",\"chirurgiens-dentistes-en-france.fr\",\"byen.site\",\"pubtls.org\",\"qualifioapp.com\",\"qbuser.com\",\"instantcloud.cn\",\"ras.ru\",\"qa2.com\",\"qcx.io\",\"*.sys.qcx.io\",\"dev-myqnapcloud.com\",\"alpha-myqnapcloud.com\",\"myqnapcloud.com\",\"*.quipelements.com\",\"vapor.cloud\",\"vaporcloud.io\",\"rackmaze.com\",\"rackmaze.net\",\"*.on-k3s.io\",\"*.on-rancher.cloud\",\"*.on-rio.io\",\"readthedocs.io\",\"rhcloud.com\",\"app.render.com\",\"onrender.com\",\"repl.co\",\"repl.run\",\"resindevice.io\",\"devices.resinstaging.io\",\"hzc.io\",\"wellbeingzone.eu\",\"ptplus.fit\",\"wellbeingzone.co.uk\",\"git-pages.rit.edu\",\"sandcats.io\",\"logoip.de\",\"logoip.com\",\"schokokeks.net\",\"gov.scot\",\"scrysec.com\",\"firewall-gateway.com\",\"firewall-gateway.de\",\"my-gateway.de\",\"my-router.de\",\"spdns.de\",\"spdns.eu\",\"firewall-gateway.net\",\"my-firewall.org\",\"myfirewall.org\",\"spdns.org\",\"senseering.net\",\"biz.ua\",\"co.ua\",\"pp.ua\",\"shiftedit.io\",\"myshopblocks.com\",\"shopitsite.com\",\"mo-siemens.io\",\"1kapp.com\",\"appchizi.com\",\"applinzi.com\",\"sinaapp.com\",\"vipsinaapp.com\",\"siteleaf.net\",\"bounty-full.com\",\"alpha.bounty-full.com\",\"beta.bounty-full.com\",\"stackhero-network.com\",\"static.land\",\"dev.static.land\",\"sites.static.land\",\"apps.lair.io\",\"*.stolos.io\",\"spacekit.io\",\"customer.speedpartner.de\",\"api.stdlib.com\",\"storj.farm\",\"utwente.io\",\"soc.srcf.net\",\"user.srcf.net\",\"temp-dns.com\",\"applicationcloud.io\",\"scapp.io\",\"*.s5y.io\",\"*.sensiosite.cloud\",\"syncloud.it\",\"diskstation.me\",\"dscloud.biz\",\"dscloud.me\",\"dscloud.mobi\",\"dsmynas.com\",\"dsmynas.net\",\"dsmynas.org\",\"familyds.com\",\"familyds.net\",\"familyds.org\",\"i234.me\",\"myds.me\",\"synology.me\",\"vpnplus.to\",\"direct.quickconnect.to\",\"taifun-dns.de\",\"gda.pl\",\"gdansk.pl\",\"gdynia.pl\",\"med.pl\",\"sopot.pl\",\"edugit.org\",\"telebit.app\",\"telebit.io\",\"*.telebit.xyz\",\"gwiddle.co.uk\",\"thingdustdata.com\",\"cust.dev.thingdust.io\",\"cust.disrec.thingdust.io\",\"cust.prod.thingdust.io\",\"cust.testing.thingdust.io\",\"arvo.network\",\"azimuth.network\",\"bloxcms.com\",\"townnews-staging.com\",\"12hp.at\",\"2ix.at\",\"4lima.at\",\"lima-city.at\",\"12hp.ch\",\"2ix.ch\",\"4lima.ch\",\"lima-city.ch\",\"trafficplex.cloud\",\"de.cool\",\"12hp.de\",\"2ix.de\",\"4lima.de\",\"lima-city.de\",\"1337.pictures\",\"clan.rip\",\"lima-city.rocks\",\"webspace.rocks\",\"lima.zone\",\"*.transurl.be\",\"*.transurl.eu\",\"*.transurl.nl\",\"tuxfamily.org\",\"dd-dns.de\",\"diskstation.eu\",\"diskstation.org\",\"dray-dns.de\",\"draydns.de\",\"dyn-vpn.de\",\"dynvpn.de\",\"mein-vigor.de\",\"my-vigor.de\",\"my-wan.de\",\"syno-ds.de\",\"synology-diskstation.de\",\"synology-ds.de\",\"uber.space\",\"*.uberspace.de\",\"hk.com\",\"hk.org\",\"ltd.hk\",\"inc.hk\",\"virtualuser.de\",\"virtual-user.de\",\"urown.cloud\",\"dnsupdate.info\",\"lib.de.us\",\"2038.io\",\"router.management\",\"v-info.info\",\"voorloper.cloud\",\"v.ua\",\"wafflecell.com\",\"*.webhare.dev\",\"wedeploy.io\",\"wedeploy.me\",\"wedeploy.sh\",\"remotewd.com\",\"wmflabs.org\",\"myforum.community\",\"community-pro.de\",\"diskussionsbereich.de\",\"community-pro.net\",\"meinforum.net\",\"half.host\",\"xnbay.com\",\"u2.xnbay.com\",\"u2-local.xnbay.com\",\"cistron.nl\",\"demon.nl\",\"xs4all.space\",\"yandexcloud.net\",\"storage.yandexcloud.net\",\"website.yandexcloud.net\",\"official.academy\",\"yolasite.com\",\"ybo.faith\",\"yombo.me\",\"homelink.one\",\"ybo.party\",\"ybo.review\",\"ybo.science\",\"ybo.trade\",\"nohost.me\",\"noho.st\",\"za.net\",\"za.org\",\"now.sh\",\"bss.design\",\"basicserver.io\",\"virtualserver.io\",\"enterprisecloud.nu\"]");
+
+/***/ }),
+
+/***/ "./node_modules/psl/index.js":
+/*!***********************************!*\
+  !*** ./node_modules/psl/index.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/*eslint no-var:0, prefer-arrow-callback: 0, object-shorthand: 0 */
+
+
+
+var Punycode = __webpack_require__(/*! punycode */ "./node_modules/punycode/punycode.es6.js");
+
+
+var internals = {};
+
+
+//
+// Read rules from file.
+//
+internals.rules = __webpack_require__(/*! ./data/rules.json */ "./node_modules/psl/data/rules.json").map(function (rule) {
+
+  return {
+    rule: rule,
+    suffix: rule.replace(/^(\*\.|\!)/, ''),
+    punySuffix: -1,
+    wildcard: rule.charAt(0) === '*',
+    exception: rule.charAt(0) === '!'
+  };
+});
+
+
+//
+// Check is given string ends with `suffix`.
+//
+internals.endsWith = function (str, suffix) {
+
+  return str.indexOf(suffix, str.length - suffix.length) !== -1;
+};
+
+
+//
+// Find rule for a given domain.
+//
+internals.findRule = function (domain) {
+
+  var punyDomain = Punycode.toASCII(domain);
+  return internals.rules.reduce(function (memo, rule) {
+
+    if (rule.punySuffix === -1){
+      rule.punySuffix = Punycode.toASCII(rule.suffix);
+    }
+    if (!internals.endsWith(punyDomain, '.' + rule.punySuffix) && punyDomain !== rule.punySuffix) {
+      return memo;
+    }
+    // This has been commented out as it never seems to run. This is because
+    // sub tlds always appear after their parents and we never find a shorter
+    // match.
+    //if (memo) {
+    //  var memoSuffix = Punycode.toASCII(memo.suffix);
+    //  if (memoSuffix.length >= punySuffix.length) {
+    //    return memo;
+    //  }
+    //}
+    return rule;
+  }, null);
+};
+
+
+//
+// Error codes and messages.
+//
+exports.errorCodes = {
+  DOMAIN_TOO_SHORT: 'Domain name too short.',
+  DOMAIN_TOO_LONG: 'Domain name too long. It should be no more than 255 chars.',
+  LABEL_STARTS_WITH_DASH: 'Domain name label can not start with a dash.',
+  LABEL_ENDS_WITH_DASH: 'Domain name label can not end with a dash.',
+  LABEL_TOO_LONG: 'Domain name label should be at most 63 chars long.',
+  LABEL_TOO_SHORT: 'Domain name label should be at least 1 character long.',
+  LABEL_INVALID_CHARS: 'Domain name label can only contain alphanumeric characters or dashes.'
+};
+
+
+//
+// Validate domain name and throw if not valid.
+//
+// From wikipedia:
+//
+// Hostnames are composed of series of labels concatenated with dots, as are all
+// domain names. Each label must be between 1 and 63 characters long, and the
+// entire hostname (including the delimiting dots) has a maximum of 255 chars.
+//
+// Allowed chars:
+//
+// * `a-z`
+// * `0-9`
+// * `-` but not as a starting or ending character
+// * `.` as a separator for the textual portions of a domain name
+//
+// * http://en.wikipedia.org/wiki/Domain_name
+// * http://en.wikipedia.org/wiki/Hostname
+//
+internals.validate = function (input) {
+
+  // Before we can validate we need to take care of IDNs with unicode chars.
+  var ascii = Punycode.toASCII(input);
+
+  if (ascii.length < 1) {
+    return 'DOMAIN_TOO_SHORT';
+  }
+  if (ascii.length > 255) {
+    return 'DOMAIN_TOO_LONG';
+  }
+
+  // Check each part's length and allowed chars.
+  var labels = ascii.split('.');
+  var label;
+
+  for (var i = 0; i < labels.length; ++i) {
+    label = labels[i];
+    if (!label.length) {
+      return 'LABEL_TOO_SHORT';
+    }
+    if (label.length > 63) {
+      return 'LABEL_TOO_LONG';
+    }
+    if (label.charAt(0) === '-') {
+      return 'LABEL_STARTS_WITH_DASH';
+    }
+    if (label.charAt(label.length - 1) === '-') {
+      return 'LABEL_ENDS_WITH_DASH';
+    }
+    if (!/^[a-z0-9\-]+$/.test(label)) {
+      return 'LABEL_INVALID_CHARS';
+    }
+  }
+};
+
+
+//
+// Public API
+//
+
+
+//
+// Parse domain.
+//
+exports.parse = function (input) {
+
+  if (typeof input !== 'string') {
+    throw new TypeError('Domain name must be a string.');
+  }
+
+  // Force domain to lowercase.
+  var domain = input.slice(0).toLowerCase();
+
+  // Handle FQDN.
+  // TODO: Simply remove trailing dot?
+  if (domain.charAt(domain.length - 1) === '.') {
+    domain = domain.slice(0, domain.length - 1);
+  }
+
+  // Validate and sanitise input.
+  var error = internals.validate(domain);
+  if (error) {
+    return {
+      input: input,
+      error: {
+        message: exports.errorCodes[error],
+        code: error
+      }
+    };
+  }
+
+  var parsed = {
+    input: input,
+    tld: null,
+    sld: null,
+    domain: null,
+    subdomain: null,
+    listed: false
+  };
+
+  var domainParts = domain.split('.');
+
+  // Non-Internet TLD
+  if (domainParts[domainParts.length - 1] === 'local') {
+    return parsed;
+  }
+
+  var handlePunycode = function () {
+
+    if (!/xn--/.test(domain)) {
+      return parsed;
+    }
+    if (parsed.domain) {
+      parsed.domain = Punycode.toASCII(parsed.domain);
+    }
+    if (parsed.subdomain) {
+      parsed.subdomain = Punycode.toASCII(parsed.subdomain);
+    }
+    return parsed;
+  };
+
+  var rule = internals.findRule(domain);
+
+  // Unlisted tld.
+  if (!rule) {
+    if (domainParts.length < 2) {
+      return parsed;
+    }
+    parsed.tld = domainParts.pop();
+    parsed.sld = domainParts.pop();
+    parsed.domain = [parsed.sld, parsed.tld].join('.');
+    if (domainParts.length) {
+      parsed.subdomain = domainParts.pop();
+    }
+    return handlePunycode();
+  }
+
+  // At this point we know the public suffix is listed.
+  parsed.listed = true;
+
+  var tldParts = rule.suffix.split('.');
+  var privateParts = domainParts.slice(0, domainParts.length - tldParts.length);
+
+  if (rule.exception) {
+    privateParts.push(tldParts.shift());
+  }
+
+  parsed.tld = tldParts.join('.');
+
+  if (!privateParts.length) {
+    return handlePunycode();
+  }
+
+  if (rule.wildcard) {
+    tldParts.unshift(privateParts.pop());
+    parsed.tld = tldParts.join('.');
+  }
+
+  if (!privateParts.length) {
+    return handlePunycode();
+  }
+
+  parsed.sld = privateParts.pop();
+  parsed.domain = [parsed.sld,  parsed.tld].join('.');
+
+  if (privateParts.length) {
+    parsed.subdomain = privateParts.join('.');
+  }
+
+  return handlePunycode();
+};
+
+
+//
+// Get domain.
+//
+exports.get = function (domain) {
+
+  if (!domain) {
+    return null;
+  }
+  return exports.parse(domain).domain || null;
+};
+
+
+//
+// Check whether domain belongs to a known public suffix.
+//
+exports.isValid = function (domain) {
+
+  var parsed = exports.parse(domain);
+  return Boolean(parsed.domain && parsed.listed);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/punycode/punycode.es6.js":
+/*!***********************************************!*\
+  !*** ./node_modules/punycode/punycode.es6.js ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ucs2decode": () => /* binding */ ucs2decode,
+/* harmony export */   "ucs2encode": () => /* binding */ ucs2encode,
+/* harmony export */   "decode": () => /* binding */ decode,
+/* harmony export */   "encode": () => /* binding */ encode,
+/* harmony export */   "toASCII": () => /* binding */ toASCII,
+/* harmony export */   "toUnicode": () => /* binding */ toUnicode,
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_10_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_style_index_0_id_698c8ed6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css&");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_10_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_style_index_0_id_698c8ed6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
 
 
+/** Highest positive signed 32-bit float value */
+const maxInt = 2147483647; // aka. 0x7FFFFFFF or 2^31-1
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_10_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_style_index_0_id_698c8ed6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/** Bootstring parameters */
+const base = 36;
+const tMin = 1;
+const tMax = 26;
+const skew = 38;
+const damp = 700;
+const initialBias = 72;
+const initialN = 128; // 0x80
+const delimiter = '-'; // '\x2D'
+
+/** Regular expressions */
+const regexPunycode = /^xn--/;
+const regexNonASCII = /[^\0-\x7E]/; // non-ASCII chars
+const regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g; // RFC 3490 separators
+
+/** Error messages */
+const errors = {
+	'overflow': 'Overflow: input needs wider integers to process',
+	'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
+	'invalid-input': 'Invalid input'
+};
+
+/** Convenience shortcuts */
+const baseMinusTMin = base - tMin;
+const floor = Math.floor;
+const stringFromCharCode = String.fromCharCode;
+
+/*--------------------------------------------------------------------------*/
+
+/**
+ * A generic error utility function.
+ * @private
+ * @param {String} type The error type.
+ * @returns {Error} Throws a `RangeError` with the applicable error message.
+ */
+function error(type) {
+	throw new RangeError(errors[type]);
+}
+
+/**
+ * A generic `Array#map` utility function.
+ * @private
+ * @param {Array} array The array to iterate over.
+ * @param {Function} callback The function that gets called for every array
+ * item.
+ * @returns {Array} A new array of values returned by the callback function.
+ */
+function map(array, fn) {
+	const result = [];
+	let length = array.length;
+	while (length--) {
+		result[length] = fn(array[length]);
+	}
+	return result;
+}
+
+/**
+ * A simple `Array#map`-like wrapper to work with domain name strings or email
+ * addresses.
+ * @private
+ * @param {String} domain The domain name or email address.
+ * @param {Function} callback The function that gets called for every
+ * character.
+ * @returns {Array} A new string of characters returned by the callback
+ * function.
+ */
+function mapDomain(string, fn) {
+	const parts = string.split('@');
+	let result = '';
+	if (parts.length > 1) {
+		// In email addresses, only the domain name should be punycoded. Leave
+		// the local part (i.e. everything up to `@`) intact.
+		result = parts[0] + '@';
+		string = parts[1];
+	}
+	// Avoid `split(regex)` for IE8 compatibility. See #17.
+	string = string.replace(regexSeparators, '\x2E');
+	const labels = string.split('.');
+	const encoded = map(labels, fn).join('.');
+	return result + encoded;
+}
+
+/**
+ * Creates an array containing the numeric code points of each Unicode
+ * character in the string. While JavaScript uses UCS-2 internally,
+ * this function will convert a pair of surrogate halves (each of which
+ * UCS-2 exposes as separate characters) into a single code point,
+ * matching UTF-16.
+ * @see `punycode.ucs2.encode`
+ * @see <https://mathiasbynens.be/notes/javascript-encoding>
+ * @memberOf punycode.ucs2
+ * @name decode
+ * @param {String} string The Unicode input string (UCS-2).
+ * @returns {Array} The new array of code points.
+ */
+function ucs2decode(string) {
+	const output = [];
+	let counter = 0;
+	const length = string.length;
+	while (counter < length) {
+		const value = string.charCodeAt(counter++);
+		if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
+			// It's a high surrogate, and there is a next character.
+			const extra = string.charCodeAt(counter++);
+			if ((extra & 0xFC00) == 0xDC00) { // Low surrogate.
+				output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
+			} else {
+				// It's an unmatched surrogate; only append this code unit, in case the
+				// next code unit is the high surrogate of a surrogate pair.
+				output.push(value);
+				counter--;
+			}
+		} else {
+			output.push(value);
+		}
+	}
+	return output;
+}
+
+/**
+ * Creates a string based on an array of numeric code points.
+ * @see `punycode.ucs2.decode`
+ * @memberOf punycode.ucs2
+ * @name encode
+ * @param {Array} codePoints The array of numeric code points.
+ * @returns {String} The new Unicode string (UCS-2).
+ */
+const ucs2encode = array => String.fromCodePoint(...array);
+
+/**
+ * Converts a basic code point into a digit/integer.
+ * @see `digitToBasic()`
+ * @private
+ * @param {Number} codePoint The basic numeric code point value.
+ * @returns {Number} The numeric value of a basic code point (for use in
+ * representing integers) in the range `0` to `base - 1`, or `base` if
+ * the code point does not represent a value.
+ */
+const basicToDigit = function(codePoint) {
+	if (codePoint - 0x30 < 0x0A) {
+		return codePoint - 0x16;
+	}
+	if (codePoint - 0x41 < 0x1A) {
+		return codePoint - 0x41;
+	}
+	if (codePoint - 0x61 < 0x1A) {
+		return codePoint - 0x61;
+	}
+	return base;
+};
+
+/**
+ * Converts a digit/integer into a basic code point.
+ * @see `basicToDigit()`
+ * @private
+ * @param {Number} digit The numeric value of a basic code point.
+ * @returns {Number} The basic code point whose value (when used for
+ * representing integers) is `digit`, which needs to be in the range
+ * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
+ * used; else, the lowercase form is used. The behavior is undefined
+ * if `flag` is non-zero and `digit` has no uppercase form.
+ */
+const digitToBasic = function(digit, flag) {
+	//  0..25 map to ASCII a..z or A..Z
+	// 26..35 map to ASCII 0..9
+	return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
+};
+
+/**
+ * Bias adaptation function as per section 3.4 of RFC 3492.
+ * https://tools.ietf.org/html/rfc3492#section-3.4
+ * @private
+ */
+const adapt = function(delta, numPoints, firstTime) {
+	let k = 0;
+	delta = firstTime ? floor(delta / damp) : delta >> 1;
+	delta += floor(delta / numPoints);
+	for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
+		delta = floor(delta / baseMinusTMin);
+	}
+	return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
+};
+
+/**
+ * Converts a Punycode string of ASCII-only symbols to a string of Unicode
+ * symbols.
+ * @memberOf punycode
+ * @param {String} input The Punycode string of ASCII-only symbols.
+ * @returns {String} The resulting string of Unicode symbols.
+ */
+const decode = function(input) {
+	// Don't use UCS-2.
+	const output = [];
+	const inputLength = input.length;
+	let i = 0;
+	let n = initialN;
+	let bias = initialBias;
+
+	// Handle the basic code points: let `basic` be the number of input code
+	// points before the last delimiter, or `0` if there is none, then copy
+	// the first basic code points to the output.
+
+	let basic = input.lastIndexOf(delimiter);
+	if (basic < 0) {
+		basic = 0;
+	}
+
+	for (let j = 0; j < basic; ++j) {
+		// if it's not a basic code point
+		if (input.charCodeAt(j) >= 0x80) {
+			error('not-basic');
+		}
+		output.push(input.charCodeAt(j));
+	}
+
+	// Main decoding loop: start just after the last delimiter if any basic code
+	// points were copied; start at the beginning otherwise.
+
+	for (let index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
+
+		// `index` is the index of the next character to be consumed.
+		// Decode a generalized variable-length integer into `delta`,
+		// which gets added to `i`. The overflow checking is easier
+		// if we increase `i` as we go, then subtract off its starting
+		// value at the end to obtain `delta`.
+		let oldi = i;
+		for (let w = 1, k = base; /* no condition */; k += base) {
+
+			if (index >= inputLength) {
+				error('invalid-input');
+			}
+
+			const digit = basicToDigit(input.charCodeAt(index++));
+
+			if (digit >= base || digit > floor((maxInt - i) / w)) {
+				error('overflow');
+			}
+
+			i += digit * w;
+			const t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+
+			if (digit < t) {
+				break;
+			}
+
+			const baseMinusT = base - t;
+			if (w > floor(maxInt / baseMinusT)) {
+				error('overflow');
+			}
+
+			w *= baseMinusT;
+
+		}
+
+		const out = output.length + 1;
+		bias = adapt(i - oldi, out, oldi == 0);
+
+		// `i` was supposed to wrap around from `out` to `0`,
+		// incrementing `n` each time, so we'll fix that now:
+		if (floor(i / out) > maxInt - n) {
+			error('overflow');
+		}
+
+		n += floor(i / out);
+		i %= out;
+
+		// Insert `n` at position `i` of the output.
+		output.splice(i++, 0, n);
+
+	}
+
+	return String.fromCodePoint(...output);
+};
+
+/**
+ * Converts a string of Unicode symbols (e.g. a domain name label) to a
+ * Punycode string of ASCII-only symbols.
+ * @memberOf punycode
+ * @param {String} input The string of Unicode symbols.
+ * @returns {String} The resulting Punycode string of ASCII-only symbols.
+ */
+const encode = function(input) {
+	const output = [];
+
+	// Convert the input in UCS-2 to an array of Unicode code points.
+	input = ucs2decode(input);
+
+	// Cache the length.
+	let inputLength = input.length;
+
+	// Initialize the state.
+	let n = initialN;
+	let delta = 0;
+	let bias = initialBias;
+
+	// Handle the basic code points.
+	for (const currentValue of input) {
+		if (currentValue < 0x80) {
+			output.push(stringFromCharCode(currentValue));
+		}
+	}
+
+	let basicLength = output.length;
+	let handledCPCount = basicLength;
+
+	// `handledCPCount` is the number of code points that have been handled;
+	// `basicLength` is the number of basic code points.
+
+	// Finish the basic string with a delimiter unless it's empty.
+	if (basicLength) {
+		output.push(delimiter);
+	}
+
+	// Main encoding loop:
+	while (handledCPCount < inputLength) {
+
+		// All non-basic code points < n have been handled already. Find the next
+		// larger one:
+		let m = maxInt;
+		for (const currentValue of input) {
+			if (currentValue >= n && currentValue < m) {
+				m = currentValue;
+			}
+		}
+
+		// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
+		// but guard against overflow.
+		const handledCPCountPlusOne = handledCPCount + 1;
+		if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
+			error('overflow');
+		}
+
+		delta += (m - n) * handledCPCountPlusOne;
+		n = m;
+
+		for (const currentValue of input) {
+			if (currentValue < n && ++delta > maxInt) {
+				error('overflow');
+			}
+			if (currentValue == n) {
+				// Represent delta as a generalized variable-length integer.
+				let q = delta;
+				for (let k = base; /* no condition */; k += base) {
+					const t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+					if (q < t) {
+						break;
+					}
+					const qMinusT = q - t;
+					const baseMinusT = base - t;
+					output.push(
+						stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
+					);
+					q = floor(qMinusT / baseMinusT);
+				}
+
+				output.push(stringFromCharCode(digitToBasic(q, 0)));
+				bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
+				delta = 0;
+				++handledCPCount;
+			}
+		}
+
+		++delta;
+		++n;
+
+	}
+	return output.join('');
+};
+
+/**
+ * Converts a Punycode string representing a domain name or an email address
+ * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
+ * it doesn't matter if you call it on a string that has already been
+ * converted to Unicode.
+ * @memberOf punycode
+ * @param {String} input The Punycoded domain name or email address to
+ * convert to Unicode.
+ * @returns {String} The Unicode representation of the given Punycode
+ * string.
+ */
+const toUnicode = function(input) {
+	return mapDomain(input, function(string) {
+		return regexPunycode.test(string)
+			? decode(string.slice(4).toLowerCase())
+			: string;
+	});
+};
+
+/**
+ * Converts a Unicode string representing a domain name or an email address to
+ * Punycode. Only the non-ASCII parts of the domain name will be converted,
+ * i.e. it doesn't matter if you call it with a domain that's already in
+ * ASCII.
+ * @memberOf punycode
+ * @param {String} input The domain name or email address to convert, as a
+ * Unicode string.
+ * @returns {String} The Punycode representation of the given domain name or
+ * email address.
+ */
+const toASCII = function(input) {
+	return mapDomain(input, function(string) {
+		return regexNonASCII.test(string)
+			? 'xn--' + encode(string)
+			: string;
+	});
+};
+
+/*--------------------------------------------------------------------------*/
+
+/** Define the public API */
+const punycode = {
+	/**
+	 * A string representing the current Punycode.js version number.
+	 * @memberOf punycode
+	 * @type String
+	 */
+	'version': '2.1.0',
+	/**
+	 * An object of methods to convert from JavaScript's internal character
+	 * representation (UCS-2) to Unicode code points, and back.
+	 * @see <https://mathiasbynens.be/notes/javascript-encoding>
+	 * @memberOf punycode
+	 * @type Object
+	 */
+	'ucs2': {
+		'decode': ucs2decode,
+		'encode': ucs2encode
+	},
+	'decode': decode,
+	'encode': encode,
+	'toASCII': toASCII,
+	'toUnicode': toUnicode
+};
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (punycode);
+
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./node_modules/querystring/decode.js":
+/*!********************************************!*\
+  !*** ./node_modules/querystring/decode.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+// If obj.hasOwnProperty has been overridden, then calling
+// obj.hasOwnProperty(prop) will break.
+// See: https://github.com/joyent/node/issues/1707
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+module.exports = function(qs, sep, eq, options) {
+  sep = sep || '&';
+  eq = eq || '=';
+  var obj = {};
+
+  if (typeof qs !== 'string' || qs.length === 0) {
+    return obj;
+  }
+
+  var regexp = /\+/g;
+  qs = qs.split(sep);
+
+  var maxKeys = 1000;
+  if (options && typeof options.maxKeys === 'number') {
+    maxKeys = options.maxKeys;
+  }
+
+  var len = qs.length;
+  // maxKeys <= 0 means that we should not limit keys count
+  if (maxKeys > 0 && len > maxKeys) {
+    len = maxKeys;
+  }
+
+  for (var i = 0; i < len; ++i) {
+    var x = qs[i].replace(regexp, '%20'),
+        idx = x.indexOf(eq),
+        kstr, vstr, k, v;
+
+    if (idx >= 0) {
+      kstr = x.substr(0, idx);
+      vstr = x.substr(idx + 1);
+    } else {
+      kstr = x;
+      vstr = '';
+    }
+
+    k = decodeURIComponent(kstr);
+    v = decodeURIComponent(vstr);
+
+    if (!hasOwnProperty(obj, k)) {
+      obj[k] = v;
+    } else if (Array.isArray(obj[k])) {
+      obj[k].push(v);
+    } else {
+      obj[k] = [obj[k], v];
+    }
+  }
+
+  return obj;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/querystring/encode.js":
+/*!********************************************!*\
+  !*** ./node_modules/querystring/encode.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+var stringifyPrimitive = function(v) {
+  switch (typeof v) {
+    case 'string':
+      return v;
+
+    case 'boolean':
+      return v ? 'true' : 'false';
+
+    case 'number':
+      return isFinite(v) ? v : '';
+
+    default:
+      return '';
+  }
+};
+
+module.exports = function(obj, sep, eq, name) {
+  sep = sep || '&';
+  eq = eq || '=';
+  if (obj === null) {
+    obj = undefined;
+  }
+
+  if (typeof obj === 'object') {
+    return Object.keys(obj).map(function(k) {
+      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
+      if (Array.isArray(obj[k])) {
+        return obj[k].map(function(v) {
+          return ks + encodeURIComponent(stringifyPrimitive(v));
+        }).join(sep);
+      } else {
+        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
+      }
+    }).join(sep);
+
+  }
+
+  if (!name) return '';
+  return encodeURIComponent(stringifyPrimitive(name)) + eq +
+         encodeURIComponent(stringifyPrimitive(obj));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/querystring/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/querystring/index.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var isOldIE = function isOldIE() {
-  var memo;
-  return function memorize() {
-    if (typeof memo === 'undefined') {
-      // Test for IE <= 9 as proposed by Browserhacks
-      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-      // Tests for existence of standard globals is to allow style-loader
-      // to operate correctly into non-standard environments
-      // @see https://github.com/webpack-contrib/style-loader/issues/177
-      memo = Boolean(window && document && document.all && !window.atob);
+exports.decode = exports.parse = __webpack_require__(/*! ./decode */ "./node_modules/querystring/decode.js");
+exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node_modules/querystring/encode.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      define(prototype, method, function(arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
     }
 
-    return memo;
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
   };
-}();
+  exports.AsyncIterator = AsyncIterator;
 
-var getTarget = function getTarget() {
-  var memo = {};
-  return function memorize(target) {
-    if (typeof memo[target] === 'undefined') {
-      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
 
-      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-        try {
-          // This will throw an exception if access to iframe is blocked
-          // due to cross-origin restrictions
-          styleTarget = styleTarget.contentDocument.head;
-        } catch (e) {
-          // istanbul ignore next
-          styleTarget = null;
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  define(Gp, toStringTagSymbol, "Generator");
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
         }
       }
 
-      memo[target] = styleTarget;
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
     }
 
-    return memo[target];
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
   };
-}();
 
-var stylesInDom = [];
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
 
-function getIndexByIdentifier(identifier) {
-  var result = -1;
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : 0
+));
 
-  for (var i = 0; i < stylesInDom.length; i++) {
-    if (stylesInDom[i].identifier === identifier) {
-      result = i;
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-client/build/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/socket.io-client/build/index.js ***!
+  \******************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Socket = exports.io = exports.Manager = exports.protocol = void 0;
+const url_1 = __webpack_require__(/*! ./url */ "./node_modules/socket.io-client/build/url.js");
+const manager_1 = __webpack_require__(/*! ./manager */ "./node_modules/socket.io-client/build/manager.js");
+const socket_1 = __webpack_require__(/*! ./socket */ "./node_modules/socket.io-client/build/socket.js");
+Object.defineProperty(exports, "Socket", ({ enumerable: true, get: function () { return socket_1.Socket; } }));
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("socket.io-client");
+/**
+ * Module exports.
+ */
+module.exports = exports = lookup;
+/**
+ * Managers cache.
+ */
+const cache = (exports.managers = {});
+function lookup(uri, opts) {
+    if (typeof uri === "object") {
+        opts = uri;
+        uri = undefined;
+    }
+    opts = opts || {};
+    const parsed = url_1.url(uri);
+    const source = parsed.source;
+    const id = parsed.id;
+    const path = parsed.path;
+    const sameNamespace = cache[id] && path in cache[id]["nsps"];
+    const newConnection = opts.forceNew ||
+        opts["force new connection"] ||
+        false === opts.multiplex ||
+        sameNamespace;
+    let io;
+    if (newConnection) {
+        debug("ignoring socket cache for %s", source);
+        io = new manager_1.Manager(source, opts);
+    }
+    else {
+        if (!cache[id]) {
+            debug("new io instance for %s", source);
+            cache[id] = new manager_1.Manager(source, opts);
+        }
+        io = cache[id];
+    }
+    if (parsed.query && !opts.query) {
+        opts.query = parsed.query;
+    }
+    return io.socket(parsed.path, opts);
+}
+exports.io = lookup;
+/**
+ * Protocol version.
+ *
+ * @public
+ */
+var socket_io_parser_1 = __webpack_require__(/*! socket.io-parser */ "./node_modules/socket.io-parser/dist/index.js");
+Object.defineProperty(exports, "protocol", ({ enumerable: true, get: function () { return socket_io_parser_1.protocol; } }));
+/**
+ * `connect`.
+ *
+ * @param {String} uri
+ * @public
+ */
+exports.connect = lookup;
+/**
+ * Expose constructors for standalone build.
+ *
+ * @public
+ */
+var manager_2 = __webpack_require__(/*! ./manager */ "./node_modules/socket.io-client/build/manager.js");
+Object.defineProperty(exports, "Manager", ({ enumerable: true, get: function () { return manager_2.Manager; } }));
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-client/build/manager.js":
+/*!********************************************************!*\
+  !*** ./node_modules/socket.io-client/build/manager.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Manager = void 0;
+const eio = __webpack_require__(/*! engine.io-client */ "./node_modules/engine.io-client/lib/index.js");
+const socket_1 = __webpack_require__(/*! ./socket */ "./node_modules/socket.io-client/build/socket.js");
+const Emitter = __webpack_require__(/*! component-emitter */ "./node_modules/component-emitter/index.js");
+const parser = __webpack_require__(/*! socket.io-parser */ "./node_modules/socket.io-parser/dist/index.js");
+const on_1 = __webpack_require__(/*! ./on */ "./node_modules/socket.io-client/build/on.js");
+const Backoff = __webpack_require__(/*! backo2 */ "./node_modules/backo2/index.js");
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("socket.io-client:manager");
+class Manager extends Emitter {
+    constructor(uri, opts) {
+        super();
+        this.nsps = {};
+        this.subs = [];
+        if (uri && "object" === typeof uri) {
+            opts = uri;
+            uri = undefined;
+        }
+        opts = opts || {};
+        opts.path = opts.path || "/socket.io";
+        this.opts = opts;
+        this.reconnection(opts.reconnection !== false);
+        this.reconnectionAttempts(opts.reconnectionAttempts || Infinity);
+        this.reconnectionDelay(opts.reconnectionDelay || 1000);
+        this.reconnectionDelayMax(opts.reconnectionDelayMax || 5000);
+        this.randomizationFactor(opts.randomizationFactor || 0.5);
+        this.backoff = new Backoff({
+            min: this.reconnectionDelay(),
+            max: this.reconnectionDelayMax(),
+            jitter: this.randomizationFactor(),
+        });
+        this.timeout(null == opts.timeout ? 20000 : opts.timeout);
+        this._readyState = "closed";
+        this.uri = uri;
+        const _parser = opts.parser || parser;
+        this.encoder = new _parser.Encoder();
+        this.decoder = new _parser.Decoder();
+        this._autoConnect = opts.autoConnect !== false;
+        if (this._autoConnect)
+            this.open();
+    }
+    reconnection(v) {
+        if (!arguments.length)
+            return this._reconnection;
+        this._reconnection = !!v;
+        return this;
+    }
+    reconnectionAttempts(v) {
+        if (v === undefined)
+            return this._reconnectionAttempts;
+        this._reconnectionAttempts = v;
+        return this;
+    }
+    reconnectionDelay(v) {
+        var _a;
+        if (v === undefined)
+            return this._reconnectionDelay;
+        this._reconnectionDelay = v;
+        (_a = this.backoff) === null || _a === void 0 ? void 0 : _a.setMin(v);
+        return this;
+    }
+    randomizationFactor(v) {
+        var _a;
+        if (v === undefined)
+            return this._randomizationFactor;
+        this._randomizationFactor = v;
+        (_a = this.backoff) === null || _a === void 0 ? void 0 : _a.setJitter(v);
+        return this;
+    }
+    reconnectionDelayMax(v) {
+        var _a;
+        if (v === undefined)
+            return this._reconnectionDelayMax;
+        this._reconnectionDelayMax = v;
+        (_a = this.backoff) === null || _a === void 0 ? void 0 : _a.setMax(v);
+        return this;
+    }
+    timeout(v) {
+        if (!arguments.length)
+            return this._timeout;
+        this._timeout = v;
+        return this;
+    }
+    /**
+     * Starts trying to reconnect if reconnection is enabled and we have not
+     * started reconnecting yet
+     *
+     * @private
+     */
+    maybeReconnectOnOpen() {
+        // Only try to reconnect if it's the first time we're connecting
+        if (!this._reconnecting &&
+            this._reconnection &&
+            this.backoff.attempts === 0) {
+            // keeps reconnection from firing twice for the same reconnection loop
+            this.reconnect();
+        }
+    }
+    /**
+     * Sets the current transport `socket`.
+     *
+     * @param {Function} fn - optional, callback
+     * @return self
+     * @public
+     */
+    open(fn) {
+        debug("readyState %s", this._readyState);
+        if (~this._readyState.indexOf("open"))
+            return this;
+        debug("opening %s", this.uri);
+        this.engine = eio(this.uri, this.opts);
+        const socket = this.engine;
+        const self = this;
+        this._readyState = "opening";
+        this.skipReconnect = false;
+        // emit `open`
+        const openSubDestroy = on_1.on(socket, "open", function () {
+            self.onopen();
+            fn && fn();
+        });
+        // emit `error`
+        const errorSub = on_1.on(socket, "error", (err) => {
+            debug("error");
+            self.cleanup();
+            self._readyState = "closed";
+            super.emit("error", err);
+            if (fn) {
+                fn(err);
+            }
+            else {
+                // Only do this if there is no fn to handle the error
+                self.maybeReconnectOnOpen();
+            }
+        });
+        if (false !== this._timeout) {
+            const timeout = this._timeout;
+            debug("connect attempt will timeout after %d", timeout);
+            if (timeout === 0) {
+                openSubDestroy(); // prevents a race condition with the 'open' event
+            }
+            // set timer
+            const timer = setTimeout(() => {
+                debug("connect attempt timed out after %d", timeout);
+                openSubDestroy();
+                socket.close();
+                socket.emit("error", new Error("timeout"));
+            }, timeout);
+            this.subs.push(function subDestroy() {
+                clearTimeout(timer);
+            });
+        }
+        this.subs.push(openSubDestroy);
+        this.subs.push(errorSub);
+        return this;
+    }
+    /**
+     * Alias for open()
+     *
+     * @return self
+     * @public
+     */
+    connect(fn) {
+        return this.open(fn);
+    }
+    /**
+     * Called upon transport open.
+     *
+     * @private
+     */
+    onopen() {
+        debug("open");
+        // clear old subs
+        this.cleanup();
+        // mark as open
+        this._readyState = "open";
+        super.emit("open");
+        // add new subs
+        const socket = this.engine;
+        this.subs.push(on_1.on(socket, "ping", this.onping.bind(this)), on_1.on(socket, "data", this.ondata.bind(this)), on_1.on(socket, "error", this.onerror.bind(this)), on_1.on(socket, "close", this.onclose.bind(this)), on_1.on(this.decoder, "decoded", this.ondecoded.bind(this)));
+    }
+    /**
+     * Called upon a ping.
+     *
+     * @private
+     */
+    onping() {
+        super.emit("ping");
+    }
+    /**
+     * Called with data.
+     *
+     * @private
+     */
+    ondata(data) {
+        this.decoder.add(data);
+    }
+    /**
+     * Called when parser fully decodes a packet.
+     *
+     * @private
+     */
+    ondecoded(packet) {
+        super.emit("packet", packet);
+    }
+    /**
+     * Called upon socket error.
+     *
+     * @private
+     */
+    onerror(err) {
+        debug("error", err);
+        super.emit("error", err);
+    }
+    /**
+     * Creates a new socket for the given `nsp`.
+     *
+     * @return {Socket}
+     * @public
+     */
+    socket(nsp, opts) {
+        let socket = this.nsps[nsp];
+        if (!socket) {
+            socket = new socket_1.Socket(this, nsp, opts);
+            this.nsps[nsp] = socket;
+        }
+        return socket;
+    }
+    /**
+     * Called upon a socket close.
+     *
+     * @param socket
+     * @private
+     */
+    _destroy(socket) {
+        const nsps = Object.keys(this.nsps);
+        for (const nsp of nsps) {
+            const socket = this.nsps[nsp];
+            if (socket.active) {
+                debug("socket %s is still active, skipping close", nsp);
+                return;
+            }
+        }
+        this._close();
+    }
+    /**
+     * Writes a packet.
+     *
+     * @param packet
+     * @private
+     */
+    _packet(packet) {
+        debug("writing packet %j", packet);
+        if (packet.query && packet.type === 0)
+            packet.nsp += "?" + packet.query;
+        const encodedPackets = this.encoder.encode(packet);
+        for (let i = 0; i < encodedPackets.length; i++) {
+            this.engine.write(encodedPackets[i], packet.options);
+        }
+    }
+    /**
+     * Clean up transport subscriptions and packet buffer.
+     *
+     * @private
+     */
+    cleanup() {
+        debug("cleanup");
+        this.subs.forEach((subDestroy) => subDestroy());
+        this.subs.length = 0;
+        this.decoder.destroy();
+    }
+    /**
+     * Close the current socket.
+     *
+     * @private
+     */
+    _close() {
+        debug("disconnect");
+        this.skipReconnect = true;
+        this._reconnecting = false;
+        if ("opening" === this._readyState) {
+            // `onclose` will not fire because
+            // an open event never happened
+            this.cleanup();
+        }
+        this.backoff.reset();
+        this._readyState = "closed";
+        if (this.engine)
+            this.engine.close();
+    }
+    /**
+     * Alias for close()
+     *
+     * @private
+     */
+    disconnect() {
+        return this._close();
+    }
+    /**
+     * Called upon engine close.
+     *
+     * @private
+     */
+    onclose(reason) {
+        debug("onclose");
+        this.cleanup();
+        this.backoff.reset();
+        this._readyState = "closed";
+        super.emit("close", reason);
+        if (this._reconnection && !this.skipReconnect) {
+            this.reconnect();
+        }
+    }
+    /**
+     * Attempt a reconnection.
+     *
+     * @private
+     */
+    reconnect() {
+        if (this._reconnecting || this.skipReconnect)
+            return this;
+        const self = this;
+        if (this.backoff.attempts >= this._reconnectionAttempts) {
+            debug("reconnect failed");
+            this.backoff.reset();
+            super.emit("reconnect_failed");
+            this._reconnecting = false;
+        }
+        else {
+            const delay = this.backoff.duration();
+            debug("will wait %dms before reconnect attempt", delay);
+            this._reconnecting = true;
+            const timer = setTimeout(() => {
+                if (self.skipReconnect)
+                    return;
+                debug("attempting reconnect");
+                super.emit("reconnect_attempt", self.backoff.attempts);
+                // check again for the case socket closed in above events
+                if (self.skipReconnect)
+                    return;
+                self.open((err) => {
+                    if (err) {
+                        debug("reconnect attempt error");
+                        self._reconnecting = false;
+                        self.reconnect();
+                        super.emit("reconnect_error", err);
+                    }
+                    else {
+                        debug("reconnect success");
+                        self.onreconnect();
+                    }
+                });
+            }, delay);
+            this.subs.push(function subDestroy() {
+                clearTimeout(timer);
+            });
+        }
+    }
+    /**
+     * Called upon successful reconnect.
+     *
+     * @private
+     */
+    onreconnect() {
+        const attempt = this.backoff.attempts;
+        this._reconnecting = false;
+        this.backoff.reset();
+        super.emit("reconnect", attempt);
+    }
+}
+exports.Manager = Manager;
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-client/build/on.js":
+/*!***************************************************!*\
+  !*** ./node_modules/socket.io-client/build/on.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.on = void 0;
+function on(obj, ev, fn) {
+    obj.on(ev, fn);
+    return function subDestroy() {
+        obj.off(ev, fn);
+    };
+}
+exports.on = on;
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-client/build/socket.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/socket.io-client/build/socket.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Socket = void 0;
+const socket_io_parser_1 = __webpack_require__(/*! socket.io-parser */ "./node_modules/socket.io-parser/dist/index.js");
+const Emitter = __webpack_require__(/*! component-emitter */ "./node_modules/component-emitter/index.js");
+const on_1 = __webpack_require__(/*! ./on */ "./node_modules/socket.io-client/build/on.js");
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("socket.io-client:socket");
+/**
+ * Internal events.
+ * These events can't be emitted by the user.
+ */
+const RESERVED_EVENTS = Object.freeze({
+    connect: 1,
+    connect_error: 1,
+    disconnect: 1,
+    disconnecting: 1,
+    // EventEmitter reserved events: https://nodejs.org/api/events.html#events_event_newlistener
+    newListener: 1,
+    removeListener: 1,
+});
+class Socket extends Emitter {
+    /**
+     * `Socket` constructor.
+     *
+     * @public
+     */
+    constructor(io, nsp, opts) {
+        super();
+        this.receiveBuffer = [];
+        this.sendBuffer = [];
+        this.ids = 0;
+        this.acks = {};
+        this.flags = {};
+        this.io = io;
+        this.nsp = nsp;
+        this.ids = 0;
+        this.acks = {};
+        this.receiveBuffer = [];
+        this.sendBuffer = [];
+        this.connected = false;
+        this.disconnected = true;
+        this.flags = {};
+        if (opts && opts.auth) {
+            this.auth = opts.auth;
+        }
+        if (this.io._autoConnect)
+            this.open();
+    }
+    /**
+     * Subscribe to open, close and packet events
+     *
+     * @private
+     */
+    subEvents() {
+        if (this.subs)
+            return;
+        const io = this.io;
+        this.subs = [
+            on_1.on(io, "open", this.onopen.bind(this)),
+            on_1.on(io, "packet", this.onpacket.bind(this)),
+            on_1.on(io, "error", this.onerror.bind(this)),
+            on_1.on(io, "close", this.onclose.bind(this)),
+        ];
+    }
+    /**
+     * Whether the Socket will try to reconnect when its Manager connects or reconnects
+     */
+    get active() {
+        return !!this.subs;
+    }
+    /**
+     * "Opens" the socket.
+     *
+     * @public
+     */
+    connect() {
+        if (this.connected)
+            return this;
+        this.subEvents();
+        if (!this.io["_reconnecting"])
+            this.io.open(); // ensure open
+        if ("open" === this.io._readyState)
+            this.onopen();
+        return this;
+    }
+    /**
+     * Alias for connect()
+     */
+    open() {
+        return this.connect();
+    }
+    /**
+     * Sends a `message` event.
+     *
+     * @return self
+     * @public
+     */
+    send(...args) {
+        args.unshift("message");
+        this.emit.apply(this, args);
+        return this;
+    }
+    /**
+     * Override `emit`.
+     * If the event is in `events`, it's emitted normally.
+     *
+     * @param ev - event name
+     * @return self
+     * @public
+     */
+    emit(ev, ...args) {
+        if (RESERVED_EVENTS.hasOwnProperty(ev)) {
+            throw new Error('"' + ev + '" is a reserved event name');
+        }
+        args.unshift(ev);
+        const packet = {
+            type: socket_io_parser_1.PacketType.EVENT,
+            data: args,
+        };
+        packet.options = {};
+        packet.options.compress = this.flags.compress !== false;
+        // event ack callback
+        if ("function" === typeof args[args.length - 1]) {
+            debug("emitting packet with ack id %d", this.ids);
+            this.acks[this.ids] = args.pop();
+            packet.id = this.ids++;
+        }
+        const isTransportWritable = this.io.engine &&
+            this.io.engine.transport &&
+            this.io.engine.transport.writable;
+        const discardPacket = this.flags.volatile && (!isTransportWritable || !this.connected);
+        if (discardPacket) {
+            debug("discard packet as the transport is not currently writable");
+        }
+        else if (this.connected) {
+            this.packet(packet);
+        }
+        else {
+            this.sendBuffer.push(packet);
+        }
+        this.flags = {};
+        return this;
+    }
+    /**
+     * Sends a packet.
+     *
+     * @param packet
+     * @private
+     */
+    packet(packet) {
+        packet.nsp = this.nsp;
+        this.io._packet(packet);
+    }
+    /**
+     * Called upon engine `open`.
+     *
+     * @private
+     */
+    onopen() {
+        debug("transport is open - connecting");
+        if (typeof this.auth == "function") {
+            this.auth((data) => {
+                this.packet({ type: socket_io_parser_1.PacketType.CONNECT, data });
+            });
+        }
+        else {
+            this.packet({ type: socket_io_parser_1.PacketType.CONNECT, data: this.auth });
+        }
+    }
+    /**
+     * Called upon engine or manager `error`.
+     *
+     * @param err
+     * @private
+     */
+    onerror(err) {
+        if (!this.connected) {
+            super.emit("connect_error", err);
+        }
+    }
+    /**
+     * Called upon engine `close`.
+     *
+     * @param reason
+     * @private
+     */
+    onclose(reason) {
+        debug("close (%s)", reason);
+        this.connected = false;
+        this.disconnected = true;
+        delete this.id;
+        super.emit("disconnect", reason);
+    }
+    /**
+     * Called with socket packet.
+     *
+     * @param packet
+     * @private
+     */
+    onpacket(packet) {
+        const sameNamespace = packet.nsp === this.nsp;
+        if (!sameNamespace)
+            return;
+        switch (packet.type) {
+            case socket_io_parser_1.PacketType.CONNECT:
+                if (packet.data && packet.data.sid) {
+                    const id = packet.data.sid;
+                    this.onconnect(id);
+                }
+                else {
+                    super.emit("connect_error", new Error("It seems you are trying to reach a Socket.IO server in v2.x with a v3.x client, but they are not compatible (more information here: https://socket.io/docs/v3/migrating-from-2-x-to-3-0/)"));
+                }
+                break;
+            case socket_io_parser_1.PacketType.EVENT:
+                this.onevent(packet);
+                break;
+            case socket_io_parser_1.PacketType.BINARY_EVENT:
+                this.onevent(packet);
+                break;
+            case socket_io_parser_1.PacketType.ACK:
+                this.onack(packet);
+                break;
+            case socket_io_parser_1.PacketType.BINARY_ACK:
+                this.onack(packet);
+                break;
+            case socket_io_parser_1.PacketType.DISCONNECT:
+                this.ondisconnect();
+                break;
+            case socket_io_parser_1.PacketType.CONNECT_ERROR:
+                const err = new Error(packet.data.message);
+                // @ts-ignore
+                err.data = packet.data.data;
+                super.emit("connect_error", err);
+                break;
+        }
+    }
+    /**
+     * Called upon a server event.
+     *
+     * @param packet
+     * @private
+     */
+    onevent(packet) {
+        const args = packet.data || [];
+        debug("emitting event %j", args);
+        if (null != packet.id) {
+            debug("attaching ack callback to event");
+            args.push(this.ack(packet.id));
+        }
+        if (this.connected) {
+            this.emitEvent(args);
+        }
+        else {
+            this.receiveBuffer.push(Object.freeze(args));
+        }
+    }
+    emitEvent(args) {
+        if (this._anyListeners && this._anyListeners.length) {
+            const listeners = this._anyListeners.slice();
+            for (const listener of listeners) {
+                listener.apply(this, args);
+            }
+        }
+        super.emit.apply(this, args);
+    }
+    /**
+     * Produces an ack callback to emit with an event.
+     *
+     * @private
+     */
+    ack(id) {
+        const self = this;
+        let sent = false;
+        return function (...args) {
+            // prevent double callbacks
+            if (sent)
+                return;
+            sent = true;
+            debug("sending ack %j", args);
+            self.packet({
+                type: socket_io_parser_1.PacketType.ACK,
+                id: id,
+                data: args,
+            });
+        };
+    }
+    /**
+     * Called upon a server acknowlegement.
+     *
+     * @param packet
+     * @private
+     */
+    onack(packet) {
+        const ack = this.acks[packet.id];
+        if ("function" === typeof ack) {
+            debug("calling ack %s with %j", packet.id, packet.data);
+            ack.apply(this, packet.data);
+            delete this.acks[packet.id];
+        }
+        else {
+            debug("bad ack %s", packet.id);
+        }
+    }
+    /**
+     * Called upon server connect.
+     *
+     * @private
+     */
+    onconnect(id) {
+        debug("socket connected with id %s", id);
+        this.id = id;
+        this.connected = true;
+        this.disconnected = false;
+        super.emit("connect");
+        this.emitBuffered();
+    }
+    /**
+     * Emit buffered events (received and emitted).
+     *
+     * @private
+     */
+    emitBuffered() {
+        this.receiveBuffer.forEach((args) => this.emitEvent(args));
+        this.receiveBuffer = [];
+        this.sendBuffer.forEach((packet) => this.packet(packet));
+        this.sendBuffer = [];
+    }
+    /**
+     * Called upon server disconnect.
+     *
+     * @private
+     */
+    ondisconnect() {
+        debug("server disconnect (%s)", this.nsp);
+        this.destroy();
+        this.onclose("io server disconnect");
+    }
+    /**
+     * Called upon forced client/server side disconnections,
+     * this method ensures the manager stops tracking us and
+     * that reconnections don't get triggered for this.
+     *
+     * @private
+     */
+    destroy() {
+        if (this.subs) {
+            // clean subscriptions to avoid reconnections
+            this.subs.forEach((subDestroy) => subDestroy());
+            this.subs = undefined;
+        }
+        this.io["_destroy"](this);
+    }
+    /**
+     * Disconnects the socket manually.
+     *
+     * @return self
+     * @public
+     */
+    disconnect() {
+        if (this.connected) {
+            debug("performing disconnect (%s)", this.nsp);
+            this.packet({ type: socket_io_parser_1.PacketType.DISCONNECT });
+        }
+        // remove socket from pool
+        this.destroy();
+        if (this.connected) {
+            // fire events
+            this.onclose("io client disconnect");
+        }
+        return this;
+    }
+    /**
+     * Alias for disconnect()
+     *
+     * @return self
+     * @public
+     */
+    close() {
+        return this.disconnect();
+    }
+    /**
+     * Sets the compress flag.
+     *
+     * @param compress - if `true`, compresses the sending data
+     * @return self
+     * @public
+     */
+    compress(compress) {
+        this.flags.compress = compress;
+        return this;
+    }
+    /**
+     * Sets a modifier for a subsequent event emission that the event message will be dropped when this socket is not
+     * ready to send messages.
+     *
+     * @returns self
+     * @public
+     */
+    get volatile() {
+        this.flags.volatile = true;
+        return this;
+    }
+    /**
+     * Adds a listener that will be fired when any event is emitted. The event name is passed as the first argument to the
+     * callback.
+     *
+     * @param listener
+     * @public
+     */
+    onAny(listener) {
+        this._anyListeners = this._anyListeners || [];
+        this._anyListeners.push(listener);
+        return this;
+    }
+    /**
+     * Adds a listener that will be fired when any event is emitted. The event name is passed as the first argument to the
+     * callback. The listener is added to the beginning of the listeners array.
+     *
+     * @param listener
+     * @public
+     */
+    prependAny(listener) {
+        this._anyListeners = this._anyListeners || [];
+        this._anyListeners.unshift(listener);
+        return this;
+    }
+    /**
+     * Removes the listener that will be fired when any event is emitted.
+     *
+     * @param listener
+     * @public
+     */
+    offAny(listener) {
+        if (!this._anyListeners) {
+            return this;
+        }
+        if (listener) {
+            const listeners = this._anyListeners;
+            for (let i = 0; i < listeners.length; i++) {
+                if (listener === listeners[i]) {
+                    listeners.splice(i, 1);
+                    return this;
+                }
+            }
+        }
+        else {
+            this._anyListeners = [];
+        }
+        return this;
+    }
+    /**
+     * Returns an array of listeners that are listening for any event that is specified. This array can be manipulated,
+     * e.g. to remove listeners.
+     *
+     * @public
+     */
+    listenersAny() {
+        return this._anyListeners || [];
+    }
+}
+exports.Socket = Socket;
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-client/build/url.js":
+/*!****************************************************!*\
+  !*** ./node_modules/socket.io-client/build/url.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.url = void 0;
+const parseuri = __webpack_require__(/*! parseuri */ "./node_modules/parseuri/index.js");
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("socket.io-client:url");
+/**
+ * URL parser.
+ *
+ * @param uri - url
+ * @param loc - An object meant to mimic window.location.
+ *        Defaults to window.location.
+ * @public
+ */
+function url(uri, loc) {
+    let obj = uri;
+    // default to window.location
+    loc = loc || (typeof location !== "undefined" && location);
+    if (null == uri)
+        uri = loc.protocol + "//" + loc.host;
+    // relative path support
+    if (typeof uri === "string") {
+        if ("/" === uri.charAt(0)) {
+            if ("/" === uri.charAt(1)) {
+                uri = loc.protocol + uri;
+            }
+            else {
+                uri = loc.host + uri;
+            }
+        }
+        if (!/^(https?|wss?):\/\//.test(uri)) {
+            debug("protocol-less url %s", uri);
+            if ("undefined" !== typeof loc) {
+                uri = loc.protocol + "//" + uri;
+            }
+            else {
+                uri = "https://" + uri;
+            }
+        }
+        // parse
+        debug("parse %s", uri);
+        obj = parseuri(uri);
+    }
+    // make sure we treat `localhost:80` and `localhost` equally
+    if (!obj.port) {
+        if (/^(http|ws)$/.test(obj.protocol)) {
+            obj.port = "80";
+        }
+        else if (/^(http|ws)s$/.test(obj.protocol)) {
+            obj.port = "443";
+        }
+    }
+    obj.path = obj.path || "/";
+    const ipv6 = obj.host.indexOf(":") !== -1;
+    const host = ipv6 ? "[" + obj.host + "]" : obj.host;
+    // define unique id
+    obj.id = obj.protocol + "://" + host + ":" + obj.port;
+    // define href
+    obj.href =
+        obj.protocol +
+            "://" +
+            host +
+            (loc && loc.port === obj.port ? "" : ":" + obj.port);
+    return obj;
+}
+exports.url = url;
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-client/wrapper.mjs":
+/*!***************************************************!*\
+  !*** ./node_modules/socket.io-client/wrapper.mjs ***!
+  \***************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Manager": () => /* binding */ Manager,
+/* harmony export */   "io": () => /* reexport default export from named module */ _build_index_js__WEBPACK_IMPORTED_MODULE_0__,
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _build_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./build/index.js */ "./node_modules/socket.io-client/build/index.js");
+
+
+const Manager = _build_index_js__WEBPACK_IMPORTED_MODULE_0__.Manager;
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_build_index_js__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-parser/dist/binary.js":
+/*!******************************************************!*\
+  !*** ./node_modules/socket.io-parser/dist/binary.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.reconstructPacket = exports.deconstructPacket = void 0;
+const is_binary_1 = __webpack_require__(/*! ./is-binary */ "./node_modules/socket.io-parser/dist/is-binary.js");
+/**
+ * Replaces every Buffer | ArrayBuffer | Blob | File in packet with a numbered placeholder.
+ *
+ * @param {Object} packet - socket.io event packet
+ * @return {Object} with deconstructed packet and list of buffers
+ * @public
+ */
+function deconstructPacket(packet) {
+    const buffers = [];
+    const packetData = packet.data;
+    const pack = packet;
+    pack.data = _deconstructPacket(packetData, buffers);
+    pack.attachments = buffers.length; // number of binary 'attachments'
+    return { packet: pack, buffers: buffers };
+}
+exports.deconstructPacket = deconstructPacket;
+function _deconstructPacket(data, buffers) {
+    if (!data)
+        return data;
+    if (is_binary_1.isBinary(data)) {
+        const placeholder = { _placeholder: true, num: buffers.length };
+        buffers.push(data);
+        return placeholder;
+    }
+    else if (Array.isArray(data)) {
+        const newData = new Array(data.length);
+        for (let i = 0; i < data.length; i++) {
+            newData[i] = _deconstructPacket(data[i], buffers);
+        }
+        return newData;
+    }
+    else if (typeof data === "object" && !(data instanceof Date)) {
+        const newData = {};
+        for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+                newData[key] = _deconstructPacket(data[key], buffers);
+            }
+        }
+        return newData;
+    }
+    return data;
+}
+/**
+ * Reconstructs a binary packet from its placeholder packet and buffers
+ *
+ * @param {Object} packet - event packet with placeholders
+ * @param {Array} buffers - binary buffers to put in placeholder positions
+ * @return {Object} reconstructed packet
+ * @public
+ */
+function reconstructPacket(packet, buffers) {
+    packet.data = _reconstructPacket(packet.data, buffers);
+    packet.attachments = undefined; // no longer useful
+    return packet;
+}
+exports.reconstructPacket = reconstructPacket;
+function _reconstructPacket(data, buffers) {
+    if (!data)
+        return data;
+    if (data && data._placeholder) {
+        return buffers[data.num]; // appropriate buffer (should be natural order anyway)
+    }
+    else if (Array.isArray(data)) {
+        for (let i = 0; i < data.length; i++) {
+            data[i] = _reconstructPacket(data[i], buffers);
+        }
+    }
+    else if (typeof data === "object") {
+        for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+                data[key] = _reconstructPacket(data[key], buffers);
+            }
+        }
+    }
+    return data;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-parser/dist/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/socket.io-parser/dist/index.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Decoder = exports.Encoder = exports.PacketType = exports.protocol = void 0;
+const Emitter = __webpack_require__(/*! component-emitter */ "./node_modules/component-emitter/index.js");
+const binary_1 = __webpack_require__(/*! ./binary */ "./node_modules/socket.io-parser/dist/binary.js");
+const is_binary_1 = __webpack_require__(/*! ./is-binary */ "./node_modules/socket.io-parser/dist/is-binary.js");
+const debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js")("socket.io-parser");
+/**
+ * Protocol version.
+ *
+ * @public
+ */
+exports.protocol = 5;
+var PacketType;
+(function (PacketType) {
+    PacketType[PacketType["CONNECT"] = 0] = "CONNECT";
+    PacketType[PacketType["DISCONNECT"] = 1] = "DISCONNECT";
+    PacketType[PacketType["EVENT"] = 2] = "EVENT";
+    PacketType[PacketType["ACK"] = 3] = "ACK";
+    PacketType[PacketType["CONNECT_ERROR"] = 4] = "CONNECT_ERROR";
+    PacketType[PacketType["BINARY_EVENT"] = 5] = "BINARY_EVENT";
+    PacketType[PacketType["BINARY_ACK"] = 6] = "BINARY_ACK";
+})(PacketType = exports.PacketType || (exports.PacketType = {}));
+/**
+ * A socket.io Encoder instance
+ */
+class Encoder {
+    /**
+     * Encode a packet as a single string if non-binary, or as a
+     * buffer sequence, depending on packet type.
+     *
+     * @param {Object} obj - packet object
+     */
+    encode(obj) {
+        debug("encoding packet %j", obj);
+        if (obj.type === PacketType.EVENT || obj.type === PacketType.ACK) {
+            if (is_binary_1.hasBinary(obj)) {
+                obj.type =
+                    obj.type === PacketType.EVENT
+                        ? PacketType.BINARY_EVENT
+                        : PacketType.BINARY_ACK;
+                return this.encodeAsBinary(obj);
+            }
+        }
+        return [this.encodeAsString(obj)];
+    }
+    /**
+     * Encode packet as string.
+     */
+    encodeAsString(obj) {
+        // first is type
+        let str = "" + obj.type;
+        // attachments if we have them
+        if (obj.type === PacketType.BINARY_EVENT ||
+            obj.type === PacketType.BINARY_ACK) {
+            str += obj.attachments + "-";
+        }
+        // if we have a namespace other than `/`
+        // we append it followed by a comma `,`
+        if (obj.nsp && "/" !== obj.nsp) {
+            str += obj.nsp + ",";
+        }
+        // immediately followed by the id
+        if (null != obj.id) {
+            str += obj.id;
+        }
+        // json data
+        if (null != obj.data) {
+            str += JSON.stringify(obj.data);
+        }
+        debug("encoded %j as %s", obj, str);
+        return str;
+    }
+    /**
+     * Encode packet as 'buffer sequence' by removing blobs, and
+     * deconstructing packet into object with placeholders and
+     * a list of buffers.
+     */
+    encodeAsBinary(obj) {
+        const deconstruction = binary_1.deconstructPacket(obj);
+        const pack = this.encodeAsString(deconstruction.packet);
+        const buffers = deconstruction.buffers;
+        buffers.unshift(pack); // add packet info to beginning of data list
+        return buffers; // write all the buffers
+    }
+}
+exports.Encoder = Encoder;
+/**
+ * A socket.io Decoder instance
+ *
+ * @return {Object} decoder
+ */
+class Decoder extends Emitter {
+    constructor() {
+        super();
+    }
+    /**
+     * Decodes an encoded packet string into packet JSON.
+     *
+     * @param {String} obj - encoded packet
+     */
+    add(obj) {
+        let packet;
+        if (typeof obj === "string") {
+            packet = this.decodeString(obj);
+            if (packet.type === PacketType.BINARY_EVENT ||
+                packet.type === PacketType.BINARY_ACK) {
+                // binary packet's json
+                this.reconstructor = new BinaryReconstructor(packet);
+                // no attachments, labeled binary but no binary data to follow
+                if (packet.attachments === 0) {
+                    super.emit("decoded", packet);
+                }
+            }
+            else {
+                // non-binary full packet
+                super.emit("decoded", packet);
+            }
+        }
+        else if (is_binary_1.isBinary(obj) || obj.base64) {
+            // raw binary data
+            if (!this.reconstructor) {
+                throw new Error("got binary data when not reconstructing a packet");
+            }
+            else {
+                packet = this.reconstructor.takeBinaryData(obj);
+                if (packet) {
+                    // received final buffer
+                    this.reconstructor = null;
+                    super.emit("decoded", packet);
+                }
+            }
+        }
+        else {
+            throw new Error("Unknown type: " + obj);
+        }
+    }
+    /**
+     * Decode a packet String (JSON data)
+     *
+     * @param {String} str
+     * @return {Object} packet
+     */
+    decodeString(str) {
+        let i = 0;
+        // look up type
+        const p = {
+            type: Number(str.charAt(0)),
+        };
+        if (PacketType[p.type] === undefined) {
+            throw new Error("unknown packet type " + p.type);
+        }
+        // look up attachments if type binary
+        if (p.type === PacketType.BINARY_EVENT ||
+            p.type === PacketType.BINARY_ACK) {
+            const start = i + 1;
+            while (str.charAt(++i) !== "-" && i != str.length) { }
+            const buf = str.substring(start, i);
+            if (buf != Number(buf) || str.charAt(i) !== "-") {
+                throw new Error("Illegal attachments");
+            }
+            p.attachments = Number(buf);
+        }
+        // look up namespace (if any)
+        if ("/" === str.charAt(i + 1)) {
+            const start = i + 1;
+            while (++i) {
+                const c = str.charAt(i);
+                if ("," === c)
+                    break;
+                if (i === str.length)
+                    break;
+            }
+            p.nsp = str.substring(start, i);
+        }
+        else {
+            p.nsp = "/";
+        }
+        // look up id
+        const next = str.charAt(i + 1);
+        if ("" !== next && Number(next) == next) {
+            const start = i + 1;
+            while (++i) {
+                const c = str.charAt(i);
+                if (null == c || Number(c) != c) {
+                    --i;
+                    break;
+                }
+                if (i === str.length)
+                    break;
+            }
+            p.id = Number(str.substring(start, i + 1));
+        }
+        // look up json data
+        if (str.charAt(++i)) {
+            const payload = tryParse(str.substr(i));
+            if (Decoder.isPayloadValid(p.type, payload)) {
+                p.data = payload;
+            }
+            else {
+                throw new Error("invalid payload");
+            }
+        }
+        debug("decoded %s as %j", str, p);
+        return p;
+    }
+    static isPayloadValid(type, payload) {
+        switch (type) {
+            case PacketType.CONNECT:
+                return typeof payload === "object";
+            case PacketType.DISCONNECT:
+                return payload === undefined;
+            case PacketType.CONNECT_ERROR:
+                return typeof payload === "string" || typeof payload === "object";
+            case PacketType.EVENT:
+            case PacketType.BINARY_EVENT:
+                return Array.isArray(payload) && payload.length > 0;
+            case PacketType.ACK:
+            case PacketType.BINARY_ACK:
+                return Array.isArray(payload);
+        }
+    }
+    /**
+     * Deallocates a parser's resources
+     */
+    destroy() {
+        if (this.reconstructor) {
+            this.reconstructor.finishedReconstruction();
+        }
+    }
+}
+exports.Decoder = Decoder;
+function tryParse(str) {
+    try {
+        return JSON.parse(str);
+    }
+    catch (e) {
+        return false;
+    }
+}
+/**
+ * A manager of a binary event's 'buffer sequence'. Should
+ * be constructed whenever a packet of type BINARY_EVENT is
+ * decoded.
+ *
+ * @param {Object} packet
+ * @return {BinaryReconstructor} initialized reconstructor
+ */
+class BinaryReconstructor {
+    constructor(packet) {
+        this.packet = packet;
+        this.buffers = [];
+        this.reconPack = packet;
+    }
+    /**
+     * Method to be called when binary data received from connection
+     * after a BINARY_EVENT packet.
+     *
+     * @param {Buffer | ArrayBuffer} binData - the raw binary data received
+     * @return {null | Object} returns null if more binary data is expected or
+     *   a reconstructed packet object if all buffers have been received.
+     */
+    takeBinaryData(binData) {
+        this.buffers.push(binData);
+        if (this.buffers.length === this.reconPack.attachments) {
+            // done with buffer list
+            const packet = binary_1.reconstructPacket(this.reconPack, this.buffers);
+            this.finishedReconstruction();
+            return packet;
+        }
+        return null;
+    }
+    /**
+     * Cleans up binary packet reconstruction variables.
+     */
+    finishedReconstruction() {
+        this.reconPack = null;
+        this.buffers = [];
+    }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/socket.io-parser/dist/is-binary.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/socket.io-parser/dist/is-binary.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.hasBinary = exports.isBinary = void 0;
+const withNativeArrayBuffer = typeof ArrayBuffer === "function";
+const isView = (obj) => {
+    return typeof ArrayBuffer.isView === "function"
+        ? ArrayBuffer.isView(obj)
+        : obj.buffer instanceof ArrayBuffer;
+};
+const toString = Object.prototype.toString;
+const withNativeBlob = typeof Blob === "function" ||
+    (typeof Blob !== "undefined" &&
+        toString.call(Blob) === "[object BlobConstructor]");
+const withNativeFile = typeof File === "function" ||
+    (typeof File !== "undefined" &&
+        toString.call(File) === "[object FileConstructor]");
+/**
+ * Returns true if obj is a Buffer, an ArrayBuffer, a Blob or a File.
+ *
+ * @private
+ */
+function isBinary(obj) {
+    return ((withNativeArrayBuffer && (obj instanceof ArrayBuffer || isView(obj))) ||
+        (withNativeBlob && obj instanceof Blob) ||
+        (withNativeFile && obj instanceof File));
+}
+exports.isBinary = isBinary;
+function hasBinary(obj, toJSON) {
+    if (!obj || typeof obj !== "object") {
+        return false;
+    }
+    if (Array.isArray(obj)) {
+        for (let i = 0, l = obj.length; i < l; i++) {
+            if (hasBinary(obj[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+    if (isBinary(obj)) {
+        return true;
+    }
+    if (obj.toJSON &&
+        typeof obj.toJSON === "function" &&
+        arguments.length === 1) {
+        return hasBinary(obj.toJSON(), true);
+    }
+    for (const key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key) && hasBinary(obj[key])) {
+            return true;
+        }
+    }
+    return false;
+}
+exports.hasBinary = hasBinary;
+
+
+/***/ }),
+
+/***/ "./node_modules/tough-cookie/lib/cookie.js":
+/*!*************************************************!*\
+  !*** ./node_modules/tough-cookie/lib/cookie.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const punycode = __webpack_require__(/*! punycode */ "./node_modules/punycode/punycode.es6.js");
+const urlParse = __webpack_require__(/*! url */ "./node_modules/url/url.js").parse;
+const util = __webpack_require__(/*! util */ "./node_modules/util/util.js");
+const pubsuffix = __webpack_require__(/*! ./pubsuffix-psl */ "./node_modules/tough-cookie/lib/pubsuffix-psl.js");
+const Store = __webpack_require__(/*! ./store */ "./node_modules/tough-cookie/lib/store.js").Store;
+const MemoryCookieStore = __webpack_require__(/*! ./memstore */ "./node_modules/tough-cookie/lib/memstore.js").MemoryCookieStore;
+const pathMatch = __webpack_require__(/*! ./pathMatch */ "./node_modules/tough-cookie/lib/pathMatch.js").pathMatch;
+const VERSION = __webpack_require__(/*! ./version */ "./node_modules/tough-cookie/lib/version.js");
+const { fromCallback } = __webpack_require__(/*! universalify */ "./node_modules/universalify/index.js");
+
+// From RFC6265 S4.1.1
+// note that it excludes \x3B ";"
+const COOKIE_OCTETS = /^[\x21\x23-\x2B\x2D-\x3A\x3C-\x5B\x5D-\x7E]+$/;
+
+const CONTROL_CHARS = /[\x00-\x1F]/;
+
+// From Chromium // '\r', '\n' and '\0' should be treated as a terminator in
+// the "relaxed" mode, see:
+// https://github.com/ChromiumWebApps/chromium/blob/b3d3b4da8bb94c1b2e061600df106d590fda3620/net/cookies/parsed_cookie.cc#L60
+const TERMINATORS = ["\n", "\r", "\0"];
+
+// RFC6265 S4.1.1 defines path value as 'any CHAR except CTLs or ";"'
+// Note ';' is \x3B
+const PATH_VALUE = /[\x20-\x3A\x3C-\x7E]+/;
+
+// date-time parsing constants (RFC6265 S5.1.1)
+
+const DATE_DELIM = /[\x09\x20-\x2F\x3B-\x40\x5B-\x60\x7B-\x7E]/;
+
+const MONTH_TO_NUM = {
+  jan: 0,
+  feb: 1,
+  mar: 2,
+  apr: 3,
+  may: 4,
+  jun: 5,
+  jul: 6,
+  aug: 7,
+  sep: 8,
+  oct: 9,
+  nov: 10,
+  dec: 11
+};
+
+const MAX_TIME = 2147483647000; // 31-bit max
+const MIN_TIME = 0; // 31-bit min
+const SAME_SITE_CONTEXT_VAL_ERR =
+  'Invalid sameSiteContext option for getCookies(); expected one of "strict", "lax", or "none"';
+
+function checkSameSiteContext(value) {
+  const context = String(value).toLowerCase();
+  if (context === "none" || context === "lax" || context === "strict") {
+    return context;
+  } else {
+    return null;
+  }
+}
+
+const PrefixSecurityEnum = Object.freeze({
+  SILENT: "silent",
+  STRICT: "strict",
+  DISABLED: "unsafe-disabled"
+});
+
+// Dumped from ip-regex@4.0.0, with the following changes:
+// * all capturing groups converted to non-capturing -- "(?:)"
+// * support for IPv6 Scoped Literal ("%eth1") removed
+// * lowercase hexadecimal only
+var IP_REGEX_LOWERCASE =/(?:^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$)|(?:^(?:(?:[a-f\d]{1,4}:){7}(?:[a-f\d]{1,4}|:)|(?:[a-f\d]{1,4}:){6}(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|:[a-f\d]{1,4}|:)|(?:[a-f\d]{1,4}:){5}(?::(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,2}|:)|(?:[a-f\d]{1,4}:){4}(?:(?::[a-f\d]{1,4}){0,1}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,3}|:)|(?:[a-f\d]{1,4}:){3}(?:(?::[a-f\d]{1,4}){0,2}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,4}|:)|(?:[a-f\d]{1,4}:){2}(?:(?::[a-f\d]{1,4}){0,3}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,5}|:)|(?:[a-f\d]{1,4}:){1}(?:(?::[a-f\d]{1,4}){0,4}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,6}|:)|(?::(?:(?::[a-f\d]{1,4}){0,5}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-f\d]{1,4}){1,7}|:)))$)/;
+
+/*
+ * Parses a Natural number (i.e., non-negative integer) with either the
+ *    <min>*<max>DIGIT ( non-digit *OCTET )
+ * or
+ *    <min>*<max>DIGIT
+ * grammar (RFC6265 S5.1.1).
+ *
+ * The "trailingOK" boolean controls if the grammar accepts a
+ * "( non-digit *OCTET )" trailer.
+ */
+function parseDigits(token, minDigits, maxDigits, trailingOK) {
+  let count = 0;
+  while (count < token.length) {
+    const c = token.charCodeAt(count);
+    // "non-digit = %x00-2F / %x3A-FF"
+    if (c <= 0x2f || c >= 0x3a) {
       break;
     }
+    count++;
+  }
+
+  // constrain to a minimum and maximum number of digits.
+  if (count < minDigits || count > maxDigits) {
+    return null;
+  }
+
+  if (!trailingOK && count != token.length) {
+    return null;
+  }
+
+  return parseInt(token.substr(0, count), 10);
+}
+
+function parseTime(token) {
+  const parts = token.split(":");
+  const result = [0, 0, 0];
+
+  /* RF6256 S5.1.1:
+   *      time            = hms-time ( non-digit *OCTET )
+   *      hms-time        = time-field ":" time-field ":" time-field
+   *      time-field      = 1*2DIGIT
+   */
+
+  if (parts.length !== 3) {
+    return null;
+  }
+
+  for (let i = 0; i < 3; i++) {
+    // "time-field" must be strictly "1*2DIGIT", HOWEVER, "hms-time" can be
+    // followed by "( non-digit *OCTET )" so therefore the last time-field can
+    // have a trailer
+    const trailingOK = i == 2;
+    const num = parseDigits(parts[i], 1, 2, trailingOK);
+    if (num === null) {
+      return null;
+    }
+    result[i] = num;
   }
 
   return result;
 }
 
-function modulesToDom(list, options) {
-  var idCountMap = {};
-  var identifiers = [];
+function parseMonth(token) {
+  token = String(token)
+    .substr(0, 3)
+    .toLowerCase();
+  const num = MONTH_TO_NUM[token];
+  return num >= 0 ? num : null;
+}
 
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var count = idCountMap[id] || 0;
-    var identifier = "".concat(id, " ").concat(count);
-    idCountMap[id] = count + 1;
-    var index = getIndexByIdentifier(identifier);
-    var obj = {
-      css: item[1],
-      media: item[2],
-      sourceMap: item[3]
-    };
+/*
+ * RFC6265 S5.1.1 date parser (see RFC for full grammar)
+ */
+function parseDate(str) {
+  if (!str) {
+    return;
+  }
 
-    if (index !== -1) {
-      stylesInDom[index].references++;
-      stylesInDom[index].updater(obj);
+  /* RFC6265 S5.1.1:
+   * 2. Process each date-token sequentially in the order the date-tokens
+   * appear in the cookie-date
+   */
+  const tokens = str.split(DATE_DELIM);
+  if (!tokens) {
+    return;
+  }
+
+  let hour = null;
+  let minute = null;
+  let second = null;
+  let dayOfMonth = null;
+  let month = null;
+  let year = null;
+
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i].trim();
+    if (!token.length) {
+      continue;
+    }
+
+    let result;
+
+    /* 2.1. If the found-time flag is not set and the token matches the time
+     * production, set the found-time flag and set the hour- value,
+     * minute-value, and second-value to the numbers denoted by the digits in
+     * the date-token, respectively.  Skip the remaining sub-steps and continue
+     * to the next date-token.
+     */
+    if (second === null) {
+      result = parseTime(token);
+      if (result) {
+        hour = result[0];
+        minute = result[1];
+        second = result[2];
+        continue;
+      }
+    }
+
+    /* 2.2. If the found-day-of-month flag is not set and the date-token matches
+     * the day-of-month production, set the found-day-of- month flag and set
+     * the day-of-month-value to the number denoted by the date-token.  Skip
+     * the remaining sub-steps and continue to the next date-token.
+     */
+    if (dayOfMonth === null) {
+      // "day-of-month = 1*2DIGIT ( non-digit *OCTET )"
+      result = parseDigits(token, 1, 2, true);
+      if (result !== null) {
+        dayOfMonth = result;
+        continue;
+      }
+    }
+
+    /* 2.3. If the found-month flag is not set and the date-token matches the
+     * month production, set the found-month flag and set the month-value to
+     * the month denoted by the date-token.  Skip the remaining sub-steps and
+     * continue to the next date-token.
+     */
+    if (month === null) {
+      result = parseMonth(token);
+      if (result !== null) {
+        month = result;
+        continue;
+      }
+    }
+
+    /* 2.4. If the found-year flag is not set and the date-token matches the
+     * year production, set the found-year flag and set the year-value to the
+     * number denoted by the date-token.  Skip the remaining sub-steps and
+     * continue to the next date-token.
+     */
+    if (year === null) {
+      // "year = 2*4DIGIT ( non-digit *OCTET )"
+      result = parseDigits(token, 2, 4, true);
+      if (result !== null) {
+        year = result;
+        /* From S5.1.1:
+         * 3.  If the year-value is greater than or equal to 70 and less
+         * than or equal to 99, increment the year-value by 1900.
+         * 4.  If the year-value is greater than or equal to 0 and less
+         * than or equal to 69, increment the year-value by 2000.
+         */
+        if (year >= 70 && year <= 99) {
+          year += 1900;
+        } else if (year >= 0 && year <= 69) {
+          year += 2000;
+        }
+      }
+    }
+  }
+
+  /* RFC 6265 S5.1.1
+   * "5. Abort these steps and fail to parse the cookie-date if:
+   *     *  at least one of the found-day-of-month, found-month, found-
+   *        year, or found-time flags is not set,
+   *     *  the day-of-month-value is less than 1 or greater than 31,
+   *     *  the year-value is less than 1601,
+   *     *  the hour-value is greater than 23,
+   *     *  the minute-value is greater than 59, or
+   *     *  the second-value is greater than 59.
+   *     (Note that leap seconds cannot be represented in this syntax.)"
+   *
+   * So, in order as above:
+   */
+  if (
+    dayOfMonth === null ||
+    month === null ||
+    year === null ||
+    second === null ||
+    dayOfMonth < 1 ||
+    dayOfMonth > 31 ||
+    year < 1601 ||
+    hour > 23 ||
+    minute > 59 ||
+    second > 59
+  ) {
+    return;
+  }
+
+  return new Date(Date.UTC(year, month, dayOfMonth, hour, minute, second));
+}
+
+function formatDate(date) {
+  return date.toUTCString();
+}
+
+// S5.1.2 Canonicalized Host Names
+function canonicalDomain(str) {
+  if (str == null) {
+    return null;
+  }
+  str = str.trim().replace(/^\./, ""); // S4.1.2.3 & S5.2.3: ignore leading .
+
+  // convert to IDN if any non-ASCII characters
+  if (punycode && /[^\u0001-\u007f]/.test(str)) {
+    str = punycode.toASCII(str);
+  }
+
+  return str.toLowerCase();
+}
+
+// S5.1.3 Domain Matching
+function domainMatch(str, domStr, canonicalize) {
+  if (str == null || domStr == null) {
+    return null;
+  }
+  if (canonicalize !== false) {
+    str = canonicalDomain(str);
+    domStr = canonicalDomain(domStr);
+  }
+
+  /*
+   * S5.1.3:
+   * "A string domain-matches a given domain string if at least one of the
+   * following conditions hold:"
+   *
+   * " o The domain string and the string are identical. (Note that both the
+   * domain string and the string will have been canonicalized to lower case at
+   * this point)"
+   */
+  if (str == domStr) {
+    return true;
+  }
+
+  /* " o All of the following [three] conditions hold:" */
+
+  /* "* The domain string is a suffix of the string" */
+  const idx = str.indexOf(domStr);
+  if (idx <= 0) {
+    return false; // it's a non-match (-1) or prefix (0)
+  }
+
+  // next, check it's a proper suffix
+  // e.g., "a.b.c".indexOf("b.c") === 2
+  // 5 === 3+2
+  if (str.length !== domStr.length + idx) {
+    return false; // it's not a suffix
+  }
+
+  /* "  * The last character of the string that is not included in the
+   * domain string is a %x2E (".") character." */
+  if (str.substr(idx-1,1) !== '.') {
+    return false; // doesn't align on "."
+  }
+
+  /* "  * The string is a host name (i.e., not an IP address)." */
+  if (IP_REGEX_LOWERCASE.test(str)) {
+    return false; // it's an IP address
+  }
+
+  return true;
+}
+
+// RFC6265 S5.1.4 Paths and Path-Match
+
+/*
+ * "The user agent MUST use an algorithm equivalent to the following algorithm
+ * to compute the default-path of a cookie:"
+ *
+ * Assumption: the path (and not query part or absolute uri) is passed in.
+ */
+function defaultPath(path) {
+  // "2. If the uri-path is empty or if the first character of the uri-path is not
+  // a %x2F ("/") character, output %x2F ("/") and skip the remaining steps.
+  if (!path || path.substr(0, 1) !== "/") {
+    return "/";
+  }
+
+  // "3. If the uri-path contains no more than one %x2F ("/") character, output
+  // %x2F ("/") and skip the remaining step."
+  if (path === "/") {
+    return path;
+  }
+
+  const rightSlash = path.lastIndexOf("/");
+  if (rightSlash === 0) {
+    return "/";
+  }
+
+  // "4. Output the characters of the uri-path from the first character up to,
+  // but not including, the right-most %x2F ("/")."
+  return path.slice(0, rightSlash);
+}
+
+function trimTerminator(str) {
+  for (let t = 0; t < TERMINATORS.length; t++) {
+    const terminatorIdx = str.indexOf(TERMINATORS[t]);
+    if (terminatorIdx !== -1) {
+      str = str.substr(0, terminatorIdx);
+    }
+  }
+
+  return str;
+}
+
+function parseCookiePair(cookiePair, looseMode) {
+  cookiePair = trimTerminator(cookiePair);
+
+  let firstEq = cookiePair.indexOf("=");
+  if (looseMode) {
+    if (firstEq === 0) {
+      // '=' is immediately at start
+      cookiePair = cookiePair.substr(1);
+      firstEq = cookiePair.indexOf("="); // might still need to split on '='
+    }
+  } else {
+    // non-loose mode
+    if (firstEq <= 0) {
+      // no '=' or is at start
+      return; // needs to have non-empty "cookie-name"
+    }
+  }
+
+  let cookieName, cookieValue;
+  if (firstEq <= 0) {
+    cookieName = "";
+    cookieValue = cookiePair.trim();
+  } else {
+    cookieName = cookiePair.substr(0, firstEq).trim();
+    cookieValue = cookiePair.substr(firstEq + 1).trim();
+  }
+
+  if (CONTROL_CHARS.test(cookieName) || CONTROL_CHARS.test(cookieValue)) {
+    return;
+  }
+
+  const c = new Cookie();
+  c.key = cookieName;
+  c.value = cookieValue;
+  return c;
+}
+
+function parse(str, options) {
+  if (!options || typeof options !== "object") {
+    options = {};
+  }
+  str = str.trim();
+
+  // We use a regex to parse the "name-value-pair" part of S5.2
+  const firstSemi = str.indexOf(";"); // S5.2 step 1
+  const cookiePair = firstSemi === -1 ? str : str.substr(0, firstSemi);
+  const c = parseCookiePair(cookiePair, !!options.loose);
+  if (!c) {
+    return;
+  }
+
+  if (firstSemi === -1) {
+    return c;
+  }
+
+  // S5.2.3 "unparsed-attributes consist of the remainder of the set-cookie-string
+  // (including the %x3B (";") in question)." plus later on in the same section
+  // "discard the first ";" and trim".
+  const unparsed = str.slice(firstSemi + 1).trim();
+
+  // "If the unparsed-attributes string is empty, skip the rest of these
+  // steps."
+  if (unparsed.length === 0) {
+    return c;
+  }
+
+  /*
+   * S5.2 says that when looping over the items "[p]rocess the attribute-name
+   * and attribute-value according to the requirements in the following
+   * subsections" for every item.  Plus, for many of the individual attributes
+   * in S5.3 it says to use the "attribute-value of the last attribute in the
+   * cookie-attribute-list".  Therefore, in this implementation, we overwrite
+   * the previous value.
+   */
+  const cookie_avs = unparsed.split(";");
+  while (cookie_avs.length) {
+    const av = cookie_avs.shift().trim();
+    if (av.length === 0) {
+      // happens if ";;" appears
+      continue;
+    }
+    const av_sep = av.indexOf("=");
+    let av_key, av_value;
+
+    if (av_sep === -1) {
+      av_key = av;
+      av_value = null;
     } else {
-      stylesInDom.push({
-        identifier: identifier,
-        updater: addStyle(obj, options),
-        references: 1
+      av_key = av.substr(0, av_sep);
+      av_value = av.substr(av_sep + 1);
+    }
+
+    av_key = av_key.trim().toLowerCase();
+
+    if (av_value) {
+      av_value = av_value.trim();
+    }
+
+    switch (av_key) {
+      case "expires": // S5.2.1
+        if (av_value) {
+          const exp = parseDate(av_value);
+          // "If the attribute-value failed to parse as a cookie date, ignore the
+          // cookie-av."
+          if (exp) {
+            // over and underflow not realistically a concern: V8's getTime() seems to
+            // store something larger than a 32-bit time_t (even with 32-bit node)
+            c.expires = exp;
+          }
+        }
+        break;
+
+      case "max-age": // S5.2.2
+        if (av_value) {
+          // "If the first character of the attribute-value is not a DIGIT or a "-"
+          // character ...[or]... If the remainder of attribute-value contains a
+          // non-DIGIT character, ignore the cookie-av."
+          if (/^-?[0-9]+$/.test(av_value)) {
+            const delta = parseInt(av_value, 10);
+            // "If delta-seconds is less than or equal to zero (0), let expiry-time
+            // be the earliest representable date and time."
+            c.setMaxAge(delta);
+          }
+        }
+        break;
+
+      case "domain": // S5.2.3
+        // "If the attribute-value is empty, the behavior is undefined.  However,
+        // the user agent SHOULD ignore the cookie-av entirely."
+        if (av_value) {
+          // S5.2.3 "Let cookie-domain be the attribute-value without the leading %x2E
+          // (".") character."
+          const domain = av_value.trim().replace(/^\./, "");
+          if (domain) {
+            // "Convert the cookie-domain to lower case."
+            c.domain = domain.toLowerCase();
+          }
+        }
+        break;
+
+      case "path": // S5.2.4
+        /*
+         * "If the attribute-value is empty or if the first character of the
+         * attribute-value is not %x2F ("/"):
+         *   Let cookie-path be the default-path.
+         * Otherwise:
+         *   Let cookie-path be the attribute-value."
+         *
+         * We'll represent the default-path as null since it depends on the
+         * context of the parsing.
+         */
+        c.path = av_value && av_value[0] === "/" ? av_value : null;
+        break;
+
+      case "secure": // S5.2.5
+        /*
+         * "If the attribute-name case-insensitively matches the string "Secure",
+         * the user agent MUST append an attribute to the cookie-attribute-list
+         * with an attribute-name of Secure and an empty attribute-value."
+         */
+        c.secure = true;
+        break;
+
+      case "httponly": // S5.2.6 -- effectively the same as 'secure'
+        c.httpOnly = true;
+        break;
+
+      case "samesite": // RFC6265bis-02 S5.3.7
+        const enforcement = av_value ? av_value.toLowerCase() : "";
+        switch (enforcement) {
+          case "strict":
+            c.sameSite = "strict";
+            break;
+          case "lax":
+            c.sameSite = "lax";
+            break;
+          default:
+            // RFC6265bis-02 S5.3.7 step 1:
+            // "If cookie-av's attribute-value is not a case-insensitive match
+            //  for "Strict" or "Lax", ignore the "cookie-av"."
+            // This effectively sets it to 'none' from the prototype.
+            break;
+        }
+        break;
+
+      default:
+        c.extensions = c.extensions || [];
+        c.extensions.push(av);
+        break;
+    }
+  }
+
+  return c;
+}
+
+/**
+ *  If the cookie-name begins with a case-sensitive match for the
+ *  string "__Secure-", abort these steps and ignore the cookie
+ *  entirely unless the cookie's secure-only-flag is true.
+ * @param cookie
+ * @returns boolean
+ */
+function isSecurePrefixConditionMet(cookie) {
+  return !cookie.key.startsWith("__Secure-") || cookie.secure;
+}
+
+/**
+ *  If the cookie-name begins with a case-sensitive match for the
+ *  string "__Host-", abort these steps and ignore the cookie
+ *  entirely unless the cookie meets all the following criteria:
+ *    1.  The cookie's secure-only-flag is true.
+ *    2.  The cookie's host-only-flag is true.
+ *    3.  The cookie-attribute-list contains an attribute with an
+ *        attribute-name of "Path", and the cookie's path is "/".
+ * @param cookie
+ * @returns boolean
+ */
+function isHostPrefixConditionMet(cookie) {
+  return (
+    !cookie.key.startsWith("__Host-") ||
+    (cookie.secure &&
+      cookie.hostOnly &&
+      cookie.path != null &&
+      cookie.path === "/")
+  );
+}
+
+// avoid the V8 deoptimization monster!
+function jsonParse(str) {
+  let obj;
+  try {
+    obj = JSON.parse(str);
+  } catch (e) {
+    return e;
+  }
+  return obj;
+}
+
+function fromJSON(str) {
+  if (!str) {
+    return null;
+  }
+
+  let obj;
+  if (typeof str === "string") {
+    obj = jsonParse(str);
+    if (obj instanceof Error) {
+      return null;
+    }
+  } else {
+    // assume it's an Object
+    obj = str;
+  }
+
+  const c = new Cookie();
+  for (let i = 0; i < Cookie.serializableProperties.length; i++) {
+    const prop = Cookie.serializableProperties[i];
+    if (obj[prop] === undefined || obj[prop] === cookieDefaults[prop]) {
+      continue; // leave as prototype default
+    }
+
+    if (prop === "expires" || prop === "creation" || prop === "lastAccessed") {
+      if (obj[prop] === null) {
+        c[prop] = null;
+      } else {
+        c[prop] = obj[prop] == "Infinity" ? "Infinity" : new Date(obj[prop]);
+      }
+    } else {
+      c[prop] = obj[prop];
+    }
+  }
+
+  return c;
+}
+
+/* Section 5.4 part 2:
+ * "*  Cookies with longer paths are listed before cookies with
+ *     shorter paths.
+ *
+ *  *  Among cookies that have equal-length path fields, cookies with
+ *     earlier creation-times are listed before cookies with later
+ *     creation-times."
+ */
+
+function cookieCompare(a, b) {
+  let cmp = 0;
+
+  // descending for length: b CMP a
+  const aPathLen = a.path ? a.path.length : 0;
+  const bPathLen = b.path ? b.path.length : 0;
+  cmp = bPathLen - aPathLen;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  // ascending for time: a CMP b
+  const aTime = a.creation ? a.creation.getTime() : MAX_TIME;
+  const bTime = b.creation ? b.creation.getTime() : MAX_TIME;
+  cmp = aTime - bTime;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  // break ties for the same millisecond (precision of JavaScript's clock)
+  cmp = a.creationIndex - b.creationIndex;
+
+  return cmp;
+}
+
+// Gives the permutation of all possible pathMatch()es of a given path. The
+// array is in longest-to-shortest order.  Handy for indexing.
+function permutePath(path) {
+  if (path === "/") {
+    return ["/"];
+  }
+  const permutations = [path];
+  while (path.length > 1) {
+    const lindex = path.lastIndexOf("/");
+    if (lindex === 0) {
+      break;
+    }
+    path = path.substr(0, lindex);
+    permutations.push(path);
+  }
+  permutations.push("/");
+  return permutations;
+}
+
+function getCookieContext(url) {
+  if (url instanceof Object) {
+    return url;
+  }
+  // NOTE: decodeURI will throw on malformed URIs (see GH-32).
+  // Therefore, we will just skip decoding for such URIs.
+  try {
+    url = decodeURI(url);
+  } catch (err) {
+    // Silently swallow error
+  }
+
+  return urlParse(url);
+}
+
+const cookieDefaults = {
+  // the order in which the RFC has them:
+  key: "",
+  value: "",
+  expires: "Infinity",
+  maxAge: null,
+  domain: null,
+  path: null,
+  secure: false,
+  httpOnly: false,
+  extensions: null,
+  // set by the CookieJar:
+  hostOnly: null,
+  pathIsDefault: null,
+  creation: null,
+  lastAccessed: null,
+  sameSite: "none"
+};
+
+class Cookie {
+  constructor(options = {}) {
+    if (util.inspect.custom) {
+      this[util.inspect.custom] = this.inspect;
+    }
+
+    Object.assign(this, cookieDefaults, options);
+    this.creation = this.creation || new Date();
+
+    // used to break creation ties in cookieCompare():
+    Object.defineProperty(this, "creationIndex", {
+      configurable: false,
+      enumerable: false, // important for assert.deepEqual checks
+      writable: true,
+      value: ++Cookie.cookiesCreated
+    });
+  }
+
+  inspect() {
+    const now = Date.now();
+    const hostOnly = this.hostOnly != null ? this.hostOnly : "?";
+    const createAge = this.creation
+      ? `${now - this.creation.getTime()}ms`
+      : "?";
+    const accessAge = this.lastAccessed
+      ? `${now - this.lastAccessed.getTime()}ms`
+      : "?";
+    return `Cookie="${this.toString()}; hostOnly=${hostOnly}; aAge=${accessAge}; cAge=${createAge}"`;
+  }
+
+  toJSON() {
+    const obj = {};
+
+    for (const prop of Cookie.serializableProperties) {
+      if (this[prop] === cookieDefaults[prop]) {
+        continue; // leave as prototype default
+      }
+
+      if (
+        prop === "expires" ||
+        prop === "creation" ||
+        prop === "lastAccessed"
+      ) {
+        if (this[prop] === null) {
+          obj[prop] = null;
+        } else {
+          obj[prop] =
+            this[prop] == "Infinity" // intentionally not ===
+              ? "Infinity"
+              : this[prop].toISOString();
+        }
+      } else if (prop === "maxAge") {
+        if (this[prop] !== null) {
+          // again, intentionally not ===
+          obj[prop] =
+            this[prop] == Infinity || this[prop] == -Infinity
+              ? this[prop].toString()
+              : this[prop];
+        }
+      } else {
+        if (this[prop] !== cookieDefaults[prop]) {
+          obj[prop] = this[prop];
+        }
+      }
+    }
+
+    return obj;
+  }
+
+  clone() {
+    return fromJSON(this.toJSON());
+  }
+
+  validate() {
+    if (!COOKIE_OCTETS.test(this.value)) {
+      return false;
+    }
+    if (
+      this.expires != Infinity &&
+      !(this.expires instanceof Date) &&
+      !parseDate(this.expires)
+    ) {
+      return false;
+    }
+    if (this.maxAge != null && this.maxAge <= 0) {
+      return false; // "Max-Age=" non-zero-digit *DIGIT
+    }
+    if (this.path != null && !PATH_VALUE.test(this.path)) {
+      return false;
+    }
+
+    const cdomain = this.cdomain();
+    if (cdomain) {
+      if (cdomain.match(/\.$/)) {
+        return false; // S4.1.2.3 suggests that this is bad. domainMatch() tests confirm this
+      }
+      const suffix = pubsuffix.getPublicSuffix(cdomain);
+      if (suffix == null) {
+        // it's a public suffix
+        return false;
+      }
+    }
+    return true;
+  }
+
+  setExpires(exp) {
+    if (exp instanceof Date) {
+      this.expires = exp;
+    } else {
+      this.expires = parseDate(exp) || "Infinity";
+    }
+  }
+
+  setMaxAge(age) {
+    if (age === Infinity || age === -Infinity) {
+      this.maxAge = age.toString(); // so JSON.stringify() works
+    } else {
+      this.maxAge = age;
+    }
+  }
+
+  cookieString() {
+    let val = this.value;
+    if (val == null) {
+      val = "";
+    }
+    if (this.key === "") {
+      return val;
+    }
+    return `${this.key}=${val}`;
+  }
+
+  // gives Set-Cookie header format
+  toString() {
+    let str = this.cookieString();
+
+    if (this.expires != Infinity) {
+      if (this.expires instanceof Date) {
+        str += `; Expires=${formatDate(this.expires)}`;
+      } else {
+        str += `; Expires=${this.expires}`;
+      }
+    }
+
+    if (this.maxAge != null && this.maxAge != Infinity) {
+      str += `; Max-Age=${this.maxAge}`;
+    }
+
+    if (this.domain && !this.hostOnly) {
+      str += `; Domain=${this.domain}`;
+    }
+    if (this.path) {
+      str += `; Path=${this.path}`;
+    }
+
+    if (this.secure) {
+      str += "; Secure";
+    }
+    if (this.httpOnly) {
+      str += "; HttpOnly";
+    }
+    if (this.sameSite && this.sameSite !== "none") {
+      const ssCanon = Cookie.sameSiteCanonical[this.sameSite.toLowerCase()];
+      str += `; SameSite=${ssCanon ? ssCanon : this.sameSite}`;
+    }
+    if (this.extensions) {
+      this.extensions.forEach(ext => {
+        str += `; ${ext}`;
       });
     }
 
-    identifiers.push(identifier);
+    return str;
   }
 
-  return identifiers;
-}
-
-function insertStyleElement(options) {
-  var style = document.createElement('style');
-  var attributes = options.attributes || {};
-
-  if (typeof attributes.nonce === 'undefined') {
-    var nonce =  true ? __webpack_require__.nc : 0;
-
-    if (nonce) {
-      attributes.nonce = nonce;
-    }
-  }
-
-  Object.keys(attributes).forEach(function (key) {
-    style.setAttribute(key, attributes[key]);
-  });
-
-  if (typeof options.insert === 'function') {
-    options.insert(style);
-  } else {
-    var target = getTarget(options.insert || 'head');
-
-    if (!target) {
-      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+  // TTL() partially replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
+  // elsewhere)
+  // S5.3 says to give the "latest representable date" for which we use Infinity
+  // For "expired" we use 0
+  TTL(now) {
+    /* RFC6265 S4.1.2.2 If a cookie has both the Max-Age and the Expires
+     * attribute, the Max-Age attribute has precedence and controls the
+     * expiration date of the cookie.
+     * (Concurs with S5.3 step 3)
+     */
+    if (this.maxAge != null) {
+      return this.maxAge <= 0 ? 0 : this.maxAge * 1000;
     }
 
-    target.appendChild(style);
-  }
+    let expires = this.expires;
+    if (expires != Infinity) {
+      if (!(expires instanceof Date)) {
+        expires = parseDate(expires) || Infinity;
+      }
 
-  return style;
-}
+      if (expires == Infinity) {
+        return Infinity;
+      }
 
-function removeStyleElement(style) {
-  // istanbul ignore if
-  if (style.parentNode === null) {
-    return false;
-  }
-
-  style.parentNode.removeChild(style);
-}
-/* istanbul ignore next  */
-
-
-var replaceText = function replaceText() {
-  var textStore = [];
-  return function replace(index, replacement) {
-    textStore[index] = replacement;
-    return textStore.filter(Boolean).join('\n');
-  };
-}();
-
-function applyToSingletonTag(style, index, remove, obj) {
-  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
-
-  /* istanbul ignore if  */
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = replaceText(index, css);
-  } else {
-    var cssNode = document.createTextNode(css);
-    var childNodes = style.childNodes;
-
-    if (childNodes[index]) {
-      style.removeChild(childNodes[index]);
+      return expires.getTime() - (now || Date.now());
     }
 
-    if (childNodes.length) {
-      style.insertBefore(cssNode, childNodes[index]);
+    return Infinity;
+  }
+
+  // expiryTime() replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
+  // elsewhere)
+  expiryTime(now) {
+    if (this.maxAge != null) {
+      const relativeTo = now || this.creation || new Date();
+      const age = this.maxAge <= 0 ? -Infinity : this.maxAge * 1000;
+      return relativeTo.getTime() + age;
+    }
+
+    if (this.expires == Infinity) {
+      return Infinity;
+    }
+    return this.expires.getTime();
+  }
+
+  // expiryDate() replaces the "expiry-time" parts of S5.3 step 3 (setCookie()
+  // elsewhere), except it returns a Date
+  expiryDate(now) {
+    const millisec = this.expiryTime(now);
+    if (millisec == Infinity) {
+      return new Date(MAX_TIME);
+    } else if (millisec == -Infinity) {
+      return new Date(MIN_TIME);
     } else {
-      style.appendChild(cssNode);
+      return new Date(millisec);
     }
+  }
+
+  // This replaces the "persistent-flag" parts of S5.3 step 3
+  isPersistent() {
+    return this.maxAge != null || this.expires != Infinity;
+  }
+
+  // Mostly S5.1.2 and S5.2.3:
+  canonicalizedDomain() {
+    if (this.domain == null) {
+      return null;
+    }
+    return canonicalDomain(this.domain);
+  }
+
+  cdomain() {
+    return this.canonicalizedDomain();
   }
 }
 
-function applyToTag(style, options, obj) {
-  var css = obj.css;
-  var media = obj.media;
-  var sourceMap = obj.sourceMap;
+Cookie.cookiesCreated = 0;
+Cookie.parse = parse;
+Cookie.fromJSON = fromJSON;
+Cookie.serializableProperties = Object.keys(cookieDefaults);
+Cookie.sameSiteLevel = {
+  strict: 3,
+  lax: 2,
+  none: 1
+};
 
-  if (media) {
-    style.setAttribute('media', media);
-  } else {
-    style.removeAttribute('media');
+Cookie.sameSiteCanonical = {
+  strict: "Strict",
+  lax: "Lax"
+};
+
+function getNormalizedPrefixSecurity(prefixSecurity) {
+  if (prefixSecurity != null) {
+    const normalizedPrefixSecurity = prefixSecurity.toLowerCase();
+    /* The three supported options */
+    switch (normalizedPrefixSecurity) {
+      case PrefixSecurityEnum.STRICT:
+      case PrefixSecurityEnum.SILENT:
+      case PrefixSecurityEnum.DISABLED:
+        return normalizedPrefixSecurity;
+    }
+  }
+  /* Default is SILENT */
+  return PrefixSecurityEnum.SILENT;
+}
+
+class CookieJar {
+  constructor(store, options = { rejectPublicSuffixes: true }) {
+    if (typeof options === "boolean") {
+      options = { rejectPublicSuffixes: options };
+    }
+    this.rejectPublicSuffixes = options.rejectPublicSuffixes;
+    this.enableLooseMode = !!options.looseMode;
+    this.allowSpecialUseDomain = !!options.allowSpecialUseDomain;
+    this.store = store || new MemoryCookieStore();
+    this.prefixSecurity = getNormalizedPrefixSecurity(options.prefixSecurity);
+    this._cloneSync = syncWrap("clone");
+    this._importCookiesSync = syncWrap("_importCookies");
+    this.getCookiesSync = syncWrap("getCookies");
+    this.getCookieStringSync = syncWrap("getCookieString");
+    this.getSetCookieStringsSync = syncWrap("getSetCookieStrings");
+    this.removeAllCookiesSync = syncWrap("removeAllCookies");
+    this.setCookieSync = syncWrap("setCookie");
+    this.serializeSync = syncWrap("serialize");
   }
 
-  if (sourceMap && typeof btoa !== 'undefined') {
-    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
-  } // For old IE
-
-  /* istanbul ignore if  */
-
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    while (style.firstChild) {
-      style.removeChild(style.firstChild);
+  setCookie(cookie, url, options, cb) {
+    let err;
+    const context = getCookieContext(url);
+    if (typeof options === "function") {
+      cb = options;
+      options = {};
     }
 
-    style.appendChild(document.createTextNode(css));
+    const host = canonicalDomain(context.hostname);
+    const loose = options.loose || this.enableLooseMode;
+
+    let sameSiteContext = null;
+    if (options.sameSiteContext) {
+      sameSiteContext = checkSameSiteContext(options.sameSiteContext);
+      if (!sameSiteContext) {
+        return cb(new Error(SAME_SITE_CONTEXT_VAL_ERR));
+      }
+    }
+
+    // S5.3 step 1
+    if (typeof cookie === "string" || cookie instanceof String) {
+      cookie = Cookie.parse(cookie, { loose: loose });
+      if (!cookie) {
+        err = new Error("Cookie failed to parse");
+        return cb(options.ignoreError ? null : err);
+      }
+    } else if (!(cookie instanceof Cookie)) {
+      // If you're seeing this error, and are passing in a Cookie object,
+      // it *might* be a Cookie object from another loaded version of tough-cookie.
+      err = new Error(
+        "First argument to setCookie must be a Cookie object or string"
+      );
+      return cb(options.ignoreError ? null : err);
+    }
+
+    // S5.3 step 2
+    const now = options.now || new Date(); // will assign later to save effort in the face of errors
+
+    // S5.3 step 3: NOOP; persistent-flag and expiry-time is handled by getCookie()
+
+    // S5.3 step 4: NOOP; domain is null by default
+
+    // S5.3 step 5: public suffixes
+    if (this.rejectPublicSuffixes && cookie.domain) {
+      const suffix = pubsuffix.getPublicSuffix(cookie.cdomain());
+      if (suffix == null) {
+        // e.g. "com"
+        err = new Error("Cookie has domain set to a public suffix");
+        return cb(options.ignoreError ? null : err);
+      }
+    }
+
+    // S5.3 step 6:
+    if (cookie.domain) {
+      if (!domainMatch(host, cookie.cdomain(), false)) {
+        err = new Error(
+          `Cookie not in this host's domain. Cookie:${cookie.cdomain()} Request:${host}`
+        );
+        return cb(options.ignoreError ? null : err);
+      }
+
+      if (cookie.hostOnly == null) {
+        // don't reset if already set
+        cookie.hostOnly = false;
+      }
+    } else {
+      cookie.hostOnly = true;
+      cookie.domain = host;
+    }
+
+    //S5.2.4 If the attribute-value is empty or if the first character of the
+    //attribute-value is not %x2F ("/"):
+    //Let cookie-path be the default-path.
+    if (!cookie.path || cookie.path[0] !== "/") {
+      cookie.path = defaultPath(context.pathname);
+      cookie.pathIsDefault = true;
+    }
+
+    // S5.3 step 8: NOOP; secure attribute
+    // S5.3 step 9: NOOP; httpOnly attribute
+
+    // S5.3 step 10
+    if (options.http === false && cookie.httpOnly) {
+      err = new Error("Cookie is HttpOnly and this isn't an HTTP API");
+      return cb(options.ignoreError ? null : err);
+    }
+
+    // 6252bis-02 S5.4 Step 13 & 14:
+    if (cookie.sameSite !== "none" && sameSiteContext) {
+      // "If the cookie's "same-site-flag" is not "None", and the cookie
+      //  is being set from a context whose "site for cookies" is not an
+      //  exact match for request-uri's host's registered domain, then
+      //  abort these steps and ignore the newly created cookie entirely."
+      if (sameSiteContext === "none") {
+        err = new Error(
+          "Cookie is SameSite but this is a cross-origin request"
+        );
+        return cb(options.ignoreError ? null : err);
+      }
+    }
+
+    /* 6265bis-02 S5.4 Steps 15 & 16 */
+    const ignoreErrorForPrefixSecurity =
+      this.prefixSecurity === PrefixSecurityEnum.SILENT;
+    const prefixSecurityDisabled =
+      this.prefixSecurity === PrefixSecurityEnum.DISABLED;
+    /* If prefix checking is not disabled ...*/
+    if (!prefixSecurityDisabled) {
+      let errorFound = false;
+      let errorMsg;
+      /* Check secure prefix condition */
+      if (!isSecurePrefixConditionMet(cookie)) {
+        errorFound = true;
+        errorMsg = "Cookie has __Secure prefix but Secure attribute is not set";
+      } else if (!isHostPrefixConditionMet(cookie)) {
+        /* Check host prefix condition */
+        errorFound = true;
+        errorMsg =
+          "Cookie has __Host prefix but either Secure or HostOnly attribute is not set or Path is not '/'";
+      }
+      if (errorFound) {
+        return cb(
+          options.ignoreError || ignoreErrorForPrefixSecurity
+            ? null
+            : new Error(errorMsg)
+        );
+      }
+    }
+
+    const store = this.store;
+
+    if (!store.updateCookie) {
+      store.updateCookie = function(oldCookie, newCookie, cb) {
+        this.putCookie(newCookie, cb);
+      };
+    }
+
+    function withCookie(err, oldCookie) {
+      if (err) {
+        return cb(err);
+      }
+
+      const next = function(err) {
+        if (err) {
+          return cb(err);
+        } else {
+          cb(null, cookie);
+        }
+      };
+
+      if (oldCookie) {
+        // S5.3 step 11 - "If the cookie store contains a cookie with the same name,
+        // domain, and path as the newly created cookie:"
+        if (options.http === false && oldCookie.httpOnly) {
+          // step 11.2
+          err = new Error("old Cookie is HttpOnly and this isn't an HTTP API");
+          return cb(options.ignoreError ? null : err);
+        }
+        cookie.creation = oldCookie.creation; // step 11.3
+        cookie.creationIndex = oldCookie.creationIndex; // preserve tie-breaker
+        cookie.lastAccessed = now;
+        // Step 11.4 (delete cookie) is implied by just setting the new one:
+        store.updateCookie(oldCookie, cookie, next); // step 12
+      } else {
+        cookie.creation = cookie.lastAccessed = now;
+        store.putCookie(cookie, next); // step 12
+      }
+    }
+
+    store.findCookie(cookie.domain, cookie.path, cookie.key, withCookie);
+  }
+
+  // RFC6365 S5.4
+  getCookies(url, options, cb) {
+    const context = getCookieContext(url);
+    if (typeof options === "function") {
+      cb = options;
+      options = {};
+    }
+
+    const host = canonicalDomain(context.hostname);
+    const path = context.pathname || "/";
+
+    let secure = options.secure;
+    if (
+      secure == null &&
+      context.protocol &&
+      (context.protocol == "https:" || context.protocol == "wss:")
+    ) {
+      secure = true;
+    }
+
+    let sameSiteLevel = 0;
+    if (options.sameSiteContext) {
+      const sameSiteContext = checkSameSiteContext(options.sameSiteContext);
+      sameSiteLevel = Cookie.sameSiteLevel[sameSiteContext];
+      if (!sameSiteLevel) {
+        return cb(new Error(SAME_SITE_CONTEXT_VAL_ERR));
+      }
+    }
+
+    let http = options.http;
+    if (http == null) {
+      http = true;
+    }
+
+    const now = options.now || Date.now();
+    const expireCheck = options.expire !== false;
+    const allPaths = !!options.allPaths;
+    const store = this.store;
+
+    function matchingCookie(c) {
+      // "Either:
+      //   The cookie's host-only-flag is true and the canonicalized
+      //   request-host is identical to the cookie's domain.
+      // Or:
+      //   The cookie's host-only-flag is false and the canonicalized
+      //   request-host domain-matches the cookie's domain."
+      if (c.hostOnly) {
+        if (c.domain != host) {
+          return false;
+        }
+      } else {
+        if (!domainMatch(host, c.domain, false)) {
+          return false;
+        }
+      }
+
+      // "The request-uri's path path-matches the cookie's path."
+      if (!allPaths && !pathMatch(path, c.path)) {
+        return false;
+      }
+
+      // "If the cookie's secure-only-flag is true, then the request-uri's
+      // scheme must denote a "secure" protocol"
+      if (c.secure && !secure) {
+        return false;
+      }
+
+      // "If the cookie's http-only-flag is true, then exclude the cookie if the
+      // cookie-string is being generated for a "non-HTTP" API"
+      if (c.httpOnly && !http) {
+        return false;
+      }
+
+      // RFC6265bis-02 S5.3.7
+      if (sameSiteLevel) {
+        const cookieLevel = Cookie.sameSiteLevel[c.sameSite || "none"];
+        if (cookieLevel > sameSiteLevel) {
+          // only allow cookies at or below the request level
+          return false;
+        }
+      }
+
+      // deferred from S5.3
+      // non-RFC: allow retention of expired cookies by choice
+      if (expireCheck && c.expiryTime() <= now) {
+        store.removeCookie(c.domain, c.path, c.key, () => {}); // result ignored
+        return false;
+      }
+
+      return true;
+    }
+
+    store.findCookies(
+      host,
+      allPaths ? null : path,
+      this.allowSpecialUseDomain,
+      (err, cookies) => {
+        if (err) {
+          return cb(err);
+        }
+
+        cookies = cookies.filter(matchingCookie);
+
+        // sorting of S5.4 part 2
+        if (options.sort !== false) {
+          cookies = cookies.sort(cookieCompare);
+        }
+
+        // S5.4 part 3
+        const now = new Date();
+        for (const cookie of cookies) {
+          cookie.lastAccessed = now;
+        }
+        // TODO persist lastAccessed
+
+        cb(null, cookies);
+      }
+    );
+  }
+
+  getCookieString(...args) {
+    const cb = args.pop();
+    const next = function(err, cookies) {
+      if (err) {
+        cb(err);
+      } else {
+        cb(
+          null,
+          cookies
+            .sort(cookieCompare)
+            .map(c => c.cookieString())
+            .join("; ")
+        );
+      }
+    };
+    args.push(next);
+    this.getCookies.apply(this, args);
+  }
+
+  getSetCookieStrings(...args) {
+    const cb = args.pop();
+    const next = function(err, cookies) {
+      if (err) {
+        cb(err);
+      } else {
+        cb(
+          null,
+          cookies.map(c => {
+            return c.toString();
+          })
+        );
+      }
+    };
+    args.push(next);
+    this.getCookies.apply(this, args);
+  }
+
+  serialize(cb) {
+    let type = this.store.constructor.name;
+    if (type === "Object") {
+      type = null;
+    }
+
+    // update README.md "Serialization Format" if you change this, please!
+    const serialized = {
+      // The version of tough-cookie that serialized this jar. Generally a good
+      // practice since future versions can make data import decisions based on
+      // known past behavior. When/if this matters, use `semver`.
+      version: `tough-cookie@${VERSION}`,
+
+      // add the store type, to make humans happy:
+      storeType: type,
+
+      // CookieJar configuration:
+      rejectPublicSuffixes: !!this.rejectPublicSuffixes,
+
+      // this gets filled from getAllCookies:
+      cookies: []
+    };
+
+    if (
+      !(
+        this.store.getAllCookies &&
+        typeof this.store.getAllCookies === "function"
+      )
+    ) {
+      return cb(
+        new Error(
+          "store does not support getAllCookies and cannot be serialized"
+        )
+      );
+    }
+
+    this.store.getAllCookies((err, cookies) => {
+      if (err) {
+        return cb(err);
+      }
+
+      serialized.cookies = cookies.map(cookie => {
+        // convert to serialized 'raw' cookies
+        cookie = cookie instanceof Cookie ? cookie.toJSON() : cookie;
+
+        // Remove the index so new ones get assigned during deserialization
+        delete cookie.creationIndex;
+
+        return cookie;
+      });
+
+      return cb(null, serialized);
+    });
+  }
+
+  toJSON() {
+    return this.serializeSync();
+  }
+
+  // use the class method CookieJar.deserialize instead of calling this directly
+  _importCookies(serialized, cb) {
+    let cookies = serialized.cookies;
+    if (!cookies || !Array.isArray(cookies)) {
+      return cb(new Error("serialized jar has no cookies array"));
+    }
+    cookies = cookies.slice(); // do not modify the original
+
+    const putNext = err => {
+      if (err) {
+        return cb(err);
+      }
+
+      if (!cookies.length) {
+        return cb(err, this);
+      }
+
+      let cookie;
+      try {
+        cookie = fromJSON(cookies.shift());
+      } catch (e) {
+        return cb(e);
+      }
+
+      if (cookie === null) {
+        return putNext(null); // skip this cookie
+      }
+
+      this.store.putCookie(cookie, putNext);
+    };
+
+    putNext();
+  }
+
+  clone(newStore, cb) {
+    if (arguments.length === 1) {
+      cb = newStore;
+      newStore = null;
+    }
+
+    this.serialize((err, serialized) => {
+      if (err) {
+        return cb(err);
+      }
+      CookieJar.deserialize(serialized, newStore, cb);
+    });
+  }
+
+  cloneSync(newStore) {
+    if (arguments.length === 0) {
+      return this._cloneSync();
+    }
+    if (!newStore.synchronous) {
+      throw new Error(
+        "CookieJar clone destination store is not synchronous; use async API instead."
+      );
+    }
+    return this._cloneSync(newStore);
+  }
+
+  removeAllCookies(cb) {
+    const store = this.store;
+
+    // Check that the store implements its own removeAllCookies(). The default
+    // implementation in Store will immediately call the callback with a "not
+    // implemented" Error.
+    if (
+      typeof store.removeAllCookies === "function" &&
+      store.removeAllCookies !== Store.prototype.removeAllCookies
+    ) {
+      return store.removeAllCookies(cb);
+    }
+
+    store.getAllCookies((err, cookies) => {
+      if (err) {
+        return cb(err);
+      }
+
+      if (cookies.length === 0) {
+        return cb(null);
+      }
+
+      let completedCount = 0;
+      const removeErrors = [];
+
+      function removeCookieCb(removeErr) {
+        if (removeErr) {
+          removeErrors.push(removeErr);
+        }
+
+        completedCount++;
+
+        if (completedCount === cookies.length) {
+          return cb(removeErrors.length ? removeErrors[0] : null);
+        }
+      }
+
+      cookies.forEach(cookie => {
+        store.removeCookie(
+          cookie.domain,
+          cookie.path,
+          cookie.key,
+          removeCookieCb
+        );
+      });
+    });
+  }
+
+  static deserialize(strOrObj, store, cb) {
+    if (arguments.length !== 3) {
+      // store is optional
+      cb = store;
+      store = null;
+    }
+
+    let serialized;
+    if (typeof strOrObj === "string") {
+      serialized = jsonParse(strOrObj);
+      if (serialized instanceof Error) {
+        return cb(serialized);
+      }
+    } else {
+      serialized = strOrObj;
+    }
+
+    const jar = new CookieJar(store, serialized.rejectPublicSuffixes);
+    jar._importCookies(serialized, err => {
+      if (err) {
+        return cb(err);
+      }
+      cb(null, jar);
+    });
+  }
+
+  static deserializeSync(strOrObj, store) {
+    const serialized =
+      typeof strOrObj === "string" ? JSON.parse(strOrObj) : strOrObj;
+    const jar = new CookieJar(store, serialized.rejectPublicSuffixes);
+
+    // catch this mistake early:
+    if (!jar.store.synchronous) {
+      throw new Error(
+        "CookieJar store is not synchronous; use async API instead."
+      );
+    }
+
+    jar._importCookiesSync(serialized);
+    return jar;
+  }
+}
+CookieJar.fromJSON = CookieJar.deserializeSync;
+
+[
+  "_importCookies",
+  "clone",
+  "getCookies",
+  "getCookieString",
+  "getSetCookieStrings",
+  "removeAllCookies",
+  "serialize",
+  "setCookie"
+].forEach(name => {
+  CookieJar.prototype[name] = fromCallback(CookieJar.prototype[name]);
+});
+CookieJar.deserialize = fromCallback(CookieJar.deserialize);
+
+// Use a closure to provide a true imperative API for synchronous stores.
+function syncWrap(method) {
+  return function(...args) {
+    if (!this.store.synchronous) {
+      throw new Error(
+        "CookieJar store is not synchronous; use async API instead."
+      );
+    }
+
+    let syncErr, syncResult;
+    this[method](...args, (err, result) => {
+      syncErr = err;
+      syncResult = result;
+    });
+
+    if (syncErr) {
+      throw syncErr;
+    }
+    return syncResult;
+  };
+}
+
+exports.version = VERSION;
+exports.CookieJar = CookieJar;
+exports.Cookie = Cookie;
+exports.Store = Store;
+exports.MemoryCookieStore = MemoryCookieStore;
+exports.parseDate = parseDate;
+exports.formatDate = formatDate;
+exports.parse = parse;
+exports.fromJSON = fromJSON;
+exports.domainMatch = domainMatch;
+exports.defaultPath = defaultPath;
+exports.pathMatch = pathMatch;
+exports.getPublicSuffix = pubsuffix.getPublicSuffix;
+exports.cookieCompare = cookieCompare;
+exports.permuteDomain = __webpack_require__(/*! ./permuteDomain */ "./node_modules/tough-cookie/lib/permuteDomain.js").permuteDomain;
+exports.permutePath = permutePath;
+exports.canonicalDomain = canonicalDomain;
+exports.PrefixSecurityEnum = PrefixSecurityEnum;
+
+
+/***/ }),
+
+/***/ "./node_modules/tough-cookie/lib/memstore.js":
+/*!***************************************************!*\
+  !*** ./node_modules/tough-cookie/lib/memstore.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const { fromCallback } = __webpack_require__(/*! universalify */ "./node_modules/universalify/index.js");
+const Store = __webpack_require__(/*! ./store */ "./node_modules/tough-cookie/lib/store.js").Store;
+const permuteDomain = __webpack_require__(/*! ./permuteDomain */ "./node_modules/tough-cookie/lib/permuteDomain.js").permuteDomain;
+const pathMatch = __webpack_require__(/*! ./pathMatch */ "./node_modules/tough-cookie/lib/pathMatch.js").pathMatch;
+const util = __webpack_require__(/*! util */ "./node_modules/util/util.js");
+
+class MemoryCookieStore extends Store {
+  constructor() {
+    super();
+    this.synchronous = true;
+    this.idx = {};
+    if (util.inspect.custom) {
+      this[util.inspect.custom] = this.inspect;
+    }
+  }
+
+  inspect() {
+    return `{ idx: ${util.inspect(this.idx, false, 2)} }`;
+  }
+
+  findCookie(domain, path, key, cb) {
+    if (!this.idx[domain]) {
+      return cb(null, undefined);
+    }
+    if (!this.idx[domain][path]) {
+      return cb(null, undefined);
+    }
+    return cb(null, this.idx[domain][path][key] || null);
+  }
+  findCookies(domain, path, allowSpecialUseDomain, cb) {
+    const results = [];
+    if (typeof allowSpecialUseDomain === "function") {
+      cb = allowSpecialUseDomain;
+      allowSpecialUseDomain = false;
+    }
+    if (!domain) {
+      return cb(null, []);
+    }
+
+    let pathMatcher;
+    if (!path) {
+      // null means "all paths"
+      pathMatcher = function matchAll(domainIndex) {
+        for (const curPath in domainIndex) {
+          const pathIndex = domainIndex[curPath];
+          for (const key in pathIndex) {
+            results.push(pathIndex[key]);
+          }
+        }
+      };
+    } else {
+      pathMatcher = function matchRFC(domainIndex) {
+        //NOTE: we should use path-match algorithm from S5.1.4 here
+        //(see : https://github.com/ChromiumWebApps/chromium/blob/b3d3b4da8bb94c1b2e061600df106d590fda3620/net/cookies/canonical_cookie.cc#L299)
+        Object.keys(domainIndex).forEach(cookiePath => {
+          if (pathMatch(path, cookiePath)) {
+            const pathIndex = domainIndex[cookiePath];
+            for (const key in pathIndex) {
+              results.push(pathIndex[key]);
+            }
+          }
+        });
+      };
+    }
+
+    const domains = permuteDomain(domain, allowSpecialUseDomain) || [domain];
+    const idx = this.idx;
+    domains.forEach(curDomain => {
+      const domainIndex = idx[curDomain];
+      if (!domainIndex) {
+        return;
+      }
+      pathMatcher(domainIndex);
+    });
+
+    cb(null, results);
+  }
+
+  putCookie(cookie, cb) {
+    if (!this.idx[cookie.domain]) {
+      this.idx[cookie.domain] = {};
+    }
+    if (!this.idx[cookie.domain][cookie.path]) {
+      this.idx[cookie.domain][cookie.path] = {};
+    }
+    this.idx[cookie.domain][cookie.path][cookie.key] = cookie;
+    cb(null);
+  }
+  updateCookie(oldCookie, newCookie, cb) {
+    // updateCookie() may avoid updating cookies that are identical.  For example,
+    // lastAccessed may not be important to some stores and an equality
+    // comparison could exclude that field.
+    this.putCookie(newCookie, cb);
+  }
+  removeCookie(domain, path, key, cb) {
+    if (
+      this.idx[domain] &&
+      this.idx[domain][path] &&
+      this.idx[domain][path][key]
+    ) {
+      delete this.idx[domain][path][key];
+    }
+    cb(null);
+  }
+  removeCookies(domain, path, cb) {
+    if (this.idx[domain]) {
+      if (path) {
+        delete this.idx[domain][path];
+      } else {
+        delete this.idx[domain];
+      }
+    }
+    return cb(null);
+  }
+  removeAllCookies(cb) {
+    this.idx = {};
+    return cb(null);
+  }
+  getAllCookies(cb) {
+    const cookies = [];
+    const idx = this.idx;
+
+    const domains = Object.keys(idx);
+    domains.forEach(domain => {
+      const paths = Object.keys(idx[domain]);
+      paths.forEach(path => {
+        const keys = Object.keys(idx[domain][path]);
+        keys.forEach(key => {
+          if (key !== null) {
+            cookies.push(idx[domain][path][key]);
+          }
+        });
+      });
+    });
+
+    // Sort by creationIndex so deserializing retains the creation order.
+    // When implementing your own store, this SHOULD retain the order too
+    cookies.sort((a, b) => {
+      return (a.creationIndex || 0) - (b.creationIndex || 0);
+    });
+
+    cb(null, cookies);
   }
 }
 
-var singleton = null;
-var singletonCounter = 0;
+[
+  "findCookie",
+  "findCookies",
+  "putCookie",
+  "updateCookie",
+  "removeCookie",
+  "removeCookies",
+  "removeAllCookies",
+  "getAllCookies"
+].forEach(name => {
+  MemoryCookieStore[name] = fromCallback(MemoryCookieStore.prototype[name]);
+});
 
-function addStyle(obj, options) {
-  var style;
-  var update;
-  var remove;
+exports.MemoryCookieStore = MemoryCookieStore;
 
-  if (options.singleton) {
-    var styleIndex = singletonCounter++;
-    style = singleton || (singleton = insertStyleElement(options));
-    update = applyToSingletonTag.bind(null, style, styleIndex, false);
-    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+/***/ }),
+
+/***/ "./node_modules/tough-cookie/lib/pathMatch.js":
+/*!****************************************************!*\
+  !*** ./node_modules/tough-cookie/lib/pathMatch.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * "A request-path path-matches a given cookie-path if at least one of the
+ * following conditions holds:"
+ */
+function pathMatch(reqPath, cookiePath) {
+  // "o  The cookie-path and the request-path are identical."
+  if (cookiePath === reqPath) {
+    return true;
+  }
+
+  const idx = reqPath.indexOf(cookiePath);
+  if (idx === 0) {
+    // "o  The cookie-path is a prefix of the request-path, and the last
+    // character of the cookie-path is %x2F ("/")."
+    if (cookiePath.substr(-1) === "/") {
+      return true;
+    }
+
+    // " o  The cookie-path is a prefix of the request-path, and the first
+    // character of the request-path that is not included in the cookie- path
+    // is a %x2F ("/") character."
+    if (reqPath.substr(cookiePath.length, 1) === "/") {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+exports.pathMatch = pathMatch;
+
+
+/***/ }),
+
+/***/ "./node_modules/tough-cookie/lib/permuteDomain.js":
+/*!********************************************************!*\
+  !*** ./node_modules/tough-cookie/lib/permuteDomain.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const pubsuffix = __webpack_require__(/*! ./pubsuffix-psl */ "./node_modules/tough-cookie/lib/pubsuffix-psl.js");
+
+// Gives the permutation of all possible domainMatch()es of a given domain. The
+// array is in shortest-to-longest order.  Handy for indexing.
+const SPECIAL_USE_DOMAINS = ["local"]; // RFC 6761
+function permuteDomain(domain, allowSpecialUseDomain) {
+  let pubSuf = null;
+  if (allowSpecialUseDomain) {
+    const domainParts = domain.split(".");
+    if (SPECIAL_USE_DOMAINS.includes(domainParts[domainParts.length - 1])) {
+      pubSuf = `${domainParts[domainParts.length - 2]}.${
+        domainParts[domainParts.length - 1]
+      }`;
+    } else {
+      pubSuf = pubsuffix.getPublicSuffix(domain);
+    }
   } else {
-    style = insertStyleElement(options);
-    update = applyToTag.bind(null, style, options);
+    pubSuf = pubsuffix.getPublicSuffix(domain);
+  }
 
-    remove = function remove() {
-      removeStyleElement(style);
+  if (!pubSuf) {
+    return null;
+  }
+  if (pubSuf == domain) {
+    return [domain];
+  }
+
+  const prefix = domain.slice(0, -(pubSuf.length + 1)); // ".example.com"
+  const parts = prefix.split(".").reverse();
+  let cur = pubSuf;
+  const permutations = [cur];
+  while (parts.length) {
+    cur = `${parts.shift()}.${cur}`;
+    permutations.push(cur);
+  }
+  return permutations;
+}
+
+exports.permuteDomain = permuteDomain;
+
+
+/***/ }),
+
+/***/ "./node_modules/tough-cookie/lib/pubsuffix-psl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/tough-cookie/lib/pubsuffix-psl.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2018, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const psl = __webpack_require__(/*! psl */ "./node_modules/psl/index.js");
+
+function getPublicSuffix(domain) {
+  return psl.get(domain);
+}
+
+exports.getPublicSuffix = getPublicSuffix;
+
+
+/***/ }),
+
+/***/ "./node_modules/tough-cookie/lib/store.js":
+/*!************************************************!*\
+  !*** ./node_modules/tough-cookie/lib/store.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/*!
+ * Copyright (c) 2015, Salesforce.com, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of Salesforce.com nor the names of its contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*jshint unused:false */
+
+class Store {
+  constructor() {
+    this.synchronous = false;
+  }
+
+  findCookie(domain, path, key, cb) {
+    throw new Error("findCookie is not implemented");
+  }
+
+  findCookies(domain, path, allowSpecialUseDomain, cb) {
+    throw new Error("findCookies is not implemented");
+  }
+
+  putCookie(cookie, cb) {
+    throw new Error("putCookie is not implemented");
+  }
+
+  updateCookie(oldCookie, newCookie, cb) {
+    // recommended default implementation:
+    // return this.putCookie(newCookie, cb);
+    throw new Error("updateCookie is not implemented");
+  }
+
+  removeCookie(domain, path, key, cb) {
+    throw new Error("removeCookie is not implemented");
+  }
+
+  removeCookies(domain, path, cb) {
+    throw new Error("removeCookies is not implemented");
+  }
+
+  removeAllCookies(cb) {
+    throw new Error("removeAllCookies is not implemented");
+  }
+
+  getAllCookies(cb) {
+    throw new Error(
+      "getAllCookies is not implemented (therefore jar cannot be serialized)"
+    );
+  }
+}
+
+exports.Store = Store;
+
+
+/***/ }),
+
+/***/ "./node_modules/tough-cookie/lib/version.js":
+/*!**************************************************!*\
+  !*** ./node_modules/tough-cookie/lib/version.js ***!
+  \**************************************************/
+/***/ ((module) => {
+
+// generated by genversion
+module.exports = '4.0.0'
+
+
+/***/ }),
+
+/***/ "./node_modules/universalify/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/universalify/index.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+exports.fromCallback = function (fn) {
+  return Object.defineProperty(function () {
+    if (typeof arguments[arguments.length - 1] === 'function') fn.apply(this, arguments)
+    else {
+      return new Promise((resolve, reject) => {
+        arguments[arguments.length] = (err, res) => {
+          if (err) return reject(err)
+          resolve(res)
+        }
+        arguments.length++
+        fn.apply(this, arguments)
+      })
+    }
+  }, 'name', { value: fn.name })
+}
+
+exports.fromPromise = function (fn) {
+  return Object.defineProperty(function () {
+    const cb = arguments[arguments.length - 1]
+    if (typeof cb !== 'function') return fn.apply(this, arguments)
+    else fn.apply(this, arguments).then(r => cb(null, r), cb)
+  }, 'name', { value: fn.name })
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/url/node_modules/punycode/punycode.js":
+/*!************************************************************!*\
+  !*** ./node_modules/url/node_modules/punycode/punycode.js ***!
+  \************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+/* module decorator */ module = __webpack_require__.nmd(module);
+var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.3.2 by @mathias */
+;(function(root) {
+
+	/** Detect free variables */
+	var freeExports =  true && exports &&
+		!exports.nodeType && exports;
+	var freeModule =  true && module &&
+		!module.nodeType && module;
+	var freeGlobal = typeof __webpack_require__.g == 'object' && __webpack_require__.g;
+	if (
+		freeGlobal.global === freeGlobal ||
+		freeGlobal.window === freeGlobal ||
+		freeGlobal.self === freeGlobal
+	) {
+		root = freeGlobal;
+	}
+
+	/**
+	 * The `punycode` object.
+	 * @name punycode
+	 * @type Object
+	 */
+	var punycode,
+
+	/** Highest positive signed 32-bit float value */
+	maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
+
+	/** Bootstring parameters */
+	base = 36,
+	tMin = 1,
+	tMax = 26,
+	skew = 38,
+	damp = 700,
+	initialBias = 72,
+	initialN = 128, // 0x80
+	delimiter = '-', // '\x2D'
+
+	/** Regular expressions */
+	regexPunycode = /^xn--/,
+	regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
+	regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
+
+	/** Error messages */
+	errors = {
+		'overflow': 'Overflow: input needs wider integers to process',
+		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
+		'invalid-input': 'Invalid input'
+	},
+
+	/** Convenience shortcuts */
+	baseMinusTMin = base - tMin,
+	floor = Math.floor,
+	stringFromCharCode = String.fromCharCode,
+
+	/** Temporary variable */
+	key;
+
+	/*--------------------------------------------------------------------------*/
+
+	/**
+	 * A generic error utility function.
+	 * @private
+	 * @param {String} type The error type.
+	 * @returns {Error} Throws a `RangeError` with the applicable error message.
+	 */
+	function error(type) {
+		throw RangeError(errors[type]);
+	}
+
+	/**
+	 * A generic `Array#map` utility function.
+	 * @private
+	 * @param {Array} array The array to iterate over.
+	 * @param {Function} callback The function that gets called for every array
+	 * item.
+	 * @returns {Array} A new array of values returned by the callback function.
+	 */
+	function map(array, fn) {
+		var length = array.length;
+		var result = [];
+		while (length--) {
+			result[length] = fn(array[length]);
+		}
+		return result;
+	}
+
+	/**
+	 * A simple `Array#map`-like wrapper to work with domain name strings or email
+	 * addresses.
+	 * @private
+	 * @param {String} domain The domain name or email address.
+	 * @param {Function} callback The function that gets called for every
+	 * character.
+	 * @returns {Array} A new string of characters returned by the callback
+	 * function.
+	 */
+	function mapDomain(string, fn) {
+		var parts = string.split('@');
+		var result = '';
+		if (parts.length > 1) {
+			// In email addresses, only the domain name should be punycoded. Leave
+			// the local part (i.e. everything up to `@`) intact.
+			result = parts[0] + '@';
+			string = parts[1];
+		}
+		// Avoid `split(regex)` for IE8 compatibility. See #17.
+		string = string.replace(regexSeparators, '\x2E');
+		var labels = string.split('.');
+		var encoded = map(labels, fn).join('.');
+		return result + encoded;
+	}
+
+	/**
+	 * Creates an array containing the numeric code points of each Unicode
+	 * character in the string. While JavaScript uses UCS-2 internally,
+	 * this function will convert a pair of surrogate halves (each of which
+	 * UCS-2 exposes as separate characters) into a single code point,
+	 * matching UTF-16.
+	 * @see `punycode.ucs2.encode`
+	 * @see <https://mathiasbynens.be/notes/javascript-encoding>
+	 * @memberOf punycode.ucs2
+	 * @name decode
+	 * @param {String} string The Unicode input string (UCS-2).
+	 * @returns {Array} The new array of code points.
+	 */
+	function ucs2decode(string) {
+		var output = [],
+		    counter = 0,
+		    length = string.length,
+		    value,
+		    extra;
+		while (counter < length) {
+			value = string.charCodeAt(counter++);
+			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
+				// high surrogate, and there is a next character
+				extra = string.charCodeAt(counter++);
+				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
+					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
+				} else {
+					// unmatched surrogate; only append this code unit, in case the next
+					// code unit is the high surrogate of a surrogate pair
+					output.push(value);
+					counter--;
+				}
+			} else {
+				output.push(value);
+			}
+		}
+		return output;
+	}
+
+	/**
+	 * Creates a string based on an array of numeric code points.
+	 * @see `punycode.ucs2.decode`
+	 * @memberOf punycode.ucs2
+	 * @name encode
+	 * @param {Array} codePoints The array of numeric code points.
+	 * @returns {String} The new Unicode string (UCS-2).
+	 */
+	function ucs2encode(array) {
+		return map(array, function(value) {
+			var output = '';
+			if (value > 0xFFFF) {
+				value -= 0x10000;
+				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
+				value = 0xDC00 | value & 0x3FF;
+			}
+			output += stringFromCharCode(value);
+			return output;
+		}).join('');
+	}
+
+	/**
+	 * Converts a basic code point into a digit/integer.
+	 * @see `digitToBasic()`
+	 * @private
+	 * @param {Number} codePoint The basic numeric code point value.
+	 * @returns {Number} The numeric value of a basic code point (for use in
+	 * representing integers) in the range `0` to `base - 1`, or `base` if
+	 * the code point does not represent a value.
+	 */
+	function basicToDigit(codePoint) {
+		if (codePoint - 48 < 10) {
+			return codePoint - 22;
+		}
+		if (codePoint - 65 < 26) {
+			return codePoint - 65;
+		}
+		if (codePoint - 97 < 26) {
+			return codePoint - 97;
+		}
+		return base;
+	}
+
+	/**
+	 * Converts a digit/integer into a basic code point.
+	 * @see `basicToDigit()`
+	 * @private
+	 * @param {Number} digit The numeric value of a basic code point.
+	 * @returns {Number} The basic code point whose value (when used for
+	 * representing integers) is `digit`, which needs to be in the range
+	 * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
+	 * used; else, the lowercase form is used. The behavior is undefined
+	 * if `flag` is non-zero and `digit` has no uppercase form.
+	 */
+	function digitToBasic(digit, flag) {
+		//  0..25 map to ASCII a..z or A..Z
+		// 26..35 map to ASCII 0..9
+		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
+	}
+
+	/**
+	 * Bias adaptation function as per section 3.4 of RFC 3492.
+	 * http://tools.ietf.org/html/rfc3492#section-3.4
+	 * @private
+	 */
+	function adapt(delta, numPoints, firstTime) {
+		var k = 0;
+		delta = firstTime ? floor(delta / damp) : delta >> 1;
+		delta += floor(delta / numPoints);
+		for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
+			delta = floor(delta / baseMinusTMin);
+		}
+		return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
+	}
+
+	/**
+	 * Converts a Punycode string of ASCII-only symbols to a string of Unicode
+	 * symbols.
+	 * @memberOf punycode
+	 * @param {String} input The Punycode string of ASCII-only symbols.
+	 * @returns {String} The resulting string of Unicode symbols.
+	 */
+	function decode(input) {
+		// Don't use UCS-2
+		var output = [],
+		    inputLength = input.length,
+		    out,
+		    i = 0,
+		    n = initialN,
+		    bias = initialBias,
+		    basic,
+		    j,
+		    index,
+		    oldi,
+		    w,
+		    k,
+		    digit,
+		    t,
+		    /** Cached calculation results */
+		    baseMinusT;
+
+		// Handle the basic code points: let `basic` be the number of input code
+		// points before the last delimiter, or `0` if there is none, then copy
+		// the first basic code points to the output.
+
+		basic = input.lastIndexOf(delimiter);
+		if (basic < 0) {
+			basic = 0;
+		}
+
+		for (j = 0; j < basic; ++j) {
+			// if it's not a basic code point
+			if (input.charCodeAt(j) >= 0x80) {
+				error('not-basic');
+			}
+			output.push(input.charCodeAt(j));
+		}
+
+		// Main decoding loop: start just after the last delimiter if any basic code
+		// points were copied; start at the beginning otherwise.
+
+		for (index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
+
+			// `index` is the index of the next character to be consumed.
+			// Decode a generalized variable-length integer into `delta`,
+			// which gets added to `i`. The overflow checking is easier
+			// if we increase `i` as we go, then subtract off its starting
+			// value at the end to obtain `delta`.
+			for (oldi = i, w = 1, k = base; /* no condition */; k += base) {
+
+				if (index >= inputLength) {
+					error('invalid-input');
+				}
+
+				digit = basicToDigit(input.charCodeAt(index++));
+
+				if (digit >= base || digit > floor((maxInt - i) / w)) {
+					error('overflow');
+				}
+
+				i += digit * w;
+				t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+
+				if (digit < t) {
+					break;
+				}
+
+				baseMinusT = base - t;
+				if (w > floor(maxInt / baseMinusT)) {
+					error('overflow');
+				}
+
+				w *= baseMinusT;
+
+			}
+
+			out = output.length + 1;
+			bias = adapt(i - oldi, out, oldi == 0);
+
+			// `i` was supposed to wrap around from `out` to `0`,
+			// incrementing `n` each time, so we'll fix that now:
+			if (floor(i / out) > maxInt - n) {
+				error('overflow');
+			}
+
+			n += floor(i / out);
+			i %= out;
+
+			// Insert `n` at position `i` of the output
+			output.splice(i++, 0, n);
+
+		}
+
+		return ucs2encode(output);
+	}
+
+	/**
+	 * Converts a string of Unicode symbols (e.g. a domain name label) to a
+	 * Punycode string of ASCII-only symbols.
+	 * @memberOf punycode
+	 * @param {String} input The string of Unicode symbols.
+	 * @returns {String} The resulting Punycode string of ASCII-only symbols.
+	 */
+	function encode(input) {
+		var n,
+		    delta,
+		    handledCPCount,
+		    basicLength,
+		    bias,
+		    j,
+		    m,
+		    q,
+		    k,
+		    t,
+		    currentValue,
+		    output = [],
+		    /** `inputLength` will hold the number of code points in `input`. */
+		    inputLength,
+		    /** Cached calculation results */
+		    handledCPCountPlusOne,
+		    baseMinusT,
+		    qMinusT;
+
+		// Convert the input in UCS-2 to Unicode
+		input = ucs2decode(input);
+
+		// Cache the length
+		inputLength = input.length;
+
+		// Initialize the state
+		n = initialN;
+		delta = 0;
+		bias = initialBias;
+
+		// Handle the basic code points
+		for (j = 0; j < inputLength; ++j) {
+			currentValue = input[j];
+			if (currentValue < 0x80) {
+				output.push(stringFromCharCode(currentValue));
+			}
+		}
+
+		handledCPCount = basicLength = output.length;
+
+		// `handledCPCount` is the number of code points that have been handled;
+		// `basicLength` is the number of basic code points.
+
+		// Finish the basic string - if it is not empty - with a delimiter
+		if (basicLength) {
+			output.push(delimiter);
+		}
+
+		// Main encoding loop:
+		while (handledCPCount < inputLength) {
+
+			// All non-basic code points < n have been handled already. Find the next
+			// larger one:
+			for (m = maxInt, j = 0; j < inputLength; ++j) {
+				currentValue = input[j];
+				if (currentValue >= n && currentValue < m) {
+					m = currentValue;
+				}
+			}
+
+			// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
+			// but guard against overflow
+			handledCPCountPlusOne = handledCPCount + 1;
+			if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
+				error('overflow');
+			}
+
+			delta += (m - n) * handledCPCountPlusOne;
+			n = m;
+
+			for (j = 0; j < inputLength; ++j) {
+				currentValue = input[j];
+
+				if (currentValue < n && ++delta > maxInt) {
+					error('overflow');
+				}
+
+				if (currentValue == n) {
+					// Represent delta as a generalized variable-length integer
+					for (q = delta, k = base; /* no condition */; k += base) {
+						t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+						if (q < t) {
+							break;
+						}
+						qMinusT = q - t;
+						baseMinusT = base - t;
+						output.push(
+							stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
+						);
+						q = floor(qMinusT / baseMinusT);
+					}
+
+					output.push(stringFromCharCode(digitToBasic(q, 0)));
+					bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
+					delta = 0;
+					++handledCPCount;
+				}
+			}
+
+			++delta;
+			++n;
+
+		}
+		return output.join('');
+	}
+
+	/**
+	 * Converts a Punycode string representing a domain name or an email address
+	 * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
+	 * it doesn't matter if you call it on a string that has already been
+	 * converted to Unicode.
+	 * @memberOf punycode
+	 * @param {String} input The Punycoded domain name or email address to
+	 * convert to Unicode.
+	 * @returns {String} The Unicode representation of the given Punycode
+	 * string.
+	 */
+	function toUnicode(input) {
+		return mapDomain(input, function(string) {
+			return regexPunycode.test(string)
+				? decode(string.slice(4).toLowerCase())
+				: string;
+		});
+	}
+
+	/**
+	 * Converts a Unicode string representing a domain name or an email address to
+	 * Punycode. Only the non-ASCII parts of the domain name will be converted,
+	 * i.e. it doesn't matter if you call it with a domain that's already in
+	 * ASCII.
+	 * @memberOf punycode
+	 * @param {String} input The domain name or email address to convert, as a
+	 * Unicode string.
+	 * @returns {String} The Punycode representation of the given domain name or
+	 * email address.
+	 */
+	function toASCII(input) {
+		return mapDomain(input, function(string) {
+			return regexNonASCII.test(string)
+				? 'xn--' + encode(string)
+				: string;
+		});
+	}
+
+	/*--------------------------------------------------------------------------*/
+
+	/** Define the public API */
+	punycode = {
+		/**
+		 * A string representing the current Punycode.js version number.
+		 * @memberOf punycode
+		 * @type String
+		 */
+		'version': '1.3.2',
+		/**
+		 * An object of methods to convert from JavaScript's internal character
+		 * representation (UCS-2) to Unicode code points, and back.
+		 * @see <https://mathiasbynens.be/notes/javascript-encoding>
+		 * @memberOf punycode
+		 * @type Object
+		 */
+		'ucs2': {
+			'decode': ucs2decode,
+			'encode': ucs2encode
+		},
+		'decode': decode,
+		'encode': encode,
+		'toASCII': toASCII,
+		'toUnicode': toUnicode
+	};
+
+	/** Expose `punycode` */
+	// Some AMD build optimizers, like r.js, check for specific condition patterns
+	// like the following:
+	if (
+		true
+	) {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+			return punycode;
+		}).call(exports, __webpack_require__, exports, module),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+
+}(this));
+
+
+/***/ }),
+
+/***/ "./node_modules/url/url.js":
+/*!*********************************!*\
+  !*** ./node_modules/url/url.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+var punycode = __webpack_require__(/*! punycode */ "./node_modules/url/node_modules/punycode/punycode.js");
+var util = __webpack_require__(/*! ./util */ "./node_modules/url/util.js");
+
+exports.parse = urlParse;
+exports.resolve = urlResolve;
+exports.resolveObject = urlResolveObject;
+exports.format = urlFormat;
+
+exports.Url = Url;
+
+function Url() {
+  this.protocol = null;
+  this.slashes = null;
+  this.auth = null;
+  this.host = null;
+  this.port = null;
+  this.hostname = null;
+  this.hash = null;
+  this.search = null;
+  this.query = null;
+  this.pathname = null;
+  this.path = null;
+  this.href = null;
+}
+
+// Reference: RFC 3986, RFC 1808, RFC 2396
+
+// define these here so at least they only have to be
+// compiled once on the first module load.
+var protocolPattern = /^([a-z0-9.+-]+:)/i,
+    portPattern = /:[0-9]*$/,
+
+    // Special case for a simple path URL
+    simplePathPattern = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/,
+
+    // RFC 2396: characters reserved for delimiting URLs.
+    // We actually just auto-escape these.
+    delims = ['<', '>', '"', '`', ' ', '\r', '\n', '\t'],
+
+    // RFC 2396: characters not allowed for various reasons.
+    unwise = ['{', '}', '|', '\\', '^', '`'].concat(delims),
+
+    // Allowed by RFCs, but cause of XSS attacks.  Always escape these.
+    autoEscape = ['\''].concat(unwise),
+    // Characters that are never ever allowed in a hostname.
+    // Note that any invalid chars are also handled, but these
+    // are the ones that are *expected* to be seen, so we fast-path
+    // them.
+    nonHostChars = ['%', '/', '?', ';', '#'].concat(autoEscape),
+    hostEndingChars = ['/', '?', '#'],
+    hostnameMaxLen = 255,
+    hostnamePartPattern = /^[+a-z0-9A-Z_-]{0,63}$/,
+    hostnamePartStart = /^([+a-z0-9A-Z_-]{0,63})(.*)$/,
+    // protocols that can allow "unsafe" and "unwise" chars.
+    unsafeProtocol = {
+      'javascript': true,
+      'javascript:': true
+    },
+    // protocols that never have a hostname.
+    hostlessProtocol = {
+      'javascript': true,
+      'javascript:': true
+    },
+    // protocols that always contain a // bit.
+    slashedProtocol = {
+      'http': true,
+      'https': true,
+      'ftp': true,
+      'gopher': true,
+      'file': true,
+      'http:': true,
+      'https:': true,
+      'ftp:': true,
+      'gopher:': true,
+      'file:': true
+    },
+    querystring = __webpack_require__(/*! querystring */ "./node_modules/querystring/index.js");
+
+function urlParse(url, parseQueryString, slashesDenoteHost) {
+  if (url && util.isObject(url) && url instanceof Url) return url;
+
+  var u = new Url;
+  u.parse(url, parseQueryString, slashesDenoteHost);
+  return u;
+}
+
+Url.prototype.parse = function(url, parseQueryString, slashesDenoteHost) {
+  if (!util.isString(url)) {
+    throw new TypeError("Parameter 'url' must be a string, not " + typeof url);
+  }
+
+  // Copy chrome, IE, opera backslash-handling behavior.
+  // Back slashes before the query string get converted to forward slashes
+  // See: https://code.google.com/p/chromium/issues/detail?id=25916
+  var queryIndex = url.indexOf('?'),
+      splitter =
+          (queryIndex !== -1 && queryIndex < url.indexOf('#')) ? '?' : '#',
+      uSplit = url.split(splitter),
+      slashRegex = /\\/g;
+  uSplit[0] = uSplit[0].replace(slashRegex, '/');
+  url = uSplit.join(splitter);
+
+  var rest = url;
+
+  // trim before proceeding.
+  // This is to support parse stuff like "  http://foo.com  \n"
+  rest = rest.trim();
+
+  if (!slashesDenoteHost && url.split('#').length === 1) {
+    // Try fast path regexp
+    var simplePath = simplePathPattern.exec(rest);
+    if (simplePath) {
+      this.path = rest;
+      this.href = rest;
+      this.pathname = simplePath[1];
+      if (simplePath[2]) {
+        this.search = simplePath[2];
+        if (parseQueryString) {
+          this.query = querystring.parse(this.search.substr(1));
+        } else {
+          this.query = this.search.substr(1);
+        }
+      } else if (parseQueryString) {
+        this.search = '';
+        this.query = {};
+      }
+      return this;
+    }
+  }
+
+  var proto = protocolPattern.exec(rest);
+  if (proto) {
+    proto = proto[0];
+    var lowerProto = proto.toLowerCase();
+    this.protocol = lowerProto;
+    rest = rest.substr(proto.length);
+  }
+
+  // figure out if it's got a host
+  // user@server is *always* interpreted as a hostname, and url
+  // resolution will treat //foo/bar as host=foo,path=bar because that's
+  // how the browser resolves relative URLs.
+  if (slashesDenoteHost || proto || rest.match(/^\/\/[^@\/]+@[^@\/]+/)) {
+    var slashes = rest.substr(0, 2) === '//';
+    if (slashes && !(proto && hostlessProtocol[proto])) {
+      rest = rest.substr(2);
+      this.slashes = true;
+    }
+  }
+
+  if (!hostlessProtocol[proto] &&
+      (slashes || (proto && !slashedProtocol[proto]))) {
+
+    // there's a hostname.
+    // the first instance of /, ?, ;, or # ends the host.
+    //
+    // If there is an @ in the hostname, then non-host chars *are* allowed
+    // to the left of the last @ sign, unless some host-ending character
+    // comes *before* the @-sign.
+    // URLs are obnoxious.
+    //
+    // ex:
+    // http://a@b@c/ => user:a@b host:c
+    // http://a@b?@c => user:a host:c path:/?@c
+
+    // v0.12 TODO(isaacs): This is not quite how Chrome does things.
+    // Review our test case against browsers more comprehensively.
+
+    // find the first instance of any hostEndingChars
+    var hostEnd = -1;
+    for (var i = 0; i < hostEndingChars.length; i++) {
+      var hec = rest.indexOf(hostEndingChars[i]);
+      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd))
+        hostEnd = hec;
+    }
+
+    // at this point, either we have an explicit point where the
+    // auth portion cannot go past, or the last @ char is the decider.
+    var auth, atSign;
+    if (hostEnd === -1) {
+      // atSign can be anywhere.
+      atSign = rest.lastIndexOf('@');
+    } else {
+      // atSign must be in auth portion.
+      // http://a@b/c@d => host:b auth:a path:/c@d
+      atSign = rest.lastIndexOf('@', hostEnd);
+    }
+
+    // Now we have a portion which is definitely the auth.
+    // Pull that off.
+    if (atSign !== -1) {
+      auth = rest.slice(0, atSign);
+      rest = rest.slice(atSign + 1);
+      this.auth = decodeURIComponent(auth);
+    }
+
+    // the host is the remaining to the left of the first non-host char
+    hostEnd = -1;
+    for (var i = 0; i < nonHostChars.length; i++) {
+      var hec = rest.indexOf(nonHostChars[i]);
+      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd))
+        hostEnd = hec;
+    }
+    // if we still have not hit it, then the entire thing is a host.
+    if (hostEnd === -1)
+      hostEnd = rest.length;
+
+    this.host = rest.slice(0, hostEnd);
+    rest = rest.slice(hostEnd);
+
+    // pull out port.
+    this.parseHost();
+
+    // we've indicated that there is a hostname,
+    // so even if it's empty, it has to be present.
+    this.hostname = this.hostname || '';
+
+    // if hostname begins with [ and ends with ]
+    // assume that it's an IPv6 address.
+    var ipv6Hostname = this.hostname[0] === '[' &&
+        this.hostname[this.hostname.length - 1] === ']';
+
+    // validate a little.
+    if (!ipv6Hostname) {
+      var hostparts = this.hostname.split(/\./);
+      for (var i = 0, l = hostparts.length; i < l; i++) {
+        var part = hostparts[i];
+        if (!part) continue;
+        if (!part.match(hostnamePartPattern)) {
+          var newpart = '';
+          for (var j = 0, k = part.length; j < k; j++) {
+            if (part.charCodeAt(j) > 127) {
+              // we replace non-ASCII char with a temporary placeholder
+              // we need this to make sure size of hostname is not
+              // broken by replacing non-ASCII by nothing
+              newpart += 'x';
+            } else {
+              newpart += part[j];
+            }
+          }
+          // we test again with ASCII char only
+          if (!newpart.match(hostnamePartPattern)) {
+            var validParts = hostparts.slice(0, i);
+            var notHost = hostparts.slice(i + 1);
+            var bit = part.match(hostnamePartStart);
+            if (bit) {
+              validParts.push(bit[1]);
+              notHost.unshift(bit[2]);
+            }
+            if (notHost.length) {
+              rest = '/' + notHost.join('.') + rest;
+            }
+            this.hostname = validParts.join('.');
+            break;
+          }
+        }
+      }
+    }
+
+    if (this.hostname.length > hostnameMaxLen) {
+      this.hostname = '';
+    } else {
+      // hostnames are always lower case.
+      this.hostname = this.hostname.toLowerCase();
+    }
+
+    if (!ipv6Hostname) {
+      // IDNA Support: Returns a punycoded representation of "domain".
+      // It only converts parts of the domain name that
+      // have non-ASCII characters, i.e. it doesn't matter if
+      // you call it with a domain that already is ASCII-only.
+      this.hostname = punycode.toASCII(this.hostname);
+    }
+
+    var p = this.port ? ':' + this.port : '';
+    var h = this.hostname || '';
+    this.host = h + p;
+    this.href += this.host;
+
+    // strip [ and ] from the hostname
+    // the host field still retains them, though
+    if (ipv6Hostname) {
+      this.hostname = this.hostname.substr(1, this.hostname.length - 2);
+      if (rest[0] !== '/') {
+        rest = '/' + rest;
+      }
+    }
+  }
+
+  // now rest is set to the post-host stuff.
+  // chop off any delim chars.
+  if (!unsafeProtocol[lowerProto]) {
+
+    // First, make 100% sure that any "autoEscape" chars get
+    // escaped, even if encodeURIComponent doesn't think they
+    // need to be.
+    for (var i = 0, l = autoEscape.length; i < l; i++) {
+      var ae = autoEscape[i];
+      if (rest.indexOf(ae) === -1)
+        continue;
+      var esc = encodeURIComponent(ae);
+      if (esc === ae) {
+        esc = escape(ae);
+      }
+      rest = rest.split(ae).join(esc);
+    }
+  }
+
+
+  // chop off from the tail first.
+  var hash = rest.indexOf('#');
+  if (hash !== -1) {
+    // got a fragment string.
+    this.hash = rest.substr(hash);
+    rest = rest.slice(0, hash);
+  }
+  var qm = rest.indexOf('?');
+  if (qm !== -1) {
+    this.search = rest.substr(qm);
+    this.query = rest.substr(qm + 1);
+    if (parseQueryString) {
+      this.query = querystring.parse(this.query);
+    }
+    rest = rest.slice(0, qm);
+  } else if (parseQueryString) {
+    // no query string, but parseQueryString still requested
+    this.search = '';
+    this.query = {};
+  }
+  if (rest) this.pathname = rest;
+  if (slashedProtocol[lowerProto] &&
+      this.hostname && !this.pathname) {
+    this.pathname = '/';
+  }
+
+  //to support http.request
+  if (this.pathname || this.search) {
+    var p = this.pathname || '';
+    var s = this.search || '';
+    this.path = p + s;
+  }
+
+  // finally, reconstruct the href based on what has been validated.
+  this.href = this.format();
+  return this;
+};
+
+// format a parsed object into a url string
+function urlFormat(obj) {
+  // ensure it's an object, and not a string url.
+  // If it's an obj, this is a no-op.
+  // this way, you can call url_format() on strings
+  // to clean up potentially wonky urls.
+  if (util.isString(obj)) obj = urlParse(obj);
+  if (!(obj instanceof Url)) return Url.prototype.format.call(obj);
+  return obj.format();
+}
+
+Url.prototype.format = function() {
+  var auth = this.auth || '';
+  if (auth) {
+    auth = encodeURIComponent(auth);
+    auth = auth.replace(/%3A/i, ':');
+    auth += '@';
+  }
+
+  var protocol = this.protocol || '',
+      pathname = this.pathname || '',
+      hash = this.hash || '',
+      host = false,
+      query = '';
+
+  if (this.host) {
+    host = auth + this.host;
+  } else if (this.hostname) {
+    host = auth + (this.hostname.indexOf(':') === -1 ?
+        this.hostname :
+        '[' + this.hostname + ']');
+    if (this.port) {
+      host += ':' + this.port;
+    }
+  }
+
+  if (this.query &&
+      util.isObject(this.query) &&
+      Object.keys(this.query).length) {
+    query = querystring.stringify(this.query);
+  }
+
+  var search = this.search || (query && ('?' + query)) || '';
+
+  if (protocol && protocol.substr(-1) !== ':') protocol += ':';
+
+  // only the slashedProtocols get the //.  Not mailto:, xmpp:, etc.
+  // unless they had them to begin with.
+  if (this.slashes ||
+      (!protocol || slashedProtocol[protocol]) && host !== false) {
+    host = '//' + (host || '');
+    if (pathname && pathname.charAt(0) !== '/') pathname = '/' + pathname;
+  } else if (!host) {
+    host = '';
+  }
+
+  if (hash && hash.charAt(0) !== '#') hash = '#' + hash;
+  if (search && search.charAt(0) !== '?') search = '?' + search;
+
+  pathname = pathname.replace(/[?#]/g, function(match) {
+    return encodeURIComponent(match);
+  });
+  search = search.replace('#', '%23');
+
+  return protocol + host + pathname + search + hash;
+};
+
+function urlResolve(source, relative) {
+  return urlParse(source, false, true).resolve(relative);
+}
+
+Url.prototype.resolve = function(relative) {
+  return this.resolveObject(urlParse(relative, false, true)).format();
+};
+
+function urlResolveObject(source, relative) {
+  if (!source) return relative;
+  return urlParse(source, false, true).resolveObject(relative);
+}
+
+Url.prototype.resolveObject = function(relative) {
+  if (util.isString(relative)) {
+    var rel = new Url();
+    rel.parse(relative, false, true);
+    relative = rel;
+  }
+
+  var result = new Url();
+  var tkeys = Object.keys(this);
+  for (var tk = 0; tk < tkeys.length; tk++) {
+    var tkey = tkeys[tk];
+    result[tkey] = this[tkey];
+  }
+
+  // hash is always overridden, no matter what.
+  // even href="" will remove it.
+  result.hash = relative.hash;
+
+  // if the relative url is empty, then there's nothing left to do here.
+  if (relative.href === '') {
+    result.href = result.format();
+    return result;
+  }
+
+  // hrefs like //foo/bar always cut to the protocol.
+  if (relative.slashes && !relative.protocol) {
+    // take everything except the protocol from relative
+    var rkeys = Object.keys(relative);
+    for (var rk = 0; rk < rkeys.length; rk++) {
+      var rkey = rkeys[rk];
+      if (rkey !== 'protocol')
+        result[rkey] = relative[rkey];
+    }
+
+    //urlParse appends trailing / to urls like http://www.example.com
+    if (slashedProtocol[result.protocol] &&
+        result.hostname && !result.pathname) {
+      result.path = result.pathname = '/';
+    }
+
+    result.href = result.format();
+    return result;
+  }
+
+  if (relative.protocol && relative.protocol !== result.protocol) {
+    // if it's a known url protocol, then changing
+    // the protocol does weird things
+    // first, if it's not file:, then we MUST have a host,
+    // and if there was a path
+    // to begin with, then we MUST have a path.
+    // if it is file:, then the host is dropped,
+    // because that's known to be hostless.
+    // anything else is assumed to be absolute.
+    if (!slashedProtocol[relative.protocol]) {
+      var keys = Object.keys(relative);
+      for (var v = 0; v < keys.length; v++) {
+        var k = keys[v];
+        result[k] = relative[k];
+      }
+      result.href = result.format();
+      return result;
+    }
+
+    result.protocol = relative.protocol;
+    if (!relative.host && !hostlessProtocol[relative.protocol]) {
+      var relPath = (relative.pathname || '').split('/');
+      while (relPath.length && !(relative.host = relPath.shift()));
+      if (!relative.host) relative.host = '';
+      if (!relative.hostname) relative.hostname = '';
+      if (relPath[0] !== '') relPath.unshift('');
+      if (relPath.length < 2) relPath.unshift('');
+      result.pathname = relPath.join('/');
+    } else {
+      result.pathname = relative.pathname;
+    }
+    result.search = relative.search;
+    result.query = relative.query;
+    result.host = relative.host || '';
+    result.auth = relative.auth;
+    result.hostname = relative.hostname || relative.host;
+    result.port = relative.port;
+    // to support http.request
+    if (result.pathname || result.search) {
+      var p = result.pathname || '';
+      var s = result.search || '';
+      result.path = p + s;
+    }
+    result.slashes = result.slashes || relative.slashes;
+    result.href = result.format();
+    return result;
+  }
+
+  var isSourceAbs = (result.pathname && result.pathname.charAt(0) === '/'),
+      isRelAbs = (
+          relative.host ||
+          relative.pathname && relative.pathname.charAt(0) === '/'
+      ),
+      mustEndAbs = (isRelAbs || isSourceAbs ||
+                    (result.host && relative.pathname)),
+      removeAllDots = mustEndAbs,
+      srcPath = result.pathname && result.pathname.split('/') || [],
+      relPath = relative.pathname && relative.pathname.split('/') || [],
+      psychotic = result.protocol && !slashedProtocol[result.protocol];
+
+  // if the url is a non-slashed url, then relative
+  // links like ../.. should be able
+  // to crawl up to the hostname, as well.  This is strange.
+  // result.protocol has already been set by now.
+  // Later on, put the first path part into the host field.
+  if (psychotic) {
+    result.hostname = '';
+    result.port = null;
+    if (result.host) {
+      if (srcPath[0] === '') srcPath[0] = result.host;
+      else srcPath.unshift(result.host);
+    }
+    result.host = '';
+    if (relative.protocol) {
+      relative.hostname = null;
+      relative.port = null;
+      if (relative.host) {
+        if (relPath[0] === '') relPath[0] = relative.host;
+        else relPath.unshift(relative.host);
+      }
+      relative.host = null;
+    }
+    mustEndAbs = mustEndAbs && (relPath[0] === '' || srcPath[0] === '');
+  }
+
+  if (isRelAbs) {
+    // it's absolute.
+    result.host = (relative.host || relative.host === '') ?
+                  relative.host : result.host;
+    result.hostname = (relative.hostname || relative.hostname === '') ?
+                      relative.hostname : result.hostname;
+    result.search = relative.search;
+    result.query = relative.query;
+    srcPath = relPath;
+    // fall through to the dot-handling below.
+  } else if (relPath.length) {
+    // it's relative
+    // throw away the existing file, and take the new path instead.
+    if (!srcPath) srcPath = [];
+    srcPath.pop();
+    srcPath = srcPath.concat(relPath);
+    result.search = relative.search;
+    result.query = relative.query;
+  } else if (!util.isNullOrUndefined(relative.search)) {
+    // just pull out the search.
+    // like href='?foo'.
+    // Put this after the other two cases because it simplifies the booleans
+    if (psychotic) {
+      result.hostname = result.host = srcPath.shift();
+      //occationaly the auth can get stuck only in host
+      //this especially happens in cases like
+      //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
+      var authInHost = result.host && result.host.indexOf('@') > 0 ?
+                       result.host.split('@') : false;
+      if (authInHost) {
+        result.auth = authInHost.shift();
+        result.host = result.hostname = authInHost.shift();
+      }
+    }
+    result.search = relative.search;
+    result.query = relative.query;
+    //to support http.request
+    if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
+      result.path = (result.pathname ? result.pathname : '') +
+                    (result.search ? result.search : '');
+    }
+    result.href = result.format();
+    return result;
+  }
+
+  if (!srcPath.length) {
+    // no path at all.  easy.
+    // we've already handled the other stuff above.
+    result.pathname = null;
+    //to support http.request
+    if (result.search) {
+      result.path = '/' + result.search;
+    } else {
+      result.path = null;
+    }
+    result.href = result.format();
+    return result;
+  }
+
+  // if a url ENDs in . or .., then it must get a trailing slash.
+  // however, if it ends in anything else non-slashy,
+  // then it must NOT get a trailing slash.
+  var last = srcPath.slice(-1)[0];
+  var hasTrailingSlash = (
+      (result.host || relative.host || srcPath.length > 1) &&
+      (last === '.' || last === '..') || last === '');
+
+  // strip single dots, resolve double dots to parent dir
+  // if the path tries to go above the root, `up` ends up > 0
+  var up = 0;
+  for (var i = srcPath.length; i >= 0; i--) {
+    last = srcPath[i];
+    if (last === '.') {
+      srcPath.splice(i, 1);
+    } else if (last === '..') {
+      srcPath.splice(i, 1);
+      up++;
+    } else if (up) {
+      srcPath.splice(i, 1);
+      up--;
+    }
+  }
+
+  // if the path is allowed to go above the root, restore leading ..s
+  if (!mustEndAbs && !removeAllDots) {
+    for (; up--; up) {
+      srcPath.unshift('..');
+    }
+  }
+
+  if (mustEndAbs && srcPath[0] !== '' &&
+      (!srcPath[0] || srcPath[0].charAt(0) !== '/')) {
+    srcPath.unshift('');
+  }
+
+  if (hasTrailingSlash && (srcPath.join('/').substr(-1) !== '/')) {
+    srcPath.push('');
+  }
+
+  var isAbsolute = srcPath[0] === '' ||
+      (srcPath[0] && srcPath[0].charAt(0) === '/');
+
+  // put the host back
+  if (psychotic) {
+    result.hostname = result.host = isAbsolute ? '' :
+                                    srcPath.length ? srcPath.shift() : '';
+    //occationaly the auth can get stuck only in host
+    //this especially happens in cases like
+    //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
+    var authInHost = result.host && result.host.indexOf('@') > 0 ?
+                     result.host.split('@') : false;
+    if (authInHost) {
+      result.auth = authInHost.shift();
+      result.host = result.hostname = authInHost.shift();
+    }
+  }
+
+  mustEndAbs = mustEndAbs || (result.host && srcPath.length);
+
+  if (mustEndAbs && !isAbsolute) {
+    srcPath.unshift('');
+  }
+
+  if (!srcPath.length) {
+    result.pathname = null;
+    result.path = null;
+  } else {
+    result.pathname = srcPath.join('/');
+  }
+
+  //to support request.http
+  if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
+    result.path = (result.pathname ? result.pathname : '') +
+                  (result.search ? result.search : '');
+  }
+  result.auth = relative.auth || result.auth;
+  result.slashes = result.slashes || relative.slashes;
+  result.href = result.format();
+  return result;
+};
+
+Url.prototype.parseHost = function() {
+  var host = this.host;
+  var port = portPattern.exec(host);
+  if (port) {
+    port = port[0];
+    if (port !== ':') {
+      this.port = port.substr(1);
+    }
+    host = host.substr(0, host.length - port.length);
+  }
+  if (host) this.hostname = host;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/url/util.js":
+/*!**********************************!*\
+  !*** ./node_modules/url/util.js ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = {
+  isString: function(arg) {
+    return typeof(arg) === 'string';
+  },
+  isObject: function(arg) {
+    return typeof(arg) === 'object' && arg !== null;
+  },
+  isNull: function(arg) {
+    return arg === null;
+  },
+  isNullOrUndefined: function(arg) {
+    return arg == null;
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/util/node_modules/inherits/inherits_browser.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/util/node_modules/inherits/inherits_browser.js ***!
+  \*********************************************************************/
+/***/ ((module) => {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/util/support/isBufferBrowser.js":
+/*!******************************************************!*\
+  !*** ./node_modules/util/support/isBufferBrowser.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+module.exports = function isBuffer(arg) {
+  return arg && typeof arg === 'object'
+    && typeof arg.copy === 'function'
+    && typeof arg.fill === 'function'
+    && typeof arg.readUInt8 === 'function';
+}
+
+/***/ }),
+
+/***/ "./node_modules/util/util.js":
+/*!***********************************!*\
+  !*** ./node_modules/util/util.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+var getOwnPropertyDescriptors = Object.getOwnPropertyDescriptors ||
+  function getOwnPropertyDescriptors(obj) {
+    var keys = Object.keys(obj);
+    var descriptors = {};
+    for (var i = 0; i < keys.length; i++) {
+      descriptors[keys[i]] = Object.getOwnPropertyDescriptor(obj, keys[i]);
+    }
+    return descriptors;
+  };
+
+var formatRegExp = /%[sdj%]/g;
+exports.format = function(f) {
+  if (!isString(f)) {
+    var objects = [];
+    for (var i = 0; i < arguments.length; i++) {
+      objects.push(inspect(arguments[i]));
+    }
+    return objects.join(' ');
+  }
+
+  var i = 1;
+  var args = arguments;
+  var len = args.length;
+  var str = String(f).replace(formatRegExp, function(x) {
+    if (x === '%%') return '%';
+    if (i >= len) return x;
+    switch (x) {
+      case '%s': return String(args[i++]);
+      case '%d': return Number(args[i++]);
+      case '%j':
+        try {
+          return JSON.stringify(args[i++]);
+        } catch (_) {
+          return '[Circular]';
+        }
+      default:
+        return x;
+    }
+  });
+  for (var x = args[i]; i < len; x = args[++i]) {
+    if (isNull(x) || !isObject(x)) {
+      str += ' ' + x;
+    } else {
+      str += ' ' + inspect(x);
+    }
+  }
+  return str;
+};
+
+
+// Mark that a method should not be used.
+// Returns a modified function which warns once by default.
+// If --no-deprecation is set, then it is a no-op.
+exports.deprecate = function(fn, msg) {
+  if (typeof process !== 'undefined' && process.noDeprecation === true) {
+    return fn;
+  }
+
+  // Allow for deprecating things in the process of starting up.
+  if (typeof process === 'undefined') {
+    return function() {
+      return exports.deprecate(fn, msg).apply(this, arguments);
     };
   }
 
-  update(obj);
-  return function updateStyle(newObj) {
-    if (newObj) {
-      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
-        return;
+  var warned = false;
+  function deprecated() {
+    if (!warned) {
+      if (process.throwDeprecation) {
+        throw new Error(msg);
+      } else if (process.traceDeprecation) {
+        console.trace(msg);
+      } else {
+        console.error(msg);
       }
-
-      update(obj = newObj);
-    } else {
-      remove();
+      warned = true;
     }
-  };
-}
-
-module.exports = function (list, options) {
-  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-  // tags it will allow on a page
-
-  if (!options.singleton && typeof options.singleton !== 'boolean') {
-    options.singleton = isOldIE();
+    return fn.apply(this, arguments);
   }
 
-  list = list || [];
-  var lastIdentifiers = modulesToDom(list, options);
-  return function update(newList) {
-    newList = newList || [];
-
-    if (Object.prototype.toString.call(newList) !== '[object Array]') {
-      return;
-    }
-
-    for (var i = 0; i < lastIdentifiers.length; i++) {
-      var identifier = lastIdentifiers[i];
-      var index = getIndexByIdentifier(identifier);
-      stylesInDom[index].references--;
-    }
-
-    var newLastIdentifiers = modulesToDom(newList, options);
-
-    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
-      var _identifier = lastIdentifiers[_i];
-
-      var _index = getIndexByIdentifier(_identifier);
-
-      if (stylesInDom[_index].references === 0) {
-        stylesInDom[_index].updater();
-
-        stylesInDom.splice(_index, 1);
-      }
-    }
-
-    lastIdentifiers = newLastIdentifiers;
-  };
+  return deprecated;
 };
+
+
+var debugs = {};
+var debugEnviron;
+exports.debuglog = function(set) {
+  if (isUndefined(debugEnviron))
+    debugEnviron = process.env.NODE_DEBUG || '';
+  set = set.toUpperCase();
+  if (!debugs[set]) {
+    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
+      var pid = process.pid;
+      debugs[set] = function() {
+        var msg = exports.format.apply(exports, arguments);
+        console.error('%s %d: %s', set, pid, msg);
+      };
+    } else {
+      debugs[set] = function() {};
+    }
+  }
+  return debugs[set];
+};
+
+
+/**
+ * Echos the value of a value. Trys to print the value out
+ * in the best way possible given the different types.
+ *
+ * @param {Object} obj The object to print out.
+ * @param {Object} opts Optional options object that alters the output.
+ */
+/* legacy: obj, showHidden, depth, colors*/
+function inspect(obj, opts) {
+  // default options
+  var ctx = {
+    seen: [],
+    stylize: stylizeNoColor
+  };
+  // legacy...
+  if (arguments.length >= 3) ctx.depth = arguments[2];
+  if (arguments.length >= 4) ctx.colors = arguments[3];
+  if (isBoolean(opts)) {
+    // legacy...
+    ctx.showHidden = opts;
+  } else if (opts) {
+    // got an "options" object
+    exports._extend(ctx, opts);
+  }
+  // set default options
+  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
+  if (isUndefined(ctx.depth)) ctx.depth = 2;
+  if (isUndefined(ctx.colors)) ctx.colors = false;
+  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
+  if (ctx.colors) ctx.stylize = stylizeWithColor;
+  return formatValue(ctx, obj, ctx.depth);
+}
+exports.inspect = inspect;
+
+
+// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
+inspect.colors = {
+  'bold' : [1, 22],
+  'italic' : [3, 23],
+  'underline' : [4, 24],
+  'inverse' : [7, 27],
+  'white' : [37, 39],
+  'grey' : [90, 39],
+  'black' : [30, 39],
+  'blue' : [34, 39],
+  'cyan' : [36, 39],
+  'green' : [32, 39],
+  'magenta' : [35, 39],
+  'red' : [31, 39],
+  'yellow' : [33, 39]
+};
+
+// Don't use 'blue' not visible on cmd.exe
+inspect.styles = {
+  'special': 'cyan',
+  'number': 'yellow',
+  'boolean': 'yellow',
+  'undefined': 'grey',
+  'null': 'bold',
+  'string': 'green',
+  'date': 'magenta',
+  // "name": intentionally not styling
+  'regexp': 'red'
+};
+
+
+function stylizeWithColor(str, styleType) {
+  var style = inspect.styles[styleType];
+
+  if (style) {
+    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
+           '\u001b[' + inspect.colors[style][1] + 'm';
+  } else {
+    return str;
+  }
+}
+
+
+function stylizeNoColor(str, styleType) {
+  return str;
+}
+
+
+function arrayToHash(array) {
+  var hash = {};
+
+  array.forEach(function(val, idx) {
+    hash[val] = true;
+  });
+
+  return hash;
+}
+
+
+function formatValue(ctx, value, recurseTimes) {
+  // Provide a hook for user-specified inspect functions.
+  // Check that value is an object with an inspect function on it
+  if (ctx.customInspect &&
+      value &&
+      isFunction(value.inspect) &&
+      // Filter out the util module, it's inspect function is special
+      value.inspect !== exports.inspect &&
+      // Also filter out any prototype objects using the circular check.
+      !(value.constructor && value.constructor.prototype === value)) {
+    var ret = value.inspect(recurseTimes, ctx);
+    if (!isString(ret)) {
+      ret = formatValue(ctx, ret, recurseTimes);
+    }
+    return ret;
+  }
+
+  // Primitive types cannot have properties
+  var primitive = formatPrimitive(ctx, value);
+  if (primitive) {
+    return primitive;
+  }
+
+  // Look up the keys of the object.
+  var keys = Object.keys(value);
+  var visibleKeys = arrayToHash(keys);
+
+  if (ctx.showHidden) {
+    keys = Object.getOwnPropertyNames(value);
+  }
+
+  // IE doesn't make error fields non-enumerable
+  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
+  if (isError(value)
+      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
+    return formatError(value);
+  }
+
+  // Some type of object without properties can be shortcutted.
+  if (keys.length === 0) {
+    if (isFunction(value)) {
+      var name = value.name ? ': ' + value.name : '';
+      return ctx.stylize('[Function' + name + ']', 'special');
+    }
+    if (isRegExp(value)) {
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+    }
+    if (isDate(value)) {
+      return ctx.stylize(Date.prototype.toString.call(value), 'date');
+    }
+    if (isError(value)) {
+      return formatError(value);
+    }
+  }
+
+  var base = '', array = false, braces = ['{', '}'];
+
+  // Make Array say that they are Array
+  if (isArray(value)) {
+    array = true;
+    braces = ['[', ']'];
+  }
+
+  // Make functions say that they are functions
+  if (isFunction(value)) {
+    var n = value.name ? ': ' + value.name : '';
+    base = ' [Function' + n + ']';
+  }
+
+  // Make RegExps say that they are RegExps
+  if (isRegExp(value)) {
+    base = ' ' + RegExp.prototype.toString.call(value);
+  }
+
+  // Make dates with properties first say the date
+  if (isDate(value)) {
+    base = ' ' + Date.prototype.toUTCString.call(value);
+  }
+
+  // Make error with message first say the error
+  if (isError(value)) {
+    base = ' ' + formatError(value);
+  }
+
+  if (keys.length === 0 && (!array || value.length == 0)) {
+    return braces[0] + base + braces[1];
+  }
+
+  if (recurseTimes < 0) {
+    if (isRegExp(value)) {
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+    } else {
+      return ctx.stylize('[Object]', 'special');
+    }
+  }
+
+  ctx.seen.push(value);
+
+  var output;
+  if (array) {
+    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
+  } else {
+    output = keys.map(function(key) {
+      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
+    });
+  }
+
+  ctx.seen.pop();
+
+  return reduceToSingleString(output, base, braces);
+}
+
+
+function formatPrimitive(ctx, value) {
+  if (isUndefined(value))
+    return ctx.stylize('undefined', 'undefined');
+  if (isString(value)) {
+    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+                                             .replace(/'/g, "\\'")
+                                             .replace(/\\"/g, '"') + '\'';
+    return ctx.stylize(simple, 'string');
+  }
+  if (isNumber(value))
+    return ctx.stylize('' + value, 'number');
+  if (isBoolean(value))
+    return ctx.stylize('' + value, 'boolean');
+  // For some reason typeof null is "object", so special case here.
+  if (isNull(value))
+    return ctx.stylize('null', 'null');
+}
+
+
+function formatError(value) {
+  return '[' + Error.prototype.toString.call(value) + ']';
+}
+
+
+function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
+  var output = [];
+  for (var i = 0, l = value.length; i < l; ++i) {
+    if (hasOwnProperty(value, String(i))) {
+      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+          String(i), true));
+    } else {
+      output.push('');
+    }
+  }
+  keys.forEach(function(key) {
+    if (!key.match(/^\d+$/)) {
+      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+          key, true));
+    }
+  });
+  return output;
+}
+
+
+function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
+  var name, str, desc;
+  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
+  if (desc.get) {
+    if (desc.set) {
+      str = ctx.stylize('[Getter/Setter]', 'special');
+    } else {
+      str = ctx.stylize('[Getter]', 'special');
+    }
+  } else {
+    if (desc.set) {
+      str = ctx.stylize('[Setter]', 'special');
+    }
+  }
+  if (!hasOwnProperty(visibleKeys, key)) {
+    name = '[' + key + ']';
+  }
+  if (!str) {
+    if (ctx.seen.indexOf(desc.value) < 0) {
+      if (isNull(recurseTimes)) {
+        str = formatValue(ctx, desc.value, null);
+      } else {
+        str = formatValue(ctx, desc.value, recurseTimes - 1);
+      }
+      if (str.indexOf('\n') > -1) {
+        if (array) {
+          str = str.split('\n').map(function(line) {
+            return '  ' + line;
+          }).join('\n').substr(2);
+        } else {
+          str = '\n' + str.split('\n').map(function(line) {
+            return '   ' + line;
+          }).join('\n');
+        }
+      }
+    } else {
+      str = ctx.stylize('[Circular]', 'special');
+    }
+  }
+  if (isUndefined(name)) {
+    if (array && key.match(/^\d+$/)) {
+      return str;
+    }
+    name = JSON.stringify('' + key);
+    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
+      name = name.substr(1, name.length - 2);
+      name = ctx.stylize(name, 'name');
+    } else {
+      name = name.replace(/'/g, "\\'")
+                 .replace(/\\"/g, '"')
+                 .replace(/(^"|"$)/g, "'");
+      name = ctx.stylize(name, 'string');
+    }
+  }
+
+  return name + ': ' + str;
+}
+
+
+function reduceToSingleString(output, base, braces) {
+  var numLinesEst = 0;
+  var length = output.reduce(function(prev, cur) {
+    numLinesEst++;
+    if (cur.indexOf('\n') >= 0) numLinesEst++;
+    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
+  }, 0);
+
+  if (length > 60) {
+    return braces[0] +
+           (base === '' ? '' : base + '\n ') +
+           ' ' +
+           output.join(',\n  ') +
+           ' ' +
+           braces[1];
+  }
+
+  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
+}
+
+
+// NOTE: These type checking functions intentionally don't use `instanceof`
+// because it is fragile and can be easily faked with `Object.create()`.
+function isArray(ar) {
+  return Array.isArray(ar);
+}
+exports.isArray = isArray;
+
+function isBoolean(arg) {
+  return typeof arg === 'boolean';
+}
+exports.isBoolean = isBoolean;
+
+function isNull(arg) {
+  return arg === null;
+}
+exports.isNull = isNull;
+
+function isNullOrUndefined(arg) {
+  return arg == null;
+}
+exports.isNullOrUndefined = isNullOrUndefined;
+
+function isNumber(arg) {
+  return typeof arg === 'number';
+}
+exports.isNumber = isNumber;
+
+function isString(arg) {
+  return typeof arg === 'string';
+}
+exports.isString = isString;
+
+function isSymbol(arg) {
+  return typeof arg === 'symbol';
+}
+exports.isSymbol = isSymbol;
+
+function isUndefined(arg) {
+  return arg === void 0;
+}
+exports.isUndefined = isUndefined;
+
+function isRegExp(re) {
+  return isObject(re) && objectToString(re) === '[object RegExp]';
+}
+exports.isRegExp = isRegExp;
+
+function isObject(arg) {
+  return typeof arg === 'object' && arg !== null;
+}
+exports.isObject = isObject;
+
+function isDate(d) {
+  return isObject(d) && objectToString(d) === '[object Date]';
+}
+exports.isDate = isDate;
+
+function isError(e) {
+  return isObject(e) &&
+      (objectToString(e) === '[object Error]' || e instanceof Error);
+}
+exports.isError = isError;
+
+function isFunction(arg) {
+  return typeof arg === 'function';
+}
+exports.isFunction = isFunction;
+
+function isPrimitive(arg) {
+  return arg === null ||
+         typeof arg === 'boolean' ||
+         typeof arg === 'number' ||
+         typeof arg === 'string' ||
+         typeof arg === 'symbol' ||  // ES6 symbol
+         typeof arg === 'undefined';
+}
+exports.isPrimitive = isPrimitive;
+
+exports.isBuffer = __webpack_require__(/*! ./support/isBuffer */ "./node_modules/util/support/isBufferBrowser.js");
+
+function objectToString(o) {
+  return Object.prototype.toString.call(o);
+}
+
+
+function pad(n) {
+  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+}
+
+
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+              'Oct', 'Nov', 'Dec'];
+
+// 26 Feb 16:19:34
+function timestamp() {
+  var d = new Date();
+  var time = [pad(d.getHours()),
+              pad(d.getMinutes()),
+              pad(d.getSeconds())].join(':');
+  return [d.getDate(), months[d.getMonth()], time].join(' ');
+}
+
+
+// log is just a thin wrapper to console.log that prepends a timestamp
+exports.log = function() {
+  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+};
+
+
+/**
+ * Inherit the prototype methods from one constructor into another.
+ *
+ * The Function.prototype.inherits from lang.js rewritten as a standalone
+ * function (not on Function.prototype). NOTE: If this file is to be loaded
+ * during bootstrapping this function needs to be rewritten using some native
+ * functions as prototype setup using normal JavaScript does not work as
+ * expected during bootstrapping (see mirror.js in r114903).
+ *
+ * @param {function} ctor Constructor function which needs to inherit the
+ *     prototype.
+ * @param {function} superCtor Constructor function to inherit prototype from.
+ */
+exports.inherits = __webpack_require__(/*! inherits */ "./node_modules/util/node_modules/inherits/inherits_browser.js");
+
+exports._extend = function(origin, add) {
+  // Don't do anything if add isn't an object
+  if (!add || !isObject(add)) return origin;
+
+  var keys = Object.keys(add);
+  var i = keys.length;
+  while (i--) {
+    origin[keys[i]] = add[keys[i]];
+  }
+  return origin;
+};
+
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+var kCustomPromisifiedSymbol = typeof Symbol !== 'undefined' ? Symbol('util.promisify.custom') : undefined;
+
+exports.promisify = function promisify(original) {
+  if (typeof original !== 'function')
+    throw new TypeError('The "original" argument must be of type Function');
+
+  if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
+    var fn = original[kCustomPromisifiedSymbol];
+    if (typeof fn !== 'function') {
+      throw new TypeError('The "util.promisify.custom" argument must be of type Function');
+    }
+    Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+      value: fn, enumerable: false, writable: false, configurable: true
+    });
+    return fn;
+  }
+
+  function fn() {
+    var promiseResolve, promiseReject;
+    var promise = new Promise(function (resolve, reject) {
+      promiseResolve = resolve;
+      promiseReject = reject;
+    });
+
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+    args.push(function (err, value) {
+      if (err) {
+        promiseReject(err);
+      } else {
+        promiseResolve(value);
+      }
+    });
+
+    try {
+      original.apply(this, args);
+    } catch (err) {
+      promiseReject(err);
+    }
+
+    return promise;
+  }
+
+  Object.setPrototypeOf(fn, Object.getPrototypeOf(original));
+
+  if (kCustomPromisifiedSymbol) Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+    value: fn, enumerable: false, writable: false, configurable: true
+  });
+  return Object.defineProperties(
+    fn,
+    getOwnPropertyDescriptors(original)
+  );
+}
+
+exports.promisify.custom = kCustomPromisifiedSymbol
+
+function callbackifyOnRejected(reason, cb) {
+  // `!reason` guard inspired by bluebird (Ref: https://goo.gl/t5IS6M).
+  // Because `null` is a special error value in callbacks which means "no error
+  // occurred", we error-wrap so the callback consumer can distinguish between
+  // "the promise rejected with null" or "the promise fulfilled with undefined".
+  if (!reason) {
+    var newReason = new Error('Promise was rejected with a falsy value');
+    newReason.reason = reason;
+    reason = newReason;
+  }
+  return cb(reason);
+}
+
+function callbackify(original) {
+  if (typeof original !== 'function') {
+    throw new TypeError('The "original" argument must be of type Function');
+  }
+
+  // We DO NOT return the promise as it gives the user a false sense that
+  // the promise is actually somehow related to the callback's execution
+  // and that the callback throwing will reject the promise.
+  function callbackified() {
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+
+    var maybeCb = args.pop();
+    if (typeof maybeCb !== 'function') {
+      throw new TypeError('The last argument must be of type Function');
+    }
+    var self = this;
+    var cb = function() {
+      return maybeCb.apply(self, arguments);
+    };
+    // In true node style we process the callback on `nextTick` with all the
+    // implications (stack, `uncaughtException`, `async_hooks`)
+    original.apply(this, args)
+      .then(function(ret) { process.nextTick(cb, null, ret) },
+            function(rej) { process.nextTick(callbackifyOnRejected, rej, cb) });
+  }
+
+  Object.setPrototypeOf(callbackified, Object.getPrototypeOf(original));
+  Object.defineProperties(callbackified,
+                          getOwnPropertyDescriptors(original));
+  return callbackified;
+}
+exports.callbackify = callbackify;
+
 
 /***/ }),
 
@@ -21425,634 +33506,6 @@ module.exports = function (list, options) {
   }
 
 })();
-
-
-/***/ }),
-
-/***/ "./resources/js/Pages/footer.vue":
-/*!***************************************!*\
-  !*** ./resources/js/Pages/footer.vue ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _footer_vue_vue_type_template_id_485a2ae4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./footer.vue?vue&type=template&id=485a2ae4&scoped=true& */ "./resources/js/Pages/footer.vue?vue&type=template&id=485a2ae4&scoped=true&");
-/* harmony import */ var _footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.vue?vue&type=script&lang=js& */ "./resources/js/Pages/footer.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _footer_vue_vue_type_template_id_485a2ae4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _footer_vue_vue_type_template_id_485a2ae4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "485a2ae4",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/Pages/footer.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/Pages/header.vue":
-/*!***************************************!*\
-  !*** ./resources/js/Pages/header.vue ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _header_vue_vue_type_template_id_698c8ed6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header.vue?vue&type=template&id=698c8ed6&scoped=true& */ "./resources/js/Pages/header.vue?vue&type=template&id=698c8ed6&scoped=true&");
-/* harmony import */ var _header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header.vue?vue&type=script&lang=js& */ "./resources/js/Pages/header.vue?vue&type=script&lang=js&");
-/* harmony import */ var _header_vue_vue_type_style_index_0_id_698c8ed6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css& */ "./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-;
-
-
-/* normalize component */
-
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
-  _header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _header_vue_vue_type_template_id_698c8ed6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _header_vue_vue_type_template_id_698c8ed6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "698c8ed6",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/Pages/header.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/Pages/footer.vue?vue&type=script&lang=js&":
-/*!****************************************************************!*\
-  !*** ./resources/js/Pages/footer.vue?vue&type=script&lang=js& ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./footer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/footer.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
-
-/***/ "./resources/js/Pages/header.vue?vue&type=script&lang=js&":
-/*!****************************************************************!*\
-  !*** ./resources/js/Pages/header.vue?vue&type=script&lang=js& ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./header.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
-
-/***/ "./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css& ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_10_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_style_index_0_id_698c8ed6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=style&index=0&id=698c8ed6&scoped=true&lang=css&");
-
-
-/***/ }),
-
-/***/ "./resources/js/Pages/footer.vue?vue&type=template&id=485a2ae4&scoped=true&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/Pages/footer.vue?vue&type=template&id=485a2ae4&scoped=true& ***!
-  \**********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_485a2ae4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_485a2ae4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_485a2ae4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./footer.vue?vue&type=template&id=485a2ae4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/footer.vue?vue&type=template&id=485a2ae4&scoped=true&");
-
-
-/***/ }),
-
-/***/ "./resources/js/Pages/header.vue?vue&type=template&id=698c8ed6&scoped=true&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/Pages/header.vue?vue&type=template&id=698c8ed6&scoped=true& ***!
-  \**********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_template_id_698c8ed6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-/* harmony export */   "staticRenderFns": () => /* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_template_id_698c8ed6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_header_vue_vue_type_template_id_698c8ed6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./header.vue?vue&type=template&id=698c8ed6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=template&id=698c8ed6&scoped=true&");
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/footer.vue?vue&type=template&id=485a2ae4&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/footer.vue?vue&type=template&id=485a2ae4&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* binding */ render,
-/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "footer",
-      { staticClass: "site-footer bt", attrs: { id: "colophon" } },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "wrapper" }, [
-            _c("div", { staticClass: "footer-top p" }, [
-              _c("div", { staticClass: "article info" }, [
-                _c("div", { staticClass: "site-branding" }),
-                _vm._v(" "),
-                _c("p", { staticClass: "grey-text" }, [
-                  _vm._v(
-                    "Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a\n                        feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.\n                    "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "article links" }, [
-                _c("h4", [_vm._v("Полезные ссылки")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "article" }, [
-                _c("h4", [_vm._v("Контакты")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "contacts" }, [
-                  _c("p", [
-                    _vm._v("г. Алматы, проспект Абая, 76/109 уг."),
-                    _c("br"),
-                    _vm._v(" ул. Ауэзова, 5 этаж, 502 офис.")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v("Телефон: "),
-                    _c("a", { attrs: { href: "tel:+77076538240" } }, [
-                      _vm._v("+7 (707) 653-82-40")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v("Телефон: "),
-                    _c("a", { attrs: { href: "tel:+77785040883" } }, [
-                      _vm._v("+7 (778) 504-08-83")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v("E-mail: "),
-                    _c("a", { attrs: { href: "mailto:info@mykid.kz" } }, [
-                      _vm._v("info@mykid.kz")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "btns" }, [
-                    _c("div", { staticClass: "line" }, [
-                      _c("a", {
-                        staticClass: "btn icon bordered icon-instagram",
-                        attrs: { href: "#" }
-                      }),
-                      _vm._v(" "),
-                      _c("a", {
-                        staticClass: "btn icon bordered icon-vk",
-                        attrs: { href: "#" }
-                      }),
-                      _vm._v(" "),
-                      _c("a", {
-                        staticClass: "btn icon bordered icon-twitter",
-                        attrs: { href: "#" }
-                      })
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "footer-bottom df jcsb aic pt3 pb3 bt" }, [
-            _c("p", { staticClass: "grey-text mb0" }, [
-              _vm._v("© \n                ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "developer text",
-                attrs: {
-                  href: "https://init.kz",
-                  target: "_blank",
-                  rel: "noopener noreferrer"
-                }
-              },
-              [
-                _vm._v("Сайт\n\n                разработала"),
-                _c("br"),
-                _vm._v("Веб студия "),
-                _c("img", { attrs: { src: "img/init.svg", alt: "init logo" } })
-              ]
-            )
-          ])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=template&id=698c8ed6&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/header.vue?vue&type=template&id=698c8ed6&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* binding */ render,
-/* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "header",
-    { staticClass: "site-header", attrs: { id: "masthead" } },
-    [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "header-content" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("nav", { staticClass: "menu-menu-1-container" }, [
-            _c(
-              "ul",
-              { staticClass: "site-menu", attrs: { id: "menu-menu-1" } },
-              [
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-17",
-                    attrs: { id: "menu-item-17" }
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-4",
-                        attrs: { to: "/vue/home", exact: "" }
-                      },
-                      [_vm._v("Главная")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "menu-item menu-item-type-post_type_archive menu-item-object-company menu-item-194",
-                    attrs: { id: "menu-item-194" }
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-4",
-                        attrs: { to: "/vue/companies", exact: "" }
-                      },
-                      [_vm._v("Все компании")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "menu-item menu-item-type-custom menu-item-object-custom menu-item-21",
-                    attrs: { id: "menu-item-21" }
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-4",
-                        attrs: { to: "/vue/blog", exact: "" }
-                      },
-                      [_vm._v("Блог")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "menu-item menu-item-type-custom menu-item-object-custom menu-item-22",
-                    attrs: { id: "menu-item-22" }
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-4",
-                        attrs: { to: "/vue/maps", exact: "" }
-                      },
-                      [_vm._v("Карта")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "menu-item menu-item-type-custom menu-item-object-custom menu-item-23",
-                    attrs: { id: "menu-item-23" }
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-4",
-                        attrs: { to: "/vue/contacts", exact: "" }
-                      },
-                      [_vm._v("Контакты")]
-                    )
-                  ],
-                  1
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(1)
-        ]),
-        _vm._v(" "),
-        _vm._m(2)
-      ])
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "site-branding" }, [
-      _c(
-        "a",
-        {
-          staticClass: "custom-logo-link",
-          attrs: { href: "/", rel: "home", "aria-current": "page" }
-        },
-        [
-          _c("img", {
-            staticClass: "custom-logo",
-            attrs: {
-              src:
-                "%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0%20-%20MyKid.kz_files/logo.png",
-              alt: "MyKid.kz",
-              width: "218",
-              height: "62"
-            }
-          })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "btns" }, [
-      _c("div", { staticClass: "line" }, [
-        _vm._v("1\n                    "),
-        _vm._v("1\n                ")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "nav-login" }, [
-      _c("div", { staticClass: "nav-login-container" }, [
-        _c("form", { attrs: { action: "#" } }, [
-          _c("div", { staticClass: "data" }, [
-            _c("label", [_vm._v("Email or Phone")]),
-            _vm._v(" "),
-            _c("input", { attrs: { type: "text", required: "" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "data" }, [
-            _c("label", [_vm._v("Password")]),
-            _vm._v(" "),
-            _c("input", { attrs: { type: "password", required: "" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "btn" }, [
-            _c("div", { staticClass: "inner" }),
-            _vm._v(" "),
-            _c("button", { attrs: { type: "submit" } }, [
-              _vm._v(
-                "\n                            login\n                        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "signup-link" }, [
-            _vm._v(
-              "\n                    Not a member? \n                        "
-            ),
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Signup now")])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => /* binding */ normalizeComponent
-/* harmony export */ });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () {
-        injectStyles.call(
-          this,
-          (options.functional ? this.parent : this).$root.$options.shadowRoot
-        )
-      }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functional component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
 
 
 /***/ }),
@@ -25207,6 +36660,25 @@ if (inBrowser && window.Vue) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VueRouter);
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-socket.io/dist/vue-socketio.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/vue-socket.io/dist/vue-socketio.js ***!
+  \*********************************************************/
+/***/ (function(module) {
+
+!function(t,e){ true?module.exports=e():0}("undefined"!=typeof self?self:this,function(){return function(t){var e={};function r(n){if(e[n])return e[n].exports;var o=e[n]={i:n,l:!1,exports:{}};return t[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=t,r.c=e,r.d=function(t,e,n){r.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},r.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},r.t=function(t,e){if(1&e&&(t=r(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)r.d(n,o,function(e){return t[e]}.bind(null,o));return n},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,"a",e),e},r.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},r.p="",r(r.s=23)}([function(t,e,r){(function(n){function o(){var t;try{t=e.storage.debug}catch(t){}return!t&&void 0!==n&&"env"in n&&(t=n.env.DEBUG),t}(e=t.exports=r(26)).log=function(){return"object"==typeof console&&console.log&&Function.prototype.apply.call(console.log,console,arguments)},e.formatArgs=function(t){var r=this.useColors;if(t[0]=(r?"%c":"")+this.namespace+(r?" %c":" ")+t[0]+(r?"%c ":" ")+"+"+e.humanize(this.diff),!r)return;var n="color: "+this.color;t.splice(1,0,n,"color: inherit");var o=0,i=0;t[0].replace(/%[a-zA-Z%]/g,function(t){"%%"!==t&&(o++,"%c"===t&&(i=o))}),t.splice(i,0,n)},e.save=function(t){try{null==t?e.storage.removeItem("debug"):e.storage.debug=t}catch(t){}},e.load=o,e.useColors=function(){if("undefined"!=typeof window&&window.process&&"renderer"===window.process.type)return!0;if("undefined"!=typeof navigator&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/))return!1;return"undefined"!=typeof document&&document.documentElement&&document.documentElement.style&&document.documentElement.style.WebkitAppearance||"undefined"!=typeof window&&window.console&&(window.console.firebug||window.console.exception&&window.console.table)||"undefined"!=typeof navigator&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)&&parseInt(RegExp.$1,10)>=31||"undefined"!=typeof navigator&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/)},e.storage="undefined"!=typeof chrome&&void 0!==chrome.storage?chrome.storage.local:function(){try{return window.localStorage}catch(t){}}(),e.colors=["#0000CC","#0000FF","#0033CC","#0033FF","#0066CC","#0066FF","#0099CC","#0099FF","#00CC00","#00CC33","#00CC66","#00CC99","#00CCCC","#00CCFF","#3300CC","#3300FF","#3333CC","#3333FF","#3366CC","#3366FF","#3399CC","#3399FF","#33CC00","#33CC33","#33CC66","#33CC99","#33CCCC","#33CCFF","#6600CC","#6600FF","#6633CC","#6633FF","#66CC00","#66CC33","#9900CC","#9900FF","#9933CC","#9933FF","#99CC00","#99CC33","#CC0000","#CC0033","#CC0066","#CC0099","#CC00CC","#CC00FF","#CC3300","#CC3333","#CC3366","#CC3399","#CC33CC","#CC33FF","#CC6600","#CC6633","#CC9900","#CC9933","#CCCC00","#CCCC33","#FF0000","#FF0033","#FF0066","#FF0099","#FF00CC","#FF00FF","#FF3300","#FF3333","#FF3366","#FF3399","#FF33CC","#FF33FF","#FF6600","#FF6633","#FF9900","#FF9933","#FFCC00","#FFCC33"],e.formatters.j=function(t){try{return JSON.stringify(t)}catch(t){return"[UnexpectedJSONParseError]: "+t.message}},e.enable(o())}).call(this,r(25))},function(t,e,r){function n(t){if(t)return function(t){for(var e in n.prototype)t[e]=n.prototype[e];return t}(t)}t.exports=n,n.prototype.on=n.prototype.addEventListener=function(t,e){return this._callbacks=this._callbacks||{},(this._callbacks["$"+t]=this._callbacks["$"+t]||[]).push(e),this},n.prototype.once=function(t,e){function r(){this.off(t,r),e.apply(this,arguments)}return r.fn=e,this.on(t,r),this},n.prototype.off=n.prototype.removeListener=n.prototype.removeAllListeners=n.prototype.removeEventListener=function(t,e){if(this._callbacks=this._callbacks||{},0==arguments.length)return this._callbacks={},this;var r,n=this._callbacks["$"+t];if(!n)return this;if(1==arguments.length)return delete this._callbacks["$"+t],this;for(var o=0;o<n.length;o++)if((r=n[o])===e||r.fn===e){n.splice(o,1);break}return this},n.prototype.emit=function(t){this._callbacks=this._callbacks||{};var e=[].slice.call(arguments,1),r=this._callbacks["$"+t];if(r)for(var n=0,o=(r=r.slice(0)).length;n<o;++n)r[n].apply(this,e);return this},n.prototype.listeners=function(t){return this._callbacks=this._callbacks||{},this._callbacks["$"+t]||[]},n.prototype.hasListeners=function(t){return!!this.listeners(t).length}},function(t,e,r){var n,o=r(36),i=r(16),s=r(37),a=r(38),c=r(39);"undefined"!=typeof ArrayBuffer&&(n=r(40));var u="undefined"!=typeof navigator&&/Android/i.test(navigator.userAgent),h="undefined"!=typeof navigator&&/PhantomJS/i.test(navigator.userAgent),f=u||h;e.protocol=3;var p=e.packets={open:0,close:1,ping:2,pong:3,message:4,upgrade:5,noop:6},l=o(p),d={type:"error",data:"parser error"},y=r(41);function g(t,e,r){for(var n=new Array(t.length),o=a(t.length,r),i=function(t,r,o){e(r,function(e,r){n[t]=r,o(e,n)})},s=0;s<t.length;s++)i(s,t[s],o)}e.encodePacket=function(t,r,n,o){"function"==typeof r&&(o=r,r=!1),"function"==typeof n&&(o=n,n=null);var i=void 0===t.data?void 0:t.data.buffer||t.data;if("undefined"!=typeof ArrayBuffer&&i instanceof ArrayBuffer)return function(t,r,n){if(!r)return e.encodeBase64Packet(t,n);var o=t.data,i=new Uint8Array(o),s=new Uint8Array(1+o.byteLength);s[0]=p[t.type];for(var a=0;a<i.length;a++)s[a+1]=i[a];return n(s.buffer)}(t,r,o);if(void 0!==y&&i instanceof y)return function(t,r,n){if(!r)return e.encodeBase64Packet(t,n);if(f)return function(t,r,n){if(!r)return e.encodeBase64Packet(t,n);var o=new FileReader;return o.onload=function(){e.encodePacket({type:t.type,data:o.result},r,!0,n)},o.readAsArrayBuffer(t.data)}(t,r,n);var o=new Uint8Array(1);o[0]=p[t.type];var i=new y([o.buffer,t.data]);return n(i)}(t,r,o);if(i&&i.base64)return function(t,r){var n="b"+e.packets[t.type]+t.data.data;return r(n)}(t,o);var s=p[t.type];return void 0!==t.data&&(s+=n?c.encode(String(t.data),{strict:!1}):String(t.data)),o(""+s)},e.encodeBase64Packet=function(t,r){var n,o="b"+e.packets[t.type];if(void 0!==y&&t.data instanceof y){var i=new FileReader;return i.onload=function(){var t=i.result.split(",")[1];r(o+t)},i.readAsDataURL(t.data)}try{n=String.fromCharCode.apply(null,new Uint8Array(t.data))}catch(e){for(var s=new Uint8Array(t.data),a=new Array(s.length),c=0;c<s.length;c++)a[c]=s[c];n=String.fromCharCode.apply(null,a)}return o+=btoa(n),r(o)},e.decodePacket=function(t,r,n){if(void 0===t)return d;if("string"==typeof t){if("b"===t.charAt(0))return e.decodeBase64Packet(t.substr(1),r);if(n&&!1===(t=function(t){try{t=c.decode(t,{strict:!1})}catch(t){return!1}return t}(t)))return d;var o=t.charAt(0);return Number(o)==o&&l[o]?t.length>1?{type:l[o],data:t.substring(1)}:{type:l[o]}:d}o=new Uint8Array(t)[0];var i=s(t,1);return y&&"blob"===r&&(i=new y([i])),{type:l[o],data:i}},e.decodeBase64Packet=function(t,e){var r=l[t.charAt(0)];if(!n)return{type:r,data:{base64:!0,data:t.substr(1)}};var o=n.decode(t.substr(1));return"blob"===e&&y&&(o=new y([o])),{type:r,data:o}},e.encodePayload=function(t,r,n){"function"==typeof r&&(n=r,r=null);var o=i(t);if(r&&o)return y&&!f?e.encodePayloadAsBlob(t,n):e.encodePayloadAsArrayBuffer(t,n);if(!t.length)return n("0:");g(t,function(t,n){e.encodePacket(t,!!o&&r,!1,function(t){n(null,function(t){return t.length+":"+t}(t))})},function(t,e){return n(e.join(""))})},e.decodePayload=function(t,r,n){if("string"!=typeof t)return e.decodePayloadAsBinary(t,r,n);var o;if("function"==typeof r&&(n=r,r=null),""===t)return n(d,0,1);for(var i,s,a="",c=0,u=t.length;c<u;c++){var h=t.charAt(c);if(":"===h){if(""===a||a!=(i=Number(a)))return n(d,0,1);if(a!=(s=t.substr(c+1,i)).length)return n(d,0,1);if(s.length){if(o=e.decodePacket(s,r,!1),d.type===o.type&&d.data===o.data)return n(d,0,1);if(!1===n(o,c+i,u))return}c+=i,a=""}else a+=h}return""!==a?n(d,0,1):void 0},e.encodePayloadAsArrayBuffer=function(t,r){if(!t.length)return r(new ArrayBuffer(0));g(t,function(t,r){e.encodePacket(t,!0,!0,function(t){return r(null,t)})},function(t,e){var n=e.reduce(function(t,e){var r;return t+(r="string"==typeof e?e.length:e.byteLength).toString().length+r+2},0),o=new Uint8Array(n),i=0;return e.forEach(function(t){var e="string"==typeof t,r=t;if(e){for(var n=new Uint8Array(t.length),s=0;s<t.length;s++)n[s]=t.charCodeAt(s);r=n.buffer}o[i++]=e?0:1;var a=r.byteLength.toString();for(s=0;s<a.length;s++)o[i++]=parseInt(a[s]);o[i++]=255;for(n=new Uint8Array(r),s=0;s<n.length;s++)o[i++]=n[s]}),r(o.buffer)})},e.encodePayloadAsBlob=function(t,r){g(t,function(t,r){e.encodePacket(t,!0,!0,function(t){var e=new Uint8Array(1);if(e[0]=1,"string"==typeof t){for(var n=new Uint8Array(t.length),o=0;o<t.length;o++)n[o]=t.charCodeAt(o);t=n.buffer,e[0]=0}var i=(t instanceof ArrayBuffer?t.byteLength:t.size).toString(),s=new Uint8Array(i.length+1);for(o=0;o<i.length;o++)s[o]=parseInt(i[o]);if(s[i.length]=255,y){var a=new y([e.buffer,s.buffer,t]);r(null,a)}})},function(t,e){return r(new y(e))})},e.decodePayloadAsBinary=function(t,r,n){"function"==typeof r&&(n=r,r=null);for(var o=t,i=[];o.byteLength>0;){for(var a=new Uint8Array(o),c=0===a[0],u="",h=1;255!==a[h];h++){if(u.length>310)return n(d,0,1);u+=a[h]}o=s(o,2+u.length),u=parseInt(u);var f=s(o,0,u);if(c)try{f=String.fromCharCode.apply(null,new Uint8Array(f))}catch(t){var p=new Uint8Array(f);f="";for(h=0;h<p.length;h++)f+=String.fromCharCode(p[h])}i.push(f),o=s(o,u)}var l=i.length;i.forEach(function(t,o){n(e.decodePacket(t,r,!0),o,l)})}},function(t,e){e.encode=function(t){var e="";for(var r in t)t.hasOwnProperty(r)&&(e.length&&(e+="&"),e+=encodeURIComponent(r)+"="+encodeURIComponent(t[r]));return e},e.decode=function(t){for(var e={},r=t.split("&"),n=0,o=r.length;n<o;n++){var i=r[n].split("=");e[decodeURIComponent(i[0])]=decodeURIComponent(i[1])}return e}},function(t,e){t.exports=function(t,e){var r=function(){};r.prototype=e.prototype,t.prototype=new r,t.prototype.constructor=t}},function(t,e,r){var n=r(0)("socket.io-parser"),o=r(1),i=r(28),s=r(6),a=r(11);function c(){}e.protocol=4,e.types=["CONNECT","DISCONNECT","EVENT","ACK","ERROR","BINARY_EVENT","BINARY_ACK"],e.CONNECT=0,e.DISCONNECT=1,e.EVENT=2,e.ACK=3,e.ERROR=4,e.BINARY_EVENT=5,e.BINARY_ACK=6,e.Encoder=c,e.Decoder=f;var u=e.ERROR+'"encode error"';function h(t){var r=""+t.type;if(e.BINARY_EVENT!==t.type&&e.BINARY_ACK!==t.type||(r+=t.attachments+"-"),t.nsp&&"/"!==t.nsp&&(r+=t.nsp+","),null!=t.id&&(r+=t.id),null!=t.data){var o=function(t){try{return JSON.stringify(t)}catch(t){return!1}}(t.data);if(!1===o)return u;r+=o}return n("encoded %j as %s",t,r),r}function f(){this.reconstructor=null}function p(t){this.reconPack=t,this.buffers=[]}function l(t){return{type:e.ERROR,data:"parser error: "+t}}c.prototype.encode=function(t,r){(n("encoding packet %j",t),e.BINARY_EVENT===t.type||e.BINARY_ACK===t.type)?function(t,e){i.removeBlobs(t,function(t){var r=i.deconstructPacket(t),n=h(r.packet),o=r.buffers;o.unshift(n),e(o)})}(t,r):r([h(t)])},o(f.prototype),f.prototype.add=function(t){var r;if("string"==typeof t)r=function(t){var r=0,o={type:Number(t.charAt(0))};if(null==e.types[o.type])return l("unknown packet type "+o.type);if(e.BINARY_EVENT===o.type||e.BINARY_ACK===o.type){for(var i="";"-"!==t.charAt(++r)&&(i+=t.charAt(r),r!=t.length););if(i!=Number(i)||"-"!==t.charAt(r))throw new Error("Illegal attachments");o.attachments=Number(i)}if("/"===t.charAt(r+1))for(o.nsp="";++r;){var a=t.charAt(r);if(","===a)break;if(o.nsp+=a,r===t.length)break}else o.nsp="/";var c=t.charAt(r+1);if(""!==c&&Number(c)==c){for(o.id="";++r;){var a=t.charAt(r);if(null==a||Number(a)!=a){--r;break}if(o.id+=t.charAt(r),r===t.length)break}o.id=Number(o.id)}if(t.charAt(++r)){var u=function(t){try{return JSON.parse(t)}catch(t){return!1}}(t.substr(r)),h=!1!==u&&(o.type===e.ERROR||s(u));if(!h)return l("invalid payload");o.data=u}return n("decoded %s as %j",t,o),o}(t),e.BINARY_EVENT===r.type||e.BINARY_ACK===r.type?(this.reconstructor=new p(r),0===this.reconstructor.reconPack.attachments&&this.emit("decoded",r)):this.emit("decoded",r);else{if(!a(t)&&!t.base64)throw new Error("Unknown type: "+t);if(!this.reconstructor)throw new Error("got binary data when not reconstructing a packet");(r=this.reconstructor.takeBinaryData(t))&&(this.reconstructor=null,this.emit("decoded",r))}},f.prototype.destroy=function(){this.reconstructor&&this.reconstructor.finishedReconstruction()},p.prototype.takeBinaryData=function(t){if(this.buffers.push(t),this.buffers.length===this.reconPack.attachments){var e=i.reconstructPacket(this.reconPack,this.buffers);return this.finishedReconstruction(),e}return null},p.prototype.finishedReconstruction=function(){this.reconPack=null,this.buffers=[]}},function(t,e){var r={}.toString;t.exports=Array.isArray||function(t){return"[object Array]"==r.call(t)}},function(t,e,r){"use strict";(function(t){
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+var n=r(29),o=r(30),i=r(31);function s(){return c.TYPED_ARRAY_SUPPORT?2147483647:1073741823}function a(t,e){if(s()<e)throw new RangeError("Invalid typed array length");return c.TYPED_ARRAY_SUPPORT?(t=new Uint8Array(e)).__proto__=c.prototype:(null===t&&(t=new c(e)),t.length=e),t}function c(t,e,r){if(!(c.TYPED_ARRAY_SUPPORT||this instanceof c))return new c(t,e,r);if("number"==typeof t){if("string"==typeof e)throw new Error("If encoding is specified then the first argument must be a string");return f(this,t)}return u(this,t,e,r)}function u(t,e,r,n){if("number"==typeof e)throw new TypeError('"value" argument must not be a number');return"undefined"!=typeof ArrayBuffer&&e instanceof ArrayBuffer?function(t,e,r,n){if(e.byteLength,r<0||e.byteLength<r)throw new RangeError("'offset' is out of bounds");if(e.byteLength<r+(n||0))throw new RangeError("'length' is out of bounds");e=void 0===r&&void 0===n?new Uint8Array(e):void 0===n?new Uint8Array(e,r):new Uint8Array(e,r,n);c.TYPED_ARRAY_SUPPORT?(t=e).__proto__=c.prototype:t=p(t,e);return t}(t,e,r,n):"string"==typeof e?function(t,e,r){"string"==typeof r&&""!==r||(r="utf8");if(!c.isEncoding(r))throw new TypeError('"encoding" must be a valid string encoding');var n=0|d(e,r),o=(t=a(t,n)).write(e,r);o!==n&&(t=t.slice(0,o));return t}(t,e,r):function(t,e){if(c.isBuffer(e)){var r=0|l(e.length);return 0===(t=a(t,r)).length?t:(e.copy(t,0,0,r),t)}if(e){if("undefined"!=typeof ArrayBuffer&&e.buffer instanceof ArrayBuffer||"length"in e)return"number"!=typeof e.length||(n=e.length)!=n?a(t,0):p(t,e);if("Buffer"===e.type&&i(e.data))return p(t,e.data)}var n;throw new TypeError("First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.")}(t,e)}function h(t){if("number"!=typeof t)throw new TypeError('"size" argument must be a number');if(t<0)throw new RangeError('"size" argument must not be negative')}function f(t,e){if(h(e),t=a(t,e<0?0:0|l(e)),!c.TYPED_ARRAY_SUPPORT)for(var r=0;r<e;++r)t[r]=0;return t}function p(t,e){var r=e.length<0?0:0|l(e.length);t=a(t,r);for(var n=0;n<r;n+=1)t[n]=255&e[n];return t}function l(t){if(t>=s())throw new RangeError("Attempt to allocate Buffer larger than maximum size: 0x"+s().toString(16)+" bytes");return 0|t}function d(t,e){if(c.isBuffer(t))return t.length;if("undefined"!=typeof ArrayBuffer&&"function"==typeof ArrayBuffer.isView&&(ArrayBuffer.isView(t)||t instanceof ArrayBuffer))return t.byteLength;"string"!=typeof t&&(t=""+t);var r=t.length;if(0===r)return 0;for(var n=!1;;)switch(e){case"ascii":case"latin1":case"binary":return r;case"utf8":case"utf-8":case void 0:return M(t).length;case"ucs2":case"ucs-2":case"utf16le":case"utf-16le":return 2*r;case"hex":return r>>>1;case"base64":return q(t).length;default:if(n)return M(t).length;e=(""+e).toLowerCase(),n=!0}}function y(t,e,r){var n=t[e];t[e]=t[r],t[r]=n}function g(t,e,r,n,o){if(0===t.length)return-1;if("string"==typeof r?(n=r,r=0):r>2147483647?r=2147483647:r<-2147483648&&(r=-2147483648),r=+r,isNaN(r)&&(r=o?0:t.length-1),r<0&&(r=t.length+r),r>=t.length){if(o)return-1;r=t.length-1}else if(r<0){if(!o)return-1;r=0}if("string"==typeof e&&(e=c.from(e,n)),c.isBuffer(e))return 0===e.length?-1:m(t,e,r,n,o);if("number"==typeof e)return e&=255,c.TYPED_ARRAY_SUPPORT&&"function"==typeof Uint8Array.prototype.indexOf?o?Uint8Array.prototype.indexOf.call(t,e,r):Uint8Array.prototype.lastIndexOf.call(t,e,r):m(t,[e],r,n,o);throw new TypeError("val must be string, number or Buffer")}function m(t,e,r,n,o){var i,s=1,a=t.length,c=e.length;if(void 0!==n&&("ucs2"===(n=String(n).toLowerCase())||"ucs-2"===n||"utf16le"===n||"utf-16le"===n)){if(t.length<2||e.length<2)return-1;s=2,a/=2,c/=2,r/=2}function u(t,e){return 1===s?t[e]:t.readUInt16BE(e*s)}if(o){var h=-1;for(i=r;i<a;i++)if(u(t,i)===u(e,-1===h?0:i-h)){if(-1===h&&(h=i),i-h+1===c)return h*s}else-1!==h&&(i-=i-h),h=-1}else for(r+c>a&&(r=a-c),i=r;i>=0;i--){for(var f=!0,p=0;p<c;p++)if(u(t,i+p)!==u(e,p)){f=!1;break}if(f)return i}return-1}function v(t,e,r,n){r=Number(r)||0;var o=t.length-r;n?(n=Number(n))>o&&(n=o):n=o;var i=e.length;if(i%2!=0)throw new TypeError("Invalid hex string");n>i/2&&(n=i/2);for(var s=0;s<n;++s){var a=parseInt(e.substr(2*s,2),16);if(isNaN(a))return s;t[r+s]=a}return s}function b(t,e,r,n){return Y(M(e,t.length-r),t,r,n)}function w(t,e,r,n){return Y(function(t){for(var e=[],r=0;r<t.length;++r)e.push(255&t.charCodeAt(r));return e}(e),t,r,n)}function k(t,e,r,n){return w(t,e,r,n)}function A(t,e,r,n){return Y(q(e),t,r,n)}function C(t,e,r,n){return Y(function(t,e){for(var r,n,o,i=[],s=0;s<t.length&&!((e-=2)<0);++s)r=t.charCodeAt(s),n=r>>8,o=r%256,i.push(o),i.push(n);return i}(e,t.length-r),t,r,n)}function E(t,e,r){return 0===e&&r===t.length?n.fromByteArray(t):n.fromByteArray(t.slice(e,r))}function B(t,e,r){r=Math.min(t.length,r);for(var n=[],o=e;o<r;){var i,s,a,c,u=t[o],h=null,f=u>239?4:u>223?3:u>191?2:1;if(o+f<=r)switch(f){case 1:u<128&&(h=u);break;case 2:128==(192&(i=t[o+1]))&&(c=(31&u)<<6|63&i)>127&&(h=c);break;case 3:i=t[o+1],s=t[o+2],128==(192&i)&&128==(192&s)&&(c=(15&u)<<12|(63&i)<<6|63&s)>2047&&(c<55296||c>57343)&&(h=c);break;case 4:i=t[o+1],s=t[o+2],a=t[o+3],128==(192&i)&&128==(192&s)&&128==(192&a)&&(c=(15&u)<<18|(63&i)<<12|(63&s)<<6|63&a)>65535&&c<1114112&&(h=c)}null===h?(h=65533,f=1):h>65535&&(h-=65536,n.push(h>>>10&1023|55296),h=56320|1023&h),n.push(h),o+=f}return function(t){var e=t.length;if(e<=x)return String.fromCharCode.apply(String,t);var r="",n=0;for(;n<e;)r+=String.fromCharCode.apply(String,t.slice(n,n+=x));return r}(n)}e.Buffer=c,e.SlowBuffer=function(t){+t!=t&&(t=0);return c.alloc(+t)},e.INSPECT_MAX_BYTES=50,c.TYPED_ARRAY_SUPPORT=void 0!==t.TYPED_ARRAY_SUPPORT?t.TYPED_ARRAY_SUPPORT:function(){try{var t=new Uint8Array(1);return t.__proto__={__proto__:Uint8Array.prototype,foo:function(){return 42}},42===t.foo()&&"function"==typeof t.subarray&&0===t.subarray(1,1).byteLength}catch(t){return!1}}(),e.kMaxLength=s(),c.poolSize=8192,c._augment=function(t){return t.__proto__=c.prototype,t},c.from=function(t,e,r){return u(null,t,e,r)},c.TYPED_ARRAY_SUPPORT&&(c.prototype.__proto__=Uint8Array.prototype,c.__proto__=Uint8Array,"undefined"!=typeof Symbol&&Symbol.species&&c[Symbol.species]===c&&Object.defineProperty(c,Symbol.species,{value:null,configurable:!0})),c.alloc=function(t,e,r){return function(t,e,r,n){return h(e),e<=0?a(t,e):void 0!==r?"string"==typeof n?a(t,e).fill(r,n):a(t,e).fill(r):a(t,e)}(null,t,e,r)},c.allocUnsafe=function(t){return f(null,t)},c.allocUnsafeSlow=function(t){return f(null,t)},c.isBuffer=function(t){return!(null==t||!t._isBuffer)},c.compare=function(t,e){if(!c.isBuffer(t)||!c.isBuffer(e))throw new TypeError("Arguments must be Buffers");if(t===e)return 0;for(var r=t.length,n=e.length,o=0,i=Math.min(r,n);o<i;++o)if(t[o]!==e[o]){r=t[o],n=e[o];break}return r<n?-1:n<r?1:0},c.isEncoding=function(t){switch(String(t).toLowerCase()){case"hex":case"utf8":case"utf-8":case"ascii":case"latin1":case"binary":case"base64":case"ucs2":case"ucs-2":case"utf16le":case"utf-16le":return!0;default:return!1}},c.concat=function(t,e){if(!i(t))throw new TypeError('"list" argument must be an Array of Buffers');if(0===t.length)return c.alloc(0);var r;if(void 0===e)for(e=0,r=0;r<t.length;++r)e+=t[r].length;var n=c.allocUnsafe(e),o=0;for(r=0;r<t.length;++r){var s=t[r];if(!c.isBuffer(s))throw new TypeError('"list" argument must be an Array of Buffers');s.copy(n,o),o+=s.length}return n},c.byteLength=d,c.prototype._isBuffer=!0,c.prototype.swap16=function(){var t=this.length;if(t%2!=0)throw new RangeError("Buffer size must be a multiple of 16-bits");for(var e=0;e<t;e+=2)y(this,e,e+1);return this},c.prototype.swap32=function(){var t=this.length;if(t%4!=0)throw new RangeError("Buffer size must be a multiple of 32-bits");for(var e=0;e<t;e+=4)y(this,e,e+3),y(this,e+1,e+2);return this},c.prototype.swap64=function(){var t=this.length;if(t%8!=0)throw new RangeError("Buffer size must be a multiple of 64-bits");for(var e=0;e<t;e+=8)y(this,e,e+7),y(this,e+1,e+6),y(this,e+2,e+5),y(this,e+3,e+4);return this},c.prototype.toString=function(){var t=0|this.length;return 0===t?"":0===arguments.length?B(this,0,t):function(t,e,r){var n=!1;if((void 0===e||e<0)&&(e=0),e>this.length)return"";if((void 0===r||r>this.length)&&(r=this.length),r<=0)return"";if((r>>>=0)<=(e>>>=0))return"";for(t||(t="utf8");;)switch(t){case"hex":return T(this,e,r);case"utf8":case"utf-8":return B(this,e,r);case"ascii":return R(this,e,r);case"latin1":case"binary":return S(this,e,r);case"base64":return E(this,e,r);case"ucs2":case"ucs-2":case"utf16le":case"utf-16le":return P(this,e,r);default:if(n)throw new TypeError("Unknown encoding: "+t);t=(t+"").toLowerCase(),n=!0}}.apply(this,arguments)},c.prototype.equals=function(t){if(!c.isBuffer(t))throw new TypeError("Argument must be a Buffer");return this===t||0===c.compare(this,t)},c.prototype.inspect=function(){var t="",r=e.INSPECT_MAX_BYTES;return this.length>0&&(t=this.toString("hex",0,r).match(/.{2}/g).join(" "),this.length>r&&(t+=" ... ")),"<Buffer "+t+">"},c.prototype.compare=function(t,e,r,n,o){if(!c.isBuffer(t))throw new TypeError("Argument must be a Buffer");if(void 0===e&&(e=0),void 0===r&&(r=t?t.length:0),void 0===n&&(n=0),void 0===o&&(o=this.length),e<0||r>t.length||n<0||o>this.length)throw new RangeError("out of range index");if(n>=o&&e>=r)return 0;if(n>=o)return-1;if(e>=r)return 1;if(this===t)return 0;for(var i=(o>>>=0)-(n>>>=0),s=(r>>>=0)-(e>>>=0),a=Math.min(i,s),u=this.slice(n,o),h=t.slice(e,r),f=0;f<a;++f)if(u[f]!==h[f]){i=u[f],s=h[f];break}return i<s?-1:s<i?1:0},c.prototype.includes=function(t,e,r){return-1!==this.indexOf(t,e,r)},c.prototype.indexOf=function(t,e,r){return g(this,t,e,r,!0)},c.prototype.lastIndexOf=function(t,e,r){return g(this,t,e,r,!1)},c.prototype.write=function(t,e,r,n){if(void 0===e)n="utf8",r=this.length,e=0;else if(void 0===r&&"string"==typeof e)n=e,r=this.length,e=0;else{if(!isFinite(e))throw new Error("Buffer.write(string, encoding, offset[, length]) is no longer supported");e|=0,isFinite(r)?(r|=0,void 0===n&&(n="utf8")):(n=r,r=void 0)}var o=this.length-e;if((void 0===r||r>o)&&(r=o),t.length>0&&(r<0||e<0)||e>this.length)throw new RangeError("Attempt to write outside buffer bounds");n||(n="utf8");for(var i=!1;;)switch(n){case"hex":return v(this,t,e,r);case"utf8":case"utf-8":return b(this,t,e,r);case"ascii":return w(this,t,e,r);case"latin1":case"binary":return k(this,t,e,r);case"base64":return A(this,t,e,r);case"ucs2":case"ucs-2":case"utf16le":case"utf-16le":return C(this,t,e,r);default:if(i)throw new TypeError("Unknown encoding: "+n);n=(""+n).toLowerCase(),i=!0}},c.prototype.toJSON=function(){return{type:"Buffer",data:Array.prototype.slice.call(this._arr||this,0)}};var x=4096;function R(t,e,r){var n="";r=Math.min(t.length,r);for(var o=e;o<r;++o)n+=String.fromCharCode(127&t[o]);return n}function S(t,e,r){var n="";r=Math.min(t.length,r);for(var o=e;o<r;++o)n+=String.fromCharCode(t[o]);return n}function T(t,e,r){var n=t.length;(!e||e<0)&&(e=0),(!r||r<0||r>n)&&(r=n);for(var o="",i=e;i<r;++i)o+=j(t[i]);return o}function P(t,e,r){for(var n=t.slice(e,r),o="",i=0;i<n.length;i+=2)o+=String.fromCharCode(n[i]+256*n[i+1]);return o}function _(t,e,r){if(t%1!=0||t<0)throw new RangeError("offset is not uint");if(t+e>r)throw new RangeError("Trying to access beyond buffer length")}function O(t,e,r,n,o,i){if(!c.isBuffer(t))throw new TypeError('"buffer" argument must be a Buffer instance');if(e>o||e<i)throw new RangeError('"value" argument is out of bounds');if(r+n>t.length)throw new RangeError("Index out of range")}function U(t,e,r,n){e<0&&(e=65535+e+1);for(var o=0,i=Math.min(t.length-r,2);o<i;++o)t[r+o]=(e&255<<8*(n?o:1-o))>>>8*(n?o:1-o)}function N(t,e,r,n){e<0&&(e=4294967295+e+1);for(var o=0,i=Math.min(t.length-r,4);o<i;++o)t[r+o]=e>>>8*(n?o:3-o)&255}function D(t,e,r,n,o,i){if(r+n>t.length)throw new RangeError("Index out of range");if(r<0)throw new RangeError("Index out of range")}function I(t,e,r,n,i){return i||D(t,0,r,4),o.write(t,e,r,n,23,4),r+4}function F(t,e,r,n,i){return i||D(t,0,r,8),o.write(t,e,r,n,52,8),r+8}c.prototype.slice=function(t,e){var r,n=this.length;if((t=~~t)<0?(t+=n)<0&&(t=0):t>n&&(t=n),(e=void 0===e?n:~~e)<0?(e+=n)<0&&(e=0):e>n&&(e=n),e<t&&(e=t),c.TYPED_ARRAY_SUPPORT)(r=this.subarray(t,e)).__proto__=c.prototype;else{var o=e-t;r=new c(o,void 0);for(var i=0;i<o;++i)r[i]=this[i+t]}return r},c.prototype.readUIntLE=function(t,e,r){t|=0,e|=0,r||_(t,e,this.length);for(var n=this[t],o=1,i=0;++i<e&&(o*=256);)n+=this[t+i]*o;return n},c.prototype.readUIntBE=function(t,e,r){t|=0,e|=0,r||_(t,e,this.length);for(var n=this[t+--e],o=1;e>0&&(o*=256);)n+=this[t+--e]*o;return n},c.prototype.readUInt8=function(t,e){return e||_(t,1,this.length),this[t]},c.prototype.readUInt16LE=function(t,e){return e||_(t,2,this.length),this[t]|this[t+1]<<8},c.prototype.readUInt16BE=function(t,e){return e||_(t,2,this.length),this[t]<<8|this[t+1]},c.prototype.readUInt32LE=function(t,e){return e||_(t,4,this.length),(this[t]|this[t+1]<<8|this[t+2]<<16)+16777216*this[t+3]},c.prototype.readUInt32BE=function(t,e){return e||_(t,4,this.length),16777216*this[t]+(this[t+1]<<16|this[t+2]<<8|this[t+3])},c.prototype.readIntLE=function(t,e,r){t|=0,e|=0,r||_(t,e,this.length);for(var n=this[t],o=1,i=0;++i<e&&(o*=256);)n+=this[t+i]*o;return n>=(o*=128)&&(n-=Math.pow(2,8*e)),n},c.prototype.readIntBE=function(t,e,r){t|=0,e|=0,r||_(t,e,this.length);for(var n=e,o=1,i=this[t+--n];n>0&&(o*=256);)i+=this[t+--n]*o;return i>=(o*=128)&&(i-=Math.pow(2,8*e)),i},c.prototype.readInt8=function(t,e){return e||_(t,1,this.length),128&this[t]?-1*(255-this[t]+1):this[t]},c.prototype.readInt16LE=function(t,e){e||_(t,2,this.length);var r=this[t]|this[t+1]<<8;return 32768&r?4294901760|r:r},c.prototype.readInt16BE=function(t,e){e||_(t,2,this.length);var r=this[t+1]|this[t]<<8;return 32768&r?4294901760|r:r},c.prototype.readInt32LE=function(t,e){return e||_(t,4,this.length),this[t]|this[t+1]<<8|this[t+2]<<16|this[t+3]<<24},c.prototype.readInt32BE=function(t,e){return e||_(t,4,this.length),this[t]<<24|this[t+1]<<16|this[t+2]<<8|this[t+3]},c.prototype.readFloatLE=function(t,e){return e||_(t,4,this.length),o.read(this,t,!0,23,4)},c.prototype.readFloatBE=function(t,e){return e||_(t,4,this.length),o.read(this,t,!1,23,4)},c.prototype.readDoubleLE=function(t,e){return e||_(t,8,this.length),o.read(this,t,!0,52,8)},c.prototype.readDoubleBE=function(t,e){return e||_(t,8,this.length),o.read(this,t,!1,52,8)},c.prototype.writeUIntLE=function(t,e,r,n){(t=+t,e|=0,r|=0,n)||O(this,t,e,r,Math.pow(2,8*r)-1,0);var o=1,i=0;for(this[e]=255&t;++i<r&&(o*=256);)this[e+i]=t/o&255;return e+r},c.prototype.writeUIntBE=function(t,e,r,n){(t=+t,e|=0,r|=0,n)||O(this,t,e,r,Math.pow(2,8*r)-1,0);var o=r-1,i=1;for(this[e+o]=255&t;--o>=0&&(i*=256);)this[e+o]=t/i&255;return e+r},c.prototype.writeUInt8=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,1,255,0),c.TYPED_ARRAY_SUPPORT||(t=Math.floor(t)),this[e]=255&t,e+1},c.prototype.writeUInt16LE=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,2,65535,0),c.TYPED_ARRAY_SUPPORT?(this[e]=255&t,this[e+1]=t>>>8):U(this,t,e,!0),e+2},c.prototype.writeUInt16BE=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,2,65535,0),c.TYPED_ARRAY_SUPPORT?(this[e]=t>>>8,this[e+1]=255&t):U(this,t,e,!1),e+2},c.prototype.writeUInt32LE=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,4,4294967295,0),c.TYPED_ARRAY_SUPPORT?(this[e+3]=t>>>24,this[e+2]=t>>>16,this[e+1]=t>>>8,this[e]=255&t):N(this,t,e,!0),e+4},c.prototype.writeUInt32BE=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,4,4294967295,0),c.TYPED_ARRAY_SUPPORT?(this[e]=t>>>24,this[e+1]=t>>>16,this[e+2]=t>>>8,this[e+3]=255&t):N(this,t,e,!1),e+4},c.prototype.writeIntLE=function(t,e,r,n){if(t=+t,e|=0,!n){var o=Math.pow(2,8*r-1);O(this,t,e,r,o-1,-o)}var i=0,s=1,a=0;for(this[e]=255&t;++i<r&&(s*=256);)t<0&&0===a&&0!==this[e+i-1]&&(a=1),this[e+i]=(t/s>>0)-a&255;return e+r},c.prototype.writeIntBE=function(t,e,r,n){if(t=+t,e|=0,!n){var o=Math.pow(2,8*r-1);O(this,t,e,r,o-1,-o)}var i=r-1,s=1,a=0;for(this[e+i]=255&t;--i>=0&&(s*=256);)t<0&&0===a&&0!==this[e+i+1]&&(a=1),this[e+i]=(t/s>>0)-a&255;return e+r},c.prototype.writeInt8=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,1,127,-128),c.TYPED_ARRAY_SUPPORT||(t=Math.floor(t)),t<0&&(t=255+t+1),this[e]=255&t,e+1},c.prototype.writeInt16LE=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,2,32767,-32768),c.TYPED_ARRAY_SUPPORT?(this[e]=255&t,this[e+1]=t>>>8):U(this,t,e,!0),e+2},c.prototype.writeInt16BE=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,2,32767,-32768),c.TYPED_ARRAY_SUPPORT?(this[e]=t>>>8,this[e+1]=255&t):U(this,t,e,!1),e+2},c.prototype.writeInt32LE=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,4,2147483647,-2147483648),c.TYPED_ARRAY_SUPPORT?(this[e]=255&t,this[e+1]=t>>>8,this[e+2]=t>>>16,this[e+3]=t>>>24):N(this,t,e,!0),e+4},c.prototype.writeInt32BE=function(t,e,r){return t=+t,e|=0,r||O(this,t,e,4,2147483647,-2147483648),t<0&&(t=4294967295+t+1),c.TYPED_ARRAY_SUPPORT?(this[e]=t>>>24,this[e+1]=t>>>16,this[e+2]=t>>>8,this[e+3]=255&t):N(this,t,e,!1),e+4},c.prototype.writeFloatLE=function(t,e,r){return I(this,t,e,!0,r)},c.prototype.writeFloatBE=function(t,e,r){return I(this,t,e,!1,r)},c.prototype.writeDoubleLE=function(t,e,r){return F(this,t,e,!0,r)},c.prototype.writeDoubleBE=function(t,e,r){return F(this,t,e,!1,r)},c.prototype.copy=function(t,e,r,n){if(r||(r=0),n||0===n||(n=this.length),e>=t.length&&(e=t.length),e||(e=0),n>0&&n<r&&(n=r),n===r)return 0;if(0===t.length||0===this.length)return 0;if(e<0)throw new RangeError("targetStart out of bounds");if(r<0||r>=this.length)throw new RangeError("sourceStart out of bounds");if(n<0)throw new RangeError("sourceEnd out of bounds");n>this.length&&(n=this.length),t.length-e<n-r&&(n=t.length-e+r);var o,i=n-r;if(this===t&&r<e&&e<n)for(o=i-1;o>=0;--o)t[o+e]=this[o+r];else if(i<1e3||!c.TYPED_ARRAY_SUPPORT)for(o=0;o<i;++o)t[o+e]=this[o+r];else Uint8Array.prototype.set.call(t,this.subarray(r,r+i),e);return i},c.prototype.fill=function(t,e,r,n){if("string"==typeof t){if("string"==typeof e?(n=e,e=0,r=this.length):"string"==typeof r&&(n=r,r=this.length),1===t.length){var o=t.charCodeAt(0);o<256&&(t=o)}if(void 0!==n&&"string"!=typeof n)throw new TypeError("encoding must be a string");if("string"==typeof n&&!c.isEncoding(n))throw new TypeError("Unknown encoding: "+n)}else"number"==typeof t&&(t&=255);if(e<0||this.length<e||this.length<r)throw new RangeError("Out of range index");if(r<=e)return this;var i;if(e>>>=0,r=void 0===r?this.length:r>>>0,t||(t=0),"number"==typeof t)for(i=e;i<r;++i)this[i]=t;else{var s=c.isBuffer(t)?t:M(new c(t,n).toString()),a=s.length;for(i=0;i<r-e;++i)this[i+e]=s[i%a]}return this};var L=/[^+\/0-9A-Za-z-_]/g;function j(t){return t<16?"0"+t.toString(16):t.toString(16)}function M(t,e){var r;e=e||1/0;for(var n=t.length,o=null,i=[],s=0;s<n;++s){if((r=t.charCodeAt(s))>55295&&r<57344){if(!o){if(r>56319){(e-=3)>-1&&i.push(239,191,189);continue}if(s+1===n){(e-=3)>-1&&i.push(239,191,189);continue}o=r;continue}if(r<56320){(e-=3)>-1&&i.push(239,191,189),o=r;continue}r=65536+(o-55296<<10|r-56320)}else o&&(e-=3)>-1&&i.push(239,191,189);if(o=null,r<128){if((e-=1)<0)break;i.push(r)}else if(r<2048){if((e-=2)<0)break;i.push(r>>6|192,63&r|128)}else if(r<65536){if((e-=3)<0)break;i.push(r>>12|224,r>>6&63|128,63&r|128)}else{if(!(r<1114112))throw new Error("Invalid code point");if((e-=4)<0)break;i.push(r>>18|240,r>>12&63|128,r>>6&63|128,63&r|128)}}return i}function q(t){return n.toByteArray(function(t){if((t=function(t){return t.trim?t.trim():t.replace(/^\s+|\s+$/g,"")}(t).replace(L,"")).length<2)return"";for(;t.length%4!=0;)t+="=";return t}(t))}function Y(t,e,r,n){for(var o=0;o<n&&!(o+r>=e.length||o>=t.length);++o)e[o+r]=t[o];return o}}).call(this,r(12))},function(t,e,r){var n=r(34);t.exports=function(t){var e=t.xdomain,r=t.xscheme,o=t.enablesXDR;try{if("undefined"!=typeof XMLHttpRequest&&(!e||n))return new XMLHttpRequest}catch(t){}try{if("undefined"!=typeof XDomainRequest&&!r&&o)return new XDomainRequest}catch(t){}if(!e)try{return new(self[["Active"].concat("Object").join("X")])("Microsoft.XMLHTTP")}catch(t){}}},function(t,e,r){var n=r(2),o=r(1);function i(t){this.path=t.path,this.hostname=t.hostname,this.port=t.port,this.secure=t.secure,this.query=t.query,this.timestampParam=t.timestampParam,this.timestampRequests=t.timestampRequests,this.readyState="",this.agent=t.agent||!1,this.socket=t.socket,this.enablesXDR=t.enablesXDR,this.pfx=t.pfx,this.key=t.key,this.passphrase=t.passphrase,this.cert=t.cert,this.ca=t.ca,this.ciphers=t.ciphers,this.rejectUnauthorized=t.rejectUnauthorized,this.forceNode=t.forceNode,this.isReactNative=t.isReactNative,this.extraHeaders=t.extraHeaders,this.localAddress=t.localAddress}t.exports=i,o(i.prototype),i.prototype.onError=function(t,e){var r=new Error(t);return r.type="TransportError",r.description=e,this.emit("error",r),this},i.prototype.open=function(){return"closed"!==this.readyState&&""!==this.readyState||(this.readyState="opening",this.doOpen()),this},i.prototype.close=function(){return"opening"!==this.readyState&&"open"!==this.readyState||(this.doClose(),this.onClose()),this},i.prototype.send=function(t){if("open"!==this.readyState)throw new Error("Transport not open");this.write(t)},i.prototype.onOpen=function(){this.readyState="open",this.writable=!0,this.emit("open")},i.prototype.onData=function(t){var e=n.decodePacket(t,this.socket.binaryType);this.onPacket(e)},i.prototype.onPacket=function(t){this.emit("packet",t)},i.prototype.onClose=function(){this.readyState="closed",this.emit("close")}},function(t,e){var r=/^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/,n=["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"];t.exports=function(t){var e=t,o=t.indexOf("["),i=t.indexOf("]");-1!=o&&-1!=i&&(t=t.substring(0,o)+t.substring(o,i).replace(/:/g,";")+t.substring(i,t.length));for(var s=r.exec(t||""),a={},c=14;c--;)a[n[c]]=s[c]||"";return-1!=o&&-1!=i&&(a.source=e,a.host=a.host.substring(1,a.host.length-1).replace(/;/g,":"),a.authority=a.authority.replace("[","").replace("]","").replace(/;/g,":"),a.ipv6uri=!0),a}},function(t,e,r){(function(e){t.exports=function(t){return r&&e.isBuffer(t)||n&&(t instanceof ArrayBuffer||o(t))};var r="function"==typeof e&&"function"==typeof e.isBuffer,n="function"==typeof ArrayBuffer,o=function(t){return"function"==typeof ArrayBuffer.isView?ArrayBuffer.isView(t):t.buffer instanceof ArrayBuffer}}).call(this,r(7).Buffer)},function(t,e){var r;r=function(){return this}();try{r=r||new Function("return this")()}catch(t){"object"==typeof window&&(r=window)}t.exports=r},function(t,e,r){var n=r(32),o=r(19),i=r(1),s=r(5),a=r(20),c=r(21),u=r(0)("socket.io-client:manager"),h=r(18),f=r(46),p=Object.prototype.hasOwnProperty;function l(t,e){if(!(this instanceof l))return new l(t,e);t&&"object"==typeof t&&(e=t,t=void 0),(e=e||{}).path=e.path||"/socket.io",this.nsps={},this.subs=[],this.opts=e,this.reconnection(!1!==e.reconnection),this.reconnectionAttempts(e.reconnectionAttempts||1/0),this.reconnectionDelay(e.reconnectionDelay||1e3),this.reconnectionDelayMax(e.reconnectionDelayMax||5e3),this.randomizationFactor(e.randomizationFactor||.5),this.backoff=new f({min:this.reconnectionDelay(),max:this.reconnectionDelayMax(),jitter:this.randomizationFactor()}),this.timeout(null==e.timeout?2e4:e.timeout),this.readyState="closed",this.uri=t,this.connecting=[],this.lastPing=null,this.encoding=!1,this.packetBuffer=[];var r=e.parser||s;this.encoder=new r.Encoder,this.decoder=new r.Decoder,this.autoConnect=!1!==e.autoConnect,this.autoConnect&&this.open()}t.exports=l,l.prototype.emitAll=function(){for(var t in this.emit.apply(this,arguments),this.nsps)p.call(this.nsps,t)&&this.nsps[t].emit.apply(this.nsps[t],arguments)},l.prototype.updateSocketIds=function(){for(var t in this.nsps)p.call(this.nsps,t)&&(this.nsps[t].id=this.generateId(t))},l.prototype.generateId=function(t){return("/"===t?"":t+"#")+this.engine.id},i(l.prototype),l.prototype.reconnection=function(t){return arguments.length?(this._reconnection=!!t,this):this._reconnection},l.prototype.reconnectionAttempts=function(t){return arguments.length?(this._reconnectionAttempts=t,this):this._reconnectionAttempts},l.prototype.reconnectionDelay=function(t){return arguments.length?(this._reconnectionDelay=t,this.backoff&&this.backoff.setMin(t),this):this._reconnectionDelay},l.prototype.randomizationFactor=function(t){return arguments.length?(this._randomizationFactor=t,this.backoff&&this.backoff.setJitter(t),this):this._randomizationFactor},l.prototype.reconnectionDelayMax=function(t){return arguments.length?(this._reconnectionDelayMax=t,this.backoff&&this.backoff.setMax(t),this):this._reconnectionDelayMax},l.prototype.timeout=function(t){return arguments.length?(this._timeout=t,this):this._timeout},l.prototype.maybeReconnectOnOpen=function(){!this.reconnecting&&this._reconnection&&0===this.backoff.attempts&&this.reconnect()},l.prototype.open=l.prototype.connect=function(t,e){if(u("readyState %s",this.readyState),~this.readyState.indexOf("open"))return this;u("opening %s",this.uri),this.engine=n(this.uri,this.opts);var r=this.engine,o=this;this.readyState="opening",this.skipReconnect=!1;var i=a(r,"open",function(){o.onopen(),t&&t()}),s=a(r,"error",function(e){if(u("connect_error"),o.cleanup(),o.readyState="closed",o.emitAll("connect_error",e),t){var r=new Error("Connection error");r.data=e,t(r)}else o.maybeReconnectOnOpen()});if(!1!==this._timeout){var c=this._timeout;u("connect attempt will timeout after %d",c);var h=setTimeout(function(){u("connect attempt timed out after %d",c),i.destroy(),r.close(),r.emit("error","timeout"),o.emitAll("connect_timeout",c)},c);this.subs.push({destroy:function(){clearTimeout(h)}})}return this.subs.push(i),this.subs.push(s),this},l.prototype.onopen=function(){u("open"),this.cleanup(),this.readyState="open",this.emit("open");var t=this.engine;this.subs.push(a(t,"data",c(this,"ondata"))),this.subs.push(a(t,"ping",c(this,"onping"))),this.subs.push(a(t,"pong",c(this,"onpong"))),this.subs.push(a(t,"error",c(this,"onerror"))),this.subs.push(a(t,"close",c(this,"onclose"))),this.subs.push(a(this.decoder,"decoded",c(this,"ondecoded")))},l.prototype.onping=function(){this.lastPing=new Date,this.emitAll("ping")},l.prototype.onpong=function(){this.emitAll("pong",new Date-this.lastPing)},l.prototype.ondata=function(t){this.decoder.add(t)},l.prototype.ondecoded=function(t){this.emit("packet",t)},l.prototype.onerror=function(t){u("error",t),this.emitAll("error",t)},l.prototype.socket=function(t,e){var r=this.nsps[t];if(!r){r=new o(this,t,e),this.nsps[t]=r;var n=this;r.on("connecting",i),r.on("connect",function(){r.id=n.generateId(t)}),this.autoConnect&&i()}function i(){~h(n.connecting,r)||n.connecting.push(r)}return r},l.prototype.destroy=function(t){var e=h(this.connecting,t);~e&&this.connecting.splice(e,1),this.connecting.length||this.close()},l.prototype.packet=function(t){u("writing packet %j",t);var e=this;t.query&&0===t.type&&(t.nsp+="?"+t.query),e.encoding?e.packetBuffer.push(t):(e.encoding=!0,this.encoder.encode(t,function(r){for(var n=0;n<r.length;n++)e.engine.write(r[n],t.options);e.encoding=!1,e.processPacketQueue()}))},l.prototype.processPacketQueue=function(){if(this.packetBuffer.length>0&&!this.encoding){var t=this.packetBuffer.shift();this.packet(t)}},l.prototype.cleanup=function(){u("cleanup");for(var t=this.subs.length,e=0;e<t;e++){this.subs.shift().destroy()}this.packetBuffer=[],this.encoding=!1,this.lastPing=null,this.decoder.destroy()},l.prototype.close=l.prototype.disconnect=function(){u("disconnect"),this.skipReconnect=!0,this.reconnecting=!1,"opening"===this.readyState&&this.cleanup(),this.backoff.reset(),this.readyState="closed",this.engine&&this.engine.close()},l.prototype.onclose=function(t){u("onclose"),this.cleanup(),this.backoff.reset(),this.readyState="closed",this.emit("close",t),this._reconnection&&!this.skipReconnect&&this.reconnect()},l.prototype.reconnect=function(){if(this.reconnecting||this.skipReconnect)return this;var t=this;if(this.backoff.attempts>=this._reconnectionAttempts)u("reconnect failed"),this.backoff.reset(),this.emitAll("reconnect_failed"),this.reconnecting=!1;else{var e=this.backoff.duration();u("will wait %dms before reconnect attempt",e),this.reconnecting=!0;var r=setTimeout(function(){t.skipReconnect||(u("attempting reconnect"),t.emitAll("reconnect_attempt",t.backoff.attempts),t.emitAll("reconnecting",t.backoff.attempts),t.skipReconnect||t.open(function(e){e?(u("reconnect attempt error"),t.reconnecting=!1,t.reconnect(),t.emitAll("reconnect_error",e.data)):(u("reconnect success"),t.onreconnect())}))},e);this.subs.push({destroy:function(){clearTimeout(r)}})}},l.prototype.onreconnect=function(){var t=this.backoff.attempts;this.reconnecting=!1,this.backoff.reset(),this.updateSocketIds(),this.emitAll("reconnect",t)}},function(t,e,r){var n=r(8),o=r(35),i=r(42),s=r(43);e.polling=function(t){var e=!1,r=!1,s=!1!==t.jsonp;if("undefined"!=typeof location){var a="https:"===location.protocol,c=location.port;c||(c=a?443:80),e=t.hostname!==location.hostname||c!==t.port,r=t.secure!==a}if(t.xdomain=e,t.xscheme=r,"open"in new n(t)&&!t.forceJSONP)return new o(t);if(!s)throw new Error("JSONP disabled");return new i(t)},e.websocket=s},function(t,e,r){var n=r(9),o=r(3),i=r(2),s=r(4),a=r(17),c=r(0)("engine.io-client:polling");t.exports=h;var u=null!=new(r(8))({xdomain:!1}).responseType;function h(t){var e=t&&t.forceBase64;u&&!e||(this.supportsBinary=!1),n.call(this,t)}s(h,n),h.prototype.name="polling",h.prototype.doOpen=function(){this.poll()},h.prototype.pause=function(t){var e=this;function r(){c("paused"),e.readyState="paused",t()}if(this.readyState="pausing",this.polling||!this.writable){var n=0;this.polling&&(c("we are currently polling - waiting to pause"),n++,this.once("pollComplete",function(){c("pre-pause polling complete"),--n||r()})),this.writable||(c("we are currently writing - waiting to pause"),n++,this.once("drain",function(){c("pre-pause writing complete"),--n||r()}))}else r()},h.prototype.poll=function(){c("polling"),this.polling=!0,this.doPoll(),this.emit("poll")},h.prototype.onData=function(t){var e=this;c("polling got data %s",t);i.decodePayload(t,this.socket.binaryType,function(t,r,n){if("opening"===e.readyState&&e.onOpen(),"close"===t.type)return e.onClose(),!1;e.onPacket(t)}),"closed"!==this.readyState&&(this.polling=!1,this.emit("pollComplete"),"open"===this.readyState?this.poll():c('ignoring poll - transport state "%s"',this.readyState))},h.prototype.doClose=function(){var t=this;function e(){c("writing close packet"),t.write([{type:"close"}])}"open"===this.readyState?(c("transport open - closing"),e()):(c("transport not open - deferring close"),this.once("open",e))},h.prototype.write=function(t){var e=this;this.writable=!1;var r=function(){e.writable=!0,e.emit("drain")};i.encodePayload(t,this.supportsBinary,function(t){e.doWrite(t,r)})},h.prototype.uri=function(){var t=this.query||{},e=this.secure?"https":"http",r="";return!1!==this.timestampRequests&&(t[this.timestampParam]=a()),this.supportsBinary||t.sid||(t.b64=1),t=o.encode(t),this.port&&("https"===e&&443!==Number(this.port)||"http"===e&&80!==Number(this.port))&&(r=":"+this.port),t.length&&(t="?"+t),e+"://"+(-1!==this.hostname.indexOf(":")?"["+this.hostname+"]":this.hostname)+r+this.path+t}},function(t,e,r){(function(e){var n=r(6),o=Object.prototype.toString,i="function"==typeof Blob||"undefined"!=typeof Blob&&"[object BlobConstructor]"===o.call(Blob),s="function"==typeof File||"undefined"!=typeof File&&"[object FileConstructor]"===o.call(File);t.exports=function t(r){if(!r||"object"!=typeof r)return!1;if(n(r)){for(var o=0,a=r.length;o<a;o++)if(t(r[o]))return!0;return!1}if("function"==typeof e&&e.isBuffer&&e.isBuffer(r)||"function"==typeof ArrayBuffer&&r instanceof ArrayBuffer||i&&r instanceof Blob||s&&r instanceof File)return!0;if(r.toJSON&&"function"==typeof r.toJSON&&1===arguments.length)return t(r.toJSON(),!0);for(var c in r)if(Object.prototype.hasOwnProperty.call(r,c)&&t(r[c]))return!0;return!1}}).call(this,r(7).Buffer)},function(t,e,r){"use strict";var n,o="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".split(""),i=64,s={},a=0,c=0;function u(t){var e="";do{e=o[t%i]+e,t=Math.floor(t/i)}while(t>0);return e}function h(){var t=u(+new Date);return t!==n?(a=0,n=t):t+"."+u(a++)}for(;c<i;c++)s[o[c]]=c;h.encode=u,h.decode=function(t){var e=0;for(c=0;c<t.length;c++)e=e*i+s[t.charAt(c)];return e},t.exports=h},function(t,e){var r=[].indexOf;t.exports=function(t,e){if(r)return t.indexOf(e);for(var n=0;n<t.length;++n)if(t[n]===e)return n;return-1}},function(t,e,r){var n=r(5),o=r(1),i=r(45),s=r(20),a=r(21),c=r(0)("socket.io-client:socket"),u=r(3),h=r(16);t.exports=l;var f={connect:1,connect_error:1,connect_timeout:1,connecting:1,disconnect:1,error:1,reconnect:1,reconnect_attempt:1,reconnect_failed:1,reconnect_error:1,reconnecting:1,ping:1,pong:1},p=o.prototype.emit;function l(t,e,r){this.io=t,this.nsp=e,this.json=this,this.ids=0,this.acks={},this.receiveBuffer=[],this.sendBuffer=[],this.connected=!1,this.disconnected=!0,this.flags={},r&&r.query&&(this.query=r.query),this.io.autoConnect&&this.open()}o(l.prototype),l.prototype.subEvents=function(){if(!this.subs){var t=this.io;this.subs=[s(t,"open",a(this,"onopen")),s(t,"packet",a(this,"onpacket")),s(t,"close",a(this,"onclose"))]}},l.prototype.open=l.prototype.connect=function(){return this.connected?this:(this.subEvents(),this.io.open(),"open"===this.io.readyState&&this.onopen(),this.emit("connecting"),this)},l.prototype.send=function(){var t=i(arguments);return t.unshift("message"),this.emit.apply(this,t),this},l.prototype.emit=function(t){if(f.hasOwnProperty(t))return p.apply(this,arguments),this;var e=i(arguments),r={type:(void 0!==this.flags.binary?this.flags.binary:h(e))?n.BINARY_EVENT:n.EVENT,data:e,options:{}};return r.options.compress=!this.flags||!1!==this.flags.compress,"function"==typeof e[e.length-1]&&(c("emitting packet with ack id %d",this.ids),this.acks[this.ids]=e.pop(),r.id=this.ids++),this.connected?this.packet(r):this.sendBuffer.push(r),this.flags={},this},l.prototype.packet=function(t){t.nsp=this.nsp,this.io.packet(t)},l.prototype.onopen=function(){if(c("transport is open - connecting"),"/"!==this.nsp)if(this.query){var t="object"==typeof this.query?u.encode(this.query):this.query;c("sending connect packet with query %s",t),this.packet({type:n.CONNECT,query:t})}else this.packet({type:n.CONNECT})},l.prototype.onclose=function(t){c("close (%s)",t),this.connected=!1,this.disconnected=!0,delete this.id,this.emit("disconnect",t)},l.prototype.onpacket=function(t){var e=t.nsp===this.nsp,r=t.type===n.ERROR&&"/"===t.nsp;if(e||r)switch(t.type){case n.CONNECT:this.onconnect();break;case n.EVENT:case n.BINARY_EVENT:this.onevent(t);break;case n.ACK:case n.BINARY_ACK:this.onack(t);break;case n.DISCONNECT:this.ondisconnect();break;case n.ERROR:this.emit("error",t.data)}},l.prototype.onevent=function(t){var e=t.data||[];c("emitting event %j",e),null!=t.id&&(c("attaching ack callback to event"),e.push(this.ack(t.id))),this.connected?p.apply(this,e):this.receiveBuffer.push(e)},l.prototype.ack=function(t){var e=this,r=!1;return function(){if(!r){r=!0;var o=i(arguments);c("sending ack %j",o),e.packet({type:h(o)?n.BINARY_ACK:n.ACK,id:t,data:o})}}},l.prototype.onack=function(t){var e=this.acks[t.id];"function"==typeof e?(c("calling ack %s with %j",t.id,t.data),e.apply(this,t.data),delete this.acks[t.id]):c("bad ack %s",t.id)},l.prototype.onconnect=function(){this.connected=!0,this.disconnected=!1,this.emit("connect"),this.emitBuffered()},l.prototype.emitBuffered=function(){var t;for(t=0;t<this.receiveBuffer.length;t++)p.apply(this,this.receiveBuffer[t]);for(this.receiveBuffer=[],t=0;t<this.sendBuffer.length;t++)this.packet(this.sendBuffer[t]);this.sendBuffer=[]},l.prototype.ondisconnect=function(){c("server disconnect (%s)",this.nsp),this.destroy(),this.onclose("io server disconnect")},l.prototype.destroy=function(){if(this.subs){for(var t=0;t<this.subs.length;t++)this.subs[t].destroy();this.subs=null}this.io.destroy(this)},l.prototype.close=l.prototype.disconnect=function(){return this.connected&&(c("performing disconnect (%s)",this.nsp),this.packet({type:n.DISCONNECT})),this.destroy(),this.connected&&this.onclose("io client disconnect"),this},l.prototype.compress=function(t){return this.flags.compress=t,this},l.prototype.binary=function(t){return this.flags.binary=t,this}},function(t,e){t.exports=function(t,e,r){return t.on(e,r),{destroy:function(){t.removeListener(e,r)}}}},function(t,e){var r=[].slice;t.exports=function(t,e){if("string"==typeof e&&(e=t[e]),"function"!=typeof e)throw new Error("bind() requires a function");var n=r.call(arguments,2);return function(){return e.apply(t,n.concat(r.call(arguments)))}}},function(t,e,r){var n=r(24),o=r(5),i=r(13),s=r(0)("socket.io-client");t.exports=e=c;var a=e.managers={};function c(t,e){"object"==typeof t&&(e=t,t=void 0),e=e||{};var r,o=n(t),c=o.source,u=o.id,h=o.path,f=a[u]&&h in a[u].nsps;return e.forceNew||e["force new connection"]||!1===e.multiplex||f?(s("ignoring socket cache for %s",c),r=i(c,e)):(a[u]||(s("new io instance for %s",c),a[u]=i(c,e)),r=a[u]),o.query&&!e.query&&(e.query=o.query),r.socket(o.path,e)}e.protocol=o.protocol,e.connect=c,e.Manager=r(13),e.Socket=r(19)},function(t,e,r){t.exports=r(47)},function(t,e,r){var n=r(10),o=r(0)("socket.io-client:url");t.exports=function(t,e){var r=t;e=e||"undefined"!=typeof location&&location,null==t&&(t=e.protocol+"//"+e.host);"string"==typeof t&&("/"===t.charAt(0)&&(t="/"===t.charAt(1)?e.protocol+t:e.host+t),/^(https?|wss?):\/\//.test(t)||(o("protocol-less url %s",t),t=void 0!==e?e.protocol+"//"+t:"https://"+t),o("parse %s",t),r=n(t));r.port||(/^(http|ws)$/.test(r.protocol)?r.port="80":/^(http|ws)s$/.test(r.protocol)&&(r.port="443"));r.path=r.path||"/";var i=-1!==r.host.indexOf(":")?"["+r.host+"]":r.host;return r.id=r.protocol+"://"+i+":"+r.port,r.href=r.protocol+"://"+i+(e&&e.port===r.port?"":":"+r.port),r}},function(t,e){var r,n,o=t.exports={};function i(){throw new Error("setTimeout has not been defined")}function s(){throw new Error("clearTimeout has not been defined")}function a(t){if(r===setTimeout)return setTimeout(t,0);if((r===i||!r)&&setTimeout)return r=setTimeout,setTimeout(t,0);try{return r(t,0)}catch(e){try{return r.call(null,t,0)}catch(e){return r.call(this,t,0)}}}!function(){try{r="function"==typeof setTimeout?setTimeout:i}catch(t){r=i}try{n="function"==typeof clearTimeout?clearTimeout:s}catch(t){n=s}}();var c,u=[],h=!1,f=-1;function p(){h&&c&&(h=!1,c.length?u=c.concat(u):f=-1,u.length&&l())}function l(){if(!h){var t=a(p);h=!0;for(var e=u.length;e;){for(c=u,u=[];++f<e;)c&&c[f].run();f=-1,e=u.length}c=null,h=!1,function(t){if(n===clearTimeout)return clearTimeout(t);if((n===s||!n)&&clearTimeout)return n=clearTimeout,clearTimeout(t);try{n(t)}catch(e){try{return n.call(null,t)}catch(e){return n.call(this,t)}}}(t)}}function d(t,e){this.fun=t,this.array=e}function y(){}o.nextTick=function(t){var e=new Array(arguments.length-1);if(arguments.length>1)for(var r=1;r<arguments.length;r++)e[r-1]=arguments[r];u.push(new d(t,e)),1!==u.length||h||a(l)},d.prototype.run=function(){this.fun.apply(null,this.array)},o.title="browser",o.browser=!0,o.env={},o.argv=[],o.version="",o.versions={},o.on=y,o.addListener=y,o.once=y,o.off=y,o.removeListener=y,o.removeAllListeners=y,o.emit=y,o.prependListener=y,o.prependOnceListener=y,o.listeners=function(t){return[]},o.binding=function(t){throw new Error("process.binding is not supported")},o.cwd=function(){return"/"},o.chdir=function(t){throw new Error("process.chdir is not supported")},o.umask=function(){return 0}},function(t,e,r){function n(t){var r;function n(){if(n.enabled){var t=n,o=+new Date,i=o-(r||o);t.diff=i,t.prev=r,t.curr=o,r=o;for(var s=new Array(arguments.length),a=0;a<s.length;a++)s[a]=arguments[a];s[0]=e.coerce(s[0]),"string"!=typeof s[0]&&s.unshift("%O");var c=0;s[0]=s[0].replace(/%([a-zA-Z%])/g,function(r,n){if("%%"===r)return r;c++;var o=e.formatters[n];if("function"==typeof o){var i=s[c];r=o.call(t,i),s.splice(c,1),c--}return r}),e.formatArgs.call(t,s),(n.log||e.log||console.log.bind(console)).apply(t,s)}}return n.namespace=t,n.enabled=e.enabled(t),n.useColors=e.useColors(),n.color=function(t){var r,n=0;for(r in t)n=(n<<5)-n+t.charCodeAt(r),n|=0;return e.colors[Math.abs(n)%e.colors.length]}(t),n.destroy=o,"function"==typeof e.init&&e.init(n),e.instances.push(n),n}function o(){var t=e.instances.indexOf(this);return-1!==t&&(e.instances.splice(t,1),!0)}(e=t.exports=n.debug=n.default=n).coerce=function(t){return t instanceof Error?t.stack||t.message:t},e.disable=function(){e.enable("")},e.enable=function(t){var r;e.save(t),e.names=[],e.skips=[];var n=("string"==typeof t?t:"").split(/[\s,]+/),o=n.length;for(r=0;r<o;r++)n[r]&&("-"===(t=n[r].replace(/\*/g,".*?"))[0]?e.skips.push(new RegExp("^"+t.substr(1)+"$")):e.names.push(new RegExp("^"+t+"$")));for(r=0;r<e.instances.length;r++){var i=e.instances[r];i.enabled=e.enabled(i.namespace)}},e.enabled=function(t){if("*"===t[t.length-1])return!0;var r,n;for(r=0,n=e.skips.length;r<n;r++)if(e.skips[r].test(t))return!1;for(r=0,n=e.names.length;r<n;r++)if(e.names[r].test(t))return!0;return!1},e.humanize=r(27),e.instances=[],e.names=[],e.skips=[],e.formatters={}},function(t,e){var r=1e3,n=60*r,o=60*n,i=24*o,s=365.25*i;function a(t,e,r){if(!(t<e))return t<1.5*e?Math.floor(t/e)+" "+r:Math.ceil(t/e)+" "+r+"s"}t.exports=function(t,e){e=e||{};var c,u=typeof t;if("string"===u&&t.length>0)return function(t){if((t=String(t)).length>100)return;var e=/^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(t);if(!e)return;var a=parseFloat(e[1]);switch((e[2]||"ms").toLowerCase()){case"years":case"year":case"yrs":case"yr":case"y":return a*s;case"days":case"day":case"d":return a*i;case"hours":case"hour":case"hrs":case"hr":case"h":return a*o;case"minutes":case"minute":case"mins":case"min":case"m":return a*n;case"seconds":case"second":case"secs":case"sec":case"s":return a*r;case"milliseconds":case"millisecond":case"msecs":case"msec":case"ms":return a;default:return}}(t);if("number"===u&&!1===isNaN(t))return e.long?a(c=t,i,"day")||a(c,o,"hour")||a(c,n,"minute")||a(c,r,"second")||c+" ms":function(t){if(t>=i)return Math.round(t/i)+"d";if(t>=o)return Math.round(t/o)+"h";if(t>=n)return Math.round(t/n)+"m";if(t>=r)return Math.round(t/r)+"s";return t+"ms"}(t);throw new Error("val is not a non-empty string or a valid number. val="+JSON.stringify(t))}},function(t,e,r){var n=r(6),o=r(11),i=Object.prototype.toString,s="function"==typeof Blob||"undefined"!=typeof Blob&&"[object BlobConstructor]"===i.call(Blob),a="function"==typeof File||"undefined"!=typeof File&&"[object FileConstructor]"===i.call(File);e.deconstructPacket=function(t){var e=[],r=t.data,i=t;return i.data=function t(e,r){if(!e)return e;if(o(e)){var i={_placeholder:!0,num:r.length};return r.push(e),i}if(n(e)){for(var s=new Array(e.length),a=0;a<e.length;a++)s[a]=t(e[a],r);return s}if("object"==typeof e&&!(e instanceof Date)){var s={};for(var c in e)s[c]=t(e[c],r);return s}return e}(r,e),i.attachments=e.length,{packet:i,buffers:e}},e.reconstructPacket=function(t,e){return t.data=function t(e,r){if(!e)return e;if(e&&e._placeholder)return r[e.num];if(n(e))for(var o=0;o<e.length;o++)e[o]=t(e[o],r);else if("object"==typeof e)for(var i in e)e[i]=t(e[i],r);return e}(t.data,e),t.attachments=void 0,t},e.removeBlobs=function(t,e){var r=0,i=t;!function t(c,u,h){if(!c)return c;if(s&&c instanceof Blob||a&&c instanceof File){r++;var f=new FileReader;f.onload=function(){h?h[u]=this.result:i=this.result,--r||e(i)},f.readAsArrayBuffer(c)}else if(n(c))for(var p=0;p<c.length;p++)t(c[p],p,c);else if("object"==typeof c&&!o(c))for(var l in c)t(c[l],l,c)}(i),r||e(i)}},function(t,e,r){"use strict";e.byteLength=function(t){var e=u(t),r=e[0],n=e[1];return 3*(r+n)/4-n},e.toByteArray=function(t){for(var e,r=u(t),n=r[0],s=r[1],a=new i(function(t,e,r){return 3*(e+r)/4-r}(0,n,s)),c=0,h=s>0?n-4:n,f=0;f<h;f+=4)e=o[t.charCodeAt(f)]<<18|o[t.charCodeAt(f+1)]<<12|o[t.charCodeAt(f+2)]<<6|o[t.charCodeAt(f+3)],a[c++]=e>>16&255,a[c++]=e>>8&255,a[c++]=255&e;2===s&&(e=o[t.charCodeAt(f)]<<2|o[t.charCodeAt(f+1)]>>4,a[c++]=255&e);1===s&&(e=o[t.charCodeAt(f)]<<10|o[t.charCodeAt(f+1)]<<4|o[t.charCodeAt(f+2)]>>2,a[c++]=e>>8&255,a[c++]=255&e);return a},e.fromByteArray=function(t){for(var e,r=t.length,o=r%3,i=[],s=0,a=r-o;s<a;s+=16383)i.push(h(t,s,s+16383>a?a:s+16383));1===o?(e=t[r-1],i.push(n[e>>2]+n[e<<4&63]+"==")):2===o&&(e=(t[r-2]<<8)+t[r-1],i.push(n[e>>10]+n[e>>4&63]+n[e<<2&63]+"="));return i.join("")};for(var n=[],o=[],i="undefined"!=typeof Uint8Array?Uint8Array:Array,s="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",a=0,c=s.length;a<c;++a)n[a]=s[a],o[s.charCodeAt(a)]=a;function u(t){var e=t.length;if(e%4>0)throw new Error("Invalid string. Length must be a multiple of 4");var r=t.indexOf("=");return-1===r&&(r=e),[r,r===e?0:4-r%4]}function h(t,e,r){for(var o,i,s=[],a=e;a<r;a+=3)o=(t[a]<<16&16711680)+(t[a+1]<<8&65280)+(255&t[a+2]),s.push(n[(i=o)>>18&63]+n[i>>12&63]+n[i>>6&63]+n[63&i]);return s.join("")}o["-".charCodeAt(0)]=62,o["_".charCodeAt(0)]=63},function(t,e){e.read=function(t,e,r,n,o){var i,s,a=8*o-n-1,c=(1<<a)-1,u=c>>1,h=-7,f=r?o-1:0,p=r?-1:1,l=t[e+f];for(f+=p,i=l&(1<<-h)-1,l>>=-h,h+=a;h>0;i=256*i+t[e+f],f+=p,h-=8);for(s=i&(1<<-h)-1,i>>=-h,h+=n;h>0;s=256*s+t[e+f],f+=p,h-=8);if(0===i)i=1-u;else{if(i===c)return s?NaN:1/0*(l?-1:1);s+=Math.pow(2,n),i-=u}return(l?-1:1)*s*Math.pow(2,i-n)},e.write=function(t,e,r,n,o,i){var s,a,c,u=8*i-o-1,h=(1<<u)-1,f=h>>1,p=23===o?Math.pow(2,-24)-Math.pow(2,-77):0,l=n?0:i-1,d=n?1:-1,y=e<0||0===e&&1/e<0?1:0;for(e=Math.abs(e),isNaN(e)||e===1/0?(a=isNaN(e)?1:0,s=h):(s=Math.floor(Math.log(e)/Math.LN2),e*(c=Math.pow(2,-s))<1&&(s--,c*=2),(e+=s+f>=1?p/c:p*Math.pow(2,1-f))*c>=2&&(s++,c/=2),s+f>=h?(a=0,s=h):s+f>=1?(a=(e*c-1)*Math.pow(2,o),s+=f):(a=e*Math.pow(2,f-1)*Math.pow(2,o),s=0));o>=8;t[r+l]=255&a,l+=d,a/=256,o-=8);for(s=s<<o|a,u+=o;u>0;t[r+l]=255&s,l+=d,s/=256,u-=8);t[r+l-d]|=128*y}},function(t,e){var r={}.toString;t.exports=Array.isArray||function(t){return"[object Array]"==r.call(t)}},function(t,e,r){t.exports=r(33),t.exports.parser=r(2)},function(t,e,r){var n=r(14),o=r(1),i=r(0)("engine.io-client:socket"),s=r(18),a=r(2),c=r(10),u=r(3);function h(t,e){if(!(this instanceof h))return new h(t,e);e=e||{},t&&"object"==typeof t&&(e=t,t=null),t?(t=c(t),e.hostname=t.host,e.secure="https"===t.protocol||"wss"===t.protocol,e.port=t.port,t.query&&(e.query=t.query)):e.host&&(e.hostname=c(e.host).host),this.secure=null!=e.secure?e.secure:"undefined"!=typeof location&&"https:"===location.protocol,e.hostname&&!e.port&&(e.port=this.secure?"443":"80"),this.agent=e.agent||!1,this.hostname=e.hostname||("undefined"!=typeof location?location.hostname:"localhost"),this.port=e.port||("undefined"!=typeof location&&location.port?location.port:this.secure?443:80),this.query=e.query||{},"string"==typeof this.query&&(this.query=u.decode(this.query)),this.upgrade=!1!==e.upgrade,this.path=(e.path||"/engine.io").replace(/\/$/,"")+"/",this.forceJSONP=!!e.forceJSONP,this.jsonp=!1!==e.jsonp,this.forceBase64=!!e.forceBase64,this.enablesXDR=!!e.enablesXDR,this.timestampParam=e.timestampParam||"t",this.timestampRequests=e.timestampRequests,this.transports=e.transports||["polling","websocket"],this.transportOptions=e.transportOptions||{},this.readyState="",this.writeBuffer=[],this.prevBufferLen=0,this.policyPort=e.policyPort||843,this.rememberUpgrade=e.rememberUpgrade||!1,this.binaryType=null,this.onlyBinaryUpgrades=e.onlyBinaryUpgrades,this.perMessageDeflate=!1!==e.perMessageDeflate&&(e.perMessageDeflate||{}),!0===this.perMessageDeflate&&(this.perMessageDeflate={}),this.perMessageDeflate&&null==this.perMessageDeflate.threshold&&(this.perMessageDeflate.threshold=1024),this.pfx=e.pfx||null,this.key=e.key||null,this.passphrase=e.passphrase||null,this.cert=e.cert||null,this.ca=e.ca||null,this.ciphers=e.ciphers||null,this.rejectUnauthorized=void 0===e.rejectUnauthorized||e.rejectUnauthorized,this.forceNode=!!e.forceNode,this.isReactNative="undefined"!=typeof navigator&&"string"==typeof navigator.product&&"reactnative"===navigator.product.toLowerCase(),("undefined"==typeof self||this.isReactNative)&&(e.extraHeaders&&Object.keys(e.extraHeaders).length>0&&(this.extraHeaders=e.extraHeaders),e.localAddress&&(this.localAddress=e.localAddress)),this.id=null,this.upgrades=null,this.pingInterval=null,this.pingTimeout=null,this.pingIntervalTimer=null,this.pingTimeoutTimer=null,this.open()}t.exports=h,h.priorWebsocketSuccess=!1,o(h.prototype),h.protocol=a.protocol,h.Socket=h,h.Transport=r(9),h.transports=r(14),h.parser=r(2),h.prototype.createTransport=function(t){i('creating transport "%s"',t);var e=function(t){var e={};for(var r in t)t.hasOwnProperty(r)&&(e[r]=t[r]);return e}(this.query);e.EIO=a.protocol,e.transport=t;var r=this.transportOptions[t]||{};return this.id&&(e.sid=this.id),new n[t]({query:e,socket:this,agent:r.agent||this.agent,hostname:r.hostname||this.hostname,port:r.port||this.port,secure:r.secure||this.secure,path:r.path||this.path,forceJSONP:r.forceJSONP||this.forceJSONP,jsonp:r.jsonp||this.jsonp,forceBase64:r.forceBase64||this.forceBase64,enablesXDR:r.enablesXDR||this.enablesXDR,timestampRequests:r.timestampRequests||this.timestampRequests,timestampParam:r.timestampParam||this.timestampParam,policyPort:r.policyPort||this.policyPort,pfx:r.pfx||this.pfx,key:r.key||this.key,passphrase:r.passphrase||this.passphrase,cert:r.cert||this.cert,ca:r.ca||this.ca,ciphers:r.ciphers||this.ciphers,rejectUnauthorized:r.rejectUnauthorized||this.rejectUnauthorized,perMessageDeflate:r.perMessageDeflate||this.perMessageDeflate,extraHeaders:r.extraHeaders||this.extraHeaders,forceNode:r.forceNode||this.forceNode,localAddress:r.localAddress||this.localAddress,requestTimeout:r.requestTimeout||this.requestTimeout,protocols:r.protocols||void 0,isReactNative:this.isReactNative})},h.prototype.open=function(){var t;if(this.rememberUpgrade&&h.priorWebsocketSuccess&&-1!==this.transports.indexOf("websocket"))t="websocket";else{if(0===this.transports.length){var e=this;return void setTimeout(function(){e.emit("error","No transports available")},0)}t=this.transports[0]}this.readyState="opening";try{t=this.createTransport(t)}catch(t){return this.transports.shift(),void this.open()}t.open(),this.setTransport(t)},h.prototype.setTransport=function(t){i("setting transport %s",t.name);var e=this;this.transport&&(i("clearing existing transport %s",this.transport.name),this.transport.removeAllListeners()),this.transport=t,t.on("drain",function(){e.onDrain()}).on("packet",function(t){e.onPacket(t)}).on("error",function(t){e.onError(t)}).on("close",function(){e.onClose("transport close")})},h.prototype.probe=function(t){i('probing transport "%s"',t);var e=this.createTransport(t,{probe:1}),r=!1,n=this;function o(){if(n.onlyBinaryUpgrades){var o=!this.supportsBinary&&n.transport.supportsBinary;r=r||o}r||(i('probe transport "%s" opened',t),e.send([{type:"ping",data:"probe"}]),e.once("packet",function(o){if(!r)if("pong"===o.type&&"probe"===o.data){if(i('probe transport "%s" pong',t),n.upgrading=!0,n.emit("upgrading",e),!e)return;h.priorWebsocketSuccess="websocket"===e.name,i('pausing current transport "%s"',n.transport.name),n.transport.pause(function(){r||"closed"!==n.readyState&&(i("changing transport and sending upgrade packet"),p(),n.setTransport(e),e.send([{type:"upgrade"}]),n.emit("upgrade",e),e=null,n.upgrading=!1,n.flush())})}else{i('probe transport "%s" failed',t);var s=new Error("probe error");s.transport=e.name,n.emit("upgradeError",s)}}))}function s(){r||(r=!0,p(),e.close(),e=null)}function a(r){var o=new Error("probe error: "+r);o.transport=e.name,s(),i('probe transport "%s" failed because of error: %s',t,r),n.emit("upgradeError",o)}function c(){a("transport closed")}function u(){a("socket closed")}function f(t){e&&t.name!==e.name&&(i('"%s" works - aborting "%s"',t.name,e.name),s())}function p(){e.removeListener("open",o),e.removeListener("error",a),e.removeListener("close",c),n.removeListener("close",u),n.removeListener("upgrading",f)}h.priorWebsocketSuccess=!1,e.once("open",o),e.once("error",a),e.once("close",c),this.once("close",u),this.once("upgrading",f),e.open()},h.prototype.onOpen=function(){if(i("socket open"),this.readyState="open",h.priorWebsocketSuccess="websocket"===this.transport.name,this.emit("open"),this.flush(),"open"===this.readyState&&this.upgrade&&this.transport.pause){i("starting upgrade probes");for(var t=0,e=this.upgrades.length;t<e;t++)this.probe(this.upgrades[t])}},h.prototype.onPacket=function(t){if("opening"===this.readyState||"open"===this.readyState||"closing"===this.readyState)switch(i('socket receive: type "%s", data "%s"',t.type,t.data),this.emit("packet",t),this.emit("heartbeat"),t.type){case"open":this.onHandshake(JSON.parse(t.data));break;case"pong":this.setPing(),this.emit("pong");break;case"error":var e=new Error("server error");e.code=t.data,this.onError(e);break;case"message":this.emit("data",t.data),this.emit("message",t.data)}else i('packet received with socket readyState "%s"',this.readyState)},h.prototype.onHandshake=function(t){this.emit("handshake",t),this.id=t.sid,this.transport.query.sid=t.sid,this.upgrades=this.filterUpgrades(t.upgrades),this.pingInterval=t.pingInterval,this.pingTimeout=t.pingTimeout,this.onOpen(),"closed"!==this.readyState&&(this.setPing(),this.removeListener("heartbeat",this.onHeartbeat),this.on("heartbeat",this.onHeartbeat))},h.prototype.onHeartbeat=function(t){clearTimeout(this.pingTimeoutTimer);var e=this;e.pingTimeoutTimer=setTimeout(function(){"closed"!==e.readyState&&e.onClose("ping timeout")},t||e.pingInterval+e.pingTimeout)},h.prototype.setPing=function(){var t=this;clearTimeout(t.pingIntervalTimer),t.pingIntervalTimer=setTimeout(function(){i("writing ping packet - expecting pong within %sms",t.pingTimeout),t.ping(),t.onHeartbeat(t.pingTimeout)},t.pingInterval)},h.prototype.ping=function(){var t=this;this.sendPacket("ping",function(){t.emit("ping")})},h.prototype.onDrain=function(){this.writeBuffer.splice(0,this.prevBufferLen),this.prevBufferLen=0,0===this.writeBuffer.length?this.emit("drain"):this.flush()},h.prototype.flush=function(){"closed"!==this.readyState&&this.transport.writable&&!this.upgrading&&this.writeBuffer.length&&(i("flushing %d packets in socket",this.writeBuffer.length),this.transport.send(this.writeBuffer),this.prevBufferLen=this.writeBuffer.length,this.emit("flush"))},h.prototype.write=h.prototype.send=function(t,e,r){return this.sendPacket("message",t,e,r),this},h.prototype.sendPacket=function(t,e,r,n){if("function"==typeof e&&(n=e,e=void 0),"function"==typeof r&&(n=r,r=null),"closing"!==this.readyState&&"closed"!==this.readyState){(r=r||{}).compress=!1!==r.compress;var o={type:t,data:e,options:r};this.emit("packetCreate",o),this.writeBuffer.push(o),n&&this.once("flush",n),this.flush()}},h.prototype.close=function(){if("opening"===this.readyState||"open"===this.readyState){this.readyState="closing";var t=this;this.writeBuffer.length?this.once("drain",function(){this.upgrading?n():e()}):this.upgrading?n():e()}function e(){t.onClose("forced close"),i("socket closing - telling transport to close"),t.transport.close()}function r(){t.removeListener("upgrade",r),t.removeListener("upgradeError",r),e()}function n(){t.once("upgrade",r),t.once("upgradeError",r)}return this},h.prototype.onError=function(t){i("socket error %j",t),h.priorWebsocketSuccess=!1,this.emit("error",t),this.onClose("transport error",t)},h.prototype.onClose=function(t,e){if("opening"===this.readyState||"open"===this.readyState||"closing"===this.readyState){i('socket close with reason: "%s"',t);clearTimeout(this.pingIntervalTimer),clearTimeout(this.pingTimeoutTimer),this.transport.removeAllListeners("close"),this.transport.close(),this.transport.removeAllListeners(),this.readyState="closed",this.id=null,this.emit("close",t,e),this.writeBuffer=[],this.prevBufferLen=0}},h.prototype.filterUpgrades=function(t){for(var e=[],r=0,n=t.length;r<n;r++)~s(this.transports,t[r])&&e.push(t[r]);return e}},function(t,e){try{t.exports="undefined"!=typeof XMLHttpRequest&&"withCredentials"in new XMLHttpRequest}catch(e){t.exports=!1}},function(t,e,r){var n=r(8),o=r(15),i=r(1),s=r(4),a=r(0)("engine.io-client:polling-xhr");function c(){}function u(t){if(o.call(this,t),this.requestTimeout=t.requestTimeout,this.extraHeaders=t.extraHeaders,"undefined"!=typeof location){var e="https:"===location.protocol,r=location.port;r||(r=e?443:80),this.xd="undefined"!=typeof location&&t.hostname!==location.hostname||r!==t.port,this.xs=t.secure!==e}}function h(t){this.method=t.method||"GET",this.uri=t.uri,this.xd=!!t.xd,this.xs=!!t.xs,this.async=!1!==t.async,this.data=void 0!==t.data?t.data:null,this.agent=t.agent,this.isBinary=t.isBinary,this.supportsBinary=t.supportsBinary,this.enablesXDR=t.enablesXDR,this.requestTimeout=t.requestTimeout,this.pfx=t.pfx,this.key=t.key,this.passphrase=t.passphrase,this.cert=t.cert,this.ca=t.ca,this.ciphers=t.ciphers,this.rejectUnauthorized=t.rejectUnauthorized,this.extraHeaders=t.extraHeaders,this.create()}if(t.exports=u,t.exports.Request=h,s(u,o),u.prototype.supportsBinary=!0,u.prototype.request=function(t){return(t=t||{}).uri=this.uri(),t.xd=this.xd,t.xs=this.xs,t.agent=this.agent||!1,t.supportsBinary=this.supportsBinary,t.enablesXDR=this.enablesXDR,t.pfx=this.pfx,t.key=this.key,t.passphrase=this.passphrase,t.cert=this.cert,t.ca=this.ca,t.ciphers=this.ciphers,t.rejectUnauthorized=this.rejectUnauthorized,t.requestTimeout=this.requestTimeout,t.extraHeaders=this.extraHeaders,new h(t)},u.prototype.doWrite=function(t,e){var r="string"!=typeof t&&void 0!==t,n=this.request({method:"POST",data:t,isBinary:r}),o=this;n.on("success",e),n.on("error",function(t){o.onError("xhr post error",t)}),this.sendXhr=n},u.prototype.doPoll=function(){a("xhr poll");var t=this.request(),e=this;t.on("data",function(t){e.onData(t)}),t.on("error",function(t){e.onError("xhr poll error",t)}),this.pollXhr=t},i(h.prototype),h.prototype.create=function(){var t={agent:this.agent,xdomain:this.xd,xscheme:this.xs,enablesXDR:this.enablesXDR};t.pfx=this.pfx,t.key=this.key,t.passphrase=this.passphrase,t.cert=this.cert,t.ca=this.ca,t.ciphers=this.ciphers,t.rejectUnauthorized=this.rejectUnauthorized;var e=this.xhr=new n(t),r=this;try{a("xhr open %s: %s",this.method,this.uri),e.open(this.method,this.uri,this.async);try{if(this.extraHeaders)for(var o in e.setDisableHeaderCheck&&e.setDisableHeaderCheck(!0),this.extraHeaders)this.extraHeaders.hasOwnProperty(o)&&e.setRequestHeader(o,this.extraHeaders[o])}catch(t){}if("POST"===this.method)try{this.isBinary?e.setRequestHeader("Content-type","application/octet-stream"):e.setRequestHeader("Content-type","text/plain;charset=UTF-8")}catch(t){}try{e.setRequestHeader("Accept","*/*")}catch(t){}"withCredentials"in e&&(e.withCredentials=!0),this.requestTimeout&&(e.timeout=this.requestTimeout),this.hasXDR()?(e.onload=function(){r.onLoad()},e.onerror=function(){r.onError(e.responseText)}):e.onreadystatechange=function(){if(2===e.readyState)try{var t=e.getResponseHeader("Content-Type");r.supportsBinary&&"application/octet-stream"===t&&(e.responseType="arraybuffer")}catch(t){}4===e.readyState&&(200===e.status||1223===e.status?r.onLoad():setTimeout(function(){r.onError(e.status)},0))},a("xhr data %s",this.data),e.send(this.data)}catch(t){return void setTimeout(function(){r.onError(t)},0)}"undefined"!=typeof document&&(this.index=h.requestsCount++,h.requests[this.index]=this)},h.prototype.onSuccess=function(){this.emit("success"),this.cleanup()},h.prototype.onData=function(t){this.emit("data",t),this.onSuccess()},h.prototype.onError=function(t){this.emit("error",t),this.cleanup(!0)},h.prototype.cleanup=function(t){if(void 0!==this.xhr&&null!==this.xhr){if(this.hasXDR()?this.xhr.onload=this.xhr.onerror=c:this.xhr.onreadystatechange=c,t)try{this.xhr.abort()}catch(t){}"undefined"!=typeof document&&delete h.requests[this.index],this.xhr=null}},h.prototype.onLoad=function(){var t;try{var e;try{e=this.xhr.getResponseHeader("Content-Type")}catch(t){}t="application/octet-stream"===e&&this.xhr.response||this.xhr.responseText}catch(t){this.onError(t)}null!=t&&this.onData(t)},h.prototype.hasXDR=function(){return"undefined"!=typeof XDomainRequest&&!this.xs&&this.enablesXDR},h.prototype.abort=function(){this.cleanup()},h.requestsCount=0,h.requests={},"undefined"!=typeof document)if("function"==typeof attachEvent)attachEvent("onunload",p);else if("function"==typeof addEventListener){var f="onpagehide"in self?"pagehide":"unload";addEventListener(f,p,!1)}function p(){for(var t in h.requests)h.requests.hasOwnProperty(t)&&h.requests[t].abort()}},function(t,e){t.exports=Object.keys||function(t){var e=[],r=Object.prototype.hasOwnProperty;for(var n in t)r.call(t,n)&&e.push(n);return e}},function(t,e){t.exports=function(t,e,r){var n=t.byteLength;if(e=e||0,r=r||n,t.slice)return t.slice(e,r);if(e<0&&(e+=n),r<0&&(r+=n),r>n&&(r=n),e>=n||e>=r||0===n)return new ArrayBuffer(0);for(var o=new Uint8Array(t),i=new Uint8Array(r-e),s=e,a=0;s<r;s++,a++)i[a]=o[s];return i.buffer}},function(t,e){function r(){}t.exports=function(t,e,n){var o=!1;return n=n||r,i.count=t,0===t?e():i;function i(t,r){if(i.count<=0)throw new Error("after called too many times");--i.count,t?(o=!0,e(t),e=n):0!==i.count||o||e(null,r)}}},function(t,e){
+/*! https://mths.be/utf8js v2.1.2 by @mathias */
+var r,n,o,i=String.fromCharCode;function s(t){for(var e,r,n=[],o=0,i=t.length;o<i;)(e=t.charCodeAt(o++))>=55296&&e<=56319&&o<i?56320==(64512&(r=t.charCodeAt(o++)))?n.push(((1023&e)<<10)+(1023&r)+65536):(n.push(e),o--):n.push(e);return n}function a(t,e){if(t>=55296&&t<=57343){if(e)throw Error("Lone surrogate U+"+t.toString(16).toUpperCase()+" is not a scalar value");return!1}return!0}function c(t,e){return i(t>>e&63|128)}function u(t,e){if(0==(4294967168&t))return i(t);var r="";return 0==(4294965248&t)?r=i(t>>6&31|192):0==(4294901760&t)?(a(t,e)||(t=65533),r=i(t>>12&15|224),r+=c(t,6)):0==(4292870144&t)&&(r=i(t>>18&7|240),r+=c(t,12),r+=c(t,6)),r+=i(63&t|128)}function h(){if(o>=n)throw Error("Invalid byte index");var t=255&r[o];if(o++,128==(192&t))return 63&t;throw Error("Invalid continuation byte")}function f(t){var e,i;if(o>n)throw Error("Invalid byte index");if(o==n)return!1;if(e=255&r[o],o++,0==(128&e))return e;if(192==(224&e)){if((i=(31&e)<<6|h())>=128)return i;throw Error("Invalid continuation byte")}if(224==(240&e)){if((i=(15&e)<<12|h()<<6|h())>=2048)return a(i,t)?i:65533;throw Error("Invalid continuation byte")}if(240==(248&e)&&(i=(7&e)<<18|h()<<12|h()<<6|h())>=65536&&i<=1114111)return i;throw Error("Invalid UTF-8 detected")}t.exports={version:"2.1.2",encode:function(t,e){for(var r=!1!==(e=e||{}).strict,n=s(t),o=n.length,i=-1,a="";++i<o;)a+=u(n[i],r);return a},decode:function(t,e){var a=!1!==(e=e||{}).strict;r=s(t),n=r.length,o=0;for(var c,u=[];!1!==(c=f(a));)u.push(c);return function(t){for(var e,r=t.length,n=-1,o="";++n<r;)(e=t[n])>65535&&(o+=i((e-=65536)>>>10&1023|55296),e=56320|1023&e),o+=i(e);return o}(u)}}},function(t,e){!function(){"use strict";for(var t="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",r=new Uint8Array(256),n=0;n<t.length;n++)r[t.charCodeAt(n)]=n;e.encode=function(e){var r,n=new Uint8Array(e),o=n.length,i="";for(r=0;r<o;r+=3)i+=t[n[r]>>2],i+=t[(3&n[r])<<4|n[r+1]>>4],i+=t[(15&n[r+1])<<2|n[r+2]>>6],i+=t[63&n[r+2]];return o%3==2?i=i.substring(0,i.length-1)+"=":o%3==1&&(i=i.substring(0,i.length-2)+"=="),i},e.decode=function(t){var e,n,o,i,s,a=.75*t.length,c=t.length,u=0;"="===t[t.length-1]&&(a--,"="===t[t.length-2]&&a--);var h=new ArrayBuffer(a),f=new Uint8Array(h);for(e=0;e<c;e+=4)n=r[t.charCodeAt(e)],o=r[t.charCodeAt(e+1)],i=r[t.charCodeAt(e+2)],s=r[t.charCodeAt(e+3)],f[u++]=n<<2|o>>4,f[u++]=(15&o)<<4|i>>2,f[u++]=(3&i)<<6|63&s;return h}}()},function(t,e){var r=void 0!==r?r:"undefined"!=typeof WebKitBlobBuilder?WebKitBlobBuilder:"undefined"!=typeof MSBlobBuilder?MSBlobBuilder:"undefined"!=typeof MozBlobBuilder&&MozBlobBuilder,n=function(){try{return 2===new Blob(["hi"]).size}catch(t){return!1}}(),o=n&&function(){try{return 2===new Blob([new Uint8Array([1,2])]).size}catch(t){return!1}}(),i=r&&r.prototype.append&&r.prototype.getBlob;function s(t){return t.map(function(t){if(t.buffer instanceof ArrayBuffer){var e=t.buffer;if(t.byteLength!==e.byteLength){var r=new Uint8Array(t.byteLength);r.set(new Uint8Array(e,t.byteOffset,t.byteLength)),e=r.buffer}return e}return t})}function a(t,e){e=e||{};var n=new r;return s(t).forEach(function(t){n.append(t)}),e.type?n.getBlob(e.type):n.getBlob()}function c(t,e){return new Blob(s(t),e||{})}"undefined"!=typeof Blob&&(a.prototype=Blob.prototype,c.prototype=Blob.prototype),t.exports=n?o?Blob:c:i?a:void 0},function(t,e,r){(function(e){var n=r(15),o=r(4);t.exports=h;var i,s=/\n/g,a=/\\n/g;function c(){}function u(){return"undefined"!=typeof self?self:"undefined"!=typeof window?window:void 0!==e?e:{}}function h(t){if(n.call(this,t),this.query=this.query||{},!i){var e=u();i=e.___eio=e.___eio||[]}this.index=i.length;var r=this;i.push(function(t){r.onData(t)}),this.query.j=this.index,"function"==typeof addEventListener&&addEventListener("beforeunload",function(){r.script&&(r.script.onerror=c)},!1)}o(h,n),h.prototype.supportsBinary=!1,h.prototype.doClose=function(){this.script&&(this.script.parentNode.removeChild(this.script),this.script=null),this.form&&(this.form.parentNode.removeChild(this.form),this.form=null,this.iframe=null),n.prototype.doClose.call(this)},h.prototype.doPoll=function(){var t=this,e=document.createElement("script");this.script&&(this.script.parentNode.removeChild(this.script),this.script=null),e.async=!0,e.src=this.uri(),e.onerror=function(e){t.onError("jsonp poll error",e)};var r=document.getElementsByTagName("script")[0];r?r.parentNode.insertBefore(e,r):(document.head||document.body).appendChild(e),this.script=e,"undefined"!=typeof navigator&&/gecko/i.test(navigator.userAgent)&&setTimeout(function(){var t=document.createElement("iframe");document.body.appendChild(t),document.body.removeChild(t)},100)},h.prototype.doWrite=function(t,e){var r=this;if(!this.form){var n,o=document.createElement("form"),i=document.createElement("textarea"),c=this.iframeId="eio_iframe_"+this.index;o.className="socketio",o.style.position="absolute",o.style.top="-1000px",o.style.left="-1000px",o.target=c,o.method="POST",o.setAttribute("accept-charset","utf-8"),i.name="d",o.appendChild(i),document.body.appendChild(o),this.form=o,this.area=i}function u(){h(),e()}function h(){if(r.iframe)try{r.form.removeChild(r.iframe)}catch(t){r.onError("jsonp polling iframe removal error",t)}try{var t='<iframe src="javascript:0" name="'+r.iframeId+'">';n=document.createElement(t)}catch(t){(n=document.createElement("iframe")).name=r.iframeId,n.src="javascript:0"}n.id=r.iframeId,r.form.appendChild(n),r.iframe=n}this.form.action=this.uri(),h(),t=t.replace(a,"\\\n"),this.area.value=t.replace(s,"\\n");try{this.form.submit()}catch(t){}this.iframe.attachEvent?this.iframe.onreadystatechange=function(){"complete"===r.iframe.readyState&&u()}:this.iframe.onload=u}}).call(this,r(12))},function(t,e,r){(function(e){var n,o,i=r(9),s=r(2),a=r(3),c=r(4),u=r(17),h=r(0)("engine.io-client:websocket");if("undefined"!=typeof WebSocket)n=WebSocket;else if("undefined"!=typeof self)n=self.WebSocket||self.MozWebSocket;else try{o=r(44)}catch(t){}var f=n||o;function p(t){t&&t.forceBase64&&(this.supportsBinary=!1),this.perMessageDeflate=t.perMessageDeflate,this.usingBrowserWebSocket=n&&!t.forceNode,this.protocols=t.protocols,this.usingBrowserWebSocket||(f=o),i.call(this,t)}t.exports=p,c(p,i),p.prototype.name="websocket",p.prototype.supportsBinary=!0,p.prototype.doOpen=function(){if(this.check()){var t=this.uri(),e=this.protocols,r={agent:this.agent,perMessageDeflate:this.perMessageDeflate};r.pfx=this.pfx,r.key=this.key,r.passphrase=this.passphrase,r.cert=this.cert,r.ca=this.ca,r.ciphers=this.ciphers,r.rejectUnauthorized=this.rejectUnauthorized,this.extraHeaders&&(r.headers=this.extraHeaders),this.localAddress&&(r.localAddress=this.localAddress);try{this.ws=this.usingBrowserWebSocket&&!this.isReactNative?e?new f(t,e):new f(t):new f(t,e,r)}catch(t){return this.emit("error",t)}void 0===this.ws.binaryType&&(this.supportsBinary=!1),this.ws.supports&&this.ws.supports.binary?(this.supportsBinary=!0,this.ws.binaryType="nodebuffer"):this.ws.binaryType="arraybuffer",this.addEventListeners()}},p.prototype.addEventListeners=function(){var t=this;this.ws.onopen=function(){t.onOpen()},this.ws.onclose=function(){t.onClose()},this.ws.onmessage=function(e){t.onData(e.data)},this.ws.onerror=function(e){t.onError("websocket error",e)}},p.prototype.write=function(t){var r=this;this.writable=!1;for(var n=t.length,o=0,i=n;o<i;o++)!function(t){s.encodePacket(t,r.supportsBinary,function(o){if(!r.usingBrowserWebSocket){var i={};if(t.options&&(i.compress=t.options.compress),r.perMessageDeflate)("string"==typeof o?e.byteLength(o):o.length)<r.perMessageDeflate.threshold&&(i.compress=!1)}try{r.usingBrowserWebSocket?r.ws.send(o):r.ws.send(o,i)}catch(t){h("websocket closed before onclose event")}--n||a()})}(t[o]);function a(){r.emit("flush"),setTimeout(function(){r.writable=!0,r.emit("drain")},0)}},p.prototype.onClose=function(){i.prototype.onClose.call(this)},p.prototype.doClose=function(){void 0!==this.ws&&this.ws.close()},p.prototype.uri=function(){var t=this.query||{},e=this.secure?"wss":"ws",r="";return this.port&&("wss"===e&&443!==Number(this.port)||"ws"===e&&80!==Number(this.port))&&(r=":"+this.port),this.timestampRequests&&(t[this.timestampParam]=u()),this.supportsBinary||(t.b64=1),(t=a.encode(t)).length&&(t="?"+t),e+"://"+(-1!==this.hostname.indexOf(":")?"["+this.hostname+"]":this.hostname)+r+this.path+t},p.prototype.check=function(){return!(!f||"__initialize"in f&&this.name===p.prototype.name)}}).call(this,r(7).Buffer)},function(t,e){},function(t,e){t.exports=function(t,e){for(var r=[],n=(e=e||0)||0;n<t.length;n++)r[n-e]=t[n];return r}},function(t,e){function r(t){t=t||{},this.ms=t.min||100,this.max=t.max||1e4,this.factor=t.factor||2,this.jitter=t.jitter>0&&t.jitter<=1?t.jitter:0,this.attempts=0}t.exports=r,r.prototype.duration=function(){var t=this.ms*Math.pow(this.factor,this.attempts++);if(this.jitter){var e=Math.random(),r=Math.floor(e*this.jitter*t);t=0==(1&Math.floor(10*e))?t-r:t+r}return 0|Math.min(t,this.max)},r.prototype.reset=function(){this.attempts=0},r.prototype.setMin=function(t){this.ms=t},r.prototype.setMax=function(t){this.max=t},r.prototype.setJitter=function(t){this.jitter=t}},function(t,e,r){"use strict";r.r(e);var n={beforeCreate(){this.sockets||(this.sockets={}),this.sockets.subscribe=((t,e)=>{this.$vueSocketIo.emitter.addListener(t,e,this)}),this.sockets.unsubscribe=(t=>{this.$vueSocketIo.emitter.removeListener(t,this)})},mounted(){this.$options.sockets&&Object.keys(this.$options.sockets).forEach(t=>{"subscribe"!==t&&"unsubscribe"!==t&&this.$vueSocketIo.emitter.addListener(t,this.$options.sockets[t],this)})},beforeDestroy(){this.$options.sockets&&Object.keys(this.$options.sockets).forEach(t=>{this.$vueSocketIo.emitter.removeListener(t,this)})}};function o(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}var i=new(function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.debug=!1,this.prefix="%cVue-Socket.io: "}var e,r,n;return e=t,(r=[{key:"info",value:function(t,e=""){this.debug&&window.console.info(this.prefix+`%c${t}`,"color: blue; font-weight: 600","color: #333333",e)}},{key:"error",value:function(){this.debug&&window.console.error(this.prefix,...arguments)}},{key:"warn",value:function(){this.debug&&window.console.warn(this.prefix,...arguments)}},{key:"event",value:function(t,e=""){this.debug&&window.console.info(this.prefix+`%c${t}`,"color: blue; font-weight: 600","color: #333333",e)}}])&&o(e.prototype,r),n&&o(e,n),t}());function s(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}let a=function(){function t(e,r){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.io=e,this.register(),this.emitter=r}var e,r,n;return e=t,(r=[{key:"register",value:function(){this.io.onevent=(t=>{let[e,...r]=t.data;1===r.length&&(r=r[0]),this.onEvent(e,r)}),t.staticEvents.forEach(t=>this.io.on(t,e=>this.onEvent(t,e)))}},{key:"onEvent",value:function(t,e){this.emitter.emit(t,e)}}])&&s(e.prototype,r),n&&s(e,n),t}();var c,u,h;function f(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}h=["connect","error","disconnect","reconnect","reconnect_attempt","reconnecting","reconnect_error","reconnect_failed","connect_error","connect_timeout","connecting","ping","pong"],(u="staticEvents")in(c=a)?Object.defineProperty(c,u,{value:h,enumerable:!0,configurable:!0,writable:!0}):c[u]=h;let p=function(){function t(e={}){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),i.info(e?"Vuex adapter enabled":"Vuex adapter disabled"),i.info(e.mutationPrefix?"Vuex socket mutations enabled":"Vuex socket mutations disabled"),i.info(e?"Vuex socket actions enabled":"Vuex socket actions disabled"),this.store=e.store,this.actionPrefix=e.actionPrefix?e.actionPrefix:"SOCKET_",this.mutationPrefix=e.mutationPrefix,this.listeners=new Map}var e,r,n;return e=t,(r=[{key:"addListener",value:function(t,e,r){if("function"!=typeof e)throw new Error("callback must be a function");this.listeners.has(t)||this.listeners.set(t,[]),this.listeners.get(t).push({callback:e,component:r}),i.info(`#${t} subscribe, component: ${r.$options.name}`)}},{key:"removeListener",value:function(t,e){if(this.listeners.has(t)){const r=this.listeners.get(t).filter(t=>t.component!==e);r.length>0?this.listeners.set(t,r):this.listeners.delete(t),i.info(`#${t} unsubscribe, component: ${e.$options.name}`)}}},{key:"emit",value:function(t,e){this.listeners.has(t)&&(i.info(`Broadcasting: #${t}, Data:`,e),this.listeners.get(t).forEach(t=>{t.callback.call(t.component,e)})),"ping"!==t&&"pong"!==t&&this.dispatchStore(t,e)}},{key:"dispatchStore",value:function(t,e){if(this.store&&this.store._actions){let r=this.actionPrefix+t;for(let t in this.store._actions){t.split("/").pop()===r&&(i.info(`Dispatching Action: ${t}, Data:`,e),this.store.dispatch(t,e))}if(this.mutationPrefix){let r=this.mutationPrefix+t;for(let t in this.store._mutations){t.split("/").pop()===r&&(i.info(`Commiting Mutation: ${t}, Data:`,e),this.store.commit(t,e))}}}}}])&&f(e.prototype,r),n&&f(e,n),t}();var l=r(22),d=r.n(l);function y(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}r.d(e,"default",function(){return g});let g=function(){function t({connection:e,vuex:r,debug:n,options:o}){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),i.debug=n,this.io=this.connect(e,o),this.emitter=new p(r),this.listener=new a(this.io,this.emitter)}var e,r,o;return e=t,(r=[{key:"install",value:function(t){t.prototype.$socket=this.io,t.prototype.$vueSocketIo=this,t.mixin(n),i.info("Vue-Socket.io plugin enabled")}},{key:"connect",value:function(t,e){if(t&&"object"==typeof t)return i.info("Received socket.io-client instance"),t;if("string"==typeof t)return i.info("Received connection string"),this.io=d()(t,e);throw new Error("Unsupported connection type")}}])&&y(e.prototype,r),o&&y(e,o),t}()}]).default});
 
 /***/ }),
 
@@ -37791,21 +49263,11 @@ Store.prototype.registerModule = function registerModule (path, rawModule, optio
 
   if (typeof path === 'string') { path = [path]; }
 
-<<<<<<< HEAD
   if ((true)) {
     assert(Array.isArray(path), "module path must be a string or an Array.");
     assert(path.length > 0, 'cannot register the root module by using registerModule.');
-=======
-    // Define as an anonymous module so, through path mapping, it can be
-    // referenced as the "underscore" module.
-    !(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
-      return _;
-    }).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
   }
 
-<<<<<<< HEAD
   this._modules.register(path, rawModule);
   installModule(this, this.state, path, this._modules.get(path), options.preserveState);
   // reset store to update getters...
@@ -37828,25 +49290,13 @@ Store.prototype.unregisterModule = function unregisterModule (path) {
   });
   resetStore(this);
 };
-=======
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
 Store.prototype.hasModule = function hasModule (path) {
   if (typeof path === 'string') { path = [path]; }
 
-<<<<<<< HEAD
   if ((true)) {
     assert(Array.isArray(path), "module path must be a string or an Array.");
   }
-=======
-/***/ "./node_modules/process/browser.js":
-/*!*****************************************!*\
-  !*** ./node_modules/process/browser.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b
 
   return this._modules.isRegistered(path)
 };
@@ -38482,152 +49932,85 @@ module.exports = index_cjs;
 
 /***/ }),
 
-/***/ "./node_modules/webpack/buildin/global.js":
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/yeast/index.js":
+/*!*************************************!*\
+  !*** ./node_modules/yeast/index.js ***!
+  \*************************************/
+/***/ ((module) => {
 
-var g;
+"use strict";
 
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
 
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
+var alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')
+  , length = 64
+  , map = {}
+  , seed = 0
+  , i = 0
+  , prev;
+
+/**
+ * Return a string representing the specified number.
+ *
+ * @param {Number} num The number to convert.
+ * @returns {String} The string representation of the number.
+ * @api public
+ */
+function encode(num) {
+  var encoded = '';
+
+  do {
+    encoded = alphabet[num % length] + encoded;
+    num = Math.floor(num / length);
+  } while (num > 0);
+
+  return encoded;
 }
 
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
-/***/ "./node_modules/webpack/buildin/module.js":
-/*!***********************************!*\
-  !*** (webpack)/buildin/module.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if (!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
-
-/***/ }),
-
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
+ * Return the integer value specified by the given string.
+ *
+ * @param {String} str The string to convert.
+ * @returns {Number} The integer value represented by the string.
+ * @api public
  */
+function decode(str) {
+  var decoded = 0;
 
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+  for (i = 0; i < str.length; i++) {
+    decoded = decoded * length + map[str.charAt(i)];
+  }
+
+  return decoded;
+}
+
 /**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
+ * Yeast: A tiny growing id generator.
+ *
+ * @returns {String} A unique id.
+ * @api public
  */
-// import Echo from 'laravel-echo';
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
+function yeast() {
+  var now = encode(+new Date());
 
-/***/ }),
+  if (now !== prev) return seed = 0, prev = now;
+  return now +'.'+ encode(seed++);
+}
 
-/***/ "./resources/php/scss/theme.scss":
-/*!***************************************!*\
-  !*** ./resources/php/scss/theme.scss ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+//
+// Map each character to its index.
+//
+for (; i < length; i++) map[alphabet[i]] = i;
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!*******************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/php/scss/theme.scss ./resources/css/app.css ***!
-  \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! /home/acer/initKz/init.mykid/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/acer/initKz/init.mykid/resources/php/scss/theme.scss */"./resources/php/scss/theme.scss");
-module.exports = __webpack_require__(/*! /home/acer/initKz/init.mykid/resources/css/app.css */"./resources/css/app.css");
+//
+// Expose the `yeast`, `encode` and `decode` functions.
+//
+yeast.encode = encode;
+yeast.decode = decode;
+module.exports = yeast;
 
 
 /***/ })
 
-<<<<<<< HEAD
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
@@ -38705,7 +50088,7 @@ module.exports = __webpack_require__(/*! /home/acer/initKz/init.mykid/resources/
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_home_vue":1,"resources_js_Pages_ompany_vue":1,"resources_js_Pages_blog_vue":1,"resources_js_Pages_map_vue":1,"resources_js_Pages_contact_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if (chunkId === "resources_js_Pages_dashboard_vue") return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -38833,7 +50216,7 @@ module.exports = __webpack_require__(/*! /home/acer/initKz/init.mykid/resources/
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^css\/(app|theme)$/.test(chunkId)) {
+/******/ 						if("resources_js_Pages_dashboard_vue" == chunkId) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => {
 /******/ 								installedChunkData = installedChunks[chunkId] = [resolve, reject];
@@ -38943,6 +50326,3 @@ module.exports = __webpack_require__(/*! /home/acer/initKz/init.mykid/resources/
 /******/ 	return __webpack_require__.x();
 /******/ })()
 ;
-=======
-/******/ });
->>>>>>> 7bb707c155925956e7262def157b9fa078eb897b

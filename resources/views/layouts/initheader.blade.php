@@ -30,14 +30,14 @@
                 <div class="line">
                     <a href="{{ route('companies.create') }}" class="btn icon-add">Добавить
                         компанию</a>
-                    <a href="{{ route('dashboard') }}" class="btn bordered-theme icon-user">
+                    <!-- <a href=" route('dashboard') }}" class="btn bordered-theme icon-user">
                         @if (Auth::user())
                             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                         @else
                             Личный кабинет
                         @endif
 
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>

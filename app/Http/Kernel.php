@@ -30,7 +30,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \App\Http\Middleware\EncryptCookies::class,
+            // \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Laravel\Jetstream\Http\Middleware\AuthenticateSession::class,
@@ -41,8 +41,17 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            
+            // \App\Http\Middleware\EncryptCookies::class,
+            // \Laravel\Jetstream\Http\Middleware\AuthenticateSession::class,
+            // \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+
+
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
+            \Laravel\Jetstream\Http\Middleware\AuthenticateSession::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];

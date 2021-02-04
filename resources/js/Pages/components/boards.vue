@@ -15,12 +15,10 @@
 <template>
   <div>
       <div class="column-container">
-        
-        <div class="titlearea" :draggable="!this.$store.state.isdraggable" @click="firstClick($event)"  @dragstart='startDrag($event, item)'>
-          <textarea :value=item.title v-on:blur="focusouteditBoard(item)"  ref="boardtitle" name="" id=""  aria-label="grgr" v-bind:class="{'is-editing': this.$store.state.isediting}" :readonly="this.$store.state.isediting" >
+        <div class="titlearea" :draggable="!this.dashboard.isdraggable" @click="firstClick($event)"  @dragstart='startDrag($event, item)'>
+          <textarea :value=item.title v-on:blur="focusouteditBoard(item)"  ref="boardtitle" name="" id=""  aria-label="grgr" v-bind:class="{'is-editing': this.$store.state.dashboard.isediting}" :readonly="this.$store.state.dashboard.isediting" >
           </textarea> 
         </div>
-
         <div v-for="(lead, index) in item.leads"  v-bind:key="lead.id">
           <Leads v-bind:lead="lead"  v-bind:col_index="col_index"  v-bind:colid=item.id   v-bind:index="index"  /> 
           <!-- //v-on:purge-lead="leadsdelete(index)" -->
@@ -28,8 +26,7 @@
         </div>
 
       <div class="boardnav">
-
-        <div v-if="this.$store.state.modifyinleadcolID==col_index" :class="{'newleadcontent': this.$store.state.leadadding}" hidden>
+        <div v-if="this.dashboard.modifyinleadcolID==col_index" :class="{'newleadcontent': this.dashboard.leadadding}" hidden>
           <textarea ref="newleadtextarea" v-on:blur="focusoutcreateLead(col_index, item)" name="" id=""  >
           </textarea>
         </div>
@@ -59,10 +56,13 @@ import Leads from './leads.vue'
 export default {
   name: 'Boards',
   components: { Leads },
-  props: [ 'item', 'col_index'],
   computed: {
-
+    dashboard: function() {
+      return this.$store.state.dashboard
+    },
   },
+    
+  props: [ 'item', 'col_index'],
   methods: {
     focusouteditBoard(item) {
         this.$store.dispatch('editBoard', {item: item, value: this.$refs.boardtitle.value });
@@ -75,14 +75,15 @@ export default {
         this.$store.dispatch('boardDelete', {colidx:colidx, item:item});
     },
     leadAdd(colidx) {
-        this.$store.state.leadadding = true
-        this.$store.state.modifyinleadcolID = colidx
+        this.$store.state.dashboard.leadadding = true
+        this.$store.state.dashboard.modifyinleadcolID = colidx
+        console.log(this.$store.state.dashboard.leadadding, this.$store.state.dashboard.modifyinleadcolID)
     },
     focusoutcreateLead(colidx, item) {
       console.log('nice')
         this.$store.dispatch('createLead', {colidx: colidx, item:item, value:this.$refs.newleadtextarea.value});
-        this.$store.state.leadadding = false
-        this.$store.state.modifyinleadcolID = -1
+        this.$store.state.dashboard.leadadding = false
+        this.$store.state.dashboard.modifyinleadcolID = -1
         this.$refs.newleadtextarea.value=''
 
         // console.log(colidx, colid)
@@ -103,25 +104,25 @@ export default {
         // let config = {'headers': {}}
         // axios.get(url, config);
 
-        // this.this.$store.state.leadadding = false
+        // this.this.$store.state.dashboard.leadadding = false
         // this.data.items[colidx].leads.push({id:99, board_id:colidx, description: this.$refs.newleadtextarea.value})
         // this.$refs.newleadtextarea.value=''
     },
     firstClick() {
-        if(this.$store.state.clicks === 0) {
-          this.$store.state.isediting = false;
+        if(this.$store.state.dashboard.clicks === 0) {
+          this.$store.state.dashboard.isediting = false;
         }else { 
-          this.$store.state.isdraggable=true
-          this.$store.state.isediting = true;
+          this.$store.state.dashboard.isdraggable=true
+          this.$store.state.dashboard.isediting = true;
         }
     },
     startDrag (evt, item) {
-        this.$store.state.clicks++ 
+        this.$store.state.dashboard.clicks++ 
         evt.dataTransfer.dropEffect = 'move'
         evt.dataTransfer.effectAllowed = 'move'
         evt.dataTransfer.setData('itemid', item.id) 
-        this.$store.state.clicks=0;
-        this.$store.state.cold = true;
+        this.$store.state.dashboard.clicks=0;
+        this.$store.state.dashboard.cold = true;
       },
     },
   
@@ -144,7 +145,6 @@ export default {
     position: relative;
     display: block;
     width: 242px;
-    margin:0 auto;
   }
   .titlearea {
     position: relative;
@@ -154,6 +154,7 @@ export default {
     line-height: 27px;
   }
   .titlearea textarea {
+    padding:0 0 0 9px;
     height: 27px;
     line-height: 27px;
     overflow: hidden; 
@@ -162,7 +163,6 @@ export default {
     border:none;
     resize: none;
     cursor: pointer;
-    line-height: normal;
   }
   .titlearea textarea:focus {
     outline: none;
@@ -211,31 +211,38 @@ export default {
     display: block;
     position: relative;
     float: left;
-    /* position: relative; */
-    /* display: flex; */
-    /* justify-content: flex-end; */
-    /* flex-direction: column; */
-    cursor: pointer;/* display: inline-block;
+    cursor: pointer;
+    letter-spacing: .3px;
     
-    border-radius: 3px;
-    font-size: 14px;
-    padding:5px 15px;
-    height: 32px; 
-    line-height: 32px; */
+ 
   }
-  
+    /* .boards-append-adding-form input {
+    padding: 2px 5px;
+    letter-spacing: .3px;
+    box-shadow: inset 0 0 0 .2px #0079bf;
+  }
+  .boards-append-adding-form input:hover {
+    background-color: azure;
+    transition:.8s;
+  } */
   .btn-main-card-text {
     display: block;
     /* height:40px; */
     /* width:40px; */
     margin-left:12px;
     padding: 2px 3px;
-    border: .1px solid black;
+    box-shadow: inset 0 0 0 .2px #0079bf;
     /* position: relative; */
     /* display: block; */
     /* margin: 0 auto; */
     /* line-height: 15px; */
   }
+  .btn-main-card-text:hover {
+  
+    background-color: azure;
+    transition:.8s;
+  }
+  
   .btn-main-card:hover {
     background-color:#f2f2f22d;
   }
@@ -253,17 +260,21 @@ export default {
     resize: none;
   }
   .leadsadd {
-    margin:5px 0 5px 0;
+    margin:5px 0 5px 0; 
     display: block;
     position: relative;
     float: right;
     cursor: pointer;
   }
   .leadsadd span {
+    margin-right: 12px;
+    box-shadow: inset 0 0 0 .2px #0079bf;
      display: block;
-    margin-right:12px;
     padding: 2px 3px;
-    border: .1px solid black;
+  }
+  .leadsadd span:hover {
+    background-color: azure;
+    transition:.8s;
   }
   
 </style>

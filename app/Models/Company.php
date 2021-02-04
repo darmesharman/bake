@@ -88,7 +88,11 @@ class Company extends Model
         return number_format($this->comments->avg('rating'), 1);
     }
 
-    public function companyImages()
+    // public function companyImages()
+    // {
+    //     return $this->hasMany(CompanyImage::class);
+    // }
+    public function profileCompanyImages()
     {
         return $this->hasMany(CompanyImage::class);
     }
