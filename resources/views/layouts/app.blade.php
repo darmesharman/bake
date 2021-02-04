@@ -53,12 +53,9 @@ var dropParam = {"upload":"https:\/\/mykid.init.kz\/wp-admin\/admin-ajax.php?act
 
 <div id="wt-sky-root"></div>
 
-<<<<<<< HEAD
         @stack('modals')
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-=======
->>>>>>> fc096dfe2fa88c77dd1f1922c646d618c9baa932
     </body>
 </html>
