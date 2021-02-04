@@ -24,22 +24,6 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-<<<<<<< HEAD
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-dropdown')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-=======
 
     <div class="preloader" id="dashboard_preloader">
         <div class="preloader-wrapper">
@@ -328,7 +312,6 @@
 
         <div class="dashboard-content article-lg">
             @yield('content')
->>>>>>> fc096dfe2fa88c77dd1f1922c646d618c9baa932
         </div>
     </div>
 </section>
@@ -344,12 +327,9 @@ var dropParam = {"upload":"https:\/\/mykid.init.kz\/wp-admin\/admin-ajax.php?act
 
 <div id="wt-sky-root"></div>
 
-<<<<<<< HEAD
         @stack('modals')
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-=======
->>>>>>> fc096dfe2fa88c77dd1f1922c646d618c9baa932
     </body>
 </html>
